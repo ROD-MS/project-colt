@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=3 uid="uid://syr6756flq43"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_8t64c"]
+[ext_resource type="Script" path="res://scripts/state_machine/statemachine.gd" id="2_l864t"]
+[ext_resource type="PackedScene" uid="uid://bd2ko65pwwi2o" path="res://scenes/components/shot_component.tscn" id="2_pdqo4"]
+[ext_resource type="Script" path="res://scripts/player/idle.gd" id="3_il7j1"]
+[ext_resource type="Script" path="res://scripts/player/walk.gd" id="4_idngh"]
+[ext_resource type="Script" path="res://scripts/player/run.gd" id="5_ypjns"]
+[ext_resource type="Script" path="res://scripts/player/jump.gd" id="6_iay3t"]
+[ext_resource type="PackedScene" uid="uid://dqjaymeneqyya" path="res://scenes/components/health_component.tscn" id="7_2k4s4"]
+[ext_resource type="PackedScene" uid="uid://db4rodg7exgwx" path="res://scenes/components/hitbox_component.tscn" id="8_4uges"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8cjer"]
+radius = 0.35
+height = 1.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h2yuo"]
+radius = 0.35
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtj0f"]
+radius = 0.35
+height = 1.5
+
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("state_machine")]
+script = ExtResource("1_8t64c")
+state_machine = NodePath("StateMachine")
+
+[node name="ShotComponent" parent="." node_paths=PackedStringArray("aim") instance=ExtResource("2_pdqo4")]
+aim = NodePath("../head/RayCast3D")
+
+[node name="HealthComponent" parent="." instance=ExtResource("7_2k4s4")]
+MAX_HEALTH = 50
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_4uges")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape3D_8cjer")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_h2yuo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_vtj0f")
+
+[node name="head" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000133038, 0.481002, -0.304647)
+
+[node name="RayCast3D" type="RayCast3D" parent="head"]
+transform = Transform3D(0.989638, -0.00464083, 0.14351, 0.0133077, 0.99814, -0.0594912, -0.142967, 0.0607845, 0.987859, 0.285905, 0.266826, -0.601052)
+target_position = Vector3(0, 0, -1)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
+script = ExtResource("2_l864t")
+initial_state = NodePath("idle")
+agent = NodePath("..")
+active = true
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_il7j1")
+
+[node name="walk" type="Node" parent="StateMachine"]
+script = ExtResource("4_idngh")
+
+[node name="run" type="Node" parent="StateMachine"]
+script = ExtResource("5_ypjns")
+
+[node name="jump" type="Node" parent="StateMachine"]
+script = ExtResource("6_iay3t")
