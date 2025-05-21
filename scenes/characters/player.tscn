@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=12 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Script" path="res://scripts/state_machine/statemachine.gd" id="2_l864t"]
@@ -11,15 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://db4rodg7exgwx" path="res://scenes/components/hitbox_component.tscn" id="8_4uges"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8cjer"]
-radius = 0.35
-height = 1.5
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_h2yuo"]
-radius = 0.35
+radius = 0.3
 height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtj0f"]
-radius = 0.35
+radius = 0.3
 height = 1.5
 
 [node name="player" type="CharacterBody3D" node_paths=PackedStringArray("state_machine")]
@@ -38,19 +34,16 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
 shape = SubResource("CapsuleShape3D_8cjer")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_h2yuo")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_vtj0f")
 
 [node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486331, 0.0158174)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000133038, 0.481002, -0.304647)
 
 [node name="RayCast3D" type="RayCast3D" parent="head"]
-transform = Transform3D(0.989638, -0.00464083, 0.14351, 0.0133077, 0.99814, -0.0594912, -0.142967, 0.0607845, 0.987859, 0.285905, 0.266826, -0.601052)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11077)
 target_position = Vector3(0, 0, -1)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
