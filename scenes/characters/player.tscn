@@ -63,3 +63,5 @@ script = ExtResource("5_ypjns")
 
 [node name="jump" type="Node" parent="StateMachine"]
 script = ExtResource("6_iay3t")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

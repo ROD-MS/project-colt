@@ -1,9 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://gqfvqggvmnbq"]
+[gd_scene load_steps=34 format=3 uid="uid://gqfvqggvmnbq"]
 
 [ext_resource type="Texture2D" uid="uid://d0oqf6k4bjuvb" path="res://assets/enemy_doom.png" id="1_51ay7"]
+[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_htdb8"]
 [ext_resource type="Script" path="res://scripts/enemy/animation.gd" id="2_275un"]
 [ext_resource type="PackedScene" uid="uid://dqjaymeneqyya" path="res://scenes/components/health_component.tscn" id="3_8xlit"]
+[ext_resource type="PackedScene" uid="uid://bd2ko65pwwi2o" path="res://scenes/components/shot_component.tscn" id="3_j6qcs"]
 [ext_resource type="PackedScene" uid="uid://db4rodg7exgwx" path="res://scenes/components/hitbox_component.tscn" id="4_vgfgl"]
+[ext_resource type="Script" path="res://scripts/state_machine/statemachine.gd" id="5_106bi"]
+[ext_resource type="Script" path="res://scripts/enemy/idle.gd" id="6_b5ppk"]
+[ext_resource type="Script" path="res://scripts/enemy/follow_player.gd" id="8_uborx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jtiv3"]
+radius = 2.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kul2p"]
 atlas = ExtResource("1_51ay7")
@@ -178,10 +186,20 @@ radius = 0.35
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xo1d8"]
 
-[node name="enemy" type="CharacterBody3D"]
+[node name="enemy" type="CharacterBody3D" groups=["enemy"]]
+script = ExtResource("1_htdb8")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.415392, -1.14981)
+target_position = Vector3(0, 0, -2)
+
+[node name="detect_player" type="Area3D" parent="."]
+
+[node name="collision" type="CollisionShape3D" parent="detect_player"]
+shape = SubResource("SphereShape3D_jtiv3")
 
 [node name="animation" type="AnimatedSprite3D" parent="." groups=["enemy_item"]]
-transform = Transform3D(0.993013, 0, 0, 0, 0.993013, 0, 0, 0, 0.993013, 0, 0, 0)
+transform = Transform3D(-0.993013, 0, -8.6812e-08, 0, 0.993013, 0, 8.6812e-08, 0, -0.993013, 0, 0, 0)
 pixel_size = 0.03
 billboard = 2
 texture_filter = 0
@@ -193,6 +211,10 @@ script = ExtResource("2_275un")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_xup78")
 
+[node name="ShotComponent" parent="." node_paths=PackedStringArray("aim") instance=ExtResource("3_j6qcs")]
+time_reload_sec = 2.0
+aim = NodePath("../RayCast3D")
+
 [node name="HealthComponent" parent="." instance=ExtResource("3_8xlit")]
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_vgfgl")]
@@ -200,3 +222,20 @@ health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
 shape = SubResource("CapsuleShape3D_xo1d8")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
+script = ExtResource("5_106bi")
+initial_state = NodePath("idle")
+agent = NodePath("..")
+active = true
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("6_b5ppk")
+
+[node name="followPlayer" type="Node" parent="StateMachine"]
+script = ExtResource("8_uborx")
+
+[node name="nav" type="NavigationAgent3D" parent="."]
+
+[connection signal="body_entered" from="detect_player" to="StateMachine/idle" method="_on_detect_player_body_entered"]
+[connection signal="body_exited" from="detect_player" to="StateMachine/followPlayer" method="_on_detect_player_body_exited"]
