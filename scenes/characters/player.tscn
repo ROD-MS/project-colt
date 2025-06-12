@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=13 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Script" path="res://scripts/state_machine/statemachine.gd" id="2_l864t"]
@@ -10,23 +10,50 @@
 [ext_resource type="PackedScene" uid="uid://dqjaymeneqyya" path="res://scenes/components/health_component.tscn" id="7_2k4s4"]
 [ext_resource type="PackedScene" uid="uid://db4rodg7exgwx" path="res://scenes/components/hitbox_component.tscn" id="8_4uges"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3co7"]
+bg_color = Color(1, 0, 0, 1)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8cjer"]
 radius = 0.3
 height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtj0f"]
-radius = 0.3
+radius = 0.2
 height = 1.5
 
 [node name="player" type="CharacterBody3D" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_8t64c")
 state_machine = NodePath("StateMachine")
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -52.0
+offset_right = -868.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_x3co7")
+
 [node name="ShotComponent" parent="." node_paths=PackedStringArray("aim") instance=ExtResource("2_pdqo4")]
 aim = NodePath("../head/RayCast3D")
 
-[node name="HealthComponent" parent="." instance=ExtResource("7_2k4s4")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("7_2k4s4")]
 MAX_HEALTH = 50
+health_bar = NodePath("../HUD/ReferenceRect/ProgressBar")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_4uges")]
 health_component = NodePath("../HealthComponent")
