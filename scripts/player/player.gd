@@ -12,7 +12,7 @@ const SHOT = null
 var camera_sense = 0.003
 var sprint = 2
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	#moviment(delta)
 	if !is_on_floor():
 		velocity += get_gravity() * delta
@@ -20,6 +20,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _ready():
+	$HUD/ReferenceRect/Panel.visible = true
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	#SETANDO A CAMERA DOS INIMIGOS E ITENS
@@ -38,6 +40,9 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 		
 	shot(event)
+	
+	#await $HUD/ReferenceRect/hand_animation.animation_finished
+	#$HUD/ReferenceRect/hand_animation.play("default")
 		
 func moviment(delta):
 	# Add the gravity.
@@ -69,8 +74,16 @@ func moviment(delta):
 func shot(event):
 	if event.is_action_pressed("fire"):
 		$ShotComponent.shot()
+		$HUD/ReferenceRect/hand_animation.play("fire")
+		await $HUD/ReferenceRect/hand_animation.animation_finished
+		$HUD/ReferenceRect/hand_animation.play("default")
 
 
 func _on_killzone_body_entered(body):
 	if body.name == "player":
 		get_tree().reload_current_scene()
+
+
+func _on_show_tutorial_body_exited(body):
+	if body.name == "player":
+		$HUD/ReferenceRect/Panel.visible = false

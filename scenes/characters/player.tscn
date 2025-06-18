@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=18 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_8t64c"]
+[ext_resource type="Texture2D" uid="uid://c085qjfnayqux" path="res://assets/HUD/Shooting_Anim_WIP2-Sheet.png" id="2_hpo4i"]
 [ext_resource type="Script" path="res://scripts/state_machine/statemachine.gd" id="2_l864t"]
 [ext_resource type="PackedScene" uid="uid://bd2ko65pwwi2o" path="res://scenes/components/shot_component.tscn" id="2_pdqo4"]
+[ext_resource type="Texture2D" uid="uid://bcr8l4n5fki5c" path="res://assets/mira.png" id="3_4t2du"]
 [ext_resource type="Script" path="res://scripts/player/idle.gd" id="3_il7j1"]
 [ext_resource type="Script" path="res://scripts/player/walk.gd" id="4_idngh"]
 [ext_resource type="Script" path="res://scripts/player/run.gd" id="5_ypjns"]
@@ -12,6 +14,33 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3co7"]
 bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6yjd"]
+atlas = ExtResource("2_hpo4i")
+region = Rect2(0, 0, 111, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5mbs"]
+atlas = ExtResource("2_hpo4i")
+region = Rect2(111, 0, 111, 116)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08kui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6yjd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5mbs")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8cjer"]
 radius = 0.3
@@ -48,6 +77,67 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_x3co7")
 
+[node name="hand_animation" type="AnimatedSprite2D" parent="HUD/ReferenceRect"]
+position = Vector2(952, 544)
+scale = Vector2(3.83333, 3.83333)
+sprite_frames = SubResource("SpriteFrames_08kui")
+animation = &"fire"
+autoplay = "default"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4t2du")
+
+[node name="Panel" type="Panel" parent="HUD/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -190.0
+offset_right = 342.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HUD/ReferenceRect/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Objetivo: 
+Chegar no final da fase e pegar a medalha
+
+Controles:
+AWSD - movimentação
+Espaço - pulo
+Shift - corrida
+Botão esquerdo do mouse - tiro
+E - abrir porta
+
+"
+horizontal_alignment = 1
+
 [node name="ShotComponent" parent="." node_paths=PackedStringArray("aim") instance=ExtResource("2_pdqo4")]
 aim = NodePath("../head/RayCast3D")
 
@@ -68,6 +158,7 @@ shape = SubResource("CapsuleShape3D_vtj0f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486331, 0.0158174)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0519359)
 
 [node name="RayCast3D" type="RayCast3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11077)

@@ -19,4 +19,5 @@ func damage(attack: Attack):
 	print (health)
 	
 	if health <= 0:
+		print("MORTO")
 		get_parent().queue_free()

@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf3slxpxh7qih"]
+
+[ext_resource type="Script" path="res://scripts/end_game.gd" id="1_pwhvc"]
+
+[node name="EndGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pwhvc")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -546.0
+offset_top = -219.0
+offset_right = 547.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "PARABÉNS!! VOCÊ TERMINOU A PRIMEIRA FASE!"
+horizontal_alignment = 1
+
+[node name="reiniciar" type="Button" parent="ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -21.0
+offset_right = 61.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "REINICIAR"
+
+[node name="sair" type="Button" parent="ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = 38.0
+offset_right = 61.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SAIR"
+
+[connection signal="pressed" from="ReferenceRect/reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="ReferenceRect/sair" to="." method="_on_sair_pressed"]
