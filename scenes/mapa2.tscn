@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf8ijj6ynxtsc"]
+
+[ext_resource type="PackedScene" uid="uid://c6725b1fobp53" path="res://assets/sala2.blend" id="2_0rb18"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="sala2" parent="." instance=ExtResource("2_0rb18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 94.5419, 0)

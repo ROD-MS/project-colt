@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3xjc3rfguy8s"]
+[gd_scene load_steps=19 format=3 uid="uid://b3xjc3rfguy8s"]
 
 [ext_resource type="Script" path="res://scripts/main_levels.gd" id="1_1f6n6"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="1_v7d08"]
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemy.tscn" id="2_qgeb7"]
 [ext_resource type="PackedScene" uid="uid://bu14kdign3inj" path="res://scenes/objects/door.tscn" id="5_2c3fv"]
 [ext_resource type="PackedScene" uid="uid://celcgy3lpy8qy" path="res://assets/blocomundo1.blend" id="5_n3q6f"]
+[ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="6_2tfgn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fyo4w"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -162,6 +163,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75465, -0.942848, -15.9902)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="show_tutorial"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.339203, 0, 0.243159)
 shape = SubResource("BoxShape3D_56wiw")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="garrafa_whisky" parent="Props" instance=ExtResource("6_2tfgn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2576, -0.933819, -17.2658)
 
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="final" to="." method="_on_final_body_entered"]

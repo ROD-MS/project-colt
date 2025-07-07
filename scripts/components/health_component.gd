@@ -21,3 +21,7 @@ func damage(attack: Attack):
 	if health <= 0:
 		print("MORTO")
 		get_parent().queue_free()
+
+#FUNÇÃO DE CURA
+#func heal(healing: Cure):
+	#health += healing
