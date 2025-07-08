@@ -20,7 +20,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _ready():
-	$HUD/ReferenceRect/Panel.visible = true
+	var this_level = get_parent()
+	if this_level.name == "main":
+		$HUD/ReferenceRect/Panel.visible = true
+	else:
+		$HUD/ReferenceRect/Panel.visible = false
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	

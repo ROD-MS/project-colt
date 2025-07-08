@@ -9,4 +9,4 @@ func _process(delta):
 
 func _on_final_body_entered(body):
 	if body.name == "player":
-		get_tree().change_scene_to_file("res://scenes/end_game.tscn")
+		get_tree().change_scene_to_file("res://scenes/mapa2.tscn")

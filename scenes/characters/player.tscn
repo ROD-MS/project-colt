@@ -83,11 +83,11 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8cjer"]
 radius = 0.3
-height = 1.5
+height = 1.6
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtj0f"]
-radius = 0.2
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gmsiw"]
 height = 1.5
+radius = 0.199868
 
 [node name="player" type="CharacterBody3D" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_8t64c")
@@ -191,10 +191,11 @@ health_component = NodePath("../HealthComponent")
 shape = SubResource("CapsuleShape3D_8cjer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_vtj0f")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.093148, 0)
+shape = SubResource("CylinderShape3D_gmsiw")
 
 [node name="head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486331, 0.0158174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.664477, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0519359)
