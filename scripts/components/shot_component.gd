@@ -5,17 +5,21 @@ class_name ShotComponent
 const SHOT = preload("res://scenes/shot.tscn")
 @export var time_reload_sec: float
 @export var aim: RayCast3D
+@onready var dont_hit: CharacterBody3D
 var time_reload: float
 var shotted: float = false
 
+
 func _ready():
 	time_reload = time_reload_sec
+	dont_hit = get_parent()
 
 func shot():
 	if time_reload <= 0:
 		var shot = SHOT.instantiate()
 		shot.position = aim.global_position
 		shot.rotation = aim.global_rotation
+		shot.dont_hit = dont_hit
 		get_parent().get_parent().add_child(shot)
 		shotted = true
 		

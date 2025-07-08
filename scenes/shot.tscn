@@ -2,31 +2,30 @@
 
 [ext_resource type="Script" path="res://scripts/shot.gd" id="1_5uplr"]
 [ext_resource type="PackedScene" uid="uid://db4rodg7exgwx" path="res://scenes/components/hitbox_component.tscn" id="2_nusj5"]
+[ext_resource type="PackedScene" uid="uid://c8mb7xdyw1fw6" path="res://assets/projetil45mm.blend" id="3_8jhed"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ixnd6"]
-radius = 0.2
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jg6xm"]
+height = 0.0363367
+radius = 0.00958233
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_hxv26"]
-radius = 0.25
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7u6w"]
-albedo_color = Color(1, 1, 0, 1)
-metallic = 1.0
-roughness = 0.0
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4ijt4"]
+height = 0.230025
+radius = 0.0711817
 
 [node name="shot" type="CharacterBody3D"]
 script = ExtResource("1_5uplr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_ixnd6")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.0389679)
+shape = SubResource("CylinderShape3D_jg6xm")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("2_nusj5")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.0532088)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
-shape = SubResource("SphereShape3D_hxv26")
+shape = SubResource("CylinderShape3D_4ijt4")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-radius = 0.2
-material = SubResource("StandardMaterial3D_a7u6w")
+[node name="projetil45mm" parent="." instance=ExtResource("3_8jhed")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [connection signal="area_entered" from="HitboxComponent" to="." method="_on_hitbox_component_area_entered"]

@@ -14,9 +14,6 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if follow:
-		shot()
-	
 	move_and_slide()
 		
 func target_position(target):

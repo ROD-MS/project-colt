@@ -22,6 +22,13 @@ func damage(attack: Attack):
 		print("MORTO")
 		get_parent().queue_free()
 
+func heal(heal_value: int):
+	if health < MAX_HEALTH:
+		health += heal_value
+	print("curou " + str(heal_value) + " pontos de vida")
+	if health_bar and health >= 0:
+		health_bar.value = health
+	
 #FUNÇÃO DE CURA
 #func heal(healing: Cure):
 	#health += healing

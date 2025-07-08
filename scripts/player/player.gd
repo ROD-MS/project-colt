@@ -12,7 +12,7 @@ const SHOT = null
 var camera_sense = 0.003
 var sprint = 2
 
-func _physics_process(delta):	
+func _physics_process(delta):
 	#moviment(delta)
 	if !is_on_floor():
 		velocity += get_gravity() * delta
@@ -74,9 +74,9 @@ func moviment(delta):
 func shot(event):
 	if event.is_action_pressed("fire"):
 		$ShotComponent.shot()
-		$HUD/ReferenceRect/hand_animation.play("fire")
+		$HUD/ReferenceRect/hand_animation.play("pistol_fire")
 		await $HUD/ReferenceRect/hand_animation.animation_finished
-		$HUD/ReferenceRect/hand_animation.play("default")
+		$HUD/ReferenceRect/hand_animation.play("pistol_idle")
 
 
 func _on_killzone_body_entered(body):

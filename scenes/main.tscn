@@ -121,7 +121,7 @@ navigation_mesh = SubResource("NavigationMesh_446ww")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.96534, -0.915878, -15.0754)
 
 [node name="player" parent="." instance=ExtResource("1_v7d08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28563, 1.9433, -15.5148)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28563, -0.873754, -15.5148)
 
 [node name="enemy" parent="." instance=ExtResource("2_qgeb7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16.6894, 0.269567, -15.5869)

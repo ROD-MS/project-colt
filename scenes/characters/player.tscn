@@ -1,11 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=23 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_8t64c"]
-[ext_resource type="Texture2D" uid="uid://c085qjfnayqux" path="res://assets/HUD/Shooting_Anim_WIP2-Sheet.png" id="2_hpo4i"]
 [ext_resource type="Script" path="res://scripts/state_machine/statemachine.gd" id="2_l864t"]
 [ext_resource type="PackedScene" uid="uid://bd2ko65pwwi2o" path="res://scenes/components/shot_component.tscn" id="2_pdqo4"]
 [ext_resource type="Texture2D" uid="uid://bcr8l4n5fki5c" path="res://assets/mira.png" id="3_4t2du"]
+[ext_resource type="Texture2D" uid="uid://cdn7ky2oiluxn" path="res://assets/HUD/Hand_wShotgun_Shoot-Sheet.png" id="3_hsq7i"]
 [ext_resource type="Script" path="res://scripts/player/idle.gd" id="3_il7j1"]
+[ext_resource type="Texture2D" uid="uid://dhylnlt55wsge" path="res://assets/HUD/Pistol_Shoot_Finished_1.png" id="3_ooqmx"]
 [ext_resource type="Script" path="res://scripts/player/walk.gd" id="4_idngh"]
 [ext_resource type="Script" path="res://scripts/player/run.gd" id="5_ypjns"]
 [ext_resource type="Script" path="res://scripts/player/jump.gd" id="6_iay3t"]
@@ -15,30 +16,68 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3co7"]
 bg_color = Color(1, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6yjd"]
-atlas = ExtResource("2_hpo4i")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk4b5"]
+atlas = ExtResource("3_ooqmx")
+region = Rect2(0, 116, 111, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm616"]
+atlas = ExtResource("3_ooqmx")
 region = Rect2(0, 0, 111, 116)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f5mbs"]
-atlas = ExtResource("2_hpo4i")
-region = Rect2(111, 0, 111, 116)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsvy5"]
+atlas = ExtResource("3_hsq7i")
+region = Rect2(112, 0, 112, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob2nu"]
+atlas = ExtResource("3_hsq7i")
+region = Rect2(224, 0, 112, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5n48"]
+atlas = ExtResource("3_hsq7i")
+region = Rect2(0, 0, 112, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os71q"]
+atlas = ExtResource("3_hsq7i")
+region = Rect2(0, 0, 112, 116)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_08kui"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y6yjd")
+"texture": SubResource("AtlasTexture_fk4b5")
 }],
 "loop": false,
-"name": &"default",
+"name": &"pistol_fire",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f5mbs")
+"texture": SubResource("AtlasTexture_sm616")
 }],
 "loop": false,
-"name": &"fire",
+"name": &"pistol_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsvy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob2nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5n48")
+}],
+"loop": true,
+"name": &"shotgun_fire",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os71q")
+}],
+"loop": true,
+"name": &"shotgun_idle",
 "speed": 5.0
 }]
 
@@ -81,8 +120,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_x3co7")
 position = Vector2(952, 544)
 scale = Vector2(3.83333, 3.83333)
 sprite_frames = SubResource("SpriteFrames_08kui")
-animation = &"fire"
-autoplay = "default"
+animation = &"shotgun_idle"
+autoplay = "pistol_idle"
 
 [node name="TextureRect" type="TextureRect" parent="HUD/ReferenceRect"]
 layout_mode = 1
@@ -161,7 +200,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486331, 0.0158174)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0519359)
 
 [node name="RayCast3D" type="RayCast3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11077)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.404037)
 target_position = Vector3(0, 0, -1)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
