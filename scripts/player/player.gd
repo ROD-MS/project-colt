@@ -11,9 +11,6 @@ const SHOT = null
 
 var camera_sense = 0.003
 var sprint = 2
-var gun_inventory = ["pistol", "shotgun"]
-
-var current_gun: String = ""
 
 func _physics_process(delta):
 	#moviment(delta)
@@ -23,7 +20,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _ready():
-	current_gun = gun_inventory[0]
 	$HUD/ReferenceRect/hand_animation.position = Vector2(1042, 562)
 	var this_level = get_parent()
 	if this_level.name == "main":
@@ -48,10 +44,10 @@ func _input(event):
 		head.rotation.x -= event.relative.y * camera_sense
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 	
-	if event != InputEventMouseButton:
-		change_gun(event)
+	#if event != InputEventMouseButton:
+		#change_gun(event)
 		
-	shot(event)
+	#shot(event)
 	
 	#await $HUD/ReferenceRect/hand_animation.animation_finished
 	#$HUD/ReferenceRect/hand_animation.play("default")
@@ -83,18 +79,18 @@ func _input(event):
 #
 	#move_and_slide()
 	
-func shot(event):
-	if event.is_action_pressed("fire"):
-		$ShotComponent.shot()
-		match current_gun:
-			"pistol":
-				$HUD/ReferenceRect/hand_animation.play("pistol_fire")
-				await $HUD/ReferenceRect/hand_animation.animation_finished
-				$HUD/ReferenceRect/hand_animation.play("pistol_idle")
-			"shotgun":
-				$HUD/ReferenceRect/hand_animation.play("shotgun_fire")
-				await $HUD/ReferenceRect/hand_animation.animation_finished
-				$HUD/ReferenceRect/hand_animation.play("shotgun_idle")
+#func shot(event):
+	#if event.is_action_pressed("fire"):
+		#$ShotComponent.shot()
+		##match current_gun:
+			##"pistol":
+		#$HUD/ReferenceRect/hand_animation.play("pistol_fire")
+		#await $HUD/ReferenceRect/hand_animation.animation_finished
+		#$HUD/ReferenceRect/hand_animation.play("pistol_idle")
+			#"shotgun":
+				#$HUD/ReferenceRect/hand_animation.play("shotgun_fire")
+				#await $HUD/ReferenceRect/hand_animation.animation_finished
+				#$HUD/ReferenceRect/hand_animation.play("shotgun_idle")
 
 
 func _on_killzone_body_entered(body):
@@ -107,22 +103,22 @@ func _on_show_tutorial_body_exited(body):
 		$HUD/ReferenceRect/Panel.visible = false
 		
 		
-func change_gun(event):
-	# INPUT
-	if event.is_action_pressed("change_to_pistol"):
-		print(gun_inventory[0])
-		current_gun = gun_inventory[0]
-		
-	if event.is_action_pressed("change_to_shotgun"):
-		print(gun_inventory[1])
-		current_gun = gun_inventory[1]
-		
-	# CHANGE GUN
-	match current_gun:
-		"pistol":
-			$HUD/ReferenceRect/hand_animation.position = Vector2(1042, 562)
-			$HUD/ReferenceRect/hand_animation.play("pistol_idle")
-		"shotgun":
-			$HUD/ReferenceRect/hand_animation.position = Vector2(615, 562)
-			$HUD/ReferenceRect/hand_animation.play("shotgun_idle")
+#func change_gun(event):
+	## INPUT
+	#if event.is_action_pressed("change_to_pistol"):
+		#print(gun_inventory[0])
+		#current_gun = gun_inventory[0]
+		#
+	#if event.is_action_pressed("change_to_shotgun"):
+		#print(gun_inventory[1])
+		#current_gun = gun_inventory[1]
+		#
+	## CHANGE GUN
+	#match current_gun:
+		#"pistol":
+			#$HUD/ReferenceRect/hand_animation.position = Vector2(1042, 562)
+			#$HUD/ReferenceRect/hand_animation.play("pistol_idle")
+		#"shotgun":
+			#$HUD/ReferenceRect/hand_animation.position = Vector2(615, 562)
+			#$HUD/ReferenceRect/hand_animation.play("shotgun_idle")
 	

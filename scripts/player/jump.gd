@@ -4,7 +4,7 @@ const JUMP_FORCE = 3.5
 const SPEED = 2
 
 func enter():
-	print("JUMP")
+	pass
 	
 func exit():
 	pass

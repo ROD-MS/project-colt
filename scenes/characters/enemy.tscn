@@ -1,18 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://gqfvqggvmnbq"]
+[gd_scene load_steps=26 format=3 uid="uid://gqfvqggvmnbq"]
 
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_htdb8"]
 [ext_resource type="Script" path="res://scripts/enemy/animation.gd" id="2_275un"]
 [ext_resource type="Texture2D" uid="uid://tk0euh261yq" path="res://assets/enemies/BACK.png" id="2_vwwpk"]
 [ext_resource type="PackedScene" uid="uid://dqjaymeneqyya" path="res://scenes/components/health_component.tscn" id="3_8xlit"]
-[ext_resource type="PackedScene" uid="uid://bd2ko65pwwi2o" path="res://scenes/components/shot_component.tscn" id="3_j6qcs"]
 [ext_resource type="Texture2D" uid="uid://1m1y40mamf1r" path="res://assets/enemies/BACK_LEFT.png" id="3_mdwwy"]
 [ext_resource type="Texture2D" uid="uid://dyejb2ott1uij" path="res://assets/enemies/FRONT.png" id="4_k8sbb"]
-[ext_resource type="PackedScene" uid="uid://db4rodg7exgwx" path="res://scenes/components/hitbox_component.tscn" id="4_vgfgl"]
 [ext_resource type="Script" path="res://scripts/state_machine/statemachine.gd" id="5_106bi"]
 [ext_resource type="Texture2D" uid="uid://bs0c0834skmgy" path="res://assets/enemies/FRONT_LEFT.png" id="5_enap6"]
 [ext_resource type="Script" path="res://scripts/enemy/idle.gd" id="6_b5ppk"]
 [ext_resource type="Texture2D" uid="uid://3u5gwl40jv3r" path="res://assets/enemies/LEFT.png" id="6_odgil"]
 [ext_resource type="Script" path="res://scripts/enemy/follow_player.gd" id="8_uborx"]
+[ext_resource type="Script" path="res://scripts/enemy/shoot.gd" id="13_qfcfh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jtiv3"]
 radius = 2.5
@@ -116,17 +115,14 @@ animations = [{
 }]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hr7nq"]
-height = 0.035431
-radius = 0.22774
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xo1d8"]
-radius = 0.55899
-height = 1.50673
+height = 1.08681
+radius = 0.377795
 
 [node name="enemy" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_htdb8")
+time_reload_sec = 2
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="." groups=["enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.415392, -0.519092)
 target_position = Vector3(0, 0, -2)
 
@@ -145,20 +141,10 @@ animation = &"back_left"
 script = ExtResource("2_275un")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.514229, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0493372, 0)
 shape = SubResource("CylinderShape3D_hr7nq")
 
-[node name="ShotComponent" parent="." node_paths=PackedStringArray("aim") instance=ExtResource("3_j6qcs")]
-time_reload_sec = 2.0
-aim = NodePath("../RayCast3D")
-
 [node name="HealthComponent" parent="." instance=ExtResource("3_8xlit")]
-
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_vgfgl")]
-health_component = NodePath("../HealthComponent")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
-shape = SubResource("CapsuleShape3D_xo1d8")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
 script = ExtResource("5_106bi")
@@ -171,6 +157,10 @@ script = ExtResource("6_b5ppk")
 
 [node name="followPlayer" type="Node" parent="StateMachine"]
 script = ExtResource("8_uborx")
+
+[node name="shoot" type="Node" parent="StateMachine"]
+script = ExtResource("13_qfcfh")
+time_reload_sec = 2.0
 
 [node name="nav" type="NavigationAgent3D" parent="."]
 

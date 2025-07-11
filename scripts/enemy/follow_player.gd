@@ -1,7 +1,11 @@
 extends State
 
+var time_reload: float
+
 func enter():
 	print(str(name) + ": FOLLOW PLAYER")
+	time_reload = agent.time_reload_sec
+	
 
 func update(delta: float):
 	var next_location = agent.nav.get_next_path_position()
@@ -9,9 +13,15 @@ func update(delta: float):
 	var new_velocity = (next_location - current_location).normalized() * agent.SPEED
 	agent.look_at(Vector3(agent.nav.target_position), Vector3.UP)
 	
+	if time_reload > 0:
+		time_reload -= 0.016
+	
 	if agent.follow:
 		agent.velocity = agent.velocity.move_toward(new_velocity, 0.25)
-		agent.shot()
+		
+		if time_reload <= 0:
+			Transitioned.emit(self, "shoot")
+			
 	else:
 		Transitioned.emit(self, "idle")
 	

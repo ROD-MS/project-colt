@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=35 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Script" path="res://scripts/state_machine/statemachine.gd" id="2_l864t"]
+[ext_resource type="PackedScene" uid="uid://bd2ko65pwwi2o" path="res://scenes/components/shot_component.tscn" id="2_pdqo4"]
 [ext_resource type="Texture2D" uid="uid://bcr8l4n5fki5c" path="res://assets/mira.png" id="3_4t2du"]
 [ext_resource type="Texture2D" uid="uid://cdn7ky2oiluxn" path="res://assets/HUD/Hand_wShotgun_Shoot-Sheet.png" id="3_hsq7i"]
 [ext_resource type="Script" path="res://scripts/player/idle.gd" id="3_il7j1"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bgmexmf0fou2h" path="res://scenes/components/inventory_component.tscn" id="6_nawpa"]
 [ext_resource type="PackedScene" uid="uid://dqjaymeneqyya" path="res://scenes/components/health_component.tscn" id="7_2k4s4"]
 [ext_resource type="PackedScene" uid="uid://35sqlqe3mpww" path="res://scenes/weapons/pistol.tscn" id="7_fh4c0"]
+[ext_resource type="PackedScene" uid="uid://db4rodg7exgwx" path="res://scenes/components/hitbox_component.tscn" id="8_4uges"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3co7"]
 bg_color = Color(1, 0, 0, 1)
@@ -150,6 +152,10 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8cjer"]
+radius = 0.3
+height = 1.6
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gmsiw"]
 height = 1.5
 radius = 0.199868
@@ -257,10 +263,20 @@ initial_weapon = NodePath("pistol")
 raycast = NodePath("../head/RayCast3D")
 
 [node name="pistol" parent="inventory_component" instance=ExtResource("7_fh4c0")]
+damage = 1
+
+[node name="ShotComponent" parent="." node_paths=PackedStringArray("aim") instance=ExtResource("2_pdqo4")]
+aim = NodePath("../head/RayCast3D")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("7_2k4s4")]
 MAX_HEALTH = 50
 health_bar = NodePath("../HUD/ReferenceRect/ProgressBar")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_4uges")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape3D_8cjer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.093148, 0)

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b5fr3uexcku4f"]
+
+[node name="weapon" type="Node3D"]
+
+[node name="animation" type="CanvasLayer" parent="."]
+
+[node name="ReferenceRect" type="ReferenceRect" parent="animation"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="animation/ReferenceRect"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

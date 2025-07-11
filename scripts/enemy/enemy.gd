@@ -1,7 +1,11 @@
 extends CharacterBody3D
 
 const SPEED = 2
-const SHOT = preload("res://scenes/shot.tscn")
+
+@export var damage: int = 10
+@export var time_reload_sec = 0
+@export var knockback_force = 0
+@export var stun_time = 0
 
 @onready var nav = $nav
 
@@ -18,6 +22,3 @@ func _physics_process(delta):
 		
 func target_position(target):
 	nav.target_position = target
-	
-func shot():
-	$ShotComponent.shot()

@@ -3,7 +3,6 @@ extends State
 @onready var head = $"../../head"
 
 func enter():
-	print("IDLE")
 	agent.velocity.x = 0
 	agent.velocity.z = 0
 	

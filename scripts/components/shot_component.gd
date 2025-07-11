@@ -10,9 +10,11 @@ var time_reload: float
 var shotted: float = false
 
 
+
 func _ready():
 	time_reload = time_reload_sec
 	dont_hit = get_parent()
+	
 
 func shot():
 	if time_reload <= 0:

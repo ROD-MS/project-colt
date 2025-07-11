@@ -3,7 +3,6 @@ class_name State
 
 signal Transitioned
 
-var state_machine: StateMachine = null
 var agent: Node = null
 
 func enter():

@@ -3,7 +3,7 @@ extends State
 const SPEED = 2
 
 func enter():
-	print("RUN")
+	pass
 	
 func exit():
 	pass
