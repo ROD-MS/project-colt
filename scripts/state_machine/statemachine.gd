@@ -15,6 +15,7 @@ func _ready():
 			states[child.name.to_lower()] = child
 			states[child.name.to_lower()].agent = agent
 			child.Transitioned.connect(on_child_transition)
+			#print(get_parent().name + str(child))
 			
 	if initial_state:
 		initial_state.enter()
@@ -34,7 +35,6 @@ func on_child_transition(state, new_state_name):
 	new_state.enter()
 	
 	current_state = new_state
-	
 		
 func set_active(value: bool):
 	active = value

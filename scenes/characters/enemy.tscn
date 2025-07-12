@@ -123,7 +123,7 @@ script = ExtResource("1_htdb8")
 time_reload_sec = 2
 
 [node name="RayCast3D" type="RayCast3D" parent="." groups=["enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.415392, -0.519092)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.415392, -0.31386)
 target_position = Vector3(0, 0, -2)
 
 [node name="detect_player" type="Area3D" parent="."]
@@ -158,9 +158,10 @@ script = ExtResource("6_b5ppk")
 [node name="followPlayer" type="Node" parent="StateMachine"]
 script = ExtResource("8_uborx")
 
-[node name="shoot" type="Node" parent="StateMachine"]
+[node name="shoot" type="Node" parent="StateMachine" node_paths=PackedStringArray("raycast")]
 script = ExtResource("13_qfcfh")
 time_reload_sec = 2.0
+raycast = NodePath("../../RayCast3D")
 
 [node name="nav" type="NavigationAgent3D" parent="."]
 

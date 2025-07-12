@@ -4,18 +4,34 @@ extends State
 @export var raycast: RayCast3D
 
 var time_reload: float
+var attack: bool = false
 
 var damage: int = 0
 var knockback_force = 0
 var stun_time = 0
 
-func _enter():
+func enter():
 	time_reload = time_reload_sec
 	damage = agent.damage
 	knockback_force = agent.knockback_force
 	stun_time = agent.stun_time
+	attack = true
 	
-	if raycast.get_collider().name == "player":
+	print(raycast.get_collider())
+			
+func update(delta):
+	await get_tree().create_timer(0.1).timeout
+	if attack:
+		shoot()
+		attack = false
+
+	if agent.follow:
+		Transitioned.emit(self, "followPlayer")
+	else:
+		Transitioned.emit(self, "idle")
+
+func shoot():
+	if raycast.get_collider() and raycast.get_collider().name == "player":
 		var health: HealthComponent = null
 		var player = raycast.get_collider()
 		for child in player.get_children():
@@ -29,6 +45,6 @@ func _enter():
 			attack.knockback_force = knockback_force
 			attack.stun_time = stun_time
 			
+			print(attack.damage)
+			
 			health.damage(attack)
-	
-	Transitioned.emit(self, "idle")

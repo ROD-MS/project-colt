@@ -12,7 +12,7 @@ const SPEED = 2
 var follow: bool = false
 
 func _ready():
-	$RayCast3D.add_exception($"../player")
+	$RayCast3D.add_exception(self)
 	
 func _physics_process(delta):
 	if not is_on_floor():

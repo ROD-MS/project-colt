@@ -16,7 +16,6 @@ func damage(attack: Attack):
 	health -= attack.damage
 	if health_bar and health >= 0:
 		health_bar.value = health
-	print (health)
 	if get_parent().name == "player":
 		$"../HUD/hit".show()
 		await get_tree().create_timer(0.1).timeout
