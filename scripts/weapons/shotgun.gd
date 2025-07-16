@@ -1,29 +1,28 @@
 extends Weapon
-class_name pistol
+class_name shotgun
 
 @onready var new_sprite_animation = $AnimatedSprite3D
 
 
 func weapon_up():
-	print("entered pistol")
 	if raycast and !raycast_configured:
 		raycast.target_position.z = raycast_distance
 	
 	sprite_animation.play("idle")
 	sprite_animation.sprite_frames = new_sprite_animation.sprite_frames
 	sprite_animation.animation = new_sprite_animation.animation
-	animation_player.play("pistol_up")
+	animation_player.play("shotgun_up")
 	await animation_player.animation_finished
 	current_state = STATES.WEAPON_IDLE
 	
 func weapon_down():
-	print("down pistol")
+	print("down shotgun")
 	sprite_animation.play("idle")
-	animation_player.play("pistol_down")
-	#Change.emit(self, "shotgun")
+	animation_player.play("shotgun_down")
+	#Change.emit(self, "pistol")
 	
 func weapon_idle():
-	print("idle pistol")
+	print("idle shotgun")
 	sprite_animation.play("idle")
 	
 	# SHOT
@@ -31,10 +30,11 @@ func weapon_idle():
 		current_state = STATES.WEAPON_SHOT
 		
 	# CHANGE WEAPON TO SHOTGUN
-	if Input.is_action_just_pressed("change_to_shotgun"):
-		Change.emit(self, "shotgun")
+	if Input.is_action_just_pressed("change_to_pistol"):
+		Change.emit(self, "pistol")
 		
 func weapon_shot():
+	print("shoot shotgun")
 	sprite_animation.play("shoot")
 	
 	if raycast.is_colliding() and raycast.get_collider().is_in_group("enemy") and !shotted:

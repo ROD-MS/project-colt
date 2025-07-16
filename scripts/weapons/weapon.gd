@@ -7,7 +7,6 @@ enum STATES {
 	WEAPON_UP,
 	WEAPON_DOWN,
 	WEAPON_IDLE,
-	WEAPON_IDLE_MOVE,
 	WEAPON_SHOT,
 	WEAPON_RELOAD
 }
@@ -17,6 +16,7 @@ var raycast_configured: bool = false
 
 @export var space_bar: int = 1
 @export var raycast_distance: float = 10
+@export var default_position: Vector3
 
 @export_group("Damage config")
 @export var damage: int = 10
@@ -32,20 +32,16 @@ var animation_player: AnimationPlayer = null
 var current_state = STATES.WEAPON_UP
 
 var shotted: bool = false
-
-func _ready():
-	raycast_distance = -raycast_distance
+var active: bool = false
 	
-func _process(delta):
+func update(delta):
 	match current_state:
-		STATES.WEAPON_UP:
-			weapon_up()
-		STATES.WEAPON_DOWN:
-			weapon_down()
+		#STATES.WEAPON_UP:
+			#weapon_up()
+		#STATES.WEAPON_DOWN:
+			#weapon_down()
 		STATES.WEAPON_IDLE:
 			weapon_idle()
-		STATES.WEAPON_IDLE_MOVE:
-			weapon_idle_move()
 		STATES.WEAPON_SHOT:
 			weapon_shot()
 		STATES.WEAPON_RELOAD:
@@ -59,9 +55,6 @@ func weapon_down():
 	pass
 	
 func weapon_idle():
-	pass
-	
-func weapon_idle_move():
 	pass
 	
 func weapon_shot():

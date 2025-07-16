@@ -17,7 +17,8 @@ func _process(delta):
 	var horizontal_velocity = Vector2(player.velocity.x, player.velocity.z).length()
 	var bob_target = Vector3.ZERO
 	var weapon = inventory.current_weapon.sprite_animation
-	var bob_target_weapon = Vector3(0.087, -0.286, -0.514)
+	var weapon_start_position = inventory.current_weapon.default_position
+	var bob_target_weapon = weapon_start_position
 
 	if player.is_on_floor() and horizontal_velocity > min_velocity_threshold:
 		bob_time += delta * horizontal_velocity * bob_frequency
@@ -25,8 +26,8 @@ func _process(delta):
 		bob_target.x = cos(bob_time) * bob_amplitude
 		bob_target.y = sin(bob_time * 2) * bob_amplitude * 0.5
 		
-		bob_target_weapon.x = cos(bob_time) * bob_amplitude * 0.1 + 0.087
-		bob_target_weapon.y = sin(bob_time) * bob_amplitude * 0.05 - 0.286
+		bob_target_weapon.x = cos(bob_time) * bob_amplitude * 0.1 + weapon_start_position.x
+		bob_target_weapon.y = sin(bob_time) * bob_amplitude * 0.05 + weapon_start_position.y
 		
 	else:
 		bob_time = 0
