@@ -1,6 +1,9 @@
 extends State
 
+var enemy: Enemy
+
 func enter():
+	enemy = agent as Enemy
 	agent.velocity.x = 0
 	agent.velocity.z = 0
 	

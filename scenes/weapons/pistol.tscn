@@ -1,121 +1,28 @@
-[gd_scene load_steps=12 format=3 uid="uid://35sqlqe3mpww"]
+[gd_scene load_steps=6 format=3 uid="uid://35sqlqe3mpww"]
 
 [ext_resource type="PackedScene" uid="uid://b5fr3uexcku4f" path="res://scenes/weapons/weapon.tscn" id="1_d8tqi"]
 [ext_resource type="Script" path="res://scripts/weapons/pistol.gd" id="2_3uyul"]
-[ext_resource type="Texture2D" uid="uid://dhylnlt55wsge" path="res://assets/HUD/Pistol_Shoot_Finished_1.png" id="2_fg2l6"]
+[ext_resource type="Texture2D" uid="uid://dhylnlt55wsge" path="res://assets/HUD/Pistol_Shoot_Finished_1.png" id="3_1n01r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_18dko"]
-atlas = ExtResource("2_fg2l6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5te8"]
+atlas = ExtResource("3_1n01r")
 region = Rect2(0, 0, 111, 116)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fnbit"]
-atlas = ExtResource("2_fg2l6")
-region = Rect2(0, 116, 111, 116)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nu0hj"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0j40"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_18dko")
+"texture": SubResource("AtlasTexture_t5te8")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fnbit")
-}],
-"loop": false,
-"name": &"shot",
-"speed": 5.0
 }]
-
-[sub_resource type="Animation" id="Animation_lnbwr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("animation/ReferenceRect/AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1017, 532)]
-}
-
-[sub_resource type="Animation" id="Animation_oysha"]
-resource_name = "weapon_down"
-length = 0.5
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("animation/ReferenceRect/AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1017, 532), Vector2(1017, 900)]
-}
-
-[sub_resource type="Animation" id="Animation_yn1x0"]
-resource_name = "weapon_idle_move"
-length = 2.0
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("animation/ReferenceRect/AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1017, 532), Vector2(1006, 629), Vector2(928, 545), Vector2(1006, 629), Vector2(1017, 532)]
-}
-
-[sub_resource type="Animation" id="Animation_jtab3"]
-resource_name = "weapon_up"
-length = 0.5
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("animation/ReferenceRect/AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1017, 900), Vector2(1017, 532)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ve4nb"]
-_data = {
-"RESET": SubResource("Animation_lnbwr"),
-"weapon_down": SubResource("Animation_oysha"),
-"weapon_idle_move": SubResource("Animation_yn1x0"),
-"weapon_up": SubResource("Animation_jtab3")
-}
 
 [node name="pistol" instance=ExtResource("1_d8tqi")]
 script = ExtResource("2_3uyul")
 
-[node name="AnimatedSprite2D" parent="animation/ReferenceRect" index="0"]
-position = Vector2(1017, 532)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_nu0hj")
-animation = &"shot"
-
-[node name="AnimationPlayer" parent="." index="1"]
-libraries = {
-"": SubResource("AnimationLibrary_ve4nb")
-}
+[node name="AnimatedSprite3D" parent="." index="0"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_u0j40")
+animation = &"idle"

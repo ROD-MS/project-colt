@@ -3,6 +3,7 @@ class_name Inventory
 
 @export var initial_weapon: Weapon = null
 @export var raycast: RayCast3D = null
+@export var sprite_animation: AnimatedSprite3D = null
 
 var agent: CharacterBody3D = null
 
@@ -17,6 +18,7 @@ func _ready():
 			weapons[child.name.to_lower()] = child
 			weapons[child.name.to_lower()].agent = agent
 			weapons[child.name.to_lower()].raycast = raycast
+			weapons[child.name.to_lower()].sprite_animation = sprite_animation
 			child.Change.connect(change_weapon)
 			
 	if initial_weapon:

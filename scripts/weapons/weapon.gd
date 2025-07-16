@@ -14,17 +14,19 @@ enum STATES {
 
 var raycast_configured: bool = false
 
+
 @export var space_bar: int = 1
 @export var raycast_distance: float = 10
 
-# DAMAGE CONFIG
+@export_group("Damage config")
 @export var damage: int = 10
 @export var knockback_force = 0
 @export var stun_time = 0
 
+# RECEBE DO INVENTORY
 var agent: CharacterBody3D = null
 var raycast: RayCast3D = null
-var sprite_animation: AnimatedSprite2D = null
+var sprite_animation: AnimatedSprite3D = null
 var animation_player: AnimationPlayer = null
 
 var current_state = STATES.WEAPON_UP
@@ -32,8 +34,6 @@ var current_state = STATES.WEAPON_UP
 var shotted: bool = false
 
 func _ready():
-	sprite_animation = $animation/ReferenceRect/AnimatedSprite2D
-	animation_player = $AnimationPlayer
 	raycast_distance = -raycast_distance
 	
 func _process(delta):

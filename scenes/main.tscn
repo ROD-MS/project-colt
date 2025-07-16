@@ -7,18 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://celcgy3lpy8qy" path="res://assets/blocomundo1.blend" id="5_n3q6f"]
 [ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="6_2tfgn"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fyo4w"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kfcnv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-sky_energy_multiplier = 0.5
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_c10iy"]
-sky_material = SubResource("ProceduralSkyMaterial_fyo4w")
+[sub_resource type="Sky" id="Sky_qybbq"]
+sky_material = SubResource("ProceduralSkyMaterial_kfcnv")
 
-[sub_resource type="Environment" id="Environment_ukbi4"]
+[sub_resource type="Environment" id="Environment_25rir"]
 background_mode = 2
-sky = SubResource("Sky_c10iy")
-tonemap_mode = 2
+sky = SubResource("Sky_qybbq")
+sdfgi_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_446ww"]
 vertices = PackedVector3Array(24.4448, -0.415878, -15.8075, 24.4448, -0.415878, -14.3075, 26.6948, -0.415878, -14.0575, 26.6948, -0.415878, -16.0575, 32.6948, -0.415878, -4.05751, 35.1948, -0.415878, -4.05751, 32.9448, 0.334122, -1.80751, 34.9448, 0.334122, -1.80751, 41.1948, -0.415878, -20.0575, 26.6948, -0.415878, -20.0575, 41.1948, -0.415878, -4.05751, 26.6948, -0.415878, -4.05751, 12.1948, -0.415878, -14.3075, 12.1948, -0.415878, -15.8075, 11.9448, -0.415878, -18.3075, 2.19476, -0.415878, -18.3075, 2.19476, -0.415878, -11.8075, 11.9448, -0.415878, -11.8075, 32.9448, 5.58412, 33.1925, 34.9448, 5.58412, 33.1925, 35.1948, 4.58412, 30.9425, 32.6948, 4.58412, 30.9425, 28.9448, 4.58412, 10.1925, 28.9448, 4.58412, 30.9425, 34.9448, 4.58412, 9.94249, 32.9448, 4.58412, 9.94249, 34.9448, 4.33412, 8.47374, 34.9448, 0.584122, -0.338758, 32.9448, 0.584122, -0.338758, 32.9448, 4.33412, 8.47374, 38.9448, 4.58412, 10.1925, 38.9448, 4.58412, 30.9425, 32.9448, 11.5841, 46.1925, 34.9448, 11.5841, 46.1925, 35.1948, 12.3341, 48.4425, 32.6948, 12.3341, 48.4425, 30.1948, 12.3341, 57.9425, 37.4448, 12.3341, 57.9425, 37.4448, 12.3341, 48.4425, 30.1948, 12.3341, 48.4425)
@@ -79,10 +78,14 @@ size = Vector3(2.12897, 1, 2.75275)
 [node name="main" type="Node3D"]
 script = ExtResource("1_1f6n6")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_25rir")
+
 [node name="lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00393, 1.46247, -15.9458)
+shadow_normal_bias = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1606, 1.46247, -15.9458)
@@ -110,8 +113,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.778
 [node name="door2" parent="doors" instance=ExtResource("5_2c3fv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.739, -0.631036, -15.6989)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ukbi4")
+[node name="player" parent="." instance=ExtResource("1_v7d08")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28563, 0.0517026, -15.5148)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000869751, -0.687759, -0.650875)
@@ -119,9 +122,6 @@ navigation_mesh = SubResource("NavigationMesh_446ww")
 
 [node name="blocomundo1" parent="NavigationRegion3D" instance=ExtResource("5_n3q6f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.96534, -0.915878, -15.0754)
-
-[node name="player" parent="." instance=ExtResource("1_v7d08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28563, -0.873754, -15.5148)
 
 [node name="enemy" parent="." instance=ExtResource("2_qgeb7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16.6894, 0.269567, -15.5869)
@@ -168,6 +168,10 @@ shape = SubResource("BoxShape3D_56wiw")
 
 [node name="garrafa_whisky" parent="Props" instance=ExtResource("6_2tfgn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2576, -0.933819, -17.2658)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.4146, 0.994199, -15.7474)
+fov = 90.0
 
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="final" to="." method="_on_final_body_entered"]

@@ -1,8 +1,10 @@
 extends State
 
 var time_reload: float
+var enemy: Enemy
 
 func enter():
+	enemy = agent as Enemy
 	print(str(name) + ": FOLLOW PLAYER")
 	time_reload = agent.time_reload_sec
 	
@@ -11,7 +13,7 @@ func update(delta: float):
 	var next_location = agent.nav.get_next_path_position()
 	var current_location = agent.global_transform.origin
 	var new_velocity = (next_location - current_location).normalized() * agent.SPEED
-	agent.look_at(Vector3(agent.nav.target_position), Vector3.UP)
+	enemy.look_at(Vector3(agent.nav.target_position), Vector3.DOWN)
 	
 	if time_reload > 0:
 		time_reload -= 0.016

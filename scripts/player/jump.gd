@@ -17,7 +17,7 @@ func physics_update(delta: float):
 		agent.velocity.y = JUMP_FORCE
 	
 	var input_dir = Input.get_vector("left", "right", "foward", "back")
-	var direction = ($"../../head".transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (agent.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		agent.velocity.x = direction.x * SPEED
 		agent.velocity.z = direction.z * SPEED
