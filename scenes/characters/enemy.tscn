@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://gqfvqggvmnbq"]
+[gd_scene load_steps=30 format=3 uid="uid://gqfvqggvmnbq"]
 
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_htdb8"]
 [ext_resource type="Script" path="res://scripts/enemy/animation.gd" id="2_275un"]
@@ -11,7 +11,11 @@
 [ext_resource type="Script" path="res://scripts/enemy/idle.gd" id="6_b5ppk"]
 [ext_resource type="Texture2D" uid="uid://3u5gwl40jv3r" path="res://assets/enemies/LEFT.png" id="6_odgil"]
 [ext_resource type="Script" path="res://scripts/enemy/follow_player.gd" id="8_uborx"]
+[ext_resource type="AudioStream" uid="uid://bvlfss7lfw74b" path="res://assets/audio/Audio 1 Inimigo.mp3" id="13_j5d3p"]
 [ext_resource type="Script" path="res://scripts/enemy/shoot.gd" id="13_qfcfh"]
+[ext_resource type="AudioStream" uid="uid://bkjto2ey5mncu" path="res://assets/audio/Audio 2 Inimigo.mp3" id="14_dtrup"]
+[ext_resource type="AudioStream" uid="uid://c24l0nt6f5qg1" path="res://assets/audio/Audio 3 Inimigo.mp3" id="15_pmwe3"]
+[ext_resource type="AudioStream" uid="uid://bnftpwv1610sb" path="res://assets/audio/Audio 4 Inimigo.mp3" id="16_b5fq4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jtiv3"]
 radius = 2.5
@@ -163,6 +167,20 @@ time_reload_sec = 2.0
 raycast = NodePath("../../RayCast3D")
 
 [node name="nav" type="NavigationAgent3D" parent="."]
+
+[node name="sounds" type="Node3D" parent="."]
+
+[node name="Audio1Inimigo" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("13_j5d3p")
+
+[node name="Audio2Inimigo" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("14_dtrup")
+
+[node name="Audio3Inimigo" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("15_pmwe3")
+
+[node name="Audio4Inimigo" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("16_b5fq4")
 
 [connection signal="body_entered" from="detect_player" to="StateMachine/idle" method="_on_detect_player_body_entered"]
 [connection signal="body_exited" from="detect_player" to="StateMachine/followPlayer" method="_on_detect_player_body_exited"]

@@ -35,4 +35,5 @@ func _process(delta):
 	#$Camera3D.position = position.move_toward(bob_target, delta * bob_smoothing)
 	#$RayCast3D.position = position.move_toward(bob_target, delta * bob_smoothing)
 	position = position.move_toward(bob_target, delta * bob_smoothing)
+	#$RayCast3D.position = position.move_toward(bob_target, delta * bob_smoothing)
 	$hand_animation.position = $hand_animation.position.move_toward(bob_target_weapon, delta * bob_smoothing)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=44 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Script" path="res://scripts/state_machine/statemachine.gd" id="2_l864t"]
@@ -261,7 +261,12 @@ _data = {
 "shotgun_up": SubResource("Animation_84kbh")
 }
 
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_oa8ey"]
+length = 0.001
+
 [node name="player" type="CharacterBody3D"]
+floor_stop_on_slope = false
+floor_block_on_wall = false
 script = ExtResource("1_8t64c")
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -427,3 +432,7 @@ script = ExtResource("6_iay3t")
 transform = Transform3D(0.185899, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.626601, 0)
 visible = false
 texture = ExtResource("16_kbxbc")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.49097, 0)
+shape = SubResource("SeparationRayShape3D_oa8ey")

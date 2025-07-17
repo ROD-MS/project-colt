@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://te0a6lpvnsyp"]
+
+[ext_resource type="PackedScene" uid="uid://c6725b1fobp53" path="res://assets/blender/sala2.blend" id="1_8kkt8"]
+[ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="2_4d5du"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_omnpy"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_thvqc"]
+sky_material = SubResource("ProceduralSkyMaterial_omnpy")
+
+[sub_resource type="Environment" id="Environment_cem2j"]
+background_mode = 2
+sky = SubResource("Sky_thvqc")
+tonemap_mode = 2
+
+[node name="level_2" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cem2j")
+
+[node name="player" parent="." instance=ExtResource("2_4d5du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21207, 11.1152, 12.6884)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.998642, 0, -0.0520919, 0, 1, 0, 0.0520919, 0, -0.998642, 0, 7.45403, 7.71698)
+
+[node name="sala2" parent="." instance=ExtResource("1_8kkt8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 0, 13)

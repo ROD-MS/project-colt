@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctbsq3a5uox1b"
+path="res://.godot/imported/whisky quebrando 2.mp3-6f8df74b776ee5d88d9363766a3035c6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/whisky quebrando 2.mp3"
+dest_files=["res://.godot/imported/whisky quebrando 2.mp3-6f8df74b776ee5d88d9363766a3035c6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

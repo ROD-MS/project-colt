@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://do51rwj4tkbjt"]
+
+[ext_resource type="PackedScene" uid="uid://baapperxrmvej" path="res://assets/blender/mapa1coltsolidify.blend" id="1_s1ehq"]
+[ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="2_1g01v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3gtnl"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_cj4rk"]
+sky_material = SubResource("ProceduralSkyMaterial_3gtnl")
+
+[sub_resource type="Environment" id="Environment_eeen3"]
+background_mode = 2
+sky = SubResource("Sky_cj4rk")
+tonemap_mode = 2
+
+[node name="level_3" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eeen3")
+
+[node name="player" parent="." instance=ExtResource("2_1g01v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45866, 0.404919, 91.005)
+
+[node name="mapa1coltsolidify" parent="." instance=ExtResource("1_s1ehq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

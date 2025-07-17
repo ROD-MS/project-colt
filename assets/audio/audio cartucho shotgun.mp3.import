@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://duhpu0m2mcodf"
+path="res://.godot/imported/audio cartucho shotgun.mp3-f0fd08c4aa3788aeb10b8bc131ad8b59.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/audio cartucho shotgun.mp3"
+dest_files=["res://.godot/imported/audio cartucho shotgun.mp3-f0fd08c4aa3788aeb10b8bc131ad8b59.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
