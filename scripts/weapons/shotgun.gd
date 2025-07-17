@@ -16,13 +16,13 @@ func weapon_up():
 	current_state = STATES.WEAPON_IDLE
 	
 func weapon_down():
-	print("down shotgun")
+	#print("down shotgun")
 	sprite_animation.play("idle")
 	animation_player.play("shotgun_down")
 	#Change.emit(self, "pistol")
 	
 func weapon_idle():
-	print("idle shotgun")
+	#print("idle shotgun")
 	sprite_animation.play("idle")
 	
 	# SHOT
@@ -34,7 +34,7 @@ func weapon_idle():
 		Change.emit(self, "pistol")
 		
 func weapon_shot():
-	print("shoot shotgun")
+	#print("shoot shotgun")
 	sprite_animation.play("shoot")
 	
 	if raycast.is_colliding() and raycast.get_collider().is_in_group("enemy") and !shotted:

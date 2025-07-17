@@ -115,7 +115,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xp5p6"]
-height = 1.1
+height = 1.49839
 
 [node name="enemy" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_htdb8")

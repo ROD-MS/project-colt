@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4uon31mci3cv"]
 
 [ext_resource type="PackedScene" uid="uid://bl747cohj1pnr" path="res://assets/tomajack.blend" id="1_4ty2a"]
-[ext_resource type="Script" path="res://scripts/garrafa_whisky.gd" id="1_s86ap"]
+[ext_resource type="Script" path="res://scripts/objects/garrafa_whisky.gd" id="1_s86ap"]
 [ext_resource type="AudioStream" uid="uid://do4vdkyqvy54k" path="res://audio/Roblox Drinking Sound Effect.mp3" id="3_tgyss"]
 
 [sub_resource type="Animation" id="Animation_pnwua"]

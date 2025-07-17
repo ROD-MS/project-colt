@@ -34,6 +34,9 @@ var current_state = STATES.WEAPON_UP
 var shotted: bool = false
 var active: bool = false
 	
+func _ready():
+	raycast_distance = -raycast_distance
+	
 func update(delta):
 	match current_state:
 		#STATES.WEAPON_UP:

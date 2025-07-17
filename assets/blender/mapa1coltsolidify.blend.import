@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8mb7xdyw1fw6"
-path="res://.godot/imported/projetil45mm.blend-3aa2736b4db24eeba0132d087ab6e042.scn"
+uid="uid://baapperxrmvej"
+path="res://.godot/imported/mapa1coltsolidify.blend-195417cea4f185bc4f0e0d90fc70a40d.scn"
 
 [deps]
 
-source_file="res://assets/projetil45mm.blend"
-dest_files=["res://.godot/imported/projetil45mm.blend-3aa2736b4db24eeba0132d087ab6e042.scn"]
+source_file="res://assets/blender/mapa1coltsolidify.blend"
+dest_files=["res://.godot/imported/mapa1coltsolidify.blend-195417cea4f185bc4f0e0d90fc70a40d.scn"]
 
 [params]
 

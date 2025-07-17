@@ -22,7 +22,6 @@ func damage(attack: Attack):
 		$"../HUD/hit".hide()
 	
 	if health <= 0:
-		print("MORTO")
 		get_parent().queue_free()
 
 func heal(heal_value: int):

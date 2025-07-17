@@ -22,6 +22,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _ready():
+	$head/RayCast3D.add_exception(self)
 	$HUD/ReferenceRect/hand_animation.position = Vector2(1042, 562)
 	var this_level = get_parent()
 	if this_level.name == "main":

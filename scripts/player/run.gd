@@ -1,9 +1,10 @@
 extends State
 
 const SPEED = 2
+var player: Player
 
 func enter():
-	pass
+	player = agent as Player
 	
 func exit():
 	pass
@@ -40,7 +41,7 @@ func input(event: InputEvent):
 		Transitioned.emit(self, "idle")
 	if Input.get_vector("left", "right", "foward", "back") and !Input.is_action_pressed("sprint"):
 		Transitioned.emit(self, "walk")
-	if Input.is_action_just_pressed("jump") and agent.is_on_floor():
+	if Input.is_action_just_pressed("jump") and player.is_on_floor():
 		Transitioned.emit(self, "jump")
 	if Input.is_action_just_pressed("fire"):
 			Transitioned.emit(self, "shoot")

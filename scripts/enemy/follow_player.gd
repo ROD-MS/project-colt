@@ -5,7 +5,6 @@ var enemy: Enemy
 
 func enter():
 	enemy = agent as Enemy
-	print(str(name) + ": FOLLOW PLAYER")
 	time_reload = agent.time_reload_sec
 	
 

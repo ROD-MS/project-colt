@@ -5,7 +5,7 @@ class_name pistol
 
 
 func weapon_up():
-	print("entered pistol")
+	#print("entered pistol")
 	if raycast and !raycast_configured:
 		raycast.target_position.z = raycast_distance
 	
@@ -17,13 +17,13 @@ func weapon_up():
 	current_state = STATES.WEAPON_IDLE
 	
 func weapon_down():
-	print("down pistol")
+	#print("down pistol")
 	sprite_animation.play("idle")
 	animation_player.play("pistol_down")
 	#Change.emit(self, "shotgun")
 	
 func weapon_idle():
-	print("idle pistol")
+	#print("idle pistol")
 	sprite_animation.play("idle")
 	
 	# SHOT

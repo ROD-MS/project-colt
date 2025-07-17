@@ -368,7 +368,6 @@ animation_player = NodePath("../head/hand_animationplayer")
 [node name="pistol" parent="inventory_component" instance=ExtResource("7_fh4c0")]
 
 [node name="shotgun" parent="inventory_component" instance=ExtResource("6_88ydf")]
-raycast_distance = 1.0
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("7_2k4s4")]
 MAX_HEALTH = 50
@@ -396,7 +395,6 @@ fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="head"]
 target_position = Vector3(0, 0, -1)
-collision_mask = 3
 
 [node name="hand_animationplayer" type="AnimationPlayer" parent="head"]
 libraries = {

@@ -2,9 +2,10 @@ extends State
 
 const JUMP_FORCE = 3.5
 const SPEED = 2
+var player: Player
 
 func enter():
-	pass
+	player = agent as Player
 	
 func exit():
 	pass
