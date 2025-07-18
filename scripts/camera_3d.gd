@@ -1,4 +1,5 @@
 extends Node3D
+class_name Head
 
 @export_group("Bobbing Settings")
 @export var bob_frequency = 2.0

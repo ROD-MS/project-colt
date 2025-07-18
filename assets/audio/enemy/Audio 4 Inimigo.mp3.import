@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnftpwv1610sb"
+path="res://.godot/imported/Audio 4 Inimigo.mp3-13ff51c8be901c1a87f4f9156b150363.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/enemy/Audio 4 Inimigo.mp3"
+dest_files=["res://.godot/imported/Audio 4 Inimigo.mp3-13ff51c8be901c1a87f4f9156b150363.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

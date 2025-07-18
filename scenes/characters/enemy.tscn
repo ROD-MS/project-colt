@@ -11,11 +11,11 @@
 [ext_resource type="Script" path="res://scripts/enemy/idle.gd" id="6_b5ppk"]
 [ext_resource type="Texture2D" uid="uid://3u5gwl40jv3r" path="res://assets/enemies/LEFT.png" id="6_odgil"]
 [ext_resource type="Script" path="res://scripts/enemy/follow_player.gd" id="8_uborx"]
-[ext_resource type="AudioStream" uid="uid://bvlfss7lfw74b" path="res://assets/audio/Audio 1 Inimigo.mp3" id="13_j5d3p"]
+[ext_resource type="AudioStream" uid="uid://bvlfss7lfw74b" path="res://assets/audio/enemy/Audio 1 Inimigo.mp3" id="13_j5d3p"]
 [ext_resource type="Script" path="res://scripts/enemy/shoot.gd" id="13_qfcfh"]
-[ext_resource type="AudioStream" uid="uid://bkjto2ey5mncu" path="res://assets/audio/Audio 2 Inimigo.mp3" id="14_dtrup"]
-[ext_resource type="AudioStream" uid="uid://c24l0nt6f5qg1" path="res://assets/audio/Audio 3 Inimigo.mp3" id="15_pmwe3"]
-[ext_resource type="AudioStream" uid="uid://bnftpwv1610sb" path="res://assets/audio/Audio 4 Inimigo.mp3" id="16_b5fq4"]
+[ext_resource type="AudioStream" uid="uid://bkjto2ey5mncu" path="res://assets/audio/enemy/Audio 2 Inimigo.mp3" id="14_dtrup"]
+[ext_resource type="AudioStream" uid="uid://c24l0nt6f5qg1" path="res://assets/audio/enemy/Audio 3 Inimigo.mp3" id="15_pmwe3"]
+[ext_resource type="AudioStream" uid="uid://bnftpwv1610sb" path="res://assets/audio/enemy/Audio 4 Inimigo.mp3" id="16_b5fq4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jtiv3"]
 radius = 2.5
