@@ -12,5 +12,6 @@ func enter():
 	
 func _on_detect_player_body_entered(body):
 	if body.name == "player":
+		print("ENTROU")
 		agent.follow = true
 		Transitioned.emit(self, "followPlayer")

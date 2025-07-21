@@ -1,8 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bu14kdign3inj"]
 
-[ext_resource type="Script" path="res://scripts/objects/door.gd" id="1_3ejso"]
+[ext_resource type="Script" uid="uid://146ifx5cnxf4" path="res://scripts/objects/door.gd" id="1_3ejso"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7a4u8"]
+shading_mode = 2
 albedo_color = Color(0.779901, 0.357834, 0, 1)
 metallic_specular = 0.0
 
@@ -15,33 +16,6 @@ size = Vector3(2.7, 2, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_to301"]
 size = Vector3(2.7, 2, 1.5)
-
-[sub_resource type="Animation" id="Animation_4sbxg"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_1ioja"]
 length = 0.001
@@ -98,11 +72,38 @@ tracks/1/keys = {
 "values": [Vector3(0, 2, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_4sbxg"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_skhbg"]
 _data = {
-"RESET": SubResource("Animation_1ioja"),
-"close": SubResource("Animation_eois6"),
-"open": SubResource("Animation_4sbxg")
+&"RESET": SubResource("Animation_1ioja"),
+&"close": SubResource("Animation_eois6"),
+&"open": SubResource("Animation_4sbxg")
 }
 
 [node name="door" type="StaticBody3D"]
@@ -121,7 +122,7 @@ shape = SubResource("BoxShape3D_to301")
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_skhbg")
+&"": SubResource("AnimationLibrary_skhbg")
 }
 
 [connection signal="body_entered" from="detect_player" to="." method="_on_detect_player_body_entered"]

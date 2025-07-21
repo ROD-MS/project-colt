@@ -1,20 +1,20 @@
 [gd_scene load_steps=57 format=3 uid="uid://syr6756flq43"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_8t64c"]
-[ext_resource type="Script" path="res://scripts/state_machine/statemachine.gd" id="2_l864t"]
+[ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
+[ext_resource type="Script" uid="uid://cbtjyj5luh5rh" path="res://scripts/state_machine/statemachine.gd" id="2_l864t"]
 [ext_resource type="Texture2D" uid="uid://bcr8l4n5fki5c" path="res://assets/mira.png" id="3_4t2du"]
 [ext_resource type="Texture2D" uid="uid://cdn7ky2oiluxn" path="res://assets/HUD/Hand_wShotgun_Shoot-Sheet.png" id="3_hsq7i"]
-[ext_resource type="Script" path="res://scripts/player/idle.gd" id="3_il7j1"]
-[ext_resource type="Script" path="res://scripts/player/walk.gd" id="4_idngh"]
+[ext_resource type="Script" uid="uid://do12j6m1f7qyh" path="res://scripts/player/idle.gd" id="3_il7j1"]
+[ext_resource type="Script" uid="uid://uxk6tvgup48u" path="res://scripts/player/walk.gd" id="4_idngh"]
 [ext_resource type="Texture2D" uid="uid://bs4gojvi51td1" path="res://assets/HUD/shotgun_reload.png" id="4_vgk05"]
-[ext_resource type="Script" path="res://scripts/player/run.gd" id="5_ypjns"]
+[ext_resource type="Script" uid="uid://dxfdu5k24om1f" path="res://scripts/player/run.gd" id="5_ypjns"]
 [ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="6_88ydf"]
-[ext_resource type="Script" path="res://scripts/player/jump.gd" id="6_iay3t"]
+[ext_resource type="Script" uid="uid://cba5nkn3r1fyb" path="res://scripts/player/jump.gd" id="6_iay3t"]
 [ext_resource type="PackedScene" uid="uid://bgmexmf0fou2h" path="res://scenes/components/inventory_component.tscn" id="6_nawpa"]
 [ext_resource type="PackedScene" uid="uid://dqjaymeneqyya" path="res://scenes/components/health_component.tscn" id="7_2k4s4"]
 [ext_resource type="PackedScene" uid="uid://35sqlqe3mpww" path="res://scenes/weapons/pistol.tscn" id="7_fh4c0"]
 [ext_resource type="Texture2D" uid="uid://b7p7sfwbyjh30" path="res://assets/HUD/gun.png" id="9_e1lgo"]
-[ext_resource type="Script" path="res://scripts/camera_3d.gd" id="9_seiem"]
+[ext_resource type="Script" uid="uid://cmh7mctmndpvo" path="res://scripts/camera_3d.gd" id="9_seiem"]
 [ext_resource type="AudioStream" uid="uid://odra7vqirfh5" path="res://assets/audio/audio abrindo shotgun.mp3" id="11_yktyj"]
 [ext_resource type="AudioStream" uid="uid://duhpu0m2mcodf" path="res://assets/audio/audio cartucho shotgun.mp3" id="12_8awpg"]
 [ext_resource type="AudioStream" uid="uid://cluyt0br4hvoe" path="res://assets/audio/audio fechando shotgun.mp3" id="13_xq3g6"]
@@ -545,12 +545,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijanx"]
 _data = {
-"RESET": SubResource("Animation_x11dc"),
-"pistol_down": SubResource("Animation_6dyrm"),
-"pistol_up": SubResource("Animation_k342o"),
-"shotgun_down": SubResource("Animation_7c2f4"),
-"shotgun_reload": SubResource("Animation_5j3b1"),
-"shotgun_up": SubResource("Animation_84kbh")
+&"RESET": SubResource("Animation_x11dc"),
+&"pistol_down": SubResource("Animation_6dyrm"),
+&"pistol_up": SubResource("Animation_k342o"),
+&"shotgun_down": SubResource("Animation_7c2f4"),
+&"shotgun_reload": SubResource("Animation_5j3b1"),
+&"shotgun_up": SubResource("Animation_84kbh")
 }
 
 [node name="player" type="CharacterBody3D"]
@@ -695,8 +695,38 @@ collision_mask = 3
 
 [node name="hand_animationplayer" type="AnimationPlayer" parent="head"]
 libraries = {
-"": SubResource("AnimationLibrary_ijanx")
+&"": SubResource("AnimationLibrary_ijanx")
 }
+
+[node name="shotgun_raycast" type="Node3D" parent="head"]
+
+[node name="shotgun_cast" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 3
+
+[node name="shotgun_cast2" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 3
+
+[node name="shotgun_cast3" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 3
+
+[node name="shotgun_cast4" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 3
+
+[node name="shotgun_cast5" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 3
+
+[node name="shotgun_cast6" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 3
+
+[node name="shotgun_cast7" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 3
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
 script = ExtResource("2_l864t")

@@ -2,11 +2,19 @@ extends Weapon
 class_name shotgun
 
 @onready var new_sprite_animation = $AnimatedSprite3D
+var shotgun_raycast = null
 
-
-func weapon_up():	
+func weapon_up():
 	if raycast and !raycast_configured:
 		raycast.target_position.z = raycast_distance
+		for child in get_owner().get_children():
+			if child is Head:
+				for _child in child.get_children():
+					if _child.name == "shotgun_raycast":
+						shotgun_raycast = _child
+						break
+		for child in shotgun_raycast.get_children():
+			pass
 	
 	sprite_animation.play("idle")
 	sprite_animation.sprite_frames = new_sprite_animation.sprite_frames
@@ -58,6 +66,11 @@ func weapon_shot():
 			
 			health.damage(attack)
 
+
+	for __raycast in shotgun_raycast.get_children():
+		var _raycast = __raycast as RayCast3D
+		if _raycast.is_colliding() and _raycast.get_collider().is_in_group("enemy"):
+			pass
 	
 	shotted = true
 			

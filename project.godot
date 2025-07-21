@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="PROJETO_INTEGRADO_3"
-run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+run/main_scene="uid://dbtsqv26emkg6"
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
@@ -117,6 +117,4 @@ reload={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 shading/overrides/force_vertex_shading=true

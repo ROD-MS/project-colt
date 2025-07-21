@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://ipfgscfy6b1l"]
 
 [ext_resource type="PackedScene" uid="uid://b5fr3uexcku4f" path="res://scenes/weapons/weapon.tscn" id="1_h3ljg"]
-[ext_resource type="Script" path="res://scripts/weapons/shotgun.gd" id="2_82cxv"]
+[ext_resource type="Script" uid="uid://bjvojiacvdbwd" path="res://scripts/weapons/shotgun.gd" id="2_82cxv"]
 [ext_resource type="Texture2D" uid="uid://b7p7sfwbyjh30" path="res://assets/HUD/gun.png" id="2_pi2un"]
 [ext_resource type="Texture2D" uid="uid://cdn7ky2oiluxn" path="res://assets/HUD/Hand_wShotgun_Shoot-Sheet.png" id="3_5c4i7"]
 [ext_resource type="Texture2D" uid="uid://bs4gojvi51td1" path="res://assets/HUD/shotgun_reload.png" id="3_43qth"]
