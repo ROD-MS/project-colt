@@ -128,10 +128,15 @@ func set_angle_raycast(set_new_angle: bool):
 		var raycast = child as RayCast3D
 		
 		if set_new_angle:
-			var angle_y = randf_range(-0.25, 0.25)
-			var angle_x = randf_range(-0.25, 0.25)
-			raycast.position.x = angle_x
-			raycast.position.y = angle_y
+			# var angle_y = sin(randf_range(-1, 1))
+			# var angle_x = cos(randf_range(-1, 1))
+			# raycast.rotation.x = angle_x
+			# raycast.rotation.y = angle_y
+			# -60 rotation.x shotgun_raycast
+			var pos_x = randf_range(-0.25, 0.25)
+			var pos_y = randf_range(-0.25, 0.25)
+			raycast.position.x = pos_x
+			raycast.position.y = pos_y
 		if !set_new_angle:
 			raycast.position = Vector3.ZERO
 	raycast_angle_setted = true

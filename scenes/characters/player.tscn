@@ -698,6 +698,7 @@ libraries = {
 }
 
 [node name="shotgun_raycast" type="Node3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="shotgun_raycast" type="RayCast3D" parent="head/shotgun_raycast"]
 target_position = Vector3(0, 0, 0)
