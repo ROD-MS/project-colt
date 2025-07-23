@@ -662,7 +662,6 @@ animation_player = NodePath("../head/hand_animationplayer")
 [node name="pistol" parent="inventory_component" instance=ExtResource("7_fh4c0")]
 
 [node name="shotgun" parent="inventory_component" instance=ExtResource("6_88ydf")]
-raycast_distance = 1.0
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("7_2k4s4")]
 MAX_HEALTH = 50
@@ -700,33 +699,23 @@ libraries = {
 
 [node name="shotgun_raycast" type="Node3D" parent="head"]
 
-[node name="shotgun_cast" type="RayCast3D" parent="head/shotgun_raycast"]
-target_position = Vector3(0, 0, -1)
-collision_mask = 3
+[node name="shotgun_raycast" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, 0)
 
-[node name="shotgun_cast2" type="RayCast3D" parent="head/shotgun_raycast"]
-target_position = Vector3(0, 0, -1)
-collision_mask = 3
+[node name="shotgun_raycast2" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, 0)
 
-[node name="shotgun_cast3" type="RayCast3D" parent="head/shotgun_raycast"]
-target_position = Vector3(0, 0, -1)
-collision_mask = 3
+[node name="shotgun_raycast3" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, 0)
 
-[node name="shotgun_cast4" type="RayCast3D" parent="head/shotgun_raycast"]
-target_position = Vector3(0, 0, -1)
-collision_mask = 3
+[node name="shotgun_raycast4" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, 0)
 
-[node name="shotgun_cast5" type="RayCast3D" parent="head/shotgun_raycast"]
-target_position = Vector3(0, 0, -1)
-collision_mask = 3
+[node name="shotgun_raycast5" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, 0)
 
-[node name="shotgun_cast6" type="RayCast3D" parent="head/shotgun_raycast"]
-target_position = Vector3(0, 0, -1)
-collision_mask = 3
-
-[node name="shotgun_cast7" type="RayCast3D" parent="head/shotgun_raycast"]
-target_position = Vector3(0, 0, -1)
-collision_mask = 3
+[node name="shotgun_raycast6" type="RayCast3D" parent="head/shotgun_raycast"]
+target_position = Vector3(0, 0, 0)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
 script = ExtResource("2_l864t")

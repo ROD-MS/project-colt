@@ -334,4 +334,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.59318, 0.269663, 5.33826)
 [node name="garrafa_whisky5" parent="." instance=ExtResource("3_orydm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30041, 0.260077, 5.06118)
 
-[editable path="enemy"]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.747195, 0, 0.664605, 0, 1, 0, -0.664605, 0, -0.747195, 3.00862, 1.1257, -4.13352)

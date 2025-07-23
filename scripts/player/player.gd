@@ -5,7 +5,7 @@ const SPEED = 2
 const JUMP_FORCE = 3
 const SHOT = null
 
-@export var state_machine: StateMachine
+#@export var state_machine: StateMachine
 @export var mouse_sensibility: float = 0.2
 
 @onready var head = $head
@@ -13,12 +13,16 @@ const SHOT = null
 
 var camera_sense = 0.003
 var sprint = 2
+var a: float = 0
 
 func _physics_process(delta):
 	#moviment(delta)
 	if !is_on_floor():
 		velocity += get_gravity() * delta
-		
+	
+	#a += 0.01
+	#print("COSSENO: " + str(cos(a)))
+	#print("VALOR: " + str(a))
 	move_and_slide()
 
 func _ready():

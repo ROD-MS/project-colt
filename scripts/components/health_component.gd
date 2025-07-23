@@ -16,12 +16,16 @@ func damage(attack: Attack):
 	health -= attack.damage
 	if health_bar and health >= 0:
 		health_bar.value = health
+		print("VIDA RESTANTE: " + str(health))
 	if get_parent().name == "player":
 		$"../HUD/hit".show()
 		await get_tree().create_timer(0.1).timeout
 		$"../HUD/hit".hide()
 	
 	if health <= 0:
+		if get_parent().name == "player":
+			get_tree().reload_current_scene()
+		print("MORREU")
 		get_parent().queue_free()
 
 func heal(heal_value: int):

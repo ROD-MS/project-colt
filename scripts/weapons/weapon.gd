@@ -19,9 +19,9 @@ var raycast_configured: bool = false
 @export var default_position: Vector3
 
 @export_group("Damage config")
-@export var damage: int = 10
-@export var knockback_force = 0
-@export var stun_time = 0
+@export var damage: float = 10
+@export var knockback_force: float = 0
+@export var stun_time: float = 0
 
 # RECEBE DO INVENTORY
 var agent: CharacterBody3D = null

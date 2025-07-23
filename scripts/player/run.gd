@@ -24,10 +24,11 @@ func physics_update(delta: float):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "foward", "back")
-	var direction = (agent.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction and Input.is_action_pressed("sprint"):
-		agent.velocity.x = direction.x * (SPEED * 2)
-		agent.velocity.z = direction.z * (SPEED * 2)
+	var direction = (player.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		player.velocity.x = direction.x * SPEED * 2
+		player.velocity.z = direction.z * SPEED * 2
+		#agent.velocity.z = direction.z * (SPEED * 5)
 		
 	#elif direction:
 		#Transitioned.emit(self, "walk")

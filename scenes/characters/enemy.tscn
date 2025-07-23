@@ -148,6 +148,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0493372, 0)
 shape = SubResource("CapsuleShape3D_xp5p6")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_8xlit")]
+MAX_HEALTH = 50
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
 script = ExtResource("5_106bi")

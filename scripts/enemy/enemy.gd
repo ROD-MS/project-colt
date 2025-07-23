@@ -19,8 +19,8 @@ var player: Player = null
 func _ready():
 	#print(get_parent().get_children())
 	for child in get_parent().get_children():
-		print(child)
-		print(player)
+		#print(child)
+		#print(player)
 		if child is Player:
 			player = child
 			break

@@ -28,10 +28,10 @@ func physics_update(delta: float):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	#("left", "right", "foward", "backward")
 	var input_dir = Input.get_vector("left", "right", "foward", "back")
-	var direction = (agent.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		agent.velocity.x = direction.x * SPEED
-		agent.velocity.z = direction.z * SPEED
+		player.velocity.x = direction.x * SPEED
+		player.velocity.z = direction.z * SPEED
 	#else:
 		#Transitioned.emit(self, "idle")
 		
