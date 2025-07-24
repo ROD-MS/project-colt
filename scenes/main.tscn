@@ -1,6 +1,5 @@
-[gd_scene load_steps=29 format=4 uid="uid://b3xjc3rfguy8s"]
+[gd_scene load_steps=28 format=4 uid="uid://b3xjc3rfguy8s"]
 
-[ext_resource type="Script" uid="uid://c5facndnrbfmg" path="res://scripts/main_levels.gd" id="1_1f6n6"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="1_v7d08"]
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemy.tscn" id="2_qgeb7"]
 [ext_resource type="PackedScene" uid="uid://bu14kdign3inj" path="res://scenes/objects/door.tscn" id="5_2c3fv"]
@@ -129,7 +128,6 @@ vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("9_choun")
 
 [node name="main" type="Node3D"]
-script = ExtResource("1_1f6n6")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_25rir")

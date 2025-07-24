@@ -29,7 +29,7 @@ shadow_enabled = true
 environment = SubResource("Environment_r3fl7")
 
 [node name="player" parent="." instance=ExtResource("2_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1532, 0.0054965, -13.5284)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3915, 0.0054965, 32.089)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_noarx")

@@ -7,6 +7,7 @@ const SPEED = 2
 @export var time_reload_sec = 0
 @export var knockback_force = 0
 @export var stun_time = 0
+@export var enemy_value: float = 10
 
 @onready var nav = $nav
 @onready var sounds = $sounds
@@ -42,6 +43,9 @@ func _physics_process(delta):
 	if player:
 		target_position(player.position)
 	move_and_slide()
+	
+func _exit_tree() -> void:
+	Score_control.add_normal_point(enemy_value)
 		
 func target_position(target):
 	nav.target_position = target

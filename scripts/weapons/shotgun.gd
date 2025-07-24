@@ -83,10 +83,11 @@ func weapon_shot():
 					
 					if distance > 2:
 						attack.damage = damage * (-raycast_distance/10 - distance/10)
-					
-					print("DAMAGE: " + str(attack.damage))
-					print("DISTANCIA: " + str(distance))
+						
 					health.damage(attack)
+					#
+					#print("DAMAGE: " + str(attack.damage))
+					#print("DISTANCIA: " + str(distance))
 		
 		if raycast.is_colliding() and raycast.get_collider().is_in_group("enemy") and !shotted:
 			var enemy = raycast.get_collider()
@@ -128,10 +129,10 @@ func set_angle_raycast(set_new_angle: bool):
 		var raycast = child as RayCast3D
 		
 		if set_new_angle:
-			# var angle_y = sin(randf_range(-1, 1))
-			# var angle_x = cos(randf_range(-1, 1))
-			# raycast.rotation.x = angle_x
-			# raycast.rotation.y = angle_y
+			#var angle_y = sin(randf_range(-1, 1))
+			#var angle_x = cos(randf_range(-1, 1))
+			#raycast.rotation.x = angle_x
+			#raycast.rotation.y = angle_y
 			# -60 rotation.x shotgun_raycast
 			var pos_x = randf_range(-0.25, 0.25)
 			var pos_y = randf_range(-0.25, 0.25)

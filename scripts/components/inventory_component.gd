@@ -8,7 +8,7 @@ class_name Inventory
 
 var agent: CharacterBody3D = null
 
-var current_weapon = null
+var current_weapon: Weapon = null
 var weapons: Dictionary = {}
 
 func _ready():

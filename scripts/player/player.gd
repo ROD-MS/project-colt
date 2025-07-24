@@ -11,6 +11,11 @@ const SHOT = null
 @onready var head = $head
 @onready var camera = $head/Camera3D
 
+@onready var score: Label = $HUD/ReferenceRect/scoreboard/score
+@onready var combo: Label = $HUD/ReferenceRect/scoreboard/combo
+@onready var time_bar: ProgressBar = $HUD/ReferenceRect/scoreboard/time_bar
+
+
 var camera_sense = 0.003
 var sprint = 2
 var a: float = 0
@@ -23,12 +28,25 @@ func _physics_process(delta):
 	#a += 0.01
 	#print("COSSENO: " + str(cos(a)))
 	#print("VALOR: " + str(a))
+	
+	# DIMINUIR TIMER DE COMBO
+	if time_bar.value > 0:
+		time_bar.value -= 1
+		print(time_bar.value)
+	else:
+		Score_control.reset_combo()
+		combo.text = "COMBO: "
+	
+	
 	move_and_slide()
 
 func _ready():
 	
+	Score_control.enemyDead.connect(change_scoreboard)
+	Score_control.reset_combo()
+	Score_control.reset_score()
+	
 	$head/RayCast3D.add_exception(self)
-	$HUD/ReferenceRect/hand_animation.position = Vector2(1042, 562)
 	var this_level = get_parent()
 	if this_level.name == "main":
 		$HUD/ReferenceRect/Panel.visible = true
@@ -64,7 +82,7 @@ func _on_show_tutorial_body_exited(body):
 	if body.name == "player":
 		$HUD/ReferenceRect/Panel.visible = false
 		
-		
-		
-		
-	
+func change_scoreboard(new_score: float, new_combo: float):
+	score.text = "SCORE: " + str(new_score)
+	combo.text = "COMBO: " + str(new_combo)
+	time_bar.value = time_bar.max_value
