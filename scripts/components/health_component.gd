@@ -25,6 +25,7 @@ func damage(attack: Attack) -> float:
 		Score_control.reset_combo()
 		player.combo.text = "COMBO: "
 		$"../HUD/hit".hide()
+		
 	
 	if health <= 0:
 		if get_parent().name == "player":
