@@ -1,6 +1,6 @@
 extends State
 
-const SPEED = 2
+const SPEED: float = 4
 var player: Player
 
 func enter():
@@ -26,9 +26,12 @@ func physics_update(delta: float):
 	var input_dir = Input.get_vector("left", "right", "foward", "back")
 	var direction = (player.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		player.velocity.x = direction.x * SPEED * 2
-		player.velocity.z = direction.z * SPEED * 2
+		
+		player.velocity.x = lerp(player.velocity.x, direction.x * SPEED, delta * 20)
+		player.velocity.z = lerp(player.velocity.z, direction.z * SPEED, delta * 20)
 		#agent.velocity.z = direction.z * (SPEED * 5)
+		
+		print(player.velocity)
 		
 	#elif direction:
 		#Transitioned.emit(self, "walk")

@@ -2,11 +2,12 @@ extends State
 
 @onready var head = $"../../head"
 var player: Player
+const SPEED: float = 2
 
 func enter():
 	player = agent as Player
-	agent.velocity.x = 0
-	agent.velocity.z = 0
+	#agent.velocity.x = 0
+	#agent.velocity.z = 0
 	
 func exit():
 	pass
@@ -22,6 +23,11 @@ func physics_update(delta: float):
 		#Transitioned.emit(self, "walk")
 	#elif agent.velocity != Vector3.ZERO and Input.is_action_pressed("sprint"):
 		#Transitioned.emit(self, "run")
+	player.velocity.x = lerp(player.velocity.x, 0.0, delta * 20)
+	player.velocity.z = lerp(player.velocity.z, 0.0, delta * 20)
+	
+	print(player.velocity)
+	
 	pass
 	
 func input(event: InputEvent):
