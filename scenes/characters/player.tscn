@@ -585,7 +585,7 @@ layout_mode = 0
 offset_left = 12.0
 offset_top = 21.0
 offset_right = 273.0
-offset_bottom = 168.0
+offset_bottom = 224.0
 
 [node name="score" type="Label" parent="HUD/ReferenceRect/scoreboard"]
 layout_mode = 1
@@ -613,6 +613,19 @@ theme_override_fonts/font = ExtResource("3_3wg1y")
 theme_override_font_sizes/font_size = 22
 text = "COMBO: "
 
+[node name="highscore" type="Label" parent="HUD/ReferenceRect/scoreboard"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 12.0
+offset_top = 105.0
+offset_right = -9.0
+offset_bottom = 140.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_3wg1y")
+theme_override_font_sizes/font_size = 22
+text = "HIGHSCORE: "
+
 [node name="time_bar" type="ProgressBar" parent="HUD/ReferenceRect/scoreboard"]
 layout_mode = 1
 anchors_preset = 12
@@ -628,6 +641,22 @@ grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_3wg1y")
 max_value = 180.0
 show_percentage = false
+
+[node name="save" type="Button" parent="HUD/ReferenceRect"]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 448.0
+offset_right = 1088.0
+offset_bottom = 512.0
+text = "SAVE"
+
+[node name="load" type="Button" parent="HUD/ReferenceRect"]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 536.0
+offset_right = 1088.0
+offset_bottom = 600.0
+text = "LOAD"
 
 [node name="hit" type="ColorRect" parent="HUD"]
 visible = false
@@ -743,3 +772,6 @@ stream = ExtResource("12_8awpg")
 
 [node name="AudioFechandoShotgun" type="AudioStreamPlayer" parent="Sounds Effects"]
 stream = ExtResource("13_xq3g6")
+
+[connection signal="pressed" from="HUD/ReferenceRect/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="HUD/ReferenceRect/load" to="." method="_on_load_pressed"]

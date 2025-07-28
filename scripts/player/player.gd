@@ -14,11 +14,14 @@ const SHOT = null
 @onready var score: Label = $HUD/ReferenceRect/scoreboard/score
 @onready var combo: Label = $HUD/ReferenceRect/scoreboard/combo
 @onready var time_bar: ProgressBar = $HUD/ReferenceRect/scoreboard/time_bar
+@onready var highscore: Label = $HUD/ReferenceRect/scoreboard/highscore
 
 
 var camera_sense = 0.003
 var sprint = 2
 var a: float = 0
+
+var current_level: String = ""
 
 func _physics_process(delta):
 	#moviment(delta)
@@ -45,6 +48,9 @@ func _ready():
 	Score_control.enemyDead.connect(change_scoreboard)
 	Score_control.reset_combo()
 	Score_control.reset_score()
+	current_level = Score_control.current_level
+	
+	print(current_level)
 	
 	$head/RayCast3D.add_exception(self)
 	var this_level = get_parent()
@@ -57,6 +63,8 @@ func _ready():
 	
 	#SETANDO A CAMERA DOS INIMIGOS E ITENS
 	get_tree().call_group("enemy_item", "set_camera", camera)
+	
+	print(get_owner().get_owner())
 	
 func _input(event):
 	if event.is_action_pressed("free_mouse"):
@@ -82,7 +90,18 @@ func _on_show_tutorial_body_exited(body):
 	if body.name == "player":
 		$HUD/ReferenceRect/Panel.visible = false
 		
-func change_scoreboard(new_score: float, new_combo: float):
+func change_scoreboard(new_score: float, new_combo: float, new_highscore: float):
 	score.text = "SCORE: " + str(new_score)
 	combo.text = "COMBO: " + str(new_combo)
+	highscore.text = "HIGHSCORE: " + str(new_highscore)
 	time_bar.value = time_bar.max_value
+
+
+func _on_save_pressed() -> void:
+	SaveLoad.contents_to_save.highscore_level_1 = Score_control.highscore.get(current_level)
+	SaveLoad._save()
+
+func _on_load_pressed() -> void:
+	SaveLoad._load()
+	Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_1)
+	highscore.text = "HIGHSCORE: " +str(Score_control.highscore.get(current_level))

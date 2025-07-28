@@ -31,7 +31,7 @@ func physics_update(delta: float):
 		player.velocity.z = lerp(player.velocity.z, direction.z * SPEED, delta * 20)
 		#agent.velocity.z = direction.z * (SPEED * 5)
 		
-		print(player.velocity)
+		#print(player.velocity)
 		
 	#elif direction:
 		#Transitioned.emit(self, "walk")

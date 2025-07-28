@@ -33,8 +33,8 @@ func physics_update(delta: float):
 		
 		player.velocity.x = lerp(player.velocity.x, direction.x * SPEED, delta * 20)
 		player.velocity.z = lerp(player.velocity.z, direction.z * SPEED, delta * 20)
-		
-		print(player.velocity)
+		#
+		#print(player.velocity)
 	#else:
 		#Transitioned.emit(self, "idle")
 		

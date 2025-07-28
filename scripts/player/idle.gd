@@ -26,7 +26,7 @@ func physics_update(delta: float):
 	player.velocity.x = lerp(player.velocity.x, 0.0, delta * 20)
 	player.velocity.z = lerp(player.velocity.z, 0.0, delta * 20)
 	
-	print(player.velocity)
+	#print(player.velocity)
 	
 	pass
 	
