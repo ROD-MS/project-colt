@@ -14,12 +14,12 @@
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_qybbq"]
+[sub_resource type="Sky" id="Sky_85g3d"]
 sky_material = SubResource("ProceduralSkyMaterial_kfcnv")
 
 [sub_resource type="Environment" id="Environment_25rir"]
 background_mode = 2
-sky = SubResource("Sky_qybbq")
+sky = SubResource("Sky_85g3d")
 sdfgi_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_446ww"]

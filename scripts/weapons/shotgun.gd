@@ -55,6 +55,8 @@ func weapon_idle():
 func weapon_shot():
 	#print("shoot shotgun")
 	sprite_animation.play("shoot")
+	if !shotted:
+		shoot_sound.play()
 	
 	if !raycast_angle_setted:
 		set_angle_raycast(true)

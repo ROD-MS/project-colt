@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://35sqlqe3mpww"]
+[gd_scene load_steps=8 format=3 uid="uid://35sqlqe3mpww"]
 
 [ext_resource type="PackedScene" uid="uid://b5fr3uexcku4f" path="res://scenes/weapons/weapon.tscn" id="1_d8tqi"]
 [ext_resource type="Script" uid="uid://cquqvfrer25qg" path="res://scripts/weapons/pistol.gd" id="2_3uyul"]
 [ext_resource type="Texture2D" uid="uid://dhylnlt55wsge" path="res://assets/HUD/Pistol_Shoot_Finished_1.png" id="3_1n01r"]
+[ext_resource type="AudioStream" uid="uid://cp1yhk2ifpqb8" path="res://assets/audio/weapons/tiro pistola.mp3" id="4_ivc8v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5te8"]
 atlas = ExtResource("3_1n01r")
@@ -33,6 +34,7 @@ animations = [{
 
 [node name="pistol" instance=ExtResource("1_d8tqi")]
 script = ExtResource("2_3uyul")
+raycast_distance = 100.0
 default_position = Vector3(0.504, -0.286, -0.514)
 
 [node name="AnimatedSprite3D" parent="." index="0"]
@@ -40,3 +42,6 @@ visible = false
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_u0j40")
 animation = &"idle"
+
+[node name="shoot_sound" parent="." index="1"]
+stream = ExtResource("4_ivc8v")

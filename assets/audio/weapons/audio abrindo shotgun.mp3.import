@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://odra7vqirfh5"
+path="res://.godot/imported/audio abrindo shotgun.mp3-e2e5d3be90e99b3df9516e1d2d9309aa.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/weapons/audio abrindo shotgun.mp3"
+dest_files=["res://.godot/imported/audio abrindo shotgun.mp3-e2e5d3be90e99b3df9516e1d2d9309aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpb88l84agn4e"]
+
+[ext_resource type="PackedScene" uid="uid://bmtuajevcxyca" path="res://assets/blender/caixamadeira.glb" id="1_vrre2"]
+[ext_resource type="Texture2D" uid="uid://c6rvnl8loxpbh" path="res://assets/texturas/textura_caixa.png" id="2_o71fo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0inr4"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_qybbq"]
+sky_material = SubResource("ProceduralSkyMaterial_0inr4")
+
+[sub_resource type="Environment" id="Environment_vrre2"]
+background_mode = 2
+sky = SubResource("Sky_qybbq")
+sdfgi_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wmco"]
+albedo_texture = ExtResource("2_o71fo")
+
+[node name="menu_scene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vrre2")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="chao" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(5, 0.2, 5)
+
+[node name="teto" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11559, 0)
+size = Vector3(5, 0.2, 5)
+
+[node name="parede" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06319, 2.40027)
+size = Vector3(5, 2, 0.2)
+
+[node name="parede2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06319, -2.39218)
+size = Vector3(5, 2, 0.2)
+
+[node name="parede3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.36663, 1.06319, -0.0823874)
+size = Vector3(5, 2, 0.2)
+
+[node name="parede4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.37238, 1.06319, -0.0823874)
+size = Vector3(5, 2, 0.2)
+
+[node name="caixas" type="Node3D" parent="."]
+
+[node name="caixamadeira" parent="caixas" instance=ExtResource("1_vrre2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99315, 0.345007, 2.03313)
+
+[node name="Cube" parent="caixas/caixamadeira" index="0"]
+material_override = SubResource("StandardMaterial3D_6wmco")
+
+[node name="caixamadeira4" parent="caixas" instance=ExtResource("1_vrre2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99315, 0.829572, 2.03313)
+
+[node name="Cube" parent="caixas/caixamadeira4" index="0"]
+material_override = SubResource("StandardMaterial3D_6wmco")
+
+[node name="caixamadeira3" parent="caixas" instance=ExtResource("1_vrre2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50306, 0.345007, 2.03313)
+
+[node name="Cube" parent="caixas/caixamadeira3" index="0"]
+material_override = SubResource("StandardMaterial3D_6wmco")
+
+[node name="caixamadeira2" parent="caixas" instance=ExtResource("1_vrre2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99169, 0.345007, 1.54326)
+
+[node name="Cube" parent="caixas/caixamadeira2" index="0"]
+material_override = SubResource("StandardMaterial3D_6wmco")
+
+[node name="caixas2" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="caixamadeira" parent="caixas2" instance=ExtResource("1_vrre2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99315, 0.345007, 2.03313)
+
+[node name="Cube" parent="caixas2/caixamadeira" index="0"]
+material_override = SubResource("StandardMaterial3D_6wmco")
+
+[node name="caixamadeira4" parent="caixas2" instance=ExtResource("1_vrre2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99315, 0.829572, 2.03313)
+
+[node name="Cube" parent="caixas2/caixamadeira4" index="0"]
+material_override = SubResource("StandardMaterial3D_6wmco")
+
+[node name="caixamadeira3" parent="caixas2" instance=ExtResource("1_vrre2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50306, 0.345007, 2.03313)
+
+[node name="Cube" parent="caixas2/caixamadeira3" index="0"]
+material_override = SubResource("StandardMaterial3D_6wmco")
+
+[node name="caixamadeira2" parent="caixas2" instance=ExtResource("1_vrre2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99169, 0.345007, 1.54326)
+
+[node name="Cube" parent="caixas2/caixamadeira2" index="0"]
+material_override = SubResource("StandardMaterial3D_6wmco")
+
+[node name="incubadoras" type="Node3D" parent="."]
+
+[node name="aliens" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91589, 0)
+light_color = Color(0, 0.117647, 0, 1)
+omni_range = 20.0
+omni_attenuation = 5.0
+
+[editable path="caixas/caixamadeira"]
+[editable path="caixas/caixamadeira4"]
+[editable path="caixas/caixamadeira3"]
+[editable path="caixas/caixamadeira2"]
+[editable path="caixas2/caixamadeira"]
+[editable path="caixas2/caixamadeira4"]
+[editable path="caixas2/caixamadeira3"]
+[editable path="caixas2/caixamadeira2"]

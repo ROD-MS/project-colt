@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://35sqlqe3mpww" path="res://scenes/weapons/pistol.tscn" id="7_fh4c0"]
 [ext_resource type="Texture2D" uid="uid://b7p7sfwbyjh30" path="res://assets/HUD/gun.png" id="9_e1lgo"]
 [ext_resource type="Script" uid="uid://cmh7mctmndpvo" path="res://scripts/camera_3d.gd" id="9_seiem"]
-[ext_resource type="AudioStream" uid="uid://odra7vqirfh5" path="res://assets/audio/audio abrindo shotgun.mp3" id="11_yktyj"]
-[ext_resource type="AudioStream" uid="uid://duhpu0m2mcodf" path="res://assets/audio/audio cartucho shotgun.mp3" id="12_8awpg"]
-[ext_resource type="AudioStream" uid="uid://cluyt0br4hvoe" path="res://assets/audio/audio fechando shotgun.mp3" id="13_xq3g6"]
+[ext_resource type="AudioStream" uid="uid://odra7vqirfh5" path="res://assets/audio/weapons/audio abrindo shotgun.mp3" id="11_yktyj"]
+[ext_resource type="AudioStream" uid="uid://duhpu0m2mcodf" path="res://assets/audio/weapons/audio cartucho shotgun.mp3" id="12_8awpg"]
+[ext_resource type="AudioStream" uid="uid://cluyt0br4hvoe" path="res://assets/audio/weapons/audio fechando shotgun.mp3" id="13_xq3g6"]
 [ext_resource type="Texture2D" uid="uid://ww45o2q3hnb2" path="res://assets/rutz.png" id="16_kbxbc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3co7"]

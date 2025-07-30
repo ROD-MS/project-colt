@@ -29,6 +29,9 @@ var raycast: RayCast3D = null
 var sprite_animation: AnimatedSprite3D = null
 var animation_player: AnimationPlayer = null
 
+var shoot_sound: AudioStreamPlayer3D = null
+
+
 var current_state = STATES.WEAPON_UP
 
 var shotted: bool = false
@@ -36,6 +39,9 @@ var active: bool = false
 	
 func _ready():
 	raycast_distance = -raycast_distance
+	for child in get_children():
+		if child is AudioStreamPlayer3D:
+			shoot_sound = child
 	
 func update(delta):
 	match current_state:

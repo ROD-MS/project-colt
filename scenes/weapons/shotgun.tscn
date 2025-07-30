@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://ipfgscfy6b1l"]
+[gd_scene load_steps=21 format=3 uid="uid://ipfgscfy6b1l"]
 
 [ext_resource type="PackedScene" uid="uid://b5fr3uexcku4f" path="res://scenes/weapons/weapon.tscn" id="1_h3ljg"]
 [ext_resource type="Script" uid="uid://bjvojiacvdbwd" path="res://scripts/weapons/shotgun.gd" id="2_82cxv"]
 [ext_resource type="Texture2D" uid="uid://b7p7sfwbyjh30" path="res://assets/HUD/gun.png" id="2_pi2un"]
 [ext_resource type="Texture2D" uid="uid://cdn7ky2oiluxn" path="res://assets/HUD/Hand_wShotgun_Shoot-Sheet.png" id="3_5c4i7"]
 [ext_resource type="Texture2D" uid="uid://bs4gojvi51td1" path="res://assets/HUD/shotgun_reload.png" id="3_43qth"]
+[ext_resource type="AudioStream" uid="uid://cp1yhk2ifpqb8" path="res://assets/audio/weapons/tiro pistola.mp3" id="6_xtykv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3lpmo"]
 atlas = ExtResource("2_pi2un")
@@ -125,3 +126,6 @@ visible = false
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_d7xmg")
 animation = &"reload"
+
+[node name="shoot_sound" parent="." index="1"]
+stream = ExtResource("6_xtykv")

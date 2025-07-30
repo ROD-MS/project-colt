@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cou4dherxpqgk"
+path="res://.godot/imported/Fim de fase-mostrar ranking-medalha (compor um pouco mais similar à isso).wav-f84e531651e1fccb1eb655b79ab595ad.sample"
+
+[deps]
+
+source_file="res://assets/audio/menus/Fim de fase-mostrar ranking-medalha (compor um pouco mais similar à isso).wav"
+dest_files=["res://.godot/imported/Fim de fase-mostrar ranking-medalha (compor um pouco mais similar à isso).wav-f84e531651e1fccb1eb655b79ab595ad.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
