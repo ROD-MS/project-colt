@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PROJETO_INTEGRADO_3"
-run/main_scene="uid://gkvlc4stbkj0"
+run/main_scene="uid://dw25nvpcbwpry"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
