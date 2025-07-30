@@ -62,7 +62,7 @@ func weapon_shot():
 	if raycast_angle_setted:
 		for child in shotgun_raycast.get_children():
 			var _raycast: RayCast3D = child as RayCast3D
-			if _raycast.is_colliding() and _raycast.get_collider().is_in_group("enemy") and !shotted:
+			if _raycast.is_colliding() and raycast.get_collider() != null and _raycast.get_collider().is_in_group("enemy") and !shotted:
 				#print("TIRO SHOTGUN ENTROU")
 				var enemy = _raycast.get_collider()
 				var health: HealthComponent = null
@@ -89,7 +89,7 @@ func weapon_shot():
 					#print("DAMAGE: " + str(attack.damage))
 					#print("DISTANCIA: " + str(distance))
 		
-		if raycast.is_colliding() and raycast.get_collider().is_in_group("enemy") and !shotted:
+		if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
 			var enemy = raycast.get_collider()
 			var health: HealthComponent = null
 			for child in enemy.get_children():

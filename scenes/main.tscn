@@ -161,7 +161,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.739
 
 [node name="player" parent="." instance=ExtResource("1_v7d08")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28563, 0.0517026, -15.5148)
-mouse_sensibility = 0.2
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000869751, -0.687759, -0.650875)

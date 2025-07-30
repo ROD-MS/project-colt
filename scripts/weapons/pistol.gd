@@ -51,7 +51,7 @@ func weapon_idle():
 func weapon_shot():
 	sprite_animation.play("shoot")
 	
-	if raycast.is_colliding() and raycast.get_collider().is_in_group("enemy") and !shotted:
+	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
 		var enemy = raycast.get_collider()
 		var health: HealthComponent = null
 		
