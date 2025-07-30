@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr1ogtmkwd6jb"
-path="res://.godot/imported/teste_ammo_box_2.png-681b0fa380929f8d17fb597b113ca649.ctex"
+uid="uid://b8yi30tt563f2"
+path="res://.godot/imported/80-70.png-42c388cb11bbfaa6f5d74ef248c60705.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/texturas/teste_ammo_box_2.png"
-dest_files=["res://.godot/imported/teste_ammo_box_2.png-681b0fa380929f8d17fb597b113ca649.ctex"]
+source_file="res://assets/HUD/life_bar/80-70.png"
+dest_files=["res://.godot/imported/80-70.png-42c388cb11bbfaa6f5d74ef248c60705.ctex"]
 
 [params]
 

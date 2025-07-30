@@ -40,7 +40,9 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 		
 	
-	sound(delta)
+	if get_parent().name != "menu_scene":
+		sound(delta)
+		
 	if player:
 		target_position(player.position)
 	move_and_slide()

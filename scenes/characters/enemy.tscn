@@ -141,7 +141,8 @@ pixel_size = 0.03
 billboard = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_anada")
-animation = &"back_left"
+animation = &"left"
+autoplay = "front"
 script = ExtResource("2_275un")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
