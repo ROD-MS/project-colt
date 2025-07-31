@@ -15,8 +15,6 @@ const SHOT = null
 @onready var combo: Label = $HUD/ReferenceRect/scoreboard/combo
 @onready var time_bar: ProgressBar = $HUD/ReferenceRect/scoreboard/time_bar
 @onready var highscore: Label = $HUD/ReferenceRect/scoreboard/highscore
-@onready var ammo_counter: Label = $HUD/ReferenceRect/ammo_counter
-
 
 
 var camera_sense = 0.003
@@ -37,6 +35,7 @@ func _physics_process(delta):
 	# DIMINUIR TIMER DE COMBO
 	if time_bar.value > 0:
 		time_bar.value -= 1
+		print(time_bar.value)
 	else:
 		Score_control.reset_combo()
 		combo.text = "COMBO: "
@@ -106,10 +105,3 @@ func _on_load_pressed() -> void:
 	SaveLoad._load()
 	Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_1)
 	highscore.text = "HIGHSCORE: " +str(Score_control.highscore.get(current_level))
-
-
-func _on_ammo_box_detector_area_entered(area: Area3D) -> void:
-	if area.get_parent().is_in_group("shotgun_ammo"):
-		$inventory_component/shotgun.add_ammo(8)
-		$"Sounds Effects/pick_audio".play()
-		area.get_parent().queue_free()

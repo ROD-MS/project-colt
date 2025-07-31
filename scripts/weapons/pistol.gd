@@ -6,8 +6,6 @@ var shotgun_raycast: Node3D = null
 
 func weapon_up():
 	#print("entered pistol")
-	if agent.ammo_counter:
-		agent.ammo_counter.text = "999/999"
 	if raycast and !raycast_configured:
 		raycast.target_position.z = raycast_distance
 	

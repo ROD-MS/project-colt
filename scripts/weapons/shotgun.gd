@@ -6,11 +6,6 @@ var shotgun_raycast: Node3D = null
 var raycast_angle_setted: bool = false
 
 func weapon_up():
-	if agent.ammo_counter:
-		agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
-	print("MUNIÇÃO NA ARMA: " + str(ammo_in_weapon))
-	print("MUNIÇÃO TOTAL: " + str(ammo_remaining))
-	
 	randomize()
 	if raycast and !raycast_configured:
 		raycast.target_position.z = raycast_distance
@@ -48,25 +43,20 @@ func weapon_idle():
 	
 	# SHOT
 	if Input.is_action_pressed("fire"):
-		if ammo_in_weapon > 0:
-			current_state = STATES.WEAPON_SHOT
+		current_state = STATES.WEAPON_SHOT
 		
 	# CHANGE WEAPON TO SHOTGUN
 	if Input.is_action_just_pressed("change_to_pistol"):
 		Change.emit(self, "pistol")
 		
 	if Input.is_action_just_pressed("reload"):
-		if ammo_remaining > 0:
-			current_state = STATES.WEAPON_RELOAD
+		current_state = STATES.WEAPON_RELOAD
 		
 func weapon_shot():
 	#print("shoot shotgun")
 	sprite_animation.play("shoot")
-	agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
-	
 	if !shotted:
 		shoot_sound.play()
-		sub_ammo(2)
 	
 	if !raycast_angle_setted:
 		set_angle_raycast(true)
@@ -85,6 +75,7 @@ func weapon_shot():
 						break
 						
 				if health:
+					print("TIRO SHOTGUN ENTROU VIDA")
 					var attack = Attack.new()
 					attack.damage = damage
 					attack.knockback_force = knockback_force
@@ -127,15 +118,13 @@ func weapon_shot():
 	await sprite_animation.animation_finished
 	shotted = false
 	raycast_angle_setted = false
-		
+	
 	current_state = STATES.WEAPON_IDLE
 
 func weapon_reload():
 	animation_player.play("shotgun_reload")
-	reload_ammo()
 	await animation_player.animation_finished
 	current_state = STATES.WEAPON_IDLE
-	agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
 	
 func set_angle_raycast(set_new_angle: bool):
 	for child in shotgun_raycast.get_children():

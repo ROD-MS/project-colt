@@ -24,7 +24,7 @@ var current_level: String = ""
 
 func _ready() -> void:
 	current_level = level.find_key(true)
-	#print(current_level)
+	print(current_level)
 
 func add_normal_point(new_point: float) -> void: # PONTOS SÃO DADOS APENAS QUANDO INIMIGOS SÃO MORTOS SEM HEADSHOT
 	var add_combo: float = 1
@@ -35,7 +35,7 @@ func add_normal_point(new_point: float) -> void: # PONTOS SÃO DADOS APENAS QUAN
 	
 	match current_level:
 		"level_1":
-			#print("level_1")
+			print("level_1")
 			_new_highscore = highscore.level_1
 			if score > highscore.level_1:
 				highscore.level_1 = score

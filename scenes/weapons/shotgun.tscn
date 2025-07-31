@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b7p7sfwbyjh30" path="res://assets/HUD/gun.png" id="2_pi2un"]
 [ext_resource type="Texture2D" uid="uid://cdn7ky2oiluxn" path="res://assets/HUD/Hand_wShotgun_Shoot-Sheet.png" id="3_5c4i7"]
 [ext_resource type="Texture2D" uid="uid://bs4gojvi51td1" path="res://assets/HUD/shotgun_reload.png" id="3_43qth"]
-[ext_resource type="AudioStream" uid="uid://dyfugxa0iwqyo" path="res://assets/audio/weapons/tiro shotgun.mp3" id="6_xtykv"]
+[ext_resource type="AudioStream" uid="uid://cp1yhk2ifpqb8" path="res://assets/audio/weapons/tiro pistola.mp3" id="6_xtykv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3lpmo"]
 atlas = ExtResource("2_pi2un")
@@ -120,8 +120,6 @@ animations = [{
 script = ExtResource("2_82cxv")
 space_bar = 2
 default_position = Vector3(0.087, -0.286, -0.514)
-max_ammo = 64
-max_ammo_reload = 8
 
 [node name="AnimatedSprite3D" parent="." index="0"]
 visible = false
