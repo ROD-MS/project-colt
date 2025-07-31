@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=94 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Texture2D" uid="uid://b1tfg5g46qn2y" path="res://assets/HUD/life_bar/10-0-Sheet.png" id="2_inhyd"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://duhpu0m2mcodf" path="res://assets/audio/weapons/audio cartucho shotgun.mp3" id="12_8awpg"]
 [ext_resource type="AudioStream" uid="uid://cluyt0br4hvoe" path="res://assets/audio/weapons/audio fechando shotgun.mp3" id="13_xq3g6"]
 [ext_resource type="Texture2D" uid="uid://ww45o2q3hnb2" path="res://assets/rutz.png" id="16_kbxbc"]
+[ext_resource type="AudioStream" uid="uid://jy5ljparjkr" path="res://assets/audio/pickammo.wav" id="30_yhyq5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8g38"]
 atlas = ExtResource("2_inhyd")
@@ -905,10 +906,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="life_bar" type="AnimatedSprite2D" parent="HUD/ReferenceRect"]
-position = Vector2(232, 576)
-scale = Vector2(3, 3)
+position = Vector2(192, 576)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_rfou0")
-animation = &"90"
+animation = &"10"
 autoplay = "100"
 
 [node name="ProgressBar" type="ProgressBar" parent="HUD/ReferenceRect"]
@@ -1058,6 +1059,17 @@ offset_right = 1088.0
 offset_bottom = 600.0
 text = "LOAD"
 
+[node name="ammo_counter" type="Label" parent="HUD/ReferenceRect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 392.0
+offset_right = 360.0
+offset_bottom = 518.0
+theme_override_fonts/font = ExtResource("3_3wg1y")
+theme_override_font_sizes/font_size = 33
+text = "999/999"
+vertical_alignment = 2
+
 [node name="hit" type="ColorRect" parent="HUD"]
 visible = false
 anchors_preset = 15
@@ -1066,6 +1078,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 0, 0.305882)
+
+[node name="ammo_box_detector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.825433, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ammo_box_detector"]
+shape = SubResource("CapsuleShape3D_pcclk")
 
 [node name="inventory_component" parent="." node_paths=PackedStringArray("initial_weapon", "raycast", "sprite_animation", "animation_player") instance=ExtResource("6_nawpa")]
 initial_weapon = NodePath("pistol")
@@ -1174,5 +1192,10 @@ stream = ExtResource("12_8awpg")
 [node name="AudioFechandoShotgun" type="AudioStreamPlayer" parent="Sounds Effects"]
 stream = ExtResource("13_xq3g6")
 
+[node name="pick_audio" type="AudioStreamPlayer3D" parent="Sounds Effects"]
+stream = ExtResource("30_yhyq5")
+volume_db = -10.0
+
 [connection signal="pressed" from="HUD/ReferenceRect/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="HUD/ReferenceRect/load" to="." method="_on_load_pressed"]
+[connection signal="area_entered" from="ammo_box_detector" to="." method="_on_ammo_box_detector_area_entered"]
