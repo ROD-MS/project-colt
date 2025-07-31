@@ -1,8 +1,9 @@
-[gd_scene load_steps=50 format=3 uid="uid://dbtsqv26emkg6"]
+[gd_scene load_steps=51 format=3 uid="uid://dbtsqv26emkg6"]
 
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemy.tscn" id="1_jjkuw"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="2_5p211"]
 [ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="3_orydm"]
+[ext_resource type="PackedScene" uid="uid://bb3ymudhsbplr" path="res://scenes/objects/shotgun_box.tscn" id="4_4c11n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b8rgi"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -344,5 +345,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.10259, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape3D_orydm")
+
+[node name="shotgun_box" parent="." instance=ExtResource("4_4c11n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42895, 0.521892, -1.2448)
+
+[node name="shotgun_box2" parent="." instance=ExtResource("4_4c11n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82861, 0.521892, 1.56492)
+
+[node name="shotgun_box5" parent="." instance=ExtResource("4_4c11n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82861, 0.521892, -3.67332)
+
+[node name="shotgun_box3" parent="." instance=ExtResource("4_4c11n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34266, 0.521892, -1.2448)
+
+[node name="shotgun_box4" parent="." instance=ExtResource("4_4c11n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34266, 0.521892, 1.22889)
 
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]

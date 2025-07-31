@@ -23,6 +23,13 @@ var raycast_configured: bool = false
 @export var knockback_force: float = 0
 @export var stun_time: float = 0
 
+@export_group("Ammo config")
+@export var max_ammo: int = 0
+@export var max_ammo_reload: int = 0
+
+var ammo_remaining: int = 0
+var ammo_in_weapon: int = 0
+
 # RECEBE DO INVENTORY
 var agent: CharacterBody3D = null
 var raycast: RayCast3D = null
@@ -42,6 +49,9 @@ func _ready():
 	for child in get_children():
 		if child is AudioStreamPlayer3D:
 			shoot_sound = child
+	
+	ammo_remaining = max_ammo
+	ammo_in_weapon = max_ammo_reload
 	
 func update(delta):
 	match current_state:
@@ -72,8 +82,6 @@ func weapon_shot():
 func weapon_reload():
 	pass
 	
-<<<<<<< HEAD
-=======
 func sub_ammo(ammo_used: int):
 	ammo_in_weapon -= ammo_used
 	print("MUNIÇÃO NA ARMA: " + str(ammo_in_weapon))
@@ -88,10 +96,9 @@ func add_ammo(ammo_added: int):
 			if agent.ammo_counter:
 				agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
 			return
-
 		ammo_remaining += adding_ammo
 		print("MUNICAO ATUAL: " + str(ammo_remaining))
-					
+		
 	if agent.ammo_counter:
 		agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
 	print("MUNIÇÃO TOTAL: " + str(ammo_remaining))
@@ -100,11 +107,10 @@ func reload_ammo():
 	for x in max_ammo_reload:
 		if ammo_in_weapon == max_ammo_reload:
 			return
-
 		if ammo_remaining > 0:
 			ammo_in_weapon += 1
 			ammo_remaining -= 1
+			
 	print("MUNIÇÃO NA ARMA: " + str(ammo_in_weapon))
 	print("MUNIÇÃO TOTAL: " + str(ammo_remaining))
 	
->>>>>>> versao_municao
