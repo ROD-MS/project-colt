@@ -41,7 +41,7 @@ func damage(attack: Attack) -> float:
 	
 	if health <= 0:
 		if get_parent().name == "player":
-			get_parent().queue_free()
+			get_tree().reload_current_scene()
 		#if get_parent().is_in_group("enemy"):
 			#print("HEALTH ENEMY: " +str(health))
 			
