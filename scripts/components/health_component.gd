@@ -32,12 +32,16 @@ func damage(attack: Attack) -> float:
 		$"../HUD/hit".hide()
 		
 	if get_parent().is_in_group("enemy"):
-		$"../sounds/dano_enemy".play()
-		
+		randomize()
+		var random_sound: int = randi_range(1, 2)
+		if random_sound == 1:
+				$"../sounds/dano_enemy1".play()
+		if random_sound == 2:
+				$"../sounds/dano_enemy2".play()
 	
 	if health <= 0:
 		if get_parent().name == "player":
-			get_tree().reload_current_scene()
+			get_parent().queue_free()
 		#if get_parent().is_in_group("enemy"):
 			#print("HEALTH ENEMY: " +str(health))
 			

@@ -17,18 +17,26 @@ const SHOT = null
 @onready var highscore: Label = $HUD/ReferenceRect/scoreboard/highscore
 @onready var ammo_counter: Label = $HUD/ReferenceRect/ammo_counter
 
-
-
 var camera_sense = 0.003
 var sprint = 2
 var a: float = 0
 
 var current_level: String = ""
+var tentativas: int = 0
+var timer: int = 0
+
+#func _process(delta: float) -> void:
+	#await get_tree().create_timer(1, true).timeout
+	#timer += 1
+	#$HUD/ReferenceRect/timer.text = "Tempo: " + str(timer)
+	
 
 func _physics_process(delta):
 	#moviment(delta)
 	if !is_on_floor():
 		velocity += get_gravity() * delta
+	
+
 	
 	#a += 0.01
 	#print("COSSENO: " + str(cos(a)))
@@ -40,18 +48,25 @@ func _physics_process(delta):
 	else:
 		Score_control.reset_combo()
 		combo.text = "COMBO: "
-	
+		
 	
 	move_and_slide()
 
 func _ready():
 	if get_owner().get_owner():
 		current_level = get_owner().get_owner().name
+		print(current_level)
 	
 	Score_control.enemyDead.connect(change_scoreboard)
 	Score_control.reset_combo()
 	Score_control.reset_score()
 	Score_control.set_level(current_level)
+	
+	match current_level:
+		"level_1":
+			tentativas = Score_control.tentativas_level1
+		"level_2":
+			tentativas = Score_control.tentativas_level2
 	
 	print(current_level)
 	
@@ -130,3 +145,13 @@ func _on_ammo_box_detector_area_entered(area: Area3D) -> void:
 		$inventory_component/shotgun.add_ammo(8)
 		$"Sounds Effects/pick_audio".play()
 		area.get_parent().queue_free()
+
+
+func _exit_tree() -> void:
+	#match current_level:
+		#"level_1":
+			#Score_control.tentativas_level1 += 1
+		#"level_2":
+			#Score_control.tentativas_level2 += 1
+			
+	get_tree().reload_current_scene()

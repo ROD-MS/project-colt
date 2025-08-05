@@ -1744,4 +1744,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147, -17, -11)
 [node name="enemy51" parent="." instance=ExtResource("14_nigg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146, -17, -9)
 
+[node name="enemy52" parent="." instance=ExtResource("14_nigg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89, -8, 6)
+
+[node name="enemy53" parent="." instance=ExtResource("14_nigg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, -8, -2)
+
+[node name="enemy54" parent="." instance=ExtResource("14_nigg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, -8, -23)
+
+[node name="enemy55" parent="." instance=ExtResource("14_nigg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123, -8, -25)
+
 [editable path="player"]

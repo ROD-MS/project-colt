@@ -16,9 +16,11 @@ var highscore: Dictionary = {
 
 # SCORE E COMBOS NO MOMENTO DA GAMEPLAY
 var score: float = 0
-var max_combo: float = 10
+var max_combo: float = 9
 var combo: float = 0
 var _new_highscore: float = 0
+var tentativas_level1: int = 0
+var tentativas_level2: int = 0
 
 var current_level: String = ""
 

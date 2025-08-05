@@ -62,7 +62,7 @@ func sound(delta):
 		sound_list[random_sound].play()
 		
 		# RANDOMIZE TIME AGAIN
-		var _timer = randi_range(2, 8)
+		var _timer = randi_range(5, 15)
 		timer = 60 * _timer
 		
 	timer -= 1 * delta

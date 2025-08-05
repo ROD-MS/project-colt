@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://gqfvqggvmnbq"]
+[gd_scene load_steps=33 format=3 uid="uid://gqfvqggvmnbq"]
 
 [ext_resource type="Script" uid="uid://c40auq808mxxf" path="res://scripts/enemy/enemy.gd" id="1_htdb8"]
 [ext_resource type="Script" uid="uid://c2s3ycnivgrju" path="res://scripts/enemy/animation.gd" id="2_275un"]
@@ -16,7 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://bkjto2ey5mncu" path="res://assets/audio/enemy/Audio 2 Inimigo.mp3" id="14_dtrup"]
 [ext_resource type="AudioStream" uid="uid://c24l0nt6f5qg1" path="res://assets/audio/enemy/Audio 3 Inimigo.mp3" id="15_pmwe3"]
 [ext_resource type="AudioStream" uid="uid://bnftpwv1610sb" path="res://assets/audio/enemy/Audio 4 Inimigo.mp3" id="16_b5fq4"]
-[ext_resource type="AudioStream" uid="uid://br808s36jnh4a" path="res://assets/audio/enemy/dano inimigo.mp3" id="17_174rk"]
+[ext_resource type="AudioStream" uid="uid://c4yxor4skv2lo" path="res://assets/audio/enemy/audio dano inimigo 1.mp3" id="17_7ktny"]
+[ext_resource type="AudioStream" uid="uid://1gjm7hvvr2ke" path="res://assets/audio/enemy/audio dano inimigo 2.mp3" id="18_rji51"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dtiis"]
 radius = 0.231291
@@ -197,8 +198,11 @@ stream = ExtResource("15_pmwe3")
 [node name="Audio4Inimigo" type="AudioStreamPlayer3D" parent="sounds"]
 stream = ExtResource("16_b5fq4")
 
-[node name="dano_enemy" type="AudioStreamPlayer3D" parent="sounds"]
-stream = ExtResource("17_174rk")
+[node name="dano_enemy1" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("17_7ktny")
+
+[node name="dano_enemy2" type="AudioStreamPlayer3D" parent="sounds"]
+stream = ExtResource("18_rji51")
 
 [connection signal="body_entered" from="detect_player" to="StateMachine/idle" method="_on_detect_player_body_entered"]
 [connection signal="body_exited" from="detect_player" to="StateMachine/followPlayer" method="_on_detect_player_body_exited"]
