@@ -6,6 +6,7 @@ var shotgun_raycast: Node3D = null
 var raycast_angle_setted: bool = false
 
 func weapon_up():
+	var player: Player = get_parent().get_parent()
 	if agent.ammo_counter:
 		agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
 	print("MUNIÇÃO NA ARMA: " + str(ammo_in_weapon))
@@ -14,9 +15,10 @@ func weapon_up():
 	randomize()
 	if raycast and !raycast_configured:
 		raycast.target_position.z = raycast_distance
-		for child in get_owner().get_children():
+		for child in player.get_children():
 			if child is Head:
 				for _child in child.get_children():
+					print(_child)
 					if _child.name == "shotgun_raycast":
 						shotgun_raycast = _child
 						break
@@ -100,6 +102,24 @@ func weapon_shot():
 					#print("DAMAGE: " + str(attack.damage))
 					#print("DISTANCIA: " + str(distance))
 		
+		if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("headshot") and !shotted:
+			print("HEADSHOT")
+			var head = raycast.get_collider()
+			var enemy = head.get_parent()
+			var health: HealthComponent = null
+			for child in enemy.get_children():
+				if child is HealthComponent:
+					health = child
+					break
+					
+			if health:
+				var attack = Attack.new()
+				attack.damage = damage*999
+				attack.knockback_force = knockback_force
+				attack.stun_time = stun_time
+				
+				health.damage(attack)
+	
 		if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
 			var enemy = raycast.get_collider()
 			var health: HealthComponent = null

@@ -36,7 +36,7 @@ var raycast: RayCast3D = null
 var sprite_animation: AnimatedSprite3D = null
 var animation_player: AnimationPlayer = null
 
-var shoot_sound: AudioStreamPlayer3D = null
+var shoot_sound: AudioStreamPlayer = null
 
 
 var current_state = STATES.WEAPON_UP
@@ -47,7 +47,7 @@ var active: bool = false
 func _ready():
 	raycast_distance = -raycast_distance
 	for child in get_children():
-		if child is AudioStreamPlayer3D:
+		if child is AudioStreamPlayer:
 			shoot_sound = child
 	
 	ammo_remaining = max_ammo

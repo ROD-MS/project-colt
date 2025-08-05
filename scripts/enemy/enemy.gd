@@ -43,6 +43,7 @@ func _physics_process(delta):
 	if get_parent().name != "menu_scene":
 		sound(delta)
 		
+	#print($head.position)
 	if player:
 		target_position(player.position)
 	move_and_slide()

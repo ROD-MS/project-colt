@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dyed2hkco5gl2"]
+
+[ext_resource type="Texture2D" uid="uid://dtyoe0m5fdwx2" path="res://assets/textures/world/brunoparede256.png" id="1_fg7b7"]
+
+[resource]
+albedo_texture = ExtResource("1_fg7b7")
+metallic_specular = 0.0
+texture_filter = 2

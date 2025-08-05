@@ -45,11 +45,13 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _ready():
+	if get_owner().get_owner():
+		current_level = get_owner().get_owner().name
 	
 	Score_control.enemyDead.connect(change_scoreboard)
 	Score_control.reset_combo()
 	Score_control.reset_score()
-	current_level = Score_control.current_level
+	Score_control.set_level(current_level)
 	
 	print(current_level)
 	
@@ -99,12 +101,27 @@ func change_scoreboard(new_score: float, new_combo: float, new_highscore: float)
 
 
 func _on_save_pressed() -> void:
-	SaveLoad.contents_to_save.highscore_level_1 = Score_control.highscore.get(current_level)
+	match current_level:
+		"level_1":
+			SaveLoad.contents_to_save.highscore_level_1 = Score_control.highscore.get(current_level)
+		"level_2":
+			SaveLoad.contents_to_save.highscore_level_2 = Score_control.highscore.get(current_level)
+		"level_3":
+			SaveLoad.contents_to_save.highscore_level_3 = Score_control.highscore.get(current_level)
+			
 	SaveLoad._save()
 
 func _on_load_pressed() -> void:
 	SaveLoad._load()
-	Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_1)
+	
+	match current_level:
+		"level_1":
+			Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_1)
+		"level_2":
+			Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_2)
+		"level_3":
+			Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_3)
+	
 	highscore.text = "HIGHSCORE: " +str(Score_control.highscore.get(current_level))
 
 

@@ -33,7 +33,7 @@ offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "PARABÉNS!! VOCÊ TERMINOU A PRIMEIRA FASE!"
+text = "PARABÉNS!! VOCÊ TERMINOU O JOGO!!"
 horizontal_alignment = 1
 
 [node name="reiniciar" type="Button" parent="ReferenceRect"]
@@ -49,7 +49,7 @@ offset_right = 61.0
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "REINICIAR"
+text = "MENU"
 
 [node name="sair" type="Button" parent="ReferenceRect"]
 layout_mode = 1

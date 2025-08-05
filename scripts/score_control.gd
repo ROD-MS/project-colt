@@ -25,6 +25,23 @@ var current_level: String = ""
 func _ready() -> void:
 	current_level = level.find_key(true)
 	#print(current_level)
+	
+func set_level(_level: String):
+	match _level:
+		"level_1":
+			level["level_1"] = true
+			level["level_2"] = false
+			level["level_3"] = false
+		"level_2":
+			level["level_1"] = false
+			level["level_2"] = true
+			level["level_3"] = false
+		"level_3":
+			level["level_1"] = false
+			level["level_2"] = false
+			level["level_3"] = true
+	
+	current_level = level.find_key(true)
 
 func add_normal_point(new_point: float) -> void: # PONTOS SÃO DADOS APENAS QUANDO INIMIGOS SÃO MORTOS SEM HEADSHOT
 	var add_combo: float = 1

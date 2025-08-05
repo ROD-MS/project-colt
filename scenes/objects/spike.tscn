@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvmx2rwl85vfp"]
+
+[ext_resource type="Script" uid="uid://bpk2qgu6w5442" path="res://scripts/objects/spike.gd" id="1_ctypd"]
+[ext_resource type="ArrayMesh" uid="uid://tw8ri34wvtvg" path="res://assets/spike.obj" id="2_ctypd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ctypd"]
+size = Vector3(1.76869, 0.212646, 2.16812)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dh74s"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="spike" type="Area3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+script = ExtResource("1_ctypd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0271835, 0.0156647, 0.103989)
+shape = SubResource("BoxShape3D_ctypd")
+
+[node name="Spike" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.141063, -2.86102e-07, 0.0802002)
+material_override = SubResource("StandardMaterial3D_dh74s")
+mesh = ExtResource("2_ctypd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

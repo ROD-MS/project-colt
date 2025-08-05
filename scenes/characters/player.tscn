@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=93 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Texture2D" uid="uid://b1tfg5g46qn2y" path="res://assets/HUD/life_bar/10-0-Sheet.png" id="2_inhyd"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bs4gojvi51td1" path="res://assets/HUD/shotgun_reload.png" id="4_vgk05"]
 [ext_resource type="Texture2D" uid="uid://dgvo4coerdogr" path="res://assets/HUD/life_bar/30-20-Sheet.png" id="5_o6auj"]
 [ext_resource type="Script" uid="uid://dxfdu5k24om1f" path="res://scripts/player/run.gd" id="5_ypjns"]
-[ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="6_88ydf"]
 [ext_resource type="Texture2D" uid="uid://dummnxsmq0v2l" path="res://assets/HUD/life_bar/40-30-Sheet.png" id="6_aqa0x"]
 [ext_resource type="Script" uid="uid://cba5nkn3r1fyb" path="res://scripts/player/jump.gd" id="6_iay3t"]
 [ext_resource type="PackedScene" uid="uid://bgmexmf0fou2h" path="res://scenes/components/inventory_component.tscn" id="6_nawpa"]
@@ -1093,9 +1092,6 @@ animation_player = NodePath("../head/hand_animationplayer")
 
 [node name="pistol" parent="inventory_component" instance=ExtResource("7_fh4c0")]
 default_position = Vector3(0.47, -0.3, -0.346)
-
-[node name="shotgun" parent="inventory_component" instance=ExtResource("6_88ydf")]
-default_position = Vector3(0.077, -0.236, -0.346)
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar", "life_bar") instance=ExtResource("7_2k4s4")]
 MAX_HEALTH = 100

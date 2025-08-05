@@ -119,7 +119,7 @@ animations = [{
 [node name="shotgun" instance=ExtResource("1_h3ljg")]
 script = ExtResource("2_82cxv")
 space_bar = 2
-default_position = Vector3(0.087, -0.286, -0.514)
+default_position = Vector3(0.087, -0.286, -0.346)
 max_ammo = 64
 max_ammo_reload = 8
 

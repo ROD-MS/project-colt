@@ -31,6 +31,9 @@ func damage(attack: Attack) -> float:
 		player.combo.text = "COMBO: "
 		$"../HUD/hit".hide()
 		
+	if get_parent().is_in_group("enemy"):
+		$"../sounds/dano_enemy".play()
+		
 	
 	if health <= 0:
 		if get_parent().name == "player":

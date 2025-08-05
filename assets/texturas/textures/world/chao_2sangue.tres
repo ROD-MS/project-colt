@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dwkkvekq6ofeg"]
+
+[ext_resource type="Texture2D" uid="uid://cv2q7w0fmjwvl" path="res://assets/textures/world/chao_2sangue.png" id="1_fjv4s"]
+
+[resource]
+albedo_texture = ExtResource("1_fjv4s")
+metallic_specular = 0.0
+texture_filter = 2

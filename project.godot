@@ -20,15 +20,24 @@ config/icon="res://icon.svg"
 Score_control="*res://scripts/score_control.gd"
 SaveLoad="*res://scripts/saveload.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
 
 [global_group]
 
 enemy_item=""
 enemy=""
 shotgun_ammo=""
+headshot=""
 
 [importer_defaults]
 

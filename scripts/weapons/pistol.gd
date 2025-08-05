@@ -56,8 +56,30 @@ func weapon_shot():
 		shoot_sound.play()
 	
 	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
+		var head = raycast.get_collider()
+		var enemy = head.get_parent()
+		var health: HealthComponent = null
+		for child in enemy.get_children():
+			if child is HealthComponent:
+				health = child
+				break
+				
+		if health:
+			var attack = Attack.new()
+			attack.damage = damage*999
+			attack.knockback_force = knockback_force
+			attack.stun_time = stun_time
+			
+			health.damage(attack)
+	
+	
+	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
+		var shape_index = raycast.get_collider_shape()
+		var collision_shape_name = raycast.get_collider().shape_owner_get_owner(shape_index).name
 		var enemy = raycast.get_collider()
 		var health: HealthComponent = null
+			
+		
 		
 		for child in enemy.get_children():
 			if child is HealthComponent:
