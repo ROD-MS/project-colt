@@ -20,10 +20,7 @@ func _physics_process(delta):
 	
 	
 func _on_hitbox_component_area_entered(area):
-	print(area)
 	if area as HitboxComponent and area.get_parent() != dont_hit:
-		print(str(area.get_parent()) + "AQUI1")
-		print(str(dont_hit) + "AQUI2")
 		var hitbox: HitboxComponent = area
 		
 		var attack = Attack.new()

@@ -20,10 +20,6 @@ config/icon="res://icon.svg"
 Score_control="*res://scripts/score_control.gd"
 SaveLoad="*res://scripts/saveload.gd"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/stretch/mode="viewport"

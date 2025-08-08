@@ -17,8 +17,6 @@ func enter():
 	stun_time = agent.stun_time
 	attack = true
 	
-	print(raycast.get_collider())
-			
 func update(delta):
 	await get_tree().create_timer(0.1).timeout
 	if attack:
@@ -45,6 +43,5 @@ func shoot():
 			attack.knockback_force = knockback_force
 			attack.stun_time = stun_time
 			
-			print(attack.damage)
 			
 			health.damage(attack)

@@ -19,11 +19,12 @@
 [ext_resource type="AudioStream" uid="uid://c4yxor4skv2lo" path="res://assets/audio/enemy/audio dano inimigo 1.mp3" id="17_7ktny"]
 [ext_resource type="AudioStream" uid="uid://1gjm7hvvr2ke" path="res://assets/audio/enemy/audio dano inimigo 2.mp3" id="18_rji51"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_dtiis"]
-radius = 0.231291
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7ktny"]
+height = 0.289551
+radius = 0.356934
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jtiv3"]
-radius = 2.5
+radius = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32j2v"]
 atlas = ExtResource("2_vwwpk")
@@ -133,15 +134,14 @@ time_reload_sec = 2
 knockback_force = 20
 
 [node name="head" type="CollisionShape3D" parent="."]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653356, 0)
-visible = false
-shape = SubResource("SphereShape3D_dtiis")
-debug_color = Color(0, 0, 0, 0.42)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.459817, 0)
+shape = SubResource("CylinderShape3D_7ktny")
+debug_color = Color(0.969414, 0, 0.461513, 0.42)
 
-[node name="RayCast3D" type="RayCast3D" parent="." groups=["enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.415392, -0.31386)
-target_position = Vector3(0, 0, -2)
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0197648, -0.31386)
+visible = false
+target_position = Vector3(0, 0, -5)
 
 [node name="detect_player" type="Area3D" parent="."]
 
@@ -159,7 +159,7 @@ autoplay = "front"
 script = ExtResource("2_275un")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036792, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0308348, 0)
 shape = SubResource("CapsuleShape3D_xp5p6")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_8xlit")]
@@ -205,4 +205,3 @@ stream = ExtResource("17_7ktny")
 stream = ExtResource("18_rji51")
 
 [connection signal="body_entered" from="detect_player" to="StateMachine/idle" method="_on_detect_player_body_entered"]
-[connection signal="body_exited" from="detect_player" to="StateMachine/followPlayer" method="_on_detect_player_body_exited"]

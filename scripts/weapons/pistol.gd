@@ -3,11 +3,13 @@ class_name pistol
 
 @onready var new_sprite_animation = $AnimatedSprite3D
 var shotgun_raycast: Node3D = null
+var player: Player = null
 
 func weapon_up():
+	player = agent as Player
 	#print("entered pistol")
-	if agent.ammo_counter:
-		agent.ammo_counter.text = "999/999"
+	if player.ammo_counter:
+		player.ammo_counter.text = "999/999"
 	if raycast and !raycast_configured:
 		raycast.target_position.z = raycast_distance
 	
@@ -51,54 +53,73 @@ func weapon_idle():
 		Change.emit(self, "shotgun")
 		
 func weapon_shot():
+	player.shotted = true
 	sprite_animation.play("shoot")
 	if !shotted:
 		shoot_sound.play()
 	
 	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
-		var head = raycast.get_collider()
-		var enemy = head.get_parent()
-		var health: HealthComponent = null
-		for child in enemy.get_children():
-			if child is HealthComponent:
-				health = child
-				break
-				
-		if health:
-			var attack = Attack.new()
-			attack.damage = damage*999
-			attack.knockback_force = knockback_force
-			attack.stun_time = stun_time
-			
-			health.damage(attack)
-	
-	
-	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
-		var shape_index = raycast.get_collider_shape()
-		var collision_shape_name = raycast.get_collider().shape_owner_get_owner(shape_index).name
+		var target = raycast.get_collider() # A CollisionObject3D.
+		var shape_id = raycast.get_collider_shape() # The shape index in the collider.
+		var owner_id = target.shape_find_owner(shape_id) # The owner ID in the collider.
+		var shape = target.shape_owner_get_owner(owner_id)
+		
+		var headshot: bool = false
 		var enemy = raycast.get_collider()
 		var health: HealthComponent = null
-			
-		
+
+		if shape.name == "head":
+			headshot = true
 		
 		for child in enemy.get_children():
 			if child is HealthComponent:
 				health = child
 				break
 				
+				
+		print(health)
 		if health:
 			var attack = Attack.new()
-			attack.damage = damage
+			if headshot:
+				attack.damage = damage * 999
+			else:
+				attack.damage = damage
 			attack.knockback_force = knockback_force
 			attack.stun_time = stun_time
 			
 			health.damage(attack)
 	
+	
+	#if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
+		##var target = raycast.get_collider() # A CollisionObject3D.
+		##var shape_id = raycast.get_collider_shape() # The shape index in the collider.
+		##var owner_id = target.shape_find_owner(shape_id) # The owner ID in the collider.
+		##var shape = target.shape_owner_get_owner(owner_id)
+		#
+		#
+		#var head = raycast.get_collider()
+		#var enemy = head.get_parent()
+		#var health: HealthComponent = null
+			#
+		#
+		#
+		#for child in enemy.get_children():
+			#if child is HealthComponent:
+				#health = child
+				#break
+				#
+		#if health:
+			#var attack = Attack.new()
+			#attack.damage = damage
+			#attack.knockback_force = knockback_force
+			#attack.stun_time = stun_time
+			#
+			#health.damage(attack)
+	#
 	shotted = true
-			
+	
 	await sprite_animation.animation_finished
 	shotted = false
 	current_state = STATES.WEAPON_IDLE
-	
 	
 	

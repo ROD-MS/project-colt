@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name Enemy
 
-const SPEED = 2
+const SPEED = 5
 
 @export var damage: int = 10
 @export var time_reload_sec = 0
@@ -11,6 +11,8 @@ const SPEED = 2
 
 @onready var nav = $nav
 @onready var sounds = $sounds
+@onready var detect_player: Area3D = $detect_player
+@onready var raycast: RayCast3D = $RayCast3D
 
 var follow: bool = false
 var sound_list: Array
@@ -32,8 +34,7 @@ func _ready():
 	randomize()
 	timer = randi_range(2, 8)
 	
-	
-	print(player)
+	detect_player.process_mode = Node.PROCESS_MODE_DISABLED
 	
 func _physics_process(delta):
 	if not is_on_floor():
@@ -43,7 +44,6 @@ func _physics_process(delta):
 	if get_parent().name != "menu_scene":
 		sound(delta)
 		
-	#print($head.position)
 	if player:
 		target_position(player.position)
 	move_and_slide()

@@ -4,13 +4,12 @@ class_name shotgun
 @onready var new_sprite_animation = $AnimatedSprite3D
 var shotgun_raycast: Node3D = null
 var raycast_angle_setted: bool = false
+var player: Player = null
 
 func weapon_up():
-	var player: Player = get_parent().get_parent()
-	if agent.ammo_counter:
-		agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
-	print("MUNIÇÃO NA ARMA: " + str(ammo_in_weapon))
-	print("MUNIÇÃO TOTAL: " + str(ammo_remaining))
+	player = agent as Player
+	if player.ammo_counter:
+		player.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
 	
 	randomize()
 	if raycast and !raycast_configured:
@@ -18,7 +17,6 @@ func weapon_up():
 		for child in player.get_children():
 			if child is Head:
 				for _child in child.get_children():
-					print(_child)
 					if _child.name == "shotgun_raycast":
 						shotgun_raycast = _child
 						break
@@ -62,6 +60,7 @@ func weapon_idle():
 			current_state = STATES.WEAPON_RELOAD
 		
 func weapon_shot():
+	player.shotted = true
 	#print("shoot shotgun")
 	sprite_animation.play("shoot")
 	agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)

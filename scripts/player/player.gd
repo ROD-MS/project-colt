@@ -8,8 +8,9 @@ const SHOT = null
 #@export var state_machine: StateMachine
 @export var mouse_sensibility: float = 0.2
 
-@onready var head = $head
-@onready var camera = $head/Camera3D
+@onready var alert_enemy: Area3D = $alert_enemy
+@onready var head: Node3D = $head
+@onready var camera: Camera3D = $head/Camera3D
 
 @onready var score: Label = $HUD/ReferenceRect/scoreboard/score
 @onready var combo: Label = $HUD/ReferenceRect/scoreboard/combo
@@ -25,10 +26,18 @@ var current_level: String = ""
 var tentativas: int = 0
 var timer: int = 0
 
-#func _process(delta: float) -> void:
-	#await get_tree().create_timer(1, true).timeout
-	#timer += 1
-	#$HUD/ReferenceRect/timer.text = "Tempo: " + str(timer)
+var shotted: bool = false
+
+func _process(delta: float) -> void:
+	if shotted:
+		alert_enemy.process_mode = Node.PROCESS_MODE_INHERIT
+		shotted = false
+	else:
+		alert_enemy.process_mode = Node.PROCESS_MODE_DISABLED
+		
+
+		
+	
 	
 
 func _physics_process(delta):
@@ -82,7 +91,7 @@ func _ready():
 	#SETANDO A CAMERA DOS INIMIGOS E ITENS
 	get_tree().call_group("enemy_item", "set_camera", camera)
 	
-	print(get_owner().get_owner())
+	alert_enemy.process_mode = Node.PROCESS_MODE_DISABLED
 	
 func _input(event):
 	if event.is_action_pressed("free_mouse"):
@@ -155,3 +164,9 @@ func _exit_tree() -> void:
 			#Score_control.tentativas_level2 += 1
 			
 	get_tree().reload_current_scene()
+
+
+func _on_alert_enemy_body_entered(body: Node3D) -> void:
+	if body is Enemy:
+		var _body := body as Enemy
+		_body.follow = true

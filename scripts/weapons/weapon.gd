@@ -92,16 +92,13 @@ func add_ammo(ammo_added: int):
 	
 	for x in ammo_added:
 		if ammo_remaining == max_ammo:
-			print("RETORNOU")
 			if agent.ammo_counter:
 				agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
 			return
 		ammo_remaining += adding_ammo
-		print("MUNICAO ATUAL: " + str(ammo_remaining))
 		
 	if agent.ammo_counter:
 		agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
-	print("MUNIÇÃO TOTAL: " + str(ammo_remaining))
 	
 func reload_ammo():
 	for x in max_ammo_reload:
@@ -111,6 +108,4 @@ func reload_ammo():
 			ammo_in_weapon += 1
 			ammo_remaining -= 1
 			
-	print("MUNIÇÃO NA ARMA: " + str(ammo_in_weapon))
-	print("MUNIÇÃO TOTAL: " + str(ammo_remaining))
 	

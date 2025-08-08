@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=94 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Texture2D" uid="uid://b1tfg5g46qn2y" path="res://assets/HUD/life_bar/10-0-Sheet.png" id="2_inhyd"]
@@ -890,6 +890,9 @@ _data = {
 &"shotgun_up": SubResource("Animation_84kbh")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_aqa0x"]
+radius = 15.0
+
 [node name="player" type="CharacterBody3D"]
 floor_stop_on_slope = false
 floor_block_on_wall = false
@@ -1099,12 +1102,13 @@ grow_vertical = 2
 color = Color(1, 0, 0, 0.305882)
 
 [node name="ammo_box_detector" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.825433, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.746791, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ammo_box_detector"]
 shape = SubResource("CapsuleShape3D_pcclk")
 
 [node name="inventory_component" parent="." node_paths=PackedStringArray("initial_weapon", "raycast", "sprite_animation", "animation_player") instance=ExtResource("6_nawpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)
 initial_weapon = NodePath("pistol")
 raycast = NodePath("../head/RayCast3D")
 sprite_animation = NodePath("../head/hand_animation")
@@ -1114,15 +1118,17 @@ animation_player = NodePath("../head/hand_animationplayer")
 default_position = Vector3(0.47, -0.3, -0.346)
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar", "life_bar") instance=ExtResource("7_2k4s4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)
 MAX_HEALTH = 100
 health_bar = NodePath("../HUD/ReferenceRect/ProgressBar")
 life_bar = NodePath("../HUD/ReferenceRect/life_bar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.825433, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.746791, 0)
 shape = SubResource("CapsuleShape3D_pcclk")
 
 [node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)
 script = ExtResource("9_seiem")
 
 [node name="hand_animation" type="AnimatedSprite3D" parent="head"]
@@ -1149,6 +1155,7 @@ libraries = {
 }
 
 [node name="shotgun_raycast" type="Node3D" parent="head"]
+visible = false
 
 [node name="shotgun_raycast" type="RayCast3D" parent="head/shotgun_raycast"]
 target_position = Vector3(0, 0, 0)
@@ -1193,11 +1200,11 @@ script = ExtResource("6_iay3t")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.185899, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.626601, 0)
-visible = false
+transform = Transform3D(0.185899, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.547959, 0)
 texture = ExtResource("16_kbxbc")
 
 [node name="Sounds Effects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)
 
 [node name="AudioAbrindoShotgun" type="AudioStreamPlayer" parent="Sounds Effects"]
 stream = ExtResource("11_yktyj")
@@ -1212,6 +1219,13 @@ stream = ExtResource("13_xq3g6")
 stream = ExtResource("30_yhyq5")
 volume_db = -10.0
 
+[node name="alert_enemy" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="alert_enemy"]
+shape = SubResource("SphereShape3D_aqa0x")
+
 [connection signal="pressed" from="HUD/ReferenceRect/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="HUD/ReferenceRect/load" to="." method="_on_load_pressed"]
 [connection signal="area_entered" from="ammo_box_detector" to="." method="_on_ammo_box_detector_area_entered"]
+[connection signal="body_entered" from="alert_enemy" to="." method="_on_alert_enemy_body_entered"]

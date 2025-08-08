@@ -32,6 +32,13 @@ func damage(attack: Attack) -> float:
 		$"../HUD/hit".hide()
 		
 	if get_parent().is_in_group("enemy"):
+		var enemy = get_parent() as Enemy
+		print(enemy.detect_player)
+		enemy.detect_player.process_mode = Node.PROCESS_MODE_INHERIT
+		enemy.follow = true
+		
+		
+	if get_parent().is_in_group("enemy"):
 		randomize()
 		var random_sound: int = randi_range(1, 2)
 		if random_sound == 1:
@@ -40,7 +47,7 @@ func damage(attack: Attack) -> float:
 				$"../sounds/dano_enemy2".play()
 	
 	if health <= 0:
-		if get_parent().name == "player":
+		if get_parent() and get_parent().name == "player":
 			get_tree().reload_current_scene()
 		#if get_parent().is_in_group("enemy"):
 			#print("HEALTH ENEMY: " +str(health))
