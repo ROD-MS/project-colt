@@ -133,4 +133,4 @@ reset_highscore={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-shading/overrides/force_vertex_shading=true
+shading/overrides/force_lambert_over_burley=true

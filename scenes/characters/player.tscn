@@ -908,6 +908,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="life_bar" type="AnimatedSprite2D" parent="HUD/ReferenceRect"]
+texture_filter = 1
 position = Vector2(192, 576)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_rfou0")
@@ -945,6 +946,7 @@ texture = ExtResource("3_4t2du")
 
 [node name="Panel" type="Panel" parent="HUD/ReferenceRect"]
 visible = false
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
