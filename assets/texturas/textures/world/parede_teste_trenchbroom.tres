@@ -7,7 +7,6 @@
 diffuse_mode = 2
 albedo_texture = ExtResource("1_wwhpo")
 metallic_specular = 0.0
-detail_enabled = true
 detail_blend_mode = 2
 detail_uv_layer = 1
 detail_albedo = ExtResource("2_plwdn")

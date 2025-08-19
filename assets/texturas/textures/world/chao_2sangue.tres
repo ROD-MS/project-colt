@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cv2q7w0fmjwvl" path="res://assets/texturas/textures/world/chao_2sangue.png" id="1_fjv4s"]
 
 [resource]
-disable_ambient_light = true
 albedo_texture = ExtResource("1_fjv4s")
 metallic_specular = 0.0
 texture_filter = 2

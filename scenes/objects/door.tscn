@@ -1,16 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu14kdign3inj"]
+[gd_scene load_steps=9 format=3 uid="uid://bu14kdign3inj"]
 
 [ext_resource type="Script" uid="uid://146ifx5cnxf4" path="res://scripts/objects/door.gd" id="1_3ejso"]
-[ext_resource type="Texture2D" uid="uid://7ullrvvlppm8" path="res://assets/texturas/Porta_c_listras.png" id="2_uw3m6"]
+[ext_resource type="PackedScene" uid="uid://db1ds8hngxysw" path="res://assets/blender/portao.glb" id="2_uw3m6"]
+[ext_resource type="Texture2D" uid="uid://c05fhjdejnu7x" path="res://assets/blender/portao_Porta c listras.png" id="3_xm0wp"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm0wp"]
-albedo_texture = ExtResource("2_uw3m6")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aji8h"]
+resource_name = "Material"
+cull_mode = 2
+diffuse_mode = 2
+albedo_texture = ExtResource("3_xm0wp")
+texture_filter = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ev121"]
-size = Vector3(2.7, 2, 0.4)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_to301"]
-size = Vector3(2.7, 2, 1.5)
+size = Vector3(0.453815, 3.19962, 6.42213)
 
 [sub_resource type="Animation" id="Animation_1ioja"]
 length = 0.001
@@ -29,7 +31,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CSGBox3D:position")
+tracks/1/path = NodePath("portao:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -37,34 +39,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_eois6"]
-resource_name = "close"
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 2, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CSGBox3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 2, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_4sbxg"]
@@ -79,47 +53,41 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 2.95, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CSGBox3D:position")
+tracks/1/path = NodePath("portao:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 2.95, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_skhbg"]
 _data = {
 &"RESET": SubResource("Animation_1ioja"),
-&"close": SubResource("Animation_eois6"),
 &"open": SubResource("Animation_4sbxg")
 }
 
 [node name="door" type="StaticBody3D"]
 script = ExtResource("1_3ejso")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-material_override = SubResource("StandardMaterial3D_xm0wp")
-size = Vector3(2.7, 2, 0.4)
+[node name="portao" parent="." instance=ExtResource("2_uw3m6")]
+
+[node name="Cube" parent="portao" index="0"]
+material_override = SubResource("StandardMaterial3D_aji8h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ev121")
-
-[node name="detect_player" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="detect_player"]
-shape = SubResource("BoxShape3D_to301")
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_skhbg")
 }
 
-[connection signal="body_entered" from="detect_player" to="." method="_on_detect_player_body_entered"]
-[connection signal="body_exited" from="detect_player" to="." method="_on_detect_player_body_exited"]
+[editable path="portao"]

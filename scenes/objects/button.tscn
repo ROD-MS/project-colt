@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8rgjfwpyqlo8"]
+
+[ext_resource type="Script" uid="uid://d4cyuq0ms04cu" path="res://scripts/objects/button.gd" id="1_2wxwk"]
+[ext_resource type="PackedScene" uid="uid://cjmrjxeq6m67x" path="res://assets/blender/butaoneutro.glb" id="1_ufqlp"]
+[ext_resource type="Texture2D" uid="uid://bnvokc7yxkfa4" path="res://assets/texturas/butaoneutro_Butao hehe.png" id="3_bejyh"]
+[ext_resource type="AudioStream" uid="uid://dkqy0qm2xtvjp" path="res://assets/audio/apertada no butão do brinO.mp3" id="3_e5cij"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsah0"]
+resource_name = "Material"
+cull_mode = 2
+diffuse_mode = 2
+albedo_texture = ExtResource("3_bejyh")
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bejyh"]
+resource_name = "Material"
+cull_mode = 2
+diffuse_mode = 2
+albedo_texture = ExtResource("3_bejyh")
+texture_filter = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2wxwk"]
+size = Vector3(0.275024, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5cij"]
+size = Vector3(0.575806, 1, 1)
+
+[sub_resource type="Animation" id="Animation_bejyh"]
+resource_name = "pressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("butaoneutro/Cylinder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.259185, 0.0139213, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2wxwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("butaoneutro/Cylinder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.18083, 0.0139213, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nsah0"]
+_data = {
+&"RESET": SubResource("Animation_2wxwk"),
+&"pressed": SubResource("Animation_bejyh")
+}
+
+[node name="button" type="StaticBody3D"]
+script = ExtResource("1_2wxwk")
+
+[node name="butaoneutro" parent="." instance=ExtResource("1_ufqlp")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="Cube" parent="butaoneutro" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_nsah0")
+
+[node name="Cylinder" parent="butaoneutro" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bejyh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.060519, 0, 0)
+shape = SubResource("BoxShape3D_2wxwk")
+
+[node name="bruno\'s button" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bruno\'s button"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.319212, 0, 0)
+shape = SubResource("BoxShape3D_e5cij")
+debug_color = Color(0.962574, 0, 0.503785, 0.42)
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nsah0")
+}
+
+[node name="sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_e5cij")
+
+[connection signal="body_entered" from="bruno\'s button" to="." method="_on_brunos_button_body_entered"]
+[connection signal="body_exited" from="bruno\'s button" to="." method="_on_brunos_button_body_exited"]
+
+[editable path="butaoneutro"]

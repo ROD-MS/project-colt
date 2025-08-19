@@ -2,7 +2,7 @@ extends State
 
 @onready var head = $"../../head"
 var player: Player
-const SPEED: float = 2
+const SPEED: float = 3
 
 func enter():
 	player = agent as Player

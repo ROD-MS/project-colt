@@ -1,6 +1,6 @@
 extends State
 
-const SPEED: float = 4
+const SPEED: float = 6
 var player: Player
 
 func enter():
