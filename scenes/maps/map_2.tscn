@@ -1,8 +1,10 @@
-[gd_scene load_steps=346 format=4 uid="uid://j5xo5uyv6tb6"]
+[gd_scene load_steps=348 format=4 uid="uid://j5xo5uyv6tb6"]
 
 [ext_resource type="PackedScene" uid="uid://bu14kdign3inj" path="res://scenes/objects/door.tscn" id="1_2rdlg"]
 [ext_resource type="Script" uid="uid://cnf647r0kht4j" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_b84n0"]
+[ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="1_upgbm"]
 [ext_resource type="PackedScene" uid="uid://ctvm7abvbkj7h" path="res://assets/blender/incubadora_2.0.glb" id="1_v3nfs"]
+[ext_resource type="PackedScene" uid="uid://bb3ymudhsbplr" path="res://scenes/objects/shotgun_box.tscn" id="2_600sb"]
 [ext_resource type="Texture2D" uid="uid://de0nk1ui80x34" path="res://assets/texturas/textura_incubadora.png" id="2_dwfqr"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_j3bpy"]
 [ext_resource type="PackedScene" uid="uid://b8rgjfwpyqlo8" path="res://scenes/objects/button.tscn" id="2_us006"]
@@ -1096,7 +1098,67 @@ points = PackedVector3Array(59.5, -8, -8, 55, -8.125, -8, 55, -8.125, -8, 55, -8
 
 [node name="whisky" type="Node" parent="."]
 
+[node name="garrafa_whisky2" parent="whisky" instance=ExtResource("1_upgbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.319, 14.9471, -10.8301)
+
+[node name="garrafa_whisky3" parent="whisky" instance=ExtResource("1_upgbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.3053, 14.8399, -11.3079)
+
+[node name="garrafa_whisky" parent="whisky" instance=ExtResource("1_upgbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9437, 1.25415, 37.8544)
+
+[node name="garrafa_whisky4" parent="whisky" instance=ExtResource("1_upgbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.5595, 4.45622, 0.178913)
+
+[node name="garrafa_whisky5" parent="whisky" instance=ExtResource("1_upgbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.3864, -7.85817, 3.30253)
+
+[node name="garrafa_whisky6" parent="whisky" instance=ExtResource("1_upgbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.8005, -7.68226, 30.8085)
+
+[node name="garrafa_whisky7" parent="whisky" instance=ExtResource("1_upgbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.597, -17.5445, -10.4803)
+
+[node name="garrafa_whisky8" parent="whisky" instance=ExtResource("1_upgbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.006, -17.2911, -3.25447)
+
+[node name="garrafa_whisky9" parent="whisky" instance=ExtResource("1_upgbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.047, -17.4932, -17.791)
+
 [node name="municao" type="Node" parent="."]
+
+[node name="shotgun_box5" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.1644, -8.35938, -1.87308)
+
+[node name="shotgun_box4" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0008, 11.4047, 33.8098)
+
+[node name="shotgun_box3" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5384, 11.5622, 34.3498)
+
+[node name="shotgun_box" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0648, 1.31686, 37.9267)
+
+[node name="shotgun_box2" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.82606, 1.31686, 44.9925)
+
+[node name="shotgun_box6" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.6558, -7.80873, 29.5601)
+
+[node name="shotgun_box7" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5392, 2.48987, -26.5755)
+
+[node name="shotgun_box8" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.6867, -7.82334, 21.7933)
+
+[node name="shotgun_box9" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260.905, -7.46798, -3.52959)
+
+[node name="shotgun_box10" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.353, -7.78798, -3.09569)
+
+[node name="shotgun_box11" parent="municao" instance=ExtResource("2_600sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.997, -17.4342, -25.1572)
 
 [node name="box" type="Node" parent="."]
 

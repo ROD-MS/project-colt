@@ -1,5 +1,6 @@
-[gd_scene load_steps=155 format=4 uid="uid://cf1bbp10hynjw"]
+[gd_scene load_steps=156 format=4 uid="uid://cf1bbp10hynjw"]
 
+[ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="1_akoh1"]
 [ext_resource type="Script" uid="uid://cnf647r0kht4j" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_wnico"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_hdv2m"]
 [ext_resource type="Material" uid="uid://c2x3xwlwl86am" path="res://assets/texturas/textures/world/chao256.tres" id="3_5jnh4"]
@@ -563,6 +564,26 @@ points = PackedVector3Array(25.5, 0.5, -10.5, 25.5, 0, -10.5, 33.5, 0, -10.5, 33
 points = PackedVector3Array(14, 4, -2, 14, 0.5, -2, 15, 0.5, -2, 15, 4, -2, 14, 4, 1.5, 14, 0.5, 1.5, 15, 0.5, 1.5, 15, 4, 1.5)
 
 [node name="map_1" type="Node3D"]
+
+[node name="Whisky" type="Node" parent="."]
+
+[node name="garrafa_whisky4" parent="Whisky" instance=ExtResource("1_akoh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.6146, 10.5196, 9.07531)
+
+[node name="garrafa_whisky" parent="Whisky" instance=ExtResource("1_akoh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.1096, 1.09026, -2.17596)
+
+[node name="garrafa_whisky2" parent="Whisky" instance=ExtResource("1_akoh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.0792, 1.21512, 0.845426)
+
+[node name="garrafa_whisky3" parent="Whisky" instance=ExtResource("1_akoh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8497, 1.29786, -5.26411)
+
+[node name="garrafa_whisky5" parent="Whisky" instance=ExtResource("1_akoh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.2248, 10.8356, 13.3843)
+
+[node name="garrafa_whisky6" parent="Whisky" instance=ExtResource("1_akoh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.777, 14.3291, 29.1165)
 
 [node name="buttons" type="Node" parent="."]
 
