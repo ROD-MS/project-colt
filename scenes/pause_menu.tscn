@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://nfchdxg0capl" path="res://assets/fonts/Retro Gaming.ttf" id="2_kukqi"]
 
 [node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_myx47")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -57,7 +58,99 @@ theme_override_font_sizes/font_size = 44
 text = "QUIT
 "
 
+[node name="config" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="label_mouse" type="Label" parent="config"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -335.0
+offset_top = 43.0
+offset_right = 343.0
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 32
+text = "MOUSE SENSIBILITY"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="slider_mouse" type="HSlider" parent="config"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -348.0
+offset_top = 130.0
+offset_right = 348.0
+offset_bottom = 146.0
+grow_horizontal = 2
+min_value = 0.05
+max_value = 1.0
+step = 0.001
+value = 0.235
+
+[node name="label_sounds" type="Label" parent="config"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -335.0
+offset_top = 207.0
+offset_right = 343.0
+offset_bottom = 250.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 32
+text = "SOUNDS VOLUME"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="slider_sounds" type="HSlider" parent="config"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -348.0
+offset_top = 281.0
+offset_right = 348.0
+offset_bottom = 297.0
+grow_horizontal = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="back" type="Button" parent="config"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.5
+offset_top = -132.0
+offset_right = 120.5
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 44
+text = "BACK"
+
 [connection signal="pressed" from="menu_holder/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="menu_holder/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="menu_holder/configuration" to="." method="_on_configuration_pressed"]
 [connection signal="pressed" from="menu_holder/quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="config/slider_mouse" to="." method="_on_slider_mouse_value_changed"]
+[connection signal="value_changed" from="config/slider_sounds" to="." method="_on_slider_sounds_value_changed"]
+[connection signal="pressed" from="config/back" to="." method="_on_back_config_pressed"]

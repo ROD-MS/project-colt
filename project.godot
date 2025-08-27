@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="PROJETO_INTEGRADO_3"
+config/name="PROJECT: COLT"
 run/main_scene="uid://dw25nvpcbwpry"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Score_control="*res://scripts/score_control.gd"
 SaveLoad="*res://scripts/saveload.gd"
+Config="*res://scripts/config.gd"
 
 [display]
 

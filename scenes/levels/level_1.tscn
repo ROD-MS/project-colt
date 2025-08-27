@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://gkvlc4stbkj0"]
+[gd_scene load_steps=5 format=3 uid="uid://gkvlc4stbkj0"]
 
 [ext_resource type="Shader" uid="uid://cdjjwyyxvorxw" path="res://assets/shader/psx_shader.gdshader" id="1_6iamk"]
+[ext_resource type="PackedScene" uid="uid://pdx414d75sdo" path="res://scenes/pause_menu.tscn" id="1_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://cf1bbp10hynjw" path="res://scenes/maps/map_1.tscn" id="2_6iamk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nsrm0"]
@@ -19,6 +20,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="pause_menu" parent="." instance=ExtResource("1_nsrm0")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_nsrm0")

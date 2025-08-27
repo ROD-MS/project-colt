@@ -24,6 +24,9 @@ var tentativas_level2: int = 0
 
 var current_level: String = ""
 
+#func _process(delta: float) -> void:
+	#print(combo)
+
 func _ready() -> void:
 	current_level = level.find_key(true)
 	#print(current_level)
@@ -73,8 +76,11 @@ func add_normal_point(new_point: float) -> void: # PONTOS SÃO DADOS APENAS QUAN
 	
 	enemyDead.emit(score, combo, _new_highscore)
 	
-func reset_combo() -> void:
-	combo = 0
+func down_combo() -> void:
+	if combo == 2:
+		combo = 0
+	elif combo > 0:
+		combo -= 1
 	
 func reset_score() -> void:
 	score = 0

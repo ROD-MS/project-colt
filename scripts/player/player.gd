@@ -36,16 +36,10 @@ func _process(delta: float) -> void:
 		alert_enemy.process_mode = Node.PROCESS_MODE_DISABLED
 		
 
-		
-	
-	
-
 func _physics_process(delta):
 	#moviment(delta)
 	if !is_on_floor():
 		velocity += get_gravity() * delta
-	
-
 	
 	#a += 0.01
 	#print("COSSENO: " + str(cos(a)))
@@ -55,8 +49,15 @@ func _physics_process(delta):
 	if time_bar.value > 0:
 		time_bar.value -= 1
 	else:
-		Score_control.reset_combo()
-		combo.text = "COMBO: "
+		Score_control.down_combo()
+		
+		if Score_control.combo <= 1:
+			combo.text = "COMBO: "
+		else:
+			combo.text = "COMBO: " + str(Score_control.combo)
+			
+		if Score_control.combo > 0:
+			time_bar.value = time_bar.max_value
 		
 	
 	move_and_slide()
@@ -67,7 +68,7 @@ func _ready():
 		print(current_level)
 	
 	Score_control.enemyDead.connect(change_scoreboard)
-	Score_control.reset_combo()
+	Score_control.combo = 0
 	Score_control.reset_score()
 	Score_control.set_level(current_level)
 	
@@ -101,8 +102,8 @@ func _input(event):
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			
 	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * mouse_sensibility)) 
-		head.rotation.x -= event.relative.y * camera_sense
+		rotate_y(deg_to_rad(-event.relative.x * Config.mouse_sensibility)) 
+		head.rotation.x -= event.relative.y * Config.mouse_sensibility/50
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 		#rotate_y(deg_to_rad(-event.relative.x * mouse_sensibility))
 		#print(rotation)
@@ -119,7 +120,8 @@ func _on_show_tutorial_body_exited(body):
 		
 func change_scoreboard(new_score: float, new_combo: float, new_highscore: float):
 	score.text = "SCORE: " + str(new_score)
-	combo.text = "COMBO: " + str(new_combo)
+	if Score_control.combo > 1:
+		combo.text = "COMBO: " + str(new_combo)
 	highscore.text = "HIGHSCORE: " + str(new_highscore)
 	time_bar.value = time_bar.max_value
 

@@ -27,8 +27,11 @@ func damage(attack: Attack) -> float:
 		var player = get_parent() as Player
 		$"../HUD/hit".show()
 		await get_tree().create_timer(0.1).timeout
-		Score_control.reset_combo()
-		player.combo.text = "COMBO: "
+		Score_control.down_combo()
+		if Score_control.combo <= 1:
+			player.combo.text = "COMBO: "
+		else:
+			player.combo.text = "COMBO: " + str(Score_control.combo)
 		$"../HUD/hit".hide()
 		
 	if get_parent().is_in_group("enemy"):
