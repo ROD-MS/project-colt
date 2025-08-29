@@ -37,6 +37,8 @@ func input(event: InputEvent):
 		Transitioned.emit(self, "run")
 	if Input.is_action_just_pressed("jump") and player.is_on_floor():
 		Transitioned.emit(self, "jump")
+	if Input.is_action_pressed("crouch"):
+		Transitioned.emit(self, "crouch")
 	if Input.is_action_just_pressed("fire"):
 			Transitioned.emit(self, "shoot")
 
