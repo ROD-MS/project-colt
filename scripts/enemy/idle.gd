@@ -17,7 +17,7 @@ func enter():
 		Transitioned.emit(self,"followPlayer")
 	
 func _process(delta: float) -> void:
-	if raycast.is_colliding() and raycast.get_collider().name == "player":
+	if self and raycast.is_colliding() and raycast.get_collider().name == "player":
 		agent.follow = true
 		detect_player.process_mode = Node.PROCESS_MODE_INHERIT
 		Transitioned.emit(self, "followPlayer")
