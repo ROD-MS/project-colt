@@ -1,4 +1,4 @@
-[gd_scene load_steps=348 format=4 uid="uid://j5xo5uyv6tb6"]
+[gd_scene load_steps=349 format=4 uid="uid://j5xo5uyv6tb6"]
 
 [ext_resource type="PackedScene" uid="uid://bu14kdign3inj" path="res://scenes/objects/door.tscn" id="1_2rdlg"]
 [ext_resource type="Script" uid="uid://cnf647r0kht4j" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_b84n0"]
@@ -1094,6 +1094,9 @@ points = PackedVector3Array(59.5, -7.5, -8, 54.8636, -7.5, -8, 54.8636, -8, -8, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7sftk"]
 points = PackedVector3Array(59.5, -8, -8, 55, -8.125, -8, 55, -8.125, -8, 55, -8.125, -8, 54.875, -8.5, -8, 59.5, -8.5, -8, 60.5, -8.5, -7, 60.5, -8, -7, 60.5, -8, -7, 60.5, -8, -7, 60.5, -8.5, -6, 60.5, -8.5, -6, 60.5, -8.5, -6.00001)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_upgbm"]
+size = Vector3(28.6895, 0.232422, 1.8089)
+
 [node name="map_2" type="Node3D"]
 
 [node name="whisky" type="Node" parent="."]
@@ -1368,125 +1371,6 @@ transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 material_override = SubResource("StandardMaterial3D_upgbm")
 
-[node name="incubadora_2_31" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 158.607, -16.5014, 10.2266)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_31" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_32" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 154.607, -16.5014, 10.1769)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_32" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_33" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 150.607, -16.5014, 10.1272)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_33" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_34" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 146.607, -16.5014, 10.0775)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_34" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_35" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 142.608, -16.5014, 10.0278)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_35" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_36" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 138.608, -16.5014, 9.97806)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_36" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_37" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 134.608, -16.5014, 9.92836)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_37" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_38" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 131.609, -16.5014, 9.89108)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_38" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_39" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 129.646, -16.5014, 6.86646)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_39" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_40" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 133.646, -16.5014, 6.91616)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_40" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_41" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 136.646, -16.5014, 6.95344)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_41" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_42" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 140.645, -16.5014, 7.00315)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_42" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_43" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 144.645, -16.5014, 7.05285)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_43" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_44" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 148.645, -16.5014, 7.10256)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_44" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_45" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 152.644, -16.5014, 7.15226)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_45" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_46" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 156.644, -16.5014, 7.20197)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_46" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_47" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 158.681, -16.5014, 4.22705)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_47" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
 [node name="incubadora_2_55" parent="incubadora" instance=ExtResource("1_v3nfs")]
 transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 158.83, -16.5014, -7.77202)
 
@@ -1526,55 +1410,6 @@ material_override = SubResource("StandardMaterial3D_upgbm")
 transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 158.905, -16.5014, -13.7716)
 
 [node name="Cylinder" parent="incubadora/incubadora_2_60" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_48" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 154.681, -16.5014, 4.17735)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_48" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_49" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 150.682, -16.5014, 4.12764)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_49" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_50" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 146.682, -16.5014, 4.07794)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_50" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_51" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 142.682, -16.5014, 4.02823)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_51" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_52" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 138.683, -16.5014, 3.97853)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_52" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_53" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 134.683, -16.5014, 3.92882)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_53" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-material_override = SubResource("StandardMaterial3D_upgbm")
-
-[node name="incubadora_2_54" parent="incubadora" instance=ExtResource("1_v3nfs")]
-transform = Transform3D(0.0124264, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.0124264, 130.683, -16.5014, 3.87911)
-
-[node name="Cylinder" parent="incubadora/incubadora_2_54" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 material_override = SubResource("StandardMaterial3D_upgbm")
 
@@ -2593,49 +2428,10 @@ transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 2.00921,
 [node name="spikes" type="Node3D" parent="."]
 
 [node name="spike" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 84, -17, -19)
-
-[node name="spike2" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 81, -17, 9)
-
-[node name="spike3" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 99, -17, 7)
-
-[node name="spike4" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 118, -17, 7)
-
-[node name="spike5" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 118, -17, -15)
-
-[node name="spike6" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 119, -17, -21)
-
-[node name="spike7" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 101, -17, -21)
-
-[node name="spike8" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 101, -17, -9)
-
-[node name="spike9" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 82, -17, -9)
-
-[node name="spike10" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 169, -29, -13)
-
-[node name="spike11" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 169, -29, 9)
-
-[node name="spike12" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 187, -29, 9)
-
-[node name="spike13" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 205, -29, 9)
-
-[node name="spike14" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 205, -29, -13)
+transform = Transform3D(29.6474, 0, 0, 0, 10, 0, 0, 0, 22.8561, 98.9978, -17, -4.9376)
 
 [node name="spike15" parent="spikes" instance=ExtResource("5_j3bpy")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 187, -29, -13)
+transform = Transform3D(26.2831, 0, 0, 0, 10, 0, 0, 0, 12.031, 184.402, -29, -3.03364)
 
 [node name="end_level" parent="." instance=ExtResource("12_ik7ym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211, -17, -3)
@@ -2803,6 +2599,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, -8, -23)
 [node name="enemy55" parent="." instance=ExtResource("14_nigg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123, -8, -25)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.926, -13.8522, 12.0277)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12715, -1.00111, 0.0616941)
+shape = SubResource("BoxShape3D_upgbm")
+
 [editable path="incubadora/incubadora_2_0"]
 [editable path="incubadora/incubadora_2_1"]
 [editable path="incubadora/incubadora_2_2"]
@@ -2834,34 +2637,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123, -8, -25)
 [editable path="incubadora/incubadora_2_28"]
 [editable path="incubadora/incubadora_2_29"]
 [editable path="incubadora/incubadora_2_30"]
-[editable path="incubadora/incubadora_2_31"]
-[editable path="incubadora/incubadora_2_32"]
-[editable path="incubadora/incubadora_2_33"]
-[editable path="incubadora/incubadora_2_34"]
-[editable path="incubadora/incubadora_2_35"]
-[editable path="incubadora/incubadora_2_36"]
-[editable path="incubadora/incubadora_2_37"]
-[editable path="incubadora/incubadora_2_38"]
-[editable path="incubadora/incubadora_2_39"]
-[editable path="incubadora/incubadora_2_40"]
-[editable path="incubadora/incubadora_2_41"]
-[editable path="incubadora/incubadora_2_42"]
-[editable path="incubadora/incubadora_2_43"]
-[editable path="incubadora/incubadora_2_44"]
-[editable path="incubadora/incubadora_2_45"]
-[editable path="incubadora/incubadora_2_46"]
-[editable path="incubadora/incubadora_2_47"]
 [editable path="incubadora/incubadora_2_55"]
 [editable path="incubadora/incubadora_2_56"]
 [editable path="incubadora/incubadora_2_57"]
 [editable path="incubadora/incubadora_2_58"]
 [editable path="incubadora/incubadora_2_59"]
 [editable path="incubadora/incubadora_2_60"]
-[editable path="incubadora/incubadora_2_48"]
-[editable path="incubadora/incubadora_2_49"]
-[editable path="incubadora/incubadora_2_50"]
-[editable path="incubadora/incubadora_2_51"]
-[editable path="incubadora/incubadora_2_52"]
-[editable path="incubadora/incubadora_2_53"]
-[editable path="incubadora/incubadora_2_54"]
 [editable path="player"]

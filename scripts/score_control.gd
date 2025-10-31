@@ -8,6 +8,7 @@ var level: Dictionary = {
 	"level_2": false,
 	"level_3": false
 }
+
 var highscore: Dictionary = {
 	"level_1": 0.0,
 	"level_2": 0.0,
@@ -24,8 +25,15 @@ var tentativas_level2: int = 0
 
 var current_level: String = ""
 
-#func _process(delta: float) -> void:
-	#print(combo)
+# congeek
+var max_score: float = 0
+
+func add_score():
+	max_score += score
+	
+func reset_max_score():
+	max_score = 0
+
 
 func _ready() -> void:
 	current_level = level.find_key(true)

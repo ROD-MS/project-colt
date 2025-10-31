@@ -11,6 +11,7 @@ const SHOT = null
 @onready var alert_enemy: Area3D = $alert_enemy
 @onready var head: Node3D = $head
 @onready var camera: Camera3D = $head/Camera3D
+@onready var inventory_component: Inventory = $inventory_component
 
 @onready var score: Label = $HUD/ReferenceRect/scoreboard/score
 @onready var combo: Label = $HUD/ReferenceRect/scoreboard/combo
@@ -75,8 +76,10 @@ func _ready():
 	match current_level:
 		"level_1":
 			tentativas = Score_control.tentativas_level1
+			$HUD/aviso_shotgun.hide()
 		"level_2":
 			tentativas = Score_control.tentativas_level2
+			$HUD/aviso_shotgun.show()
 	
 	print(current_level)
 	
@@ -108,6 +111,9 @@ func _input(event):
 		#rotate_y(deg_to_rad(-event.relative.x * mouse_sensibility))
 		#print(rotation)
 		#print(head.rotation)
+		
+	if event.is_action_pressed("change_to_shotgun"):
+		$HUD/aviso_shotgun.hide()
 	
 func _on_killzone_body_entered(body):
 	if body.name == "player":
@@ -153,9 +159,10 @@ func _on_load_pressed() -> void:
 
 func _on_ammo_box_detector_area_entered(area: Area3D) -> void:
 	if area.get_parent().is_in_group("shotgun_ammo"):
-		$inventory_component/shotgun.add_ammo(8)
-		$"Sounds Effects/pick_audio".play()
-		area.get_parent().queue_free()
+		if inventory_component.current_weapon.name == "shotgun":
+			$inventory_component/shotgun.add_ammo(8)
+			$"Sounds Effects/pick_audio".play()
+			area.get_parent().queue_free()
 
 
 func _exit_tree() -> void:

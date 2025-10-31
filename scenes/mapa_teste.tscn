@@ -1,6 +1,7 @@
-[gd_scene load_steps=51 format=3 uid="uid://dbtsqv26emkg6"]
+[gd_scene load_steps=52 format=3 uid="uid://dbtsqv26emkg6"]
 
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemy.tscn" id="1_jjkuw"]
+[ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="2_5m021"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="2_5p211"]
 [ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="3_orydm"]
 [ext_resource type="PackedScene" uid="uid://bb3ymudhsbplr" path="res://scenes/objects/shotgun_box.tscn" id="4_4c11n"]
@@ -93,7 +94,7 @@ data = PackedVector3Array(-0.5, 1.5, 1.5, 0.5, 1.5, 1.5, -0.5, -1.5, 1.5, 0.5, 1
 albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4c11n"]
-size = Vector3(1, 4, 1)
+size = Vector3(1, 20, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_04vdo"]
 data = PackedVector3Array(-0.5, 2, 0.5, 0.5, 2, 0.5, -0.5, -2, 0.5, 0.5, 2, 0.5, 0.5, -2, 0.5, -0.5, -2, 0.5, 0.5, 2, -0.5, -0.5, 2, -0.5, 0.5, -2, -0.5, -0.5, 2, -0.5, -0.5, -2, -0.5, 0.5, -2, -0.5, 0.5, 2, 0.5, 0.5, 2, -0.5, 0.5, -2, 0.5, 0.5, 2, -0.5, 0.5, -2, -0.5, 0.5, -2, 0.5, -0.5, 2, -0.5, -0.5, 2, 0.5, -0.5, -2, -0.5, -0.5, 2, 0.5, -0.5, -2, 0.5, -0.5, -2, -0.5, 0.5, 2, 0.5, -0.5, 2, 0.5, 0.5, 2, -0.5, -0.5, 2, 0.5, -0.5, 2, -0.5, 0.5, 2, -0.5, -0.5, -2, 0.5, 0.5, -2, 0.5, -0.5, -2, -0.5, 0.5, -2, 0.5, 0.5, -2, -0.5, -0.5, -2, -0.5)
@@ -149,6 +150,8 @@ data = PackedVector3Array(-0.5, 0.5, 1.5, 0.5, 0.5, 1.5, -0.5, -0.5, 1.5, 0.5, 0
 
 [node name="player" parent="." instance=ExtResource("2_5p211")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130986, 1.85512, -0.604555)
+
+[node name="shotgun" parent="player/inventory_component" index="1" instance=ExtResource("2_5m021")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 17.9535, 0)
@@ -258,6 +261,17 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/cubo4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_04vdo")
 
+[node name="cubo11" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44416, 7.50843, -13.6243)
+material_override = SubResource("StandardMaterial3D_04vdo")
+mesh = SubResource("BoxMesh_4c11n")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/cubo11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/cubo11/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_04vdo")
+
 [node name="plataforma" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.289148, 1.94467, 5.0773)
 material_override = SubResource("ORMMaterial3D_po1k4")
@@ -341,7 +355,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30041, 0.260077, 5.06118)
 transform = Transform3D(-0.994237, 0, -0.107201, 0, 1, 0, 0.107201, 0, -0.994237, 0.285972, 1.1257, -6.78231)
 
 [node name="killzone" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.10259, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.1026, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape3D_orydm")
@@ -362,3 +376,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34266, 0.521892, -1.2448)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34266, 0.521892, 1.22889)
 
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]
+
+[editable path="player"]

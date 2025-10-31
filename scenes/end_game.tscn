@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf3slxpxh7qih"]
+[gd_scene load_steps=3 format=3 uid="uid://bf3slxpxh7qih"]
 
 [ext_resource type="Script" uid="uid://m1e50xhnd2pl" path="res://scripts/end_game.gd" id="1_pwhvc"]
+[ext_resource type="FontFile" uid="uid://nfchdxg0capl" path="res://assets/fonts/Retro Gaming.ttf" id="2_uwdrl"]
 
 [node name="EndGame" type="Control"]
 layout_mode = 3
@@ -43,28 +44,74 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -61.0
-offset_top = -21.0
-offset_right = 61.0
-offset_bottom = 21.0
+offset_left = -64.0
+offset_top = 100.0
+offset_right = 58.0
+offset_bottom = 142.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "MENU"
 
 [node name="sair" type="Button" parent="ReferenceRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -61.0
-offset_top = 38.0
-offset_right = 61.0
-offset_bottom = 80.0
+offset_left = -64.0
+offset_top = 159.0
+offset_right = 58.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "SAIR"
+
+[node name="Panel" type="Panel" parent="ReferenceRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -108.0
+offset_right = 168.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ReferenceRect/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_uwdrl")
+theme_override_font_sizes/font_size = 33
+text = "Pontuação final"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="score" type="Label" parent="ReferenceRect/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -24.0
+offset_right = 165.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_uwdrl")
+theme_override_font_sizes/font_size = 33
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [connection signal="pressed" from="ReferenceRect/reiniciar" to="." method="_on_reiniciar_pressed"]
 [connection signal="pressed" from="ReferenceRect/sair" to="." method="_on_sair_pressed"]

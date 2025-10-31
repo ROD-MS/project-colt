@@ -12,6 +12,7 @@ height = 0.001
 
 [node name="end_level" type="Area3D"]
 script = ExtResource("1_0sn2t")
+next_level = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

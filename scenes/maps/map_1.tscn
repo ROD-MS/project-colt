@@ -1071,66 +1071,6 @@ material_override = SubResource("StandardMaterial3D_p84cg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000915527, 0.000137329, -0.000793457)
 shape = SubResource("BoxShape3D_3t23d")
 
-[node name="caixamadeira17" parent="props" instance=ExtResource("4_avd0r")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.08442, 2.21586, 3.97779)
-
-[node name="Cube" parent="props/caixamadeira17" index="0"]
-material_override = SubResource("StandardMaterial3D_p84cg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="props/caixamadeira17"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="props/caixamadeira17/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000915527, 0.000137329, -0.000793457)
-shape = SubResource("BoxShape3D_3t23d")
-
-[node name="caixamadeira18" parent="props" instance=ExtResource("4_avd0r")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.98593, 2.21586, 3.97779)
-
-[node name="Cube" parent="props/caixamadeira18" index="0"]
-material_override = SubResource("StandardMaterial3D_p84cg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="props/caixamadeira18"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="props/caixamadeira18/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000915527, 0.000137329, -0.000793457)
-shape = SubResource("BoxShape3D_3t23d")
-
-[node name="caixamadeira19" parent="props" instance=ExtResource("4_avd0r")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.85261, 2.21586, 3.97779)
-
-[node name="Cube" parent="props/caixamadeira19" index="0"]
-material_override = SubResource("StandardMaterial3D_p84cg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="props/caixamadeira19"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="props/caixamadeira19/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000915527, 0.000137329, -0.000793457)
-shape = SubResource("BoxShape3D_3t23d")
-
-[node name="caixamadeira20" parent="props" instance=ExtResource("4_avd0r")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.787, 2.21586, 3.97779)
-
-[node name="Cube" parent="props/caixamadeira20" index="0"]
-material_override = SubResource("StandardMaterial3D_p84cg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="props/caixamadeira20"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="props/caixamadeira20/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000915527, 0.000137329, -0.000793457)
-shape = SubResource("BoxShape3D_3t23d")
-
-[node name="caixamadeira21" parent="props" instance=ExtResource("4_avd0r")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.62162, 2.21586, 3.97779)
-
-[node name="Cube" parent="props/caixamadeira21" index="0"]
-material_override = SubResource("StandardMaterial3D_p84cg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="props/caixamadeira21"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="props/caixamadeira21/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000915527, 0.000137329, -0.000793457)
-shape = SubResource("BoxShape3D_3t23d")
-
 [node name="caixamadeira9" parent="props" instance=ExtResource("4_avd0r")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 26.0072, 1, -10.0245)
 
@@ -2629,11 +2569,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.1517, 11.8498, -4.39484)
 [editable path="props/caixamadeira2"]
 [editable path="props/caixamadeira3"]
 [editable path="props/caixamadeira4"]
-[editable path="props/caixamadeira17"]
-[editable path="props/caixamadeira18"]
-[editable path="props/caixamadeira19"]
-[editable path="props/caixamadeira20"]
-[editable path="props/caixamadeira21"]
 [editable path="props/caixamadeira9"]
 [editable path="props/caixamadeira10"]
 [editable path="props/caixamadeira11"]
