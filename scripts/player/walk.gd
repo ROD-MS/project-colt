@@ -3,16 +3,19 @@ extends State
 const SPEED: float = 3
 var player: Player
 
+@export var audio: AudioStreamPlayer = null
+
 func enter():
 	player = agent as Player
 	
 func exit():
-	pass
+	audio.stop()
 	
 func update(delta: float):
 	pass
 	
 func physics_update(delta: float):
+	
 
 	var input_dir = Input.get_vector("left", "right", "foward", "back")
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -23,6 +26,13 @@ func physics_update(delta: float):
 
 
 	player.move_and_slide()
+	
+	if player.velocity != Vector3.ZERO:
+		if player.is_on_floor() and !audio.playing:
+			audio.play()
+	else:
+		audio.stop()
+
 	
 func input(event: InputEvent):
 	if !Input.get_vector("left", "right", "foward", "back") and !Input.is_action_pressed("crouch"):

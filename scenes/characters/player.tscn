@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=104 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Texture2D" uid="uid://b1tfg5g46qn2y" path="res://assets/HUD/life_bar/10-0-Sheet.png" id="2_inhyd"]
@@ -33,6 +33,8 @@
 [ext_resource type="Script" uid="uid://bhoqhp13pnbaf" path="res://scripts/player/crounch.gd" id="29_5jukt"]
 [ext_resource type="AudioStream" uid="uid://jy5ljparjkr" path="res://assets/audio/pickammo.wav" id="30_yhyq5"]
 [ext_resource type="Script" uid="uid://ch8grdf0jm41r" path="res://scripts/player/grapple_controller.gd" id="32_vwwfy"]
+[ext_resource type="AudioStream" uid="uid://cnsnh736bibm4" path="res://assets/audio/player/Sound Walk colt provisorio.mp3" id="33_6rclf"]
+[ext_resource type="AudioStream" uid="uid://tp8ilqjebniq" path="res://assets/audio/player/Sound Running Colt provisorio.mp3" id="34_s0anf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8g38"]
 atlas = ExtResource("2_inhyd")
@@ -1337,11 +1339,13 @@ active = true
 [node name="idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_il7j1")
 
-[node name="walk" type="Node" parent="StateMachine"]
+[node name="walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("audio")]
 script = ExtResource("4_idngh")
+audio = NodePath("../../Sounds Effects/SoundWalkColtProvisorio")
 
-[node name="run" type="Node" parent="StateMachine"]
+[node name="run" type="Node" parent="StateMachine" node_paths=PackedStringArray("audio")]
 script = ExtResource("5_ypjns")
+audio = NodePath("../../Sounds Effects/SoundRunningColtProvisorio")
 
 [node name="jump" type="Node" parent="StateMachine"]
 script = ExtResource("6_iay3t")
@@ -1376,6 +1380,12 @@ stream = ExtResource("13_xq3g6")
 [node name="pick_audio" type="AudioStreamPlayer3D" parent="Sounds Effects"]
 stream = ExtResource("30_yhyq5")
 volume_db = -10.0
+
+[node name="SoundRunningColtProvisorio" type="AudioStreamPlayer" parent="Sounds Effects"]
+stream = ExtResource("34_s0anf")
+
+[node name="SoundWalkColtProvisorio" type="AudioStreamPlayer" parent="Sounds Effects"]
+stream = ExtResource("33_6rclf")
 
 [node name="alert_enemy" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)

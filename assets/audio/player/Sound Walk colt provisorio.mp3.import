@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnsnh736bibm4"
+path="res://.godot/imported/Sound Walk colt provisorio.mp3-cf609c8d5010109a8ecaf9cf44761536.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/player/Sound Walk colt provisorio.mp3"
+dest_files=["res://.godot/imported/Sound Walk colt provisorio.mp3-cf609c8d5010109a8ecaf9cf44761536.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
