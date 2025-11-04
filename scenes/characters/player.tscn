@@ -1398,11 +1398,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_7xgtv")
 }
 
-[node name="GrappleController" type="Node" parent="." node_paths=PackedStringArray("raycast", "rope", "player")]
+[node name="GrappleController" type="Node" parent="." node_paths=PackedStringArray("raycast", "rope", "player", "state_machine")]
 script = ExtResource("32_vwwfy")
 raycast = NodePath("../head/RayCast3D")
 rope = NodePath("../head/rope")
 player = NodePath("..")
+state_machine = NodePath("../StateMachine")
+wall_stiffness = 40.0
+ceiling_stiffness = 10.0
 
 [connection signal="pressed" from="HUD/ReferenceRect/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="HUD/ReferenceRect/load" to="." method="_on_load_pressed"]

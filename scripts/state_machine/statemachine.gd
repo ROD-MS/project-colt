@@ -45,6 +45,9 @@ func set_active(value: bool):
 func _process(delta):
 	if active and current_state:
 		current_state.update(delta)
+	
+	if agent is Player:
+		print(current_state)
 		
 func _physics_process(delta):
 	if active and current_state:

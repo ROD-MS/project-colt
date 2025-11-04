@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dbtsqv26emkg6"]
+[gd_scene load_steps=55 format=3 uid="uid://dbtsqv26emkg6"]
 
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemy.tscn" id="1_jjkuw"]
 [ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="2_5m021"]
@@ -145,6 +145,15 @@ size = Vector3(1, 1, 3)
 data = PackedVector3Array(-0.5, 0.5, 1.5, 0.5, 0.5, 1.5, -0.5, -0.5, 1.5, 0.5, 0.5, 1.5, 0.5, -0.5, 1.5, -0.5, -0.5, 1.5, 0.5, 0.5, -1.5, -0.5, 0.5, -1.5, 0.5, -0.5, -1.5, -0.5, 0.5, -1.5, -0.5, -0.5, -1.5, 0.5, -0.5, -1.5, 0.5, 0.5, 1.5, 0.5, 0.5, -1.5, 0.5, -0.5, 1.5, 0.5, 0.5, -1.5, 0.5, -0.5, -1.5, 0.5, -0.5, 1.5, -0.5, 0.5, -1.5, -0.5, 0.5, 1.5, -0.5, -0.5, -1.5, -0.5, 0.5, 1.5, -0.5, -0.5, 1.5, -0.5, -0.5, -1.5, 0.5, 0.5, 1.5, -0.5, 0.5, 1.5, 0.5, 0.5, -1.5, -0.5, 0.5, 1.5, -0.5, 0.5, -1.5, 0.5, 0.5, -1.5, -0.5, -0.5, 1.5, 0.5, -0.5, 1.5, -0.5, -0.5, -1.5, 0.5, -0.5, 1.5, 0.5, -0.5, -1.5, -0.5, -0.5, -1.5)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_orydm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_135f0"]
+albedo_color = Color(0, 1, 0.219608, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_756an"]
+data = PackedVector3Array(-0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5trt8"]
+albedo_color = Color(1, 0, 1, 1)
 
 [node name="mapa_teste" type="Node3D"]
 
@@ -374,6 +383,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34266, 0.521892, -1.2448)
 
 [node name="shotgun_box4" parent="." instance=ExtResource("4_4c11n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34266, 0.521892, 1.22889)
+
+[node name="blocks_ghook" type="Node3D" parent="."]
+
+[node name="wall_gh" type="StaticBody3D" parent="blocks_ghook" groups=["grappling_hook_block", "wall_gh"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.79012, -11)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="blocks_ghook/wall_gh"]
+material = SubResource("StandardMaterial3D_135f0")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="blocks_ghook/wall_gh"]
+shape = SubResource("ConcavePolygonShape3D_756an")
+
+[node name="ceiling_gh" type="StaticBody3D" parent="blocks_ghook" groups=["ceiling_gh", "grappling_hook_block"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 6.79012, -11)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="blocks_ghook/ceiling_gh"]
+material = SubResource("StandardMaterial3D_5trt8")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="blocks_ghook/ceiling_gh"]
+shape = SubResource("ConcavePolygonShape3D_756an")
 
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]
 
