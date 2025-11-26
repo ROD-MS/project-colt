@@ -22,6 +22,7 @@ var damping := 1.0
 
 var launched := false
 var target: StaticBody3D = null
+var enemy_gh: Enemy = null
 var target_point: Vector3
 
 func _physics_process(delta: float) -> void:
@@ -40,23 +41,30 @@ func launch():
 		
 		if raycast.get_collider() is StaticBody3D:
 			target = raycast.get_collider()
+		elif raycast.get_collider() is Enemy:
+			enemy_gh = raycast.get_collider() as Enemy
 		
 		print(target)
 		
-		if target.is_in_group("grappling_hook_block"):
-			target_point = raycast.get_collision_point()
-			if target.is_in_group("wall_gh"):
-				rest_length = wall_rest_length
-				stiffness = wall_stiffness
-				damping = wall_damping
-				state_machine.set_active(false)
+		if target:
+			if target.is_in_group("grappling_hook_block"):
+				target_point = raycast.get_collision_point()
+				if target.is_in_group("wall_gh"):
+					rest_length = wall_rest_length
+					stiffness = wall_stiffness
+					damping = wall_damping
+					state_machine.set_active(false)
+					
+				elif target.is_in_group("ceiling_gh"):
+					rest_length = ceiling_rest_length
+					stiffness = ceiling_stiffness
+					damping = ceiling_damping
+					
+		if enemy_gh:
+			if enemy_gh.is_in_group("weak_enemy"):
+				enemy_gh.look_at(player.global_position)
 				
-			elif target.is_in_group("ceiling_gh"):
-				rest_length = ceiling_rest_length
-				stiffness = ceiling_stiffness
-				damping = ceiling_damping
-			
-			launched = true
+				launched = true
 	
 func retract():
 	launched = false

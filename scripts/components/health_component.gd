@@ -2,12 +2,13 @@ extends Node3D
 
 class_name HealthComponent
 
-
+@onready var knockback_timer: Timer = $knockback_timer
 @export var MAX_HEALTH: int = 10
 @export var health_bar: ProgressBar
 @export var life_bar: AnimatedSprite2D
 
 var health: float
+var knockback: Vector3
 
 func _ready():
 	health = MAX_HEALTH
@@ -39,6 +40,17 @@ func damage(attack: Attack) -> float:
 		print(enemy.detect_player)
 		enemy.detect_player.process_mode = Node.PROCESS_MODE_INHERIT
 		enemy.follow = true
+		
+		var knockback_direction = -(enemy.player.global_position - enemy.global_position).normalized()
+		print("ridectoin:" + str(knockback_direction))
+		print(Vector3(1, 1, 1))
+		knockback = knockback_direction * attack.knockback_force
+	
+		knockback_timer.start(1)
+	
+		enemy.velocity = knockback
+		
+	
 		
 		
 	if get_parent().is_in_group("enemy"):

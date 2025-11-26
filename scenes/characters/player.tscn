@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=105 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Texture2D" uid="uid://b1tfg5g46qn2y" path="res://assets/HUD/life_bar/10-0-Sheet.png" id="2_inhyd"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://cluyt0br4hvoe" path="res://assets/audio/weapons/audio fechando shotgun.mp3" id="13_xq3g6"]
 [ext_resource type="Texture2D" uid="uid://ww45o2q3hnb2" path="res://assets/rutz.png" id="16_kbxbc"]
 [ext_resource type="PackedScene" uid="uid://dmw6b65fvbm7w" path="res://scenes/components/rope.tscn" id="20_dg40j"]
+[ext_resource type="PackedScene" uid="uid://cfdfflk4mq0wb" path="res://scenes/weapons/kick.tscn" id="24_s0anf"]
 [ext_resource type="Script" uid="uid://cxlqp4bmxmj7y" path="res://scripts/player/slide.gd" id="28_yhyq5"]
 [ext_resource type="Script" uid="uid://bhoqhp13pnbaf" path="res://scripts/player/crounch.gd" id="29_5jukt"]
 [ext_resource type="AudioStream" uid="uid://jy5ljparjkr" path="res://assets/audio/pickammo.wav" id="30_yhyq5"]
@@ -1294,7 +1295,12 @@ autoplay = "idle"
 fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="head"]
+visible = false
 target_position = Vector3(0, 0, -1)
+collision_mask = 3
+
+[node name="grappling_hook_raycast" type="RayCast3D" parent="head"]
+target_position = Vector3(0, 0, -100)
 collision_mask = 3
 
 [node name="rope" parent="head" instance=ExtResource("20_dg40j")]
@@ -1329,6 +1335,8 @@ target_position = Vector3(0, 0, 0)
 [node name="SpotLight3D" type="SpotLight3D" parent="head"]
 spot_range = 50.0
 spot_angle = 30.0
+
+[node name="kick" parent="head" instance=ExtResource("24_s0anf")]
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
 script = ExtResource("2_l864t")
@@ -1400,7 +1408,7 @@ libraries = {
 
 [node name="GrappleController" type="Node" parent="." node_paths=PackedStringArray("raycast", "rope", "player", "state_machine")]
 script = ExtResource("32_vwwfy")
-raycast = NodePath("../head/RayCast3D")
+raycast = NodePath("../head/grappling_hook_raycast")
 rope = NodePath("../head/rope")
 player = NodePath("..")
 state_machine = NodePath("../StateMachine")

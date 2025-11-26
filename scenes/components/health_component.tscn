@@ -4,3 +4,5 @@
 
 [node name="HealthComponent" type="Node3D"]
 script = ExtResource("1_0vmax")
+
+[node name="knockback_timer" type="Timer" parent="."]

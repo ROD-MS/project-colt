@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfdfflk4mq0wb"]
+
+[ext_resource type="Script" uid="uid://cu05hvkp2x8qo" path="res://scripts/weapons/kick.gd" id="2_cq35r"]
+[ext_resource type="Texture2D" uid="uid://dh71q4sxi8ubs" path="res://assets/duke_nukem_3d_weapons.png" id="3_l5uic"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehbko"]
+atlas = ExtResource("3_l5uic")
+region = Rect2(0, 0, 74, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq35r"]
+atlas = ExtResource("3_l5uic")
+region = Rect2(90, 0, 121, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5uic"]
+atlas = ExtResource("3_l5uic")
+region = Rect2(222, 0, 74, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t3453"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehbko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq35r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5uic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq35r")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}]
+
+[node name="kick" type="Node3D"]
+script = ExtResource("2_cq35r")
+knockback_force = 200.0
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0870005, -0.285663, -0.600543)
+sprite_frames = SubResource("SpriteFrames_t3453")
+animation = &"idle"
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+
+[node name="kick_raycast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1)
