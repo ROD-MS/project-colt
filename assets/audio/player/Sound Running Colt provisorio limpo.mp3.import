@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7hdv54m8om22"
+path="res://.godot/imported/Sound Running Colt provisorio limpo.mp3-0ac6024ebdaac2b15523e5f42140b0d9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/player/Sound Running Colt provisorio limpo.mp3"
+dest_files=["res://.godot/imported/Sound Running Colt provisorio limpo.mp3-0ac6024ebdaac2b15523e5f42140b0d9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

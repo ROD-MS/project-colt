@@ -34,8 +34,8 @@
 [ext_resource type="Script" uid="uid://bhoqhp13pnbaf" path="res://scripts/player/crounch.gd" id="29_5jukt"]
 [ext_resource type="AudioStream" uid="uid://jy5ljparjkr" path="res://assets/audio/pickammo.wav" id="30_yhyq5"]
 [ext_resource type="Script" uid="uid://ch8grdf0jm41r" path="res://scripts/player/grapple_controller.gd" id="32_vwwfy"]
-[ext_resource type="AudioStream" uid="uid://cnsnh736bibm4" path="res://assets/audio/player/Sound Walk colt provisorio.mp3" id="33_6rclf"]
-[ext_resource type="AudioStream" uid="uid://tp8ilqjebniq" path="res://assets/audio/player/Sound Running Colt provisorio.mp3" id="34_s0anf"]
+[ext_resource type="AudioStream" uid="uid://7hdv54m8om22" path="res://assets/audio/player/Sound Running Colt provisorio limpo.mp3" id="34_s0anf"]
+[ext_resource type="AudioStream" uid="uid://bpns3chftqqe2" path="res://assets/audio/player/Sound Walk colt provisorio limpo.mp3" id="35_s1x7u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8g38"]
 atlas = ExtResource("2_inhyd")
@@ -1393,7 +1393,7 @@ volume_db = -10.0
 stream = ExtResource("34_s0anf")
 
 [node name="SoundWalkColtProvisorio" type="AudioStreamPlayer" parent="Sounds Effects"]
-stream = ExtResource("33_6rclf")
+stream = ExtResource("35_s1x7u")
 
 [node name="alert_enemy" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b7p7sfwbyjh30" path="res://assets/HUD/gun.png" id="2_pi2un"]
 [ext_resource type="Texture2D" uid="uid://cdn7ky2oiluxn" path="res://assets/HUD/Hand_wShotgun_Shoot-Sheet.png" id="3_5c4i7"]
 [ext_resource type="Texture2D" uid="uid://bs4gojvi51td1" path="res://assets/HUD/shotgun_reload.png" id="3_43qth"]
-[ext_resource type="AudioStream" uid="uid://dyfugxa0iwqyo" path="res://assets/audio/weapons/tiro shotgun.mp3" id="6_xtykv"]
+[ext_resource type="AudioStream" uid="uid://murda0y1yw00" path="res://assets/audio/weapons/tiro shotgun limpo.mp3" id="6_xtykv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3lpmo"]
 atlas = ExtResource("2_pi2un")
