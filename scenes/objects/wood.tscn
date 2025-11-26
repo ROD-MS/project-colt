@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://lllghnhblbc3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a54iw"]
+albedo_color = Color(0.507924, 0.3023907, 0, 1)
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ljhs"]
+material = SubResource("StandardMaterial3D_a54iw")
+size = Vector3(2, 0.25, 0.05)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a54iw"]
+data = PackedVector3Array(-1, 0.125, 0.024999999, 1, 0.125, 0.024999999, -1, -0.125, 0.024999999, 1, 0.125, 0.024999999, 1, -0.125, 0.024999999, -1, -0.125, 0.024999999, 1, 0.125, -0.024999999, -1, 0.125, -0.024999999, 1, -0.125, -0.024999999, -1, 0.125, -0.024999999, -1, -0.125, -0.024999999, 1, -0.125, -0.024999999, 1, 0.125, 0.024999999, 1, 0.125, -0.024999999, 1, -0.125, 0.024999999, 1, 0.125, -0.024999999, 1, -0.125, -0.024999999, 1, -0.125, 0.024999999, -1, 0.125, -0.024999999, -1, 0.125, 0.024999999, -1, -0.125, -0.024999999, -1, 0.125, 0.024999999, -1, -0.125, 0.024999999, -1, -0.125, -0.024999999, 1, 0.125, 0.024999999, -1, 0.125, 0.024999999, 1, 0.125, -0.024999999, -1, 0.125, 0.024999999, -1, 0.125, -0.024999999, 1, 0.125, -0.024999999, -1, -0.125, 0.024999999, 1, -0.125, 0.024999999, -1, -0.125, -0.024999999, 1, -0.125, 0.024999999, 1, -0.125, -0.024999999, -1, -0.125, -0.024999999)
+
+[node name="wood" type="StaticBody3D" groups=["breakable"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8ljhs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_a54iw")

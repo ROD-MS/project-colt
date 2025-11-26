@@ -1,10 +1,11 @@
-[gd_scene load_steps=55 format=3 uid="uid://dbtsqv26emkg6"]
+[gd_scene load_steps=56 format=3 uid="uid://dbtsqv26emkg6"]
 
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemy.tscn" id="1_jjkuw"]
 [ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="2_5m021"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="2_5p211"]
 [ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="3_orydm"]
 [ext_resource type="PackedScene" uid="uid://bb3ymudhsbplr" path="res://scenes/objects/shotgun_box.tscn" id="4_4c11n"]
+[ext_resource type="PackedScene" uid="uid://lllghnhblbc3" path="res://scenes/objects/wood.tscn" id="6_wu44v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b8rgi"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -403,6 +404,21 @@ material = SubResource("StandardMaterial3D_5trt8")
 
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="blocks_ghook/ceiling_gh"]
 shape = SubResource("ConcavePolygonShape3D_756an")
+
+[node name="wood" parent="." instance=ExtResource("6_wu44v")]
+transform = Transform3D(0, 0, 0.9999999, -0.258819, 0.9659258, 0, -0.9659257, -0.258819, 0, -1, 0.5, -0.6)
+
+[node name="wood2" parent="." instance=ExtResource("6_wu44v")]
+transform = Transform3D(0, 0, 0.9999999, 0.42261818, 0.9063079, 0, -0.9063078, 0.4226183, 0, -1, 0.8, -0.6)
+
+[node name="wood3" parent="." instance=ExtResource("6_wu44v")]
+transform = Transform3D(0, 0, 0.9999999, 0.08715567, 0.9961947, 0, -0.9961946, 0.08715576, 0, -1, 1.1, -0.6)
+
+[node name="wood4" parent="." instance=ExtResource("6_wu44v")]
+transform = Transform3D(0, 0, 0.9999999, -0.34202018, 0.9396927, 0, -0.9396925, -0.34202015, 0, -1, 1.3000001, -0.6)
+
+[node name="wood5" parent="." instance=ExtResource("6_wu44v")]
+transform = Transform3D(0, 0, 0.9999999, -1.1920929e-07, 1.0000001, 0, -1, 0, 0, -1, 1.5000001, -0.6)
 
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]
 

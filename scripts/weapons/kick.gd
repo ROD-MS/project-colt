@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var sprite_animation = $AnimatedSprite3D
 @onready var sound = $sound
-@onready var kick_raycast = $kick_raycast
+@onready var kick_raycast: RayCast3D = $kick_raycast
 var player: Player = null
 var shotted := false
 
@@ -22,7 +22,6 @@ func _process(delta):
 		weapon_idle()
 	
 func weapon_idle():
-	print(sprite_animation.animation)
 	sprite_animation.hide()
 	
 	if Input.is_action_just_pressed("kick"):
@@ -53,7 +52,6 @@ func weapon_shot():
 				break
 				
 				
-		print(health)
 		if health:
 			var attack = Attack.new()
 			if headshot:
@@ -64,8 +62,14 @@ func weapon_shot():
 			attack.stun_time = stun_time
 			
 			health.damage(attack)
-	shotted = true
+
+	if kick_raycast.is_colliding() and kick_raycast.get_collider() != null and kick_raycast.get_collider() is StaticBody3D and kick_raycast.get_collider().is_in_group("breakable") and !shotted:
+		print("AAA")
+		var target = kick_raycast.get_collider() as StaticBody3D # A CollisionObject3D.
+		print(target)
+		target.queue_free()
 	
+	shotted = true
 	await sprite_animation.animation_finished
 	shotted = false
 	weapon_idle()

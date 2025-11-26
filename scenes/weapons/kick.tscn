@@ -52,4 +52,4 @@ animation = &"idle"
 [node name="sound" type="AudioStreamPlayer" parent="."]
 
 [node name="kick_raycast" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -1.5)

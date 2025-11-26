@@ -39,6 +39,7 @@ grappling_hook_block=""
 wall_gh=""
 ceiling_gh=""
 weak_enemy="player can pull them with gh"
+breakable=""
 
 [importer_defaults]
 
