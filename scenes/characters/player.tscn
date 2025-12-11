@@ -926,6 +926,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, -0.939, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.0786423, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_vwwfy"]
 resource_name = "crouch"
@@ -941,6 +953,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.72, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_5jukt"]
@@ -969,6 +993,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, -0.939, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.0786423, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7xgtv"]
@@ -1280,6 +1316,7 @@ shape = SubResource("CapsuleShape3D_pcclk")
 [node name="head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)
 script = ExtResource("9_seiem")
+bob_crounch_pos = -0.5
 
 [node name="hand_animation" type="AnimatedSprite3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0870005, -0.285663, -0.600543)

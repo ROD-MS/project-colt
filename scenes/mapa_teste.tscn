@@ -363,7 +363,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.59318, 0.269663, 5.33826)
 [node name="garrafa_whisky5" parent="." instance=ExtResource("3_orydm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30041, 0.260077, 5.06118)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="overview1" type="Camera3D" parent="."]
 transform = Transform3D(-0.994237, 0, -0.107201, 0, 1, 0, 0.107201, 0, -0.994237, 0.285972, 1.1257, -6.78231)
 
 [node name="killzone" type="Area3D" parent="."]
@@ -422,7 +422,7 @@ transform = Transform3D(0, 0, 0.9999999, -0.34202018, 0.9396927, 0, -0.9396925, 
 [node name="wood5" parent="." instance=ExtResource("6_wu44v")]
 transform = Transform3D(0, 0, 0.9999999, -1.1920929e-07, 1.0000001, 0, -1, 0, 0, -1, 1.5000001, -0.6)
 
-[node name="overview" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+[node name="overview2" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(-0.60214674, -0.38928592, 0.69704795, 0.018522432, 0.86602545, 0.4996568, -0.7981705, 0.3137777, -0.5142639, -9.049074, 5.42832, -9.563961)
 script = ExtResource("7_r7puf")
 player = NodePath("../player")
@@ -430,3 +430,4 @@ player = NodePath("../player")
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]
 
 [editable path="player"]
+[editable path="player/head/kick"]
