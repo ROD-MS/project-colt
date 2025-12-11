@@ -2,20 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpv64xxfqsl1w"
-path="res://.godot/imported/Alien-Moon.png-46f6bb6fd33c3514ea479e4790ff2253.ctex"
+uid="uid://2cnr1kf1qpf8"
+path.s3tc="res://.godot/imported/butaoneutro_Butao hehe.png-2b8c00da1efb853922049111f1a7b644.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "6a38a363765131c034f61b5971ee04b3"
 }
 
 [deps]
 
-source_file="res://assets/fonts/alien_moon/Alien-Moon.png"
-dest_files=["res://.godot/imported/Alien-Moon.png-46f6bb6fd33c3514ea479e4790ff2253.ctex"]
+source_file="res://assets/blender/butaoneutro_Butao hehe.png"
+dest_files=["res://.godot/imported/butaoneutro_Butao hehe.png-2b8c00da1efb853922049111f1a7b644.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -23,7 +27,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,4 +41,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

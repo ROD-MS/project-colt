@@ -41,13 +41,11 @@ func input(event: InputEvent):
 	if !Input.is_action_pressed("crouch") and !up_detector.is_colliding():
 		is_crouch = false
 		if !Input.get_vector("left", "right", "foward", "back"):
-			print("idle")
 			Transitioned.emit(self, "idle")
 		if Input.get_vector("left", "right", "foward", "back") and !Input.is_action_pressed("sprint"):
-			print("walk")
-			Transitioned.emit(self, "walk")
-		if Input.get_vector("left", "right", "foward", "back") and Input.is_action_pressed("sprint"):
 			Transitioned.emit(self, "run")
+		if Input.get_vector("left", "right", "foward", "back") and Input.is_action_pressed("sprint"):
+			Transitioned.emit(self, "walk")
 		if Input.is_action_just_pressed("jump") and player.is_on_floor():
 			Transitioned.emit(self, "jump")
 		if Input.is_action_just_pressed("fire"):

@@ -53,3 +53,5 @@ animation = &"idle"
 
 [node name="kick_raycast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -1.5)
+
+[node name="knockback_timer" type="Timer" parent="."]

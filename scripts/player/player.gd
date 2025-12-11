@@ -5,13 +5,15 @@ const SPEED = 2
 const JUMP_FORCE = 3
 const SHOT = null
 
-#@export var state_machine: StateMachine
+@export var state_machine: StateMachine
 @export var mouse_sensibility: float = 0.2
 
 @onready var alert_enemy: Area3D = $alert_enemy
 @onready var head: Node3D = $head
 @onready var camera: Camera3D = $head/Camera3D
 @onready var inventory_component: Inventory = $inventory_component
+@onready var kick: Kick = $head/kick
+
 
 @onready var score: Label = $HUD/ReferenceRect/scoreboard/score
 @onready var combo: Label = $HUD/ReferenceRect/scoreboard/combo
@@ -21,6 +23,7 @@ const SHOT = null
 
 var camera_sense = 0.003
 var sprint = 2
+var running := true
 var a: float = 0
 
 var current_level: String = ""
@@ -30,6 +33,12 @@ var timer: int = 0
 var shotted: bool = false
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("sprint"):
+		if running:
+			running = false
+		else:
+			running = true
+	
 	if shotted:
 		alert_enemy.process_mode = Node.PROCESS_MODE_INHERIT
 		shotted = false

@@ -20,11 +20,11 @@ func physics_update(delta: float):
 	var input_dir = Input.get_vector("left", "right", "foward", "back")
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		player.velocity.x = direction.x * SPEED
-		player.velocity.z = direction.z * SPEED
-	if direction and Input.is_action_pressed("sprint"):
 		player.velocity.x = direction.x * (SPEED * 2)
 		player.velocity.z = direction.z * (SPEED * 2)
+	if direction and Input.is_action_pressed("sprint"):
+		player.velocity.x = direction.x
+		player.velocity.z = direction.z
 			
 	if player.is_on_floor():
 		if direction and Input.is_action_pressed("sprint"):

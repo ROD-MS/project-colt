@@ -34,7 +34,7 @@ func physics_update(delta: float):
 func input(event: InputEvent):
 	if !Input.get_vector("left", "right", "foward", "back"):
 		Transitioned.emit(self, "idle")
-	if Input.get_vector("left", "right", "foward", "back") and !Input.is_action_pressed("sprint"):
+	if Input.get_vector("left", "right", "foward", "back") and !player.running and !Input.is_action_pressed("crouch"):
 		Transitioned.emit(self, "walk")
 	if Input.is_action_just_pressed("jump") and player.is_on_floor():
 		Transitioned.emit(self, "jump")
