@@ -8,6 +8,7 @@ const SHOT = null
 @export var state_machine: StateMachine
 @export var mouse_sensibility: float = 0.2
 
+@onready var oh_yeah: AudioStreamPlayer = $oh_yeah_audio
 @onready var alert_enemy: Area3D = $alert_enemy
 @onready var head: Node3D = $head
 @onready var camera: Camera3D = $head/Camera3D
@@ -112,6 +113,10 @@ func _input(event):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		elif Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			
+	if event.is_action_pressed("peido"):
+		oh_yeah.play()
+		
 			
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * Config.mouse_sensibility)) 

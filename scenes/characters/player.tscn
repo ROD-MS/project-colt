@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=106 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Texture2D" uid="uid://b1tfg5g46qn2y" path="res://assets/HUD/life_bar/10-0-Sheet.png" id="2_inhyd"]
@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://ch8grdf0jm41r" path="res://scripts/player/grapple_controller.gd" id="32_vwwfy"]
 [ext_resource type="AudioStream" uid="uid://7hdv54m8om22" path="res://assets/audio/player/Sound Running Colt provisorio limpo.mp3" id="34_s0anf"]
 [ext_resource type="AudioStream" uid="uid://bpns3chftqqe2" path="res://assets/audio/player/Sound Walk colt provisorio limpo.mp3" id="35_s1x7u"]
+[ext_resource type="AudioStream" uid="uid://i3oddddxmxoh" path="res://assets/audio/player/oh_yeah_colt_limpo.wav" id="37_s1x7u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8g38"]
 atlas = ExtResource("2_inhyd")
@@ -964,7 +965,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.72, 0)]
+"values": [Vector3(0, -0.5, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_5jukt"]
@@ -1457,6 +1458,9 @@ ceiling_stiffness = 10.0
 [node name="kick_slide_raycast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29475653, 0)
 target_position = Vector3(0, 0, -1.5)
+
+[node name="oh_yeah_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_s1x7u")
 
 [connection signal="pressed" from="HUD/ReferenceRect/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="HUD/ReferenceRect/load" to="." method="_on_load_pressed"]

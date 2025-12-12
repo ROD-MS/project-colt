@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b5fr3uexcku4f" path="res://scenes/weapons/weapon.tscn" id="1_d8tqi"]
 [ext_resource type="Script" uid="uid://cquqvfrer25qg" path="res://scripts/weapons/pistol.gd" id="2_3uyul"]
 [ext_resource type="Texture2D" uid="uid://dhylnlt55wsge" path="res://assets/HUD/Pistol_Shoot_Finished_1.png" id="3_1n01r"]
-[ext_resource type="AudioStream" uid="uid://cp1yhk2ifpqb8" path="res://assets/audio/weapons/tiro pistola.mp3" id="4_ivc8v"]
+[ext_resource type="AudioStream" uid="uid://df6fejh8dwcss" path="res://assets/audio/weapons/tiro_pistola_limpo.wav" id="4_ivc8v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5te8"]
 atlas = ExtResource("3_1n01r")

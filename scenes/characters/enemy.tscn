@@ -10,12 +10,12 @@
 [ext_resource type="Script" uid="uid://v888sesn0jiq" path="res://scripts/enemy/idle.gd" id="6_b5ppk"]
 [ext_resource type="Texture2D" uid="uid://3u5gwl40jv3r" path="res://assets/enemies/LEFT.png" id="6_odgil"]
 [ext_resource type="Script" uid="uid://bel62fr51amop" path="res://scripts/enemy/follow_player.gd" id="8_uborx"]
-[ext_resource type="AudioStream" uid="uid://bvlfss7lfw74b" path="res://assets/audio/enemy/Audio 1 Inimigo.mp3" id="13_j5d3p"]
+[ext_resource type="AudioStream" uid="uid://bfq2ylwah34x0" path="res://assets/audio/enemy/audio_1_inimigo_comum_limpo.wav" id="12_174rk"]
+[ext_resource type="AudioStream" uid="uid://d0f1ujaim5mia" path="res://assets/audio/enemy/audio_2_inimigo_comum_limpo.wav" id="13_7ktny"]
 [ext_resource type="Script" uid="uid://c5xunewtvuv4o" path="res://scripts/enemy/shoot.gd" id="13_qfcfh"]
-[ext_resource type="AudioStream" uid="uid://bkjto2ey5mncu" path="res://assets/audio/enemy/Audio 2 Inimigo.mp3" id="14_dtrup"]
-[ext_resource type="AudioStream" uid="uid://c24l0nt6f5qg1" path="res://assets/audio/enemy/Audio 3 Inimigo.mp3" id="15_pmwe3"]
-[ext_resource type="AudioStream" uid="uid://bnftpwv1610sb" path="res://assets/audio/enemy/Audio 4 Inimigo.mp3" id="16_b5fq4"]
-[ext_resource type="AudioStream" uid="uid://c4yxor4skv2lo" path="res://assets/audio/enemy/audio dano inimigo 1.mp3" id="17_7ktny"]
+[ext_resource type="AudioStream" uid="uid://bgdqxf0t6irln" path="res://assets/audio/enemy/audio_3_inimigo_comum_limpo.wav" id="14_rji51"]
+[ext_resource type="AudioStream" uid="uid://cj5hk72jcw01j" path="res://assets/audio/enemy/audio_4_inimigo_comum_limpo.wav" id="15_7bjuq"]
+[ext_resource type="AudioStream" uid="uid://cfoke0f8cuwwe" path="res://assets/audio/enemy/Audio dano inimigo 1.wav" id="16_d55bs"]
 [ext_resource type="AudioStream" uid="uid://1gjm7hvvr2ke" path="res://assets/audio/enemy/audio dano inimigo 2.mp3" id="18_rji51"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7ktny"]
@@ -200,19 +200,19 @@ raycast = NodePath("../../RayCast3D")
 [node name="sounds" type="Node3D" parent="."]
 
 [node name="Audio1Inimigo" type="AudioStreamPlayer3D" parent="sounds"]
-stream = ExtResource("13_j5d3p")
+stream = ExtResource("12_174rk")
 
 [node name="Audio2Inimigo" type="AudioStreamPlayer3D" parent="sounds"]
-stream = ExtResource("14_dtrup")
+stream = ExtResource("13_7ktny")
 
 [node name="Audio3Inimigo" type="AudioStreamPlayer3D" parent="sounds"]
-stream = ExtResource("15_pmwe3")
+stream = ExtResource("14_rji51")
 
 [node name="Audio4Inimigo" type="AudioStreamPlayer3D" parent="sounds"]
-stream = ExtResource("16_b5fq4")
+stream = ExtResource("15_7bjuq")
 
 [node name="dano_enemy1" type="AudioStreamPlayer3D" parent="sounds"]
-stream = ExtResource("17_7ktny")
+stream = ExtResource("16_d55bs")
 
 [node name="dano_enemy2" type="AudioStreamPlayer3D" parent="sounds"]
 stream = ExtResource("18_rji51")
