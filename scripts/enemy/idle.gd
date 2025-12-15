@@ -46,9 +46,10 @@ func _process(delta: float) -> void:
 
 
 func _on_detect_player_body_entered(body):
-	if body is Enemy:
-		var other_enemy := body as Enemy
-		other_enemy.follow = true
+	if !enemy.is_in_group("enemy_stopped"):
+		if body is Enemy:
+			var other_enemy := body as Enemy
+			other_enemy.follow = true
 		
 		
 		
