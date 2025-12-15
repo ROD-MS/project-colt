@@ -27,7 +27,8 @@ func update(delta: float):
 		time_reload -= 0.016
 	
 	if agent.follow:
-		agent.velocity = agent.velocity.move_toward(new_velocity, 0.25)
+		if !agent.is_in_group("enemy_stopped"):
+			agent.velocity = agent.velocity.move_toward(new_velocity, 0.25)
 		
 		if time_reload <= 0:
 			Transitioned.emit(self, "shoot")

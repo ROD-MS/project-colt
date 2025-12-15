@@ -19,6 +19,9 @@ var sound_list: Array
 var timer: int = 0
 var player: Player = null
 
+var move_timer: Timer = null
+@onready var state_machine: StateMachine = $StateMachine
+
 func _ready():
 	#print(get_parent().get_children())
 	for child in get_parent().get_children():
@@ -26,6 +29,13 @@ func _ready():
 		#print(player)
 		if child is Player:
 			player = child
+			break
+			
+	for child in get_children():
+		#print(child)
+		#print(player)
+		if child is Timer:
+			move_timer = child as Timer
 			break
 		
 	$RayCast3D.add_exception(self)
@@ -47,6 +57,9 @@ func _physics_process(delta):
 	if player:
 		target_position(player.position)
 	move_and_slide()
+	
+	print(state_machine.current_state)
+	print("enemy follow: " + str(follow))
 	
 func _exit_tree() -> void:
 	Score_control.add_normal_point(enemy_value)

@@ -48,7 +48,8 @@ func damage(attack: Attack) -> float:
 	
 		knockback_timer.start(1)
 	
-		enemy.velocity = knockback
+		if enemy.is_in_group("weak_enemy"):
+			enemy.velocity = knockback
 		
 	
 		

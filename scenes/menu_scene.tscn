@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6rvnl8loxpbh" path="res://assets/texturas/textura_caixa.png" id="2_o71fo"]
 [ext_resource type="Texture2D" uid="uid://cqnooeyn6yn5u" path="res://assets/texturas/chao_2.png" id="2_yfxa8"]
 [ext_resource type="Texture2D" uid="uid://ucgp5n03sesq" path="res://assets/texturas/paredes.png" id="3_vjll7"]
-[ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemy.tscn" id="5_u4hxd"]
+[ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemy_melee.tscn" id="5_u4hxd"]
 [ext_resource type="Texture2D" uid="uid://cq2i1foex6bn1" path="res://assets/texturas/incubadora_quebrada.png" id="6_axson"]
 [ext_resource type="AudioStream" uid="uid://d0hpsrnd84lfj" path="res://assets/audio/musica_menu.mp3" id="8_vjll7"]
 [ext_resource type="PackedScene" uid="uid://bu14kdign3inj" path="res://scenes/objects/door.tscn" id="9_520ac"]

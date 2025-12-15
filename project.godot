@@ -40,6 +40,7 @@ wall_gh=""
 ceiling_gh=""
 weak_enemy="player can pull them with gh"
 breakable=""
+enemy_stopped=""
 
 [importer_defaults]
 
