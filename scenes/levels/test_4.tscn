@@ -1,9 +1,10 @@
-[gd_scene load_steps=123 format=4 uid="uid://boulk5suimamn"]
+[gd_scene load_steps=124 format=4 uid="uid://boulk5suimamn"]
 
 [ext_resource type="Script" uid="uid://cnf647r0kht4j" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_po5xp"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_k1o0d"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="3_le22n"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="4_k1o0d"]
+[ext_resource type="PackedScene" uid="uid://cfqh80niquhx1" path="res://scenes/objects/end_level.tscn" id="5_le22n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k1o0d"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -739,3 +740,7 @@ shape = SubResource("ConvexPolygonShape3D_37lfu")
 
 [node name="player" parent="." instance=ExtResource("4_k1o0d")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.16698867, 2.456781, -1.6154528)
+
+[node name="end_level" parent="." instance=ExtResource("5_le22n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8489, 8.7450485, 141.38753)
+next_level = "res://scenes/levels/test_5.tscn"

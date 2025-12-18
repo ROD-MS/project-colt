@@ -27,9 +27,9 @@ func physics_update(delta: float):
 		player.velocity.z = direction.z
 			
 	if player.is_on_floor():
-		if direction and Input.is_action_pressed("sprint"):
+		if direction and player.running:
 			Transitioned.emit(self, "run")
-		if direction and !Input.is_action_pressed("sprint"):
+		if direction and !player.running:
 			Transitioned.emit(self, "walk")
 		if !direction:
 			Transitioned.emit(self, "idle")

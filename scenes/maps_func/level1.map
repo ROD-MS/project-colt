@@ -1,10 +1,11 @@
-// Game: coltmapas
+// Game: func
 // Format: Valve
 // entity 0
 {
 "mapversion" "220"
 "wad" ""
 "classname" "worldspawn"
+"_tb_mod" "texture_trenchbroom"
 // brush 0
 {
 ( -288 -64 -16 ) ( -288 -63 -16 ) ( -288 -64 -15 ) __TB_empty [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1

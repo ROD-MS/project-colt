@@ -21,6 +21,7 @@ func exit():
 	
 func update(delta: float):
 	pass
+	
 func physics_update(delta: float):
 
 	var input_dir = Input.get_vector("left", "right", "foward", "back")
@@ -42,9 +43,9 @@ func input(event: InputEvent):
 		is_crouch = false
 		if !Input.get_vector("left", "right", "foward", "back"):
 			Transitioned.emit(self, "idle")
-		if Input.get_vector("left", "right", "foward", "back") and !Input.is_action_pressed("sprint"):
+		if Input.get_vector("left", "right", "foward", "back") and player.running:
 			Transitioned.emit(self, "run")
-		if Input.get_vector("left", "right", "foward", "back") and Input.is_action_pressed("sprint"):
+		if Input.get_vector("left", "right", "foward", "back") and !player.running :
 			Transitioned.emit(self, "walk")
 		if Input.is_action_just_pressed("jump") and player.is_on_floor():
 			Transitioned.emit(self, "jump")
