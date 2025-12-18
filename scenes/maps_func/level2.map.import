@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://up35rowcm836"
+path="res://.godot/imported/level2.map-012e2392a3e33f65f59df922cc778111.tres"
+
+[deps]
+
+source_file="res://scenes/maps_func/level2.map"
+dest_files=["res://.godot/imported/level2.map-012e2392a3e33f65f59df922cc778111.tres"]
+
+[params]
+
