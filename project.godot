@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PROJECT: COLT"
-run/main_scene="uid://bcdc8r2rqvygp"
+run/main_scene="uid://dbtsqv26emkg6"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -41,6 +41,7 @@ ceiling_gh=""
 weak_enemy="player can pull them with gh"
 breakable=""
 enemy_stopped=""
+enemy_range="range and walk"
 
 [importer_defaults]
 

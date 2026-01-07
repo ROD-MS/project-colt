@@ -19,7 +19,7 @@
 [ext_resource type="Material" uid="uid://dwkkvekq6ofeg" path="res://assets/texturas/textures/world/chao_2sangue.tres" id="8_2rdlg"]
 [ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="11_doxyn"]
 [ext_resource type="PackedScene" uid="uid://cfqh80niquhx1" path="res://scenes/objects/end_level.tscn" id="12_ik7ym"]
-[ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemy_melee.tscn" id="14_nigg3"]
+[ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemies/enemy_melee.tscn" id="14_nigg3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_upgbm"]
 albedo_texture = ExtResource("2_dwfqr")

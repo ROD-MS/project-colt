@@ -1,14 +1,14 @@
 [gd_scene load_steps=59 format=3 uid="uid://dbtsqv26emkg6"]
 
-[ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemy_melee.tscn" id="1_jjkuw"]
+[ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemies/enemy_melee.tscn" id="1_jjkuw"]
 [ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="2_5m021"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="2_5p211"]
 [ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="3_orydm"]
 [ext_resource type="PackedScene" uid="uid://bb3ymudhsbplr" path="res://scenes/objects/shotgun_box.tscn" id="4_4c11n"]
-[ext_resource type="PackedScene" uid="uid://cuknkm44r5ano" path="res://scenes/characters/enemy_range.tscn" id="4_135f0"]
+[ext_resource type="PackedScene" uid="uid://cuknkm44r5ano" path="res://scenes/characters/enemies/enemy_range.tscn" id="4_135f0"]
 [ext_resource type="PackedScene" uid="uid://lllghnhblbc3" path="res://scenes/objects/wood.tscn" id="6_wu44v"]
 [ext_resource type="Script" uid="uid://bmqkrds30j3j2" path="res://scripts/mapa_teste/overview.gd" id="7_r7puf"]
-[ext_resource type="PackedScene" uid="uid://dh2ramkdbpjei" path="res://scenes/characters/enemy_range_stopped.tscn" id="9_7uwkl"]
+[ext_resource type="PackedScene" uid="uid://dh2ramkdbpjei" path="res://scenes/characters/enemies/enemy_range_stopped.tscn" id="9_7uwkl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b8rgi"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -354,7 +354,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9703054, 1.30929, -0.73442
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.34749, 2.73423, 5.15924)
 
 [node name="enemy_range" parent="." instance=ExtResource("4_135f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.742046, 1.180001, -5.692644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.054926, 1.180001, -1.1350913)
 
 [node name="enemy_range_stopped" parent="." instance=ExtResource("9_7uwkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2110615, 1.1800005, -8.388676)

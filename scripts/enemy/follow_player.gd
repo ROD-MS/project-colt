@@ -25,10 +25,16 @@ func update(delta: float):
 	
 	if time_reload > 0:
 		time_reload -= 0.016
+		print("time_reload: " + str(time_reload))
 	
-	if agent.follow:
-		if !agent.is_in_group("enemy_stopped"):
-			agent.velocity = agent.velocity.move_toward(new_velocity, 0.25)
+	if enemy.follow:
+		if !enemy.is_in_group("enemy_stopped") and !enemy.is_in_group("enemy_range"):
+			enemy.velocity = enemy.velocity.move_toward(new_velocity, 0.25)
+			
+		if enemy.is_in_group("enemy_range") and raycast.get_collider() and raycast.get_collider() is Player:
+				enemy.velocity = Vector3.ZERO
+		elif enemy.is_in_group("enemy_range") and !raycast.get_collider() or enemy.is_in_group("enemy_range") and !raycast.get_collider() is Player:
+				enemy.velocity = enemy.velocity.move_toward(new_velocity, 0.25)
 		
 		if time_reload <= 0:
 			Transitioned.emit(self, "shoot")

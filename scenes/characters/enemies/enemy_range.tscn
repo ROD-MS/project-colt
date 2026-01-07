@@ -141,7 +141,7 @@ animations = [{
 radius = 0.810395
 height = 2.16132
 
-[node name="enemy_range" type="CharacterBody3D" groups=["enemy", "weak_enemy"]]
+[node name="enemy_range" type="CharacterBody3D" groups=["enemy", "enemy_range", "weak_enemy"]]
 script = ExtResource("1_vwdvn")
 time_reload_sec = 2
 
