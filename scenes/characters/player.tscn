@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=110 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Texture2D" uid="uid://b1tfg5g46qn2y" path="res://assets/HUD/life_bar/10-0-Sheet.png" id="2_inhyd"]
@@ -37,6 +37,8 @@
 [ext_resource type="AudioStream" uid="uid://7hdv54m8om22" path="res://assets/audio/player/Sound Running Colt provisorio limpo.mp3" id="34_s0anf"]
 [ext_resource type="AudioStream" uid="uid://bpns3chftqqe2" path="res://assets/audio/player/Sound Walk colt provisorio limpo.mp3" id="35_s1x7u"]
 [ext_resource type="AudioStream" uid="uid://i3oddddxmxoh" path="res://assets/audio/player/oh_yeah_colt_limpo.wav" id="37_s1x7u"]
+[ext_resource type="Script" uid="uid://dc4k17idn6y8q" path="res://scripts/components/pick_release_item_component.gd" id="38_c3kfx"]
+[ext_resource type="Texture2D" uid="uid://1dp4hx1quhb3" path="res://icon.svg" id="39_hdner"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8g38"]
 atlas = ExtResource("2_inhyd")
@@ -522,6 +524,21 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdswu"]
+atlas = ExtResource("39_hdner")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_itbg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdswu")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -1023,6 +1040,7 @@ state_machine = NodePath("StateMachine")
 
 [node name="up_detector" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.881677, 0)
+visible = false
 target_position = Vector3(0, 1, 0)
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -1319,6 +1337,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)
 script = ExtResource("9_seiem")
 bob_crounch_pos = -0.5
 
+[node name="raycast_item" type="RayCast3D" parent="head"]
+target_position = Vector3(0, 0, -3)
+
 [node name="hand_animation" type="AnimatedSprite3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0870005, -0.285663, -0.600543)
 gi_mode = 2
@@ -1330,10 +1351,16 @@ sprite_frames = SubResource("SpriteFrames_w04t7")
 animation = &"reload"
 autoplay = "idle"
 
+[node name="hand_item" type="AnimatedSprite3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38763076, -0.0798531, -0.6052896)
+pixel_size = 0.001
+sprite_frames = SubResource("SpriteFrames_itbg4")
+
 [node name="Camera3D" type="Camera3D" parent="head"]
 fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="head"]
+visible = false
 target_position = Vector3(0, 0, -1)
 collision_mask = 3
 
@@ -1351,6 +1378,7 @@ libraries = {
 }
 
 [node name="shotgun_raycast" type="Node3D" parent="head"]
+visible = false
 
 [node name="shotgun_raycast" type="RayCast3D" parent="head/shotgun_raycast"]
 target_position = Vector3(0, 0, 0)
@@ -1376,6 +1404,9 @@ spot_angle = 30.0
 
 [node name="kick" parent="head" instance=ExtResource("24_s0anf")]
 knockback_force = 10.0
+
+[node name="kick_raycast" parent="head/kick" index="2"]
+visible = false
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
 script = ExtResource("2_l864t")
@@ -1457,10 +1488,16 @@ ceiling_stiffness = 10.0
 
 [node name="kick_slide_raycast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29475653, 0)
+visible = false
 target_position = Vector3(0, 0, -1.5)
 
 [node name="oh_yeah_audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_s1x7u")
+
+[node name="pick_release_item_component" type="Node3D" parent="." node_paths=PackedStringArray("sprite_item", "raycast")]
+script = ExtResource("38_c3kfx")
+sprite_item = NodePath("../head/hand_item")
+raycast = NodePath("../head/raycast_item")
 
 [connection signal="pressed" from="HUD/ReferenceRect/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="HUD/ReferenceRect/load" to="." method="_on_load_pressed"]
