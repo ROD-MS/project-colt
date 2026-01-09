@@ -2,7 +2,7 @@ extends Node3D
 
 var player: Player = null
 var holding_item: bool = false
-var item: StaticBody3D = null
+var item: RigidBody3D = null
 var item_path: String = ""
 @export var sprite_item: AnimatedSprite3D = null
 @export var raycast: RayCast3D = null
@@ -24,15 +24,23 @@ func _process(delta: float) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interaction") and raycast.get_collider() and raycast.get_collider().is_in_group("item") and !holding_item:
-		item = raycast.get_collider() as StaticBody3D
-		item.global_position.y = 10
+		item = raycast.get_collider() as RigidBody3D
+		item.linear_velocity = Vector3.ZERO
+		item.angular_velocity = Vector3.ZERO
+		item.process_mode = Node.PROCESS_MODE_DISABLED
+		item.hide()
 		print("holding item: " + str(item))
 		holding_item = true
 
 		
 	if event.is_action_pressed("release_item") and holding_item:
+		item.process_mode = Node.PROCESS_MODE_INHERIT
 		item.global_position = sprite_item.global_position
 		item.show()
+		print("item -raycast.global_basis.z: " + str(-raycast.global_basis.z))
+		item.rotation = player.global_rotation
+		item.apply_central_impulse(-raycast.global_basis.z * 10)
+
 		item = null
 		print("holding item: " + str(item))
 		holding_item = false

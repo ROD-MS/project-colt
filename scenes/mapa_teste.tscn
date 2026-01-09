@@ -440,7 +440,7 @@ script = ExtResource("7_r7puf")
 player = NodePath("../player")
 
 [node name="item_test" parent="." instance=ExtResource("10_04vdo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.72256, 0.12500009, -1.3755622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.480347, 0.12500009, -1.3755622)
 
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]
 
