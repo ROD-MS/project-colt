@@ -6,6 +6,8 @@ var item: RigidBody3D = null
 var item_path: String = ""
 @export var sprite_item: AnimatedSprite3D = null
 @export var raycast: RayCast3D = null
+@export var hand_animation: AnimatedSprite3D = null
+@export var _inventory: Inventory = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,8 +20,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if holding_item:
 		sprite_item.show()
+		hand_animation.hide()
+		_inventory.process_mode = Node.PROCESS_MODE_DISABLED
 	else:
 		sprite_item.hide()
+		hand_animation.show()
+		_inventory.process_mode = Node.PROCESS_MODE_INHERIT
 		
 	
 func _unhandled_input(event: InputEvent) -> void:

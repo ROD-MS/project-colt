@@ -1494,10 +1494,12 @@ target_position = Vector3(0, 0, -1.5)
 [node name="oh_yeah_audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_s1x7u")
 
-[node name="pick_release_item_component" type="Node3D" parent="." node_paths=PackedStringArray("sprite_item", "raycast")]
+[node name="pick_release_item_component" type="Node3D" parent="." node_paths=PackedStringArray("sprite_item", "raycast", "hand_animation", "_inventory")]
 script = ExtResource("38_c3kfx")
 sprite_item = NodePath("../head/hand_item")
 raycast = NodePath("../head/raycast_item")
+hand_animation = NodePath("../head/hand_animation")
+_inventory = NodePath("../inventory_component")
 
 [connection signal="pressed" from="HUD/ReferenceRect/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="HUD/ReferenceRect/load" to="." method="_on_load_pressed"]
