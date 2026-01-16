@@ -72,7 +72,7 @@ func damage(attack: Attack) -> float:
 			
 		#print("MORREU")
 		
-		if get_parent() and get_parent() is Enemy:
+		if get_parent() and get_parent() is Enemy and attack.damage > 999:
 			var enemy = get_parent() as Enemy
 			var enemy_item = ENEMY_ITEM.instantiate()
 			enemy_item.global_position = enemy.global_position
@@ -82,7 +82,7 @@ func damage(attack: Attack) -> float:
 			
 			get_owner().get_parent().add_child(enemy_item)
 			
-			enemy.queue_free()
+		get_parent().queue_free()
 		
 	return health
 
