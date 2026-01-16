@@ -6,6 +6,7 @@ class_name HealthComponent
 @export var MAX_HEALTH: int = 10
 @export var health_bar: ProgressBar
 @export var life_bar: AnimatedSprite2D
+const ENEMY_ITEM = preload("res://scenes/objects/item_test_enemy.tscn")
 
 var health: float
 var knockback: Vector3
@@ -70,7 +71,18 @@ func damage(attack: Attack) -> float:
 			#print("HEALTH ENEMY: " +str(health))
 			
 		#print("MORREU")
-		get_parent().queue_free()
+		
+		if get_parent() and get_parent() is Enemy:
+			var enemy = get_parent() as Enemy
+			var enemy_item = ENEMY_ITEM.instantiate()
+			enemy_item.global_position = enemy.global_position
+			
+			#print("enemy yes: " + str(enemy_item.global_position))
+			#print("enemy yes: " + str(get_owner()))
+			
+			get_owner().get_parent().add_child(enemy_item)
+			
+			enemy.queue_free()
 		
 	return health
 

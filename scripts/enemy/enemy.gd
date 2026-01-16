@@ -13,11 +13,15 @@ const SPEED = 5
 @onready var sounds = $sounds
 @onready var detect_player: Area3D = $detect_player
 @onready var raycast: RayCast3D = $RayCast3D
+@onready var collision: CollisionShape3D = $CollisionShape3D
+
+const ENEMY_ITEM = preload("res://scenes/objects/item_test_enemy.tscn")
 
 var follow: bool = false
 var sound_list: Array
 var timer: int = 0
 var player: Player = null
+var last_position: Vector3 = Vector3.ZERO
 
 var move_timer: Timer = null
 @onready var state_machine: StateMachine = $StateMachine
@@ -60,9 +64,13 @@ func _physics_process(delta):
 	
 	print(state_machine.current_state)
 	print("enemy follow: " + str(follow))
+	last_position = global_position
+	print("enemy parent: " +str(last_position))
 	
 func _exit_tree() -> void:
 	Score_control.add_normal_point(enemy_value)
+	collision.disabled = true
+	
 		
 func target_position(target):
 	nav.target_position = target
