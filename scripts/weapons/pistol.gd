@@ -57,6 +57,11 @@ func weapon_shot():
 	sprite_animation.play("shoot")
 	if !shotted:
 		shoot_sound.play()
+		
+		
+	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider() is ExplosionItem:
+		var barrel: ExplosionItem = raycast.get_collider() as ExplosionItem
+		barrel.explosion()
 	
 	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
 		var target = raycast.get_collider() # A CollisionObject3D.

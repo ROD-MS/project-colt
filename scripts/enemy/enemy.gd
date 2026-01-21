@@ -27,6 +27,10 @@ var move_timer: Timer = null
 @onready var state_machine: StateMachine = $StateMachine
 
 func _ready():
+	for child in get_children():
+		if child is GPUParticles3D:
+			var _particles = child as GPUParticles3D
+	
 	#print(get_parent().get_children())
 	for child in get_parent().get_children():
 		#print(child)

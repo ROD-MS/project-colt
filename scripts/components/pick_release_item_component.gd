@@ -2,7 +2,7 @@ extends Node3D
 
 var player: Player = null
 var holding_item: bool = false
-var item: RigidBody3D = null
+var item = null
 var item_path: String = ""
 @export var sprite_item: AnimatedSprite3D = null
 @export var raycast: RayCast3D = null
@@ -40,6 +40,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		
 	if event.is_action_pressed("release_item") and holding_item:
+		if item is ExplosionItem:
+			item.launched = true
 		item.process_mode = Node.PROCESS_MODE_INHERIT
 		item.global_position = sprite_item.global_position
 		item.show()

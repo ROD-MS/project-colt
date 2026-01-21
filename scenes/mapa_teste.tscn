@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dbtsqv26emkg6"]
+[gd_scene load_steps=61 format=3 uid="uid://dbtsqv26emkg6"]
 
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemies/enemy_melee.tscn" id="1_jjkuw"]
 [ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="2_5m021"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bmqkrds30j3j2" path="res://scripts/mapa_teste/overview.gd" id="7_r7puf"]
 [ext_resource type="PackedScene" uid="uid://dh2ramkdbpjei" path="res://scenes/characters/enemies/enemy_range_stopped.tscn" id="9_7uwkl"]
 [ext_resource type="PackedScene" uid="uid://ijqfisp56mmu" path="res://scenes/objects/item_test.tscn" id="10_04vdo"]
+[ext_resource type="PackedScene" uid="uid://bpj0pkn8dqhue" path="res://scenes/objects/item_test_explosion.tscn" id="11_po1k4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b8rgi"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -441,6 +442,9 @@ player = NodePath("../player")
 
 [node name="item_test" parent="." instance=ExtResource("10_04vdo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.480347, 0.12500009, -1.3755622)
+
+[node name="item_test_explosion" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.704323, 0.86568165, 0.1061306)
 
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]
 
