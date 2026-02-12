@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxt8srf54lcwt"]
+
+[ext_resource type="Script" uid="uid://cdddyh8id3pcq" path="res://scripts/objects/normal_door.gd" id="1_r14e2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mf4jn"]
+size = Vector3(2, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r14e2"]
+size = Vector3(1.5, 2.5, 2)
+
+[node name="normal_door" type="StaticBody3D"]
+script = ExtResource("1_r14e2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.25, 0)
+size = Vector3(2, 4, 0.2)
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.25, 0)
+shape = SubResource("BoxShape3D_mf4jn")
+
+[node name="detect_player" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.25, 0)
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="detect_player"]
+shape = SubResource("BoxShape3D_r14e2")
+
+[connection signal="body_entered" from="detect_player" to="." method="_on_detect_player_body_entered"]
+[connection signal="body_exited" from="detect_player" to="." method="_on_detect_player_body_exited"]

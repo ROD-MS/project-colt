@@ -84,8 +84,6 @@ func weapon_reload():
 	
 func sub_ammo(ammo_used: int):
 	ammo_in_weapon -= ammo_used
-	print("MUNIÇÃO NA ARMA: " + str(ammo_in_weapon))
-	print("MUNIÇÃO TOTAL: " + str(ammo_remaining))
 	
 func add_ammo(ammo_added: int):
 	var adding_ammo: int = ammo_added/ammo_added

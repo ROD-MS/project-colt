@@ -4,5 +4,4 @@ extends Node2D
 
 func _ready() -> void:
 	await video.finished
-	print("Me ve dois alfajor por favor muchacho")
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")

@@ -34,10 +34,11 @@ offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "PARABÉNS!! VOCÊ TERMINOU O JOGO!!"
+text = "PARABÉNS!! VOCÊ TERMINOU O TUTORIAL!!"
 horizontal_alignment = 1
 
 [node name="reiniciar" type="Button" parent="ReferenceRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,7 +54,6 @@ grow_vertical = 2
 text = "MENU"
 
 [node name="sair" type="Button" parent="ReferenceRect"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -69,6 +69,7 @@ grow_vertical = 2
 text = "SAIR"
 
 [node name="Panel" type="Panel" parent="ReferenceRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,6 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="ReferenceRect/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -95,6 +97,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="score" type="Label" parent="ReferenceRect/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

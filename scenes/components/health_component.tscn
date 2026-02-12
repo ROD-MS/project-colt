@@ -6,3 +6,5 @@
 script = ExtResource("1_0vmax")
 
 [node name="knockback_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="knockback_timer" to="." method="_on_knockback_timer_timeout"]

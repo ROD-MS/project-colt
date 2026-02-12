@@ -6,10 +6,15 @@ class_name HealthComponent
 @export var MAX_HEALTH: int = 10
 @export var health_bar: ProgressBar
 @export var life_bar: AnimatedSprite2D
+var death_hud: DeathHud
 const ENEMY_ITEM = preload("res://scenes/objects/item_test_enemy.tscn")
 
 var health: float
 var knockback: Vector3
+
+var enemy: Enemy = null
+
+@export var has_sound: bool = true
 
 func _ready():
 	health = MAX_HEALTH
@@ -25,48 +30,57 @@ func damage(attack: Attack) -> float:
 	#if health_bar and health >= 0:
 		#health_bar.value = health
 		#print("VIDA RESTANTE: " + str(health))
-	if get_parent().name == "player":
+	if get_parent() is Player:
 		var player = get_parent() as Player
 		$"../HUD/hit".show()
 		await get_tree().create_timer(0.1).timeout
-		Score_control.down_combo()
+		Score_control.down_combo()	
 		if Score_control.combo <= 1:
 			player.combo.text = "COMBO: "
 		else:
 			player.combo.text = "COMBO: " + str(Score_control.combo)
 		$"../HUD/hit".hide()
 		
-	if get_parent().is_in_group("enemy"):
-		var enemy = get_parent() as Enemy
-		print(enemy.detect_player)
+	if get_parent() is Enemy:
+		enemy = get_parent() as Enemy
+		#print(enemy)
+		#print(enemy.detect_player)
 		enemy.detect_player.process_mode = Node.PROCESS_MODE_INHERIT
 		enemy.follow = true
 		
 		var knockback_direction = -(enemy.player.global_position - enemy.global_position).normalized()
-		print("ridectoin:" + str(knockback_direction))
-		print(Vector3(1, 1, 1))
+		#print("ridectoin:" + str(knockback_direction))
+		#print(Vector3(1, 1, 1))
 		knockback = knockback_direction * attack.knockback_force
-	
-		knockback_timer.start(1)
-	
+			
+		#knockback_timer.start(1)
+		
 		if enemy.is_in_group("weak_enemy"):
 			enemy.velocity = knockback
+			#enemy.knockbacking = true
 		
 	
 		
 		
-	if get_parent().is_in_group("enemy"):
-		randomize()
-		var random_sound: int = randi_range(1, 2)
-		if random_sound == 1:
-				$"../sounds/dano_enemy1".play()
-		if random_sound == 2:
-				$"../sounds/dano_enemy2".play()
+	if get_parent() is Enemy:
+		if has_sound:
+			randomize()
+			var random_sound: int = randi_range(1, 2)
+			if random_sound == 1:
+					$"../sounds/dano_enemy1".play()
+			if random_sound == 2:
+					$"../sounds/dano_enemy2".play()
 	
 	if health <= 0:
-		if get_parent() and get_parent().name == "player":
-			if get_tree():
-				get_tree().reload_current_scene()
+		if get_parent() and get_parent() is Player:
+			var player: Player = get_parent() as Player
+			death_hud = player.death_hud
+			player.state_machine.set_active(false)
+			death_hud.change_visibility(true)
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			get_tree().paused = true
+			player.hide()
+			
 		#if get_parent().is_in_group("enemy"):
 			#print("HEALTH ENEMY: " +str(health))
 			
@@ -74,15 +88,15 @@ func damage(attack: Attack) -> float:
 		
 		if get_parent() and get_parent() is Enemy and attack.damage > 999:
 			var enemy = get_parent() as Enemy
-			var enemy_item = ENEMY_ITEM.instantiate()
-			enemy_item.global_position = enemy.global_position
+			#var enemy_item = ENEMY_ITEM.instantiate()
+			#enemy_item.global_position = enemy.global_position
 			
-			#print("enemy yes: " + str(enemy_item.global_position))
-			#print("enemy yes: " + str(get_owner()))
 			
-			get_owner().get_parent().add_child(enemy_item)
-			
-		get_parent().queue_free()
+			#get_owner().get_parent().add_child(enemy_item)
+			get_parent().queue_free()
+		
+		if get_parent() is Enemy:
+			get_parent().queue_free()
 		
 	return health
 
@@ -193,3 +207,9 @@ func update_life_bar_heal():
 #FUNÇÃO DE CURA
 #func heal(healing: Cure):
 	#health += healing
+
+
+func _on_knockback_timer_timeout() -> void:
+	if enemy:
+		enemy.knockbacking = false
+	

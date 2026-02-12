@@ -82,7 +82,6 @@ func weapon_shot():
 				break
 				
 				
-		print(health)
 		if health:
 			var attack = Attack.new()
 			if headshot:

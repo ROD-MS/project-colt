@@ -9,6 +9,9 @@ var contents_to_save: Dictionary = {
 }
 
 
+func _ready() -> void:
+	_load()
+
 func _save():
 	var file = FileAccess.open_encrypted_with_pass(save_location, FileAccess.WRITE, "75347pc0")
 	file.store_var(contents_to_save.duplicate())

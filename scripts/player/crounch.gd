@@ -11,7 +11,6 @@ var is_crouch: bool = false
 
 func enter():
 	is_crouch = true
-	print("crouch")
 	animation.play("crouch")
 	player = agent as Player
 	

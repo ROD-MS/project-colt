@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://cehv73drkois7"]
+
+[ext_resource type="Script" uid="uid://07w3v5vnbkkw" path="res://scripts/huds/death_hud.gd" id="1_ikdy3"]
+[ext_resource type="FontFile" uid="uid://nfchdxg0capl" path="res://assets/fonts/Retro Gaming.ttf" id="1_ns5dd"]
+
+[node name="death_hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ikdy3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -385.0
+offset_top = -251.0
+offset_right = 385.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="restart" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = 60.0
+offset_right = 90.5
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ns5dd")
+theme_override_font_sizes/font_size = 32
+text = "RESTART"
+
+[node name="menu" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = 140.0
+offset_right = 90.5
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ns5dd")
+theme_override_font_sizes/font_size = 32
+text = "MENU"
+
+[node name="score" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 135.0
+offset_right = 523.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("1_ns5dd")
+theme_override_font_sizes/font_size = 32
+text = "SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="highscore" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 191.0
+offset_right = 523.0
+offset_bottom = 232.0
+theme_override_fonts/font = ExtResource("1_ns5dd")
+theme_override_font_sizes/font_size = 32
+text = "HIGHSCORE: 0"
+vertical_alignment = 3
+
+[connection signal="pressed" from="CanvasLayer/Panel/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/menu" to="." method="_on_menu_pressed"]

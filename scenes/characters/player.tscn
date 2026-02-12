@@ -1040,7 +1040,6 @@ state_machine = NodePath("StateMachine")
 
 [node name="up_detector" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.881677, 0)
-visible = false
 target_position = Vector3(0, 1, 0)
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -1360,12 +1359,10 @@ sprite_frames = SubResource("SpriteFrames_itbg4")
 fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="head"]
-visible = false
 target_position = Vector3(0, 0, -1)
 collision_mask = 3
 
 [node name="grappling_hook_raycast" type="RayCast3D" parent="head"]
-visible = false
 target_position = Vector3(0, 0, -100)
 collision_mask = 3
 
@@ -1403,10 +1400,8 @@ spot_range = 50.0
 spot_angle = 30.0
 
 [node name="kick" parent="head" instance=ExtResource("24_s0anf")]
+damage = 2.0
 knockback_force = 10.0
-
-[node name="kick_raycast" parent="head/kick" index="2"]
-visible = false
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
 script = ExtResource("2_l864t")
@@ -1441,7 +1436,6 @@ metadata/_custom_type_script = "uid://cieet35bsxo37"
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.185899, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.547959, 0)
-visible = false
 texture = ExtResource("16_kbxbc")
 
 [node name="Sounds Effects" type="Node3D" parent="."]
@@ -1488,7 +1482,6 @@ ceiling_stiffness = 10.0
 
 [node name="kick_slide_raycast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29475653, 0)
-visible = false
 target_position = Vector3(0, 0, -1.5)
 
 [node name="oh_yeah_audio" type="AudioStreamPlayer" parent="."]

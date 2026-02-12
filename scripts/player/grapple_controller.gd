@@ -44,7 +44,6 @@ func launch():
 		elif raycast.get_collider() is Enemy:
 			enemy_gh = raycast.get_collider() as Enemy
 		
-		print(target)
 		
 		if target:
 			if target.is_in_group("grappling_hook_block"):
@@ -90,7 +89,7 @@ func handle_grapple(delta: float):
 		
 func update_rope():
 	if !launched:
-		state_machine.set_active(true)
+		#state_machine.set_active(true)
 		rope.visible = false
 		return
 		

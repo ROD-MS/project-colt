@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bpj0pkn8dqhue"]
+[gd_scene load_steps=30 format=3 uid="uid://bpj0pkn8dqhue"]
 
 [ext_resource type="Script" uid="uid://csbkrd7c70u1c" path="res://scripts/objects/item_test_explosion.gd" id="1_gvhqp"]
 [ext_resource type="Texture2D" uid="uid://65cso2kgarub" path="res://assets/Visual Effects/explosion_frames.png" id="2_t58dj"]
@@ -7,11 +7,14 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r82y7"]
 albedo_color = Color(0.58431375, 0, 0, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r82y7"]
-size = Vector3(0.6, 1.1, 0.6)
+[sub_resource type="BoxShape3D" id="BoxShape3D_etixk"]
+size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_r82y7"]
 radius = 4.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpibg"]
+size = Vector3(0.6, 1.1, 0.6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t58dj"]
 atlas = ExtResource("2_t58dj")
@@ -140,6 +143,81 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="Animation" id="Animation_etixk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animation2d:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_c4vdv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animation2d:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animation2d:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("audio:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_rpibg")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("audio:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("animation2d:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_rpibg"]
 resource_name = "explosion"
 length = 3.0
@@ -227,81 +305,6 @@ tracks/6/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_etixk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("animation2d:sprite_frames")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("SpriteFrames_c4vdv")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("animation2d:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"default"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("animation2d:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("audio:stream")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_rpibg")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("audio:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("animation2d:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_voubq"]
 resource_name = "idle"
 
@@ -320,7 +323,7 @@ size = Vector3(0.5, 1, 0.5)
 material = SubResource("StandardMaterial3D_r82y7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_r82y7")
+shape = SubResource("BoxShape3D_etixk")
 
 [node name="explosion_area" type="Area3D" parent="."]
 
@@ -331,7 +334,7 @@ debug_color = Color(0.9964394, 0, 0.19786382, 0.41960785)
 [node name="launch_detect" type="Area3D" parent="."]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="launch_detect"]
-shape = SubResource("BoxShape3D_r82y7")
+shape = SubResource("BoxShape3D_rpibg")
 
 [node name="animation2d" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(3.1698444, 0, 0, 0, 3.1698444, 0, 0, 0, 1, 0, -0.6265302, 0)

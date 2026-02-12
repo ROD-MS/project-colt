@@ -1,16 +1,16 @@
 [gd_scene load_steps=61 format=3 uid="uid://dbtsqv26emkg6"]
 
-[ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemies/enemy_melee.tscn" id="1_jjkuw"]
+[ext_resource type="PackedScene" uid="uid://cehv73drkois7" path="res://scenes/death_hud.tscn" id="1_04vdo"]
 [ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="2_5m021"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="2_5p211"]
 [ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="3_orydm"]
 [ext_resource type="PackedScene" uid="uid://bb3ymudhsbplr" path="res://scenes/objects/shotgun_box.tscn" id="4_4c11n"]
-[ext_resource type="PackedScene" uid="uid://cuknkm44r5ano" path="res://scenes/characters/enemies/enemy_range.tscn" id="4_135f0"]
 [ext_resource type="PackedScene" uid="uid://lllghnhblbc3" path="res://scenes/objects/wood.tscn" id="6_wu44v"]
 [ext_resource type="Script" uid="uid://bmqkrds30j3j2" path="res://scripts/mapa_teste/overview.gd" id="7_r7puf"]
-[ext_resource type="PackedScene" uid="uid://dh2ramkdbpjei" path="res://scenes/characters/enemies/enemy_range_stopped.tscn" id="9_7uwkl"]
 [ext_resource type="PackedScene" uid="uid://ijqfisp56mmu" path="res://scenes/objects/item_test.tscn" id="10_04vdo"]
 [ext_resource type="PackedScene" uid="uid://bpj0pkn8dqhue" path="res://scenes/objects/item_test_explosion.tscn" id="11_po1k4"]
+[ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemies/enemy_melee.tscn" id="12_6617f"]
+[ext_resource type="PackedScene" uid="uid://cxt8srf54lcwt" path="res://scenes/objects/normal_door.tscn" id="12_gdks2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b8rgi"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -163,10 +163,15 @@ albedo_color = Color(1, 0, 1, 1)
 
 [node name="mapa_teste" type="Node3D"]
 
-[node name="player" parent="." instance=ExtResource("2_5p211")]
+[node name="player" parent="." node_paths=PackedStringArray("death_hud") instance=ExtResource("2_5p211")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.688759, 1.85512, -0.604555)
+death_hud = NodePath("../death_hud")
 
 [node name="shotgun" parent="player/inventory_component" index="1" instance=ExtResource("2_5m021")]
+
+[node name="death_hud" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_04vdo")]
+name_level = "level_1"
+player = NodePath("../player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 17.9535, 0)
@@ -343,24 +348,6 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/cubo10/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_q10aw")
 
-[node name="enemy" parent="." instance=ExtResource("1_jjkuw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01739, 2.73423, 5.17471)
-
-[node name="enemy3" parent="." instance=ExtResource("1_jjkuw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72831, 1.30929, -0.892933)
-
-[node name="enemy4" parent="." instance=ExtResource("1_jjkuw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9703054, 1.30929, -0.7344227)
-
-[node name="enemy2" parent="." instance=ExtResource("1_jjkuw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.34749, 2.73423, 5.15924)
-
-[node name="enemy_range" parent="." instance=ExtResource("4_135f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.054926, 1.180001, -1.1350913)
-
-[node name="enemy_range_stopped" parent="." instance=ExtResource("9_7uwkl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2110615, 1.1800005, -8.388676)
-
 [node name="garrafa_whisky" parent="." instance=ExtResource("3_orydm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30574, 0.267555, -7.61468)
 
@@ -446,8 +433,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.480347, 0.12500009, -1.37
 [node name="item_test_explosion" parent="." instance=ExtResource("11_po1k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.704323, 0.86568165, 0.1061306)
 
+[node name="item_test_explosion5" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.704323, 0.86568165, 3.672226)
+
+[node name="item_test_explosion6" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.704323, 0.86568165, 1.1439624)
+
+[node name="item_test_explosion8" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.037765, 1.4704657, 5.6174192)
+
+[node name="item_test_explosion2" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.431964, 0.86568165, 0.1061306)
+
+[node name="item_test_explosion3" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.674206, 0.86568165, 0.1061306)
+
+[node name="item_test_explosion11" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.041274, 0.86568165, 0.1061306)
+
+[node name="item_test_explosion12" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48070335, 0.86568165, 0.1061306)
+
+[node name="item_test_explosion13" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9751616, 0.86568165, 0.1061306)
+
+[node name="item_test_explosion14" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1898336, 0.86568165, 0.1061306)
+
+[node name="item_test_explosion9" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.674206, 0.86568165, -4.7499127)
+
+[node name="item_test_explosion15" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.674206, 0.86568165, -2.7469344)
+
+[node name="item_test_explosion10" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.674206, 0.86568165, -7.4618306)
+
+[node name="item_test_explosion4" parent="." instance=ExtResource("11_po1k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.058444, 0.86568165, 0.1061306)
+
+[node name="normal_door" parent="." instance=ExtResource("12_gdks2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.091537, 0.025000572, -2.0672302)
+
+[node name="normal_door2" parent="." instance=ExtResource("12_gdks2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.077982, 0.025000572, 0.9552412)
+
+[node name="enemy_melee" parent="." instance=ExtResource("12_6617f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.712309, 1.1799996, -6.1684527)
+
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]
 
 [editable path="player"]
 [editable path="player/head/kick"]
-[editable path="enemy_range_stopped"]

@@ -16,7 +16,6 @@ var min_velocity_threshold = 0.1
 
 
 func _process(delta):
-	print(position)
 	var horizontal_velocity = Vector2(player.velocity.x, player.velocity.z).length()
 	var bob_target = Vector3.ZERO
 	var weapon = inventory.current_weapon.sprite_animation
@@ -49,7 +48,6 @@ func _process(delta):
 		#position.x = bob_crounch_pos
 	#else:
 	#if player.state_machine.current_state.name != "crouch" or player.state_machine.current_state.name != "slide":
-	print(player.state_machine.current_state.name)
 	position = position.move_toward(bob_target, delta * bob_smoothing)
 	if player.state_machine.current_state.name == "crouch" or player.state_machine.current_state.name == "slide":
 		position.y = bob_crounch_pos

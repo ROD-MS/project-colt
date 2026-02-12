@@ -50,10 +50,8 @@ func _on_back_config_pressed() -> void:
 
 func _on_slider_mouse_value_changed(value: float) -> void:
 	Config.mouse_sensibility = value
-	print(Config.mouse_sensibility)
 
 func _on_slider_sounds_value_changed(value: float) -> void:
 	Config.sound_volume = value
 	var db = linear_to_db(value)
 	AudioServer.set_bus_volume_db(audio_bus_id, db)
-	print(AudioServer.get_bus_volume_db(audio_bus_id))

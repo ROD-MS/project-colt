@@ -25,7 +25,6 @@ func update(delta: float):
 	
 	if time_reload > 0:
 		time_reload -= 0.016
-		print("time_reload: " + str(time_reload))
 	
 	if enemy.follow:
 		if !enemy.is_in_group("enemy_stopped") and !enemy.is_in_group("enemy_range"):

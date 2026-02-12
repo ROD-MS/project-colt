@@ -37,6 +37,7 @@ func reset_max_score():
 
 func _ready() -> void:
 	current_level = level.find_key(true)
+	print(highscore)
 	#print(current_level)
 	
 func set_level(_level: String):
@@ -70,16 +71,20 @@ func add_normal_point(new_point: float) -> void: # PONTOS SÃO DADOS APENAS QUAN
 			if score > highscore.level_1:
 				highscore.level_1 = score
 				_new_highscore = score
+				print("score if")
+			print("Score 1: " + str(highscore.level_1))
 		"level_2":
 			_new_highscore = highscore.level_2
 			if score > highscore.level_2:
 				highscore.level_2 = score
 				_new_highscore = score
+			print("Score 2: " + str(highscore.level_1))
 		"level_3":
 			_new_highscore = highscore.level_3
 			if score > highscore.level_3:
 				highscore.level_3 = score
 				_new_highscore = score
+			print("Score 3: " + str(highscore.level_1))
 	
 	
 	enemyDead.emit(score, combo, _new_highscore)

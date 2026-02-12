@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://gqfvqggvmnbq"]
+[gd_scene load_steps=35 format=3 uid="uid://gqfvqggvmnbq"]
 
 [ext_resource type="Script" uid="uid://c40auq808mxxf" path="res://scripts/enemy/enemy.gd" id="1_htdb8"]
 [ext_resource type="Texture2D" uid="uid://tk0euh261yq" path="res://assets/enemies/BACK.png" id="2_vwwpk"]
@@ -141,6 +141,10 @@ animations = [{
 radius = 0.810395
 height = 2.16132
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pbm4f"]
+radius = 1.0
+height = 2.5
+
 [node name="enemy_melee" type="CharacterBody3D" groups=["enemy", "weak_enemy"]]
 script = ExtResource("1_htdb8")
 damage = 20
@@ -174,7 +178,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0679515, 0)
 shape = SubResource("CapsuleShape3D_xp5p6")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_8xlit")]
-MAX_HEALTH = 30
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
 script = ExtResource("5_106bi")
@@ -221,4 +224,12 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
+[node name="detect_collision" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detect_collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0679515, 0)
+shape = SubResource("CapsuleShape3D_pbm4f")
+debug_color = Color(0.013131705, 0.6513867, 5.7756904e-07, 0.41960785)
+
 [connection signal="body_entered" from="detect_player" to="StateMachine/idle" method="_on_detect_player_body_entered"]
+[connection signal="body_entered" from="detect_collision" to="." method="_on_detect_collision_body_entered"]

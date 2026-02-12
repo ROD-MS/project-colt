@@ -6,10 +6,10 @@ roughness = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_8ljhs"]
 material = SubResource("StandardMaterial3D_a54iw")
-size = Vector3(2, 0.25, 0.05)
+size = Vector3(3, 0.25, 0.05)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a54iw"]
-data = PackedVector3Array(-1, 0.125, 0.024999999, 1, 0.125, 0.024999999, -1, -0.125, 0.024999999, 1, 0.125, 0.024999999, 1, -0.125, 0.024999999, -1, -0.125, 0.024999999, 1, 0.125, -0.024999999, -1, 0.125, -0.024999999, 1, -0.125, -0.024999999, -1, 0.125, -0.024999999, -1, -0.125, -0.024999999, 1, -0.125, -0.024999999, 1, 0.125, 0.024999999, 1, 0.125, -0.024999999, 1, -0.125, 0.024999999, 1, 0.125, -0.024999999, 1, -0.125, -0.024999999, 1, -0.125, 0.024999999, -1, 0.125, -0.024999999, -1, 0.125, 0.024999999, -1, -0.125, -0.024999999, -1, 0.125, 0.024999999, -1, -0.125, 0.024999999, -1, -0.125, -0.024999999, 1, 0.125, 0.024999999, -1, 0.125, 0.024999999, 1, 0.125, -0.024999999, -1, 0.125, 0.024999999, -1, 0.125, -0.024999999, 1, 0.125, -0.024999999, -1, -0.125, 0.024999999, 1, -0.125, 0.024999999, -1, -0.125, -0.024999999, 1, -0.125, 0.024999999, 1, -0.125, -0.024999999, -1, -0.125, -0.024999999)
+[sub_resource type="BoxShape3D" id="BoxShape3D_a54iw"]
+size = Vector3(3, 0.25, 0.05)
 
 [node name="wood" type="StaticBody3D" groups=["breakable"]]
 
@@ -17,4 +17,4 @@ data = PackedVector3Array(-1, 0.125, 0.024999999, 1, 0.125, 0.024999999, -1, -0.
 mesh = SubResource("BoxMesh_8ljhs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_a54iw")
+shape = SubResource("BoxShape3D_a54iw")

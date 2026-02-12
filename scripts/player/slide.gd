@@ -42,7 +42,6 @@ func physics_update(delta: float):
 	
 func input(event: InputEvent):
 	if !Input.is_action_pressed("crouch") and !up_detector.is_colliding():
-		print("AAAA")
 		if !Input.get_vector("left", "right", "foward", "back"):
 			Transitioned.emit(self, "idle")
 		if Input.get_vector("left", "right", "foward", "back") and player.running:

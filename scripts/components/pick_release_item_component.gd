@@ -35,20 +35,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		item.angular_velocity = Vector3.ZERO
 		item.process_mode = Node.PROCESS_MODE_DISABLED
 		item.hide()
-		print("holding item: " + str(item))
+		#print("holding item: " + str(item))
 		holding_item = true
 
 		
 	if event.is_action_pressed("release_item") and holding_item:
-		if item is ExplosionItem:
+		if item is ExplosionItem or item is EnemyItem:
 			item.launched = true
 		item.process_mode = Node.PROCESS_MODE_INHERIT
 		item.global_position = sprite_item.global_position
 		item.show()
-		print("item -raycast.global_basis.z: " + str(-raycast.global_basis.z))
+		#print("item -raycast.global_basis.z: " + str(-raycast.global_basis.z))
 		item.rotation = player.global_rotation
 		item.apply_central_impulse(-raycast.global_basis.z * 10)
 
 		item = null
-		print("holding item: " + str(item))
+		#print("holding item: " + str(item))
 		holding_item = false

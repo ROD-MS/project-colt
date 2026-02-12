@@ -5,6 +5,8 @@ const SPEED = 2
 const JUMP_FORCE = 3
 const SHOT = null
 
+@export var death_hud: DeathHud
+
 @export var state_machine: StateMachine
 @export var mouse_sensibility: float = 0.2
 
@@ -32,6 +34,8 @@ var tentativas: int = 0
 var timer: int = 0
 
 var shotted: bool = false
+
+var death: bool = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("sprint"):
@@ -76,12 +80,12 @@ func _physics_process(delta):
 func _ready():
 	if get_owner().get_owner():
 		current_level = get_owner().get_owner().name
-		print(current_level)
 	
 	Score_control.enemyDead.connect(change_scoreboard)
 	Score_control.combo = 0
 	Score_control.reset_score()
 	Score_control.set_level(current_level)
+	SaveLoad._load()
 	
 	match current_level:
 		"level_1":
@@ -91,7 +95,6 @@ func _ready():
 			tentativas = Score_control.tentativas_level2
 			$HUD/aviso_shotgun.show()
 	
-	print(current_level)
 	
 	$head/RayCast3D.add_exception(self)
 	var this_level = get_parent()
@@ -130,8 +133,10 @@ func _input(event):
 		$HUD/aviso_shotgun.hide()
 	
 func _on_killzone_body_entered(body):
-	if body.name == "player":
-		get_tree().reload_current_scene()
+	if body is Player:
+		state_machine.set_active(false)
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		death_hud.change_visibility(true)
 
 
 func _on_show_tutorial_body_exited(body):
