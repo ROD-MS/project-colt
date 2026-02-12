@@ -1,5 +1,7 @@
 extends Node3D
 
+var level: Level
+
 var player: Player = null
 var holding_item: bool = false
 var item = null
@@ -13,6 +15,7 @@ var item_path: String = ""
 func _ready() -> void:
 	if get_parent() is Player:
 		player = get_parent() as Player
+		level = player.level
 			
 	#print("player owner: " +str(player.get_owner()))
 
@@ -30,11 +33,17 @@ func _process(delta: float) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interaction") and raycast.get_collider() and raycast.get_collider().is_in_group("item") and !holding_item:
-		item = raycast.get_collider() as RigidBody3D
+		item = raycast.get_collider()
 		item.linear_velocity = Vector3.ZERO
 		item.angular_velocity = Vector3.ZERO
 		item.process_mode = Node.PROCESS_MODE_DISABLED
 		item.hide()
+		
+		if item is EnemyItem:
+			sprite_item.play("satodrink")
+		if item is ExplosionItem:
+			sprite_item.play("barril")
+			
 		#print("holding item: " + str(item))
 		holding_item = true
 
@@ -52,3 +61,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		item = null
 		#print("holding item: " + str(item))
 		holding_item = false
+		level.launched_item()

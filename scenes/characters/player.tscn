@@ -29,6 +29,8 @@
 [ext_resource type="AudioStream" uid="uid://cluyt0br4hvoe" path="res://assets/audio/weapons/audio fechando shotgun.mp3" id="13_xq3g6"]
 [ext_resource type="Texture2D" uid="uid://ww45o2q3hnb2" path="res://assets/rutz.png" id="16_kbxbc"]
 [ext_resource type="PackedScene" uid="uid://dmw6b65fvbm7w" path="res://scenes/components/rope.tscn" id="20_dg40j"]
+[ext_resource type="Texture2D" uid="uid://dvbnw56b571wi" path="res://assets/placeholder/barril_mao_colt_certo_final.png" id="20_m38kj"]
+[ext_resource type="Texture2D" uid="uid://ceg24y6e1mic0" path="res://assets/placeholder/satodrink_mao_colt_final.png" id="21_v1y1o"]
 [ext_resource type="PackedScene" uid="uid://cfdfflk4mq0wb" path="res://scenes/weapons/kick.tscn" id="24_s0anf"]
 [ext_resource type="Script" uid="uid://cxlqp4bmxmj7y" path="res://scripts/player/slide.gd" id="28_yhyq5"]
 [ext_resource type="Script" uid="uid://bhoqhp13pnbaf" path="res://scripts/player/crounch.gd" id="29_5jukt"]
@@ -38,7 +40,6 @@
 [ext_resource type="AudioStream" uid="uid://bpns3chftqqe2" path="res://assets/audio/player/Sound Walk colt provisorio limpo.mp3" id="35_s1x7u"]
 [ext_resource type="AudioStream" uid="uid://i3oddddxmxoh" path="res://assets/audio/player/oh_yeah_colt_limpo.wav" id="37_s1x7u"]
 [ext_resource type="Script" uid="uid://dc4k17idn6y8q" path="res://scripts/components/pick_release_item_component.gd" id="38_c3kfx"]
-[ext_resource type="Texture2D" uid="uid://1dp4hx1quhb3" path="res://icon.svg" id="39_hdner"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8g38"]
 atlas = ExtResource("2_inhyd")
@@ -527,18 +528,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qdswu"]
-atlas = ExtResource("39_hdner")
-region = Rect2(0, 0, 128, 128)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_itbg4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qdswu")
+"texture": ExtResource("20_m38kj")
 }],
 "loop": true,
-"name": &"default",
+"name": &"barril",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_v1y1o")
+}],
+"loop": true,
+"name": &"satodrink",
 "speed": 5.0
 }]
 
@@ -1351,9 +1356,10 @@ animation = &"reload"
 autoplay = "idle"
 
 [node name="hand_item" type="AnimatedSprite3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38763076, -0.0798531, -0.6052896)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.55723155, -0.34595102, -0.5033046)
 pixel_size = 0.001
 sprite_frames = SubResource("SpriteFrames_itbg4")
+animation = &"satodrink"
 
 [node name="Camera3D" type="Camera3D" parent="head"]
 fov = 90.0

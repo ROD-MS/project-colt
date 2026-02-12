@@ -1,33 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwrhyb3gt2yfn"]
+[gd_scene load_steps=10 format=3 uid="uid://dwrhyb3gt2yfn"]
 
 [ext_resource type="Script" uid="uid://0pa41u4vvqvk" path="res://scripts/objects/item_test_enemy.gd" id="1_iu1in"]
+[ext_resource type="ArrayMesh" uid="uid://bylip2evyuj84" path="res://assets/blender/satodrink.obj" id="2_qhm8f"]
+[ext_resource type="Texture2D" uid="uid://681agi0foe6k" path="res://assets/texturas/textures/world/satodrinktexture.jpg" id="3_og7k6"]
+[ext_resource type="Texture2D" uid="uid://c43cfcnd6db13" path="res://assets/texturas/textures/world/sato_drink_azul.png" id="4_j7aw5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8d34"]
-albedo_color = Color(0, 0.38039216, 0, 1)
+albedo_color = Color(0.41, 0.41, 0.41, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s8d34"]
-size = Vector3(0.2, 0.3084961, 0.2)
+size = Vector3(0.17231445, 0.3546936, 0.17453614)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iu1in"]
-size = Vector3(0.25, 0.35, 0.25)
+size = Vector3(0.25, 0.37973633, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cjknv"]
+albedo_texture = ExtResource("3_og7k6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh5it"]
+albedo_texture = ExtResource("4_j7aw5")
 
 [node name="item_test_enemy" type="RigidBody3D" groups=["item"]]
 script = ExtResource("1_iu1in")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054248046, 0)
+visible = false
 size = Vector3(0.2, 0.3084961, 0.2)
 material = SubResource("StandardMaterial3D_s8d34")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05394287, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00026854873, 0.056161523, 6.104261e-05)
 shape = SubResource("BoxShape3D_s8d34")
 
 [node name="attack_area" type="Area3D" parent="."]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="attack_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05394287, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05596925, 0)
 shape = SubResource("BoxShape3D_iu1in")
 debug_color = Color(0.9586479, 0, 0.52864295, 0.41960785)
+
+[node name="Satodrink" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.2022686, 0)
+mesh = ExtResource("2_qhm8f")
+surface_material_override/0 = SubResource("StandardMaterial3D_cjknv")
+surface_material_override/1 = SubResource("StandardMaterial3D_vh5it")
 
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]

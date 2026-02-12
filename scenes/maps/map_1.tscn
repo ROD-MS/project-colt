@@ -6,8 +6,8 @@
 [ext_resource type="Material" uid="uid://c2x3xwlwl86am" path="res://assets/texturas/textures/world/chao256.tres" id="3_5jnh4"]
 [ext_resource type="PackedScene" uid="uid://bmtuajevcxyca" path="res://assets/blender/caixamadeira.glb" id="4_avd0r"]
 [ext_resource type="Material" uid="uid://c2kp00x7istfu" path="res://assets/texturas/textures/world/parede_teste_trenchbroom.tres" id="4_mdxq5"]
-[ext_resource type="Texture2D" uid="uid://cq2i1foex6bn1" path="res://assets/texturas/incubadora_quebrada.png" id="5_p84cg"]
-[ext_resource type="Texture2D" uid="uid://c6rvnl8loxpbh" path="res://assets/texturas/textura_caixa.png" id="6_3t23d"]
+[ext_resource type="Texture2D" uid="uid://cq2i1foex6bn1" path="res://assets/texturas/textures/world/incubadora_quebrada.png" id="5_p84cg"]
+[ext_resource type="Texture2D" uid="uid://dknbburxux6uv" path="res://assets/texturas/textures/world/textura_caixa.png" id="6_3t23d"]
 [ext_resource type="Material" uid="uid://cmi15qe7r6d7m" path="res://assets/texturas/textures/world/parede2563.tres" id="6_avd0r"]
 [ext_resource type="Material" uid="uid://dwkkvekq6ofeg" path="res://assets/texturas/textures/world/chao_2sangue.tres" id="7_2722c"]
 [ext_resource type="Material" uid="uid://84ts4de3mgig" path="res://assets/texturas/textures/world/textura_caixa.tres" id="8_3t23d"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bu14kdign3inj" path="res://scenes/objects/door.tscn" id="12_5jnh4"]
 [ext_resource type="PackedScene" uid="uid://b8rgjfwpyqlo8" path="res://scenes/objects/button.tscn" id="13_mdxq5"]
 [ext_resource type="PackedScene" uid="uid://ctvm7abvbkj7h" path="res://assets/blender/incubadora_2.0.glb" id="14_avd0r"]
-[ext_resource type="Texture2D" uid="uid://de0nk1ui80x34" path="res://assets/texturas/textura_incubadora.png" id="15_2722c"]
+[ext_resource type="Texture2D" uid="uid://de0nk1ui80x34" path="res://assets/texturas/textures/world/textura_incubadora.png" id="15_2722c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2722c"]
 diffuse_mode = 2

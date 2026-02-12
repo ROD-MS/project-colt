@@ -1,6 +1,10 @@
 extends RigidBody3D
 class_name EnemyItem
 
+var knockback: Vector3
+
+var knockback_force: float = 5
+
 var launched: bool = false
 @onready var attack_area: Area3D = $attack_area
 
@@ -32,4 +36,11 @@ func _on_attack_area_body_entered(body: Node3D) -> void:
 			attack.damage = damage
 			
 			health.damage(attack)
+			
+			var knockback_direction = (global_position - _enemy.global_position).normalized()
+		#print("ridectoin:" + str(knockback_direction))
+		#print(Vector3(1, 1, 1))
+			knockback = knockback_direction * knockback_force
+			
+			linear_velocity = knockback
 			launched = false

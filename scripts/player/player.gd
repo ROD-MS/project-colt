@@ -5,6 +5,8 @@ const SPEED = 2
 const JUMP_FORCE = 3
 const SHOT = null
 
+@export var level: Level
+
 @export var death_hud: DeathHud
 
 @export var state_machine: StateMachine

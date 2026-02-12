@@ -73,9 +73,9 @@ func weapon_shot(_raycast: RayCast3D):
 			
 			health.damage(attack)
 
-	if _raycast.is_colliding() and _raycast.get_collider() != null and _raycast.get_collider() is StaticBody3D and _raycast.get_collider().is_in_group("breakable") and !shotted:
-		var target = kick_raycast.get_collider() as StaticBody3D # A CollisionObject3D.
-		target.queue_free()
+	if _raycast.is_colliding() and _raycast.get_collider() != null and _raycast.get_collider() is Breakable and _raycast.get_collider().is_in_group("breakable") and !shotted:
+		var target = kick_raycast.get_collider() as Breakable # A CollisionObject3D.
+		target.destroy()
 
 	if _raycast.is_colliding() and _raycast.get_collider() != null and _raycast.get_collider() is Door and !shotted:
 		var door: Door = _raycast.get_collider() as Door

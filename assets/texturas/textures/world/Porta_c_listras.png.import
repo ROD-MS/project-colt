@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3kgt04t20ei1"
-path="res://.godot/imported/Porta_c_listras.png-8f90ad2144ae12969d1af8da74a09586.ctex"
+uid="uid://7ullrvvlppm8"
+path="res://.godot/imported/Porta_c_listras.png-bf159f4450752035dd55b663eb9e7758.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/texturas/textures/world/Porta_c_listras.png"
-dest_files=["res://.godot/imported/Porta_c_listras.png-8f90ad2144ae12969d1af8da74a09586.ctex"]
+source_file="res://assets/texturas/Porta_c_listras.png"
+dest_files=["res://.godot/imported/Porta_c_listras.png-bf159f4450752035dd55b663eb9e7758.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

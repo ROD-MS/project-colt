@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://lllghnhblbc3"]
+[gd_scene load_steps=6 format=3 uid="uid://lllghnhblbc3"]
+
+[ext_resource type="AudioStream" uid="uid://b0ehxn40spk2g" path="res://assets/audio/crash_wood_plank_1.mp3" id="1_8ljhs"]
+[ext_resource type="Script" uid="uid://dhlkrw6a5p7qv" path="res://scripts/objects/breakable.gd" id="1_ketgn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a54iw"]
 albedo_color = Color(0.507924, 0.3023907, 0, 1)
@@ -12,9 +15,14 @@ size = Vector3(3, 0.25, 0.05)
 size = Vector3(3, 0.25, 0.05)
 
 [node name="wood" type="StaticBody3D" groups=["breakable"]]
+script = ExtResource("1_ketgn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_8ljhs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_a54iw")
+
+[node name="broken" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_8ljhs")
+volume_db = -15.0

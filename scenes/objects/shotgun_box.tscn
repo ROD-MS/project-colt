@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dkiypvwemjrmk" path="res://assets/blender/caixa_municao.blend" id="1_1n4i6"]
 [ext_resource type="Script" uid="uid://bmskns62c078d" path="res://scripts/objects/ammo_box.gd" id="1_7qqgg"]
-[ext_resource type="Texture2D" uid="uid://cr1ogtmkwd6jb" path="res://assets/texturas/teste_ammo_box_2.png" id="3_wsb83"]
+[ext_resource type="Texture2D" uid="uid://cr1ogtmkwd6jb" path="res://assets/texturas/textures/world/teste_ammo_box_2.png" id="3_wsb83"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ribg3"]
 albedo_texture = ExtResource("3_wsb83")

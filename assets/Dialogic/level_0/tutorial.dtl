@@ -1,0 +1,28 @@
+if {tutorial} == 0.0:
+	Soldados! Vamos começar o treinamento! Primeiro, sigam o caminho e passem pelos obstáculos.\
+	(Movimente no WASD, e clicando shift alterna entre correr e andar)
+elif {tutorial} == 1.0:
+	Lembre-se, você pode pular esses obstáculos.\
+	(Pule clicando espaço)
+elif {tutorial} == 2.0:
+	Vamos rapaz! Se agache para passar!\
+	(Segurando Ctrl é possível se agachar)
+elif {tutorial} == 3.0:
+	Seja esperto! Se arrasta no chão pra ir mais rápido!  \
+	(Segure Ctrl enquanto corre)
+elif {tutorial} == 4.0:
+	Tá vendo aqueles alvos? Imagina que são as cabeças dos inimigos e senta o dedo! \
+	(Mire nos alvos e clique botão esquerdo do mouse para atirar)
+elif {tutorial} == 5.0:
+	Vamos molenga! Pegue alguns objetos também e arremesse-os. Acabe com eles!\
+	(Clicando E é possível pegar objetos e arremessá-los clicando F)
+elif {tutorial} == 6.0:
+	Tem alguns barrils explosivos no caminho, retire-os dai!\
+	(Atirar ou agarrar? você escolhe)
+elif {tutorial} == 7.0:
+	Algumas vezes seu caminho vai estar bloqueado! Chute essas tábuas para passar!\
+	(Mire nas tábuas e pressione Q para chutá-las)
+elif {tutorial} == 8.0:
+	Muito bem soldado! Você completou nosso treinamento!
+elif {tutorial} == 9.0:
+	Que isso?? Parece que alguém escondeu pra que ninguém visse.

@@ -7,4 +7,4 @@
 [resource]
 script = ExtResource("1_dlf23")
 entity_fgd = ExtResource("2_hf4oi")
-base_texture_dir = "res://texture_trenchbroom"
+base_texture_dir = "res://assets/texturas/textures"

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="1_upgbm"]
 [ext_resource type="PackedScene" uid="uid://ctvm7abvbkj7h" path="res://assets/blender/incubadora_2.0.glb" id="1_v3nfs"]
 [ext_resource type="PackedScene" uid="uid://bb3ymudhsbplr" path="res://scenes/objects/shotgun_box.tscn" id="2_600sb"]
-[ext_resource type="Texture2D" uid="uid://de0nk1ui80x34" path="res://assets/texturas/textura_incubadora.png" id="2_dwfqr"]
+[ext_resource type="Texture2D" uid="uid://de0nk1ui80x34" path="res://assets/texturas/textures/world/textura_incubadora.png" id="2_dwfqr"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_j3bpy"]
 [ext_resource type="PackedScene" uid="uid://b8rgjfwpyqlo8" path="res://scenes/objects/button.tscn" id="2_us006"]
 [ext_resource type="Material" uid="uid://c2x3xwlwl86am" path="res://assets/texturas/textures/world/chao256.tres" id="3_4nw8k"]

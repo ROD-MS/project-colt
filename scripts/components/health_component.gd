@@ -16,7 +16,11 @@ var enemy: Enemy = null
 
 @export var has_sound: bool = true
 
+@export var enemy_animation: AnimatedSprite3D
+
+
 func _ready():
+	#enemy_animation.play("idle")
 	health = MAX_HEALTH
 	if health_bar:
 		health_bar.max_value = MAX_HEALTH
@@ -86,17 +90,23 @@ func damage(attack: Attack) -> float:
 			
 		#print("MORREU")
 		
-		if get_parent() and get_parent() is Enemy and attack.damage > 999:
-			var enemy = get_parent() as Enemy
-			#var enemy_item = ENEMY_ITEM.instantiate()
-			#enemy_item.global_position = enemy.global_position
-			
-			
-			#get_owner().get_parent().add_child(enemy_item)
-			get_parent().queue_free()
+		#if get_parent() and get_parent() is Enemy and attack.damage > 999:
+			#var enemy = get_parent() as Enemy
+			##var enemy_item = ENEMY_ITEM.instantiate()
+			##enemy_item.global_position = enemy.global_position
+			#
+			#
+			##get_owner().get_parent().add_child(enemy_item)
+			#get_parent().queue_free()
 		
 		if get_parent() is Enemy:
-			get_parent().queue_free()
+			#get_parent().queue_free()
+			if enemy_animation.animation == "idle":
+				enemy.panela.play()
+				enemy.current_level.sub_target_counter()
+				enemy_animation.play("hitting")
+				await enemy_animation.animation_finished
+				enemy_animation.play("hitted")
 		
 	return health
 

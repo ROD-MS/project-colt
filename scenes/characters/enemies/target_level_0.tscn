@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://pe3w0kk76s8t"]
+[gd_scene load_steps=26 format=3 uid="uid://pe3w0kk76s8t"]
 
 [ext_resource type="Script" uid="uid://c40auq808mxxf" path="res://scripts/enemy/enemy.gd" id="1_ye7ho"]
-[ext_resource type="Texture2D" uid="uid://blx5bxqi276f3" path="res://assets/placeholder/rutz 0.0000001% da força.png" id="2_jvkpt"]
+[ext_resource type="Texture2D" uid="uid://boou4t0wnaory" path="res://assets/placeholder/target/shooting_dummy_nocaplololol_sprite.png" id="2_faf3c"]
+[ext_resource type="Texture2D" uid="uid://fpgxghhobp68" path="res://assets/placeholder/target/shooting_dummy0002-sheet.png" id="3_iiw5t"]
+[ext_resource type="Texture2D" uid="uid://bqow61xjnoqbl" path="res://assets/placeholder/target/shooting_dummy_sprite.png" id="4_l77lb"]
 [ext_resource type="PackedScene" uid="uid://dqjaymeneqyya" path="res://scenes/components/health_component.tscn" id="7_sqx5f"]
 [ext_resource type="Script" uid="uid://cbtjyj5luh5rh" path="res://scripts/state_machine/statemachine.gd" id="8_hvbii"]
 [ext_resource type="Script" uid="uid://v888sesn0jiq" path="res://scripts/enemy/idle.gd" id="9_8w0h5"]
+[ext_resource type="AudioStream" uid="uid://dvwemmyof5cpy" path="res://assets/audio/audio_tiro_panela_dummy8bit.mp3" id="10_iiw5t"]
 [ext_resource type="Script" uid="uid://bel62fr51amop" path="res://scripts/enemy/follow_player.gd" id="10_mgtdy"]
 [ext_resource type="Script" uid="uid://c5xunewtvuv4o" path="res://scripts/enemy/shoot.gd" id="11_snrgg"]
 
@@ -15,14 +18,97 @@ radius = 0.70166
 [sub_resource type="SphereShape3D" id="SphereShape3D_jtiv3"]
 radius = 10.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcqwt"]
+atlas = ExtResource("3_iiw5t")
+region = Rect2(0, 0, 345, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lml5o"]
+atlas = ExtResource("3_iiw5t")
+region = Rect2(345, 0, 345, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o587l"]
+atlas = ExtResource("3_iiw5t")
+region = Rect2(690, 0, 345, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifmkn"]
+atlas = ExtResource("3_iiw5t")
+region = Rect2(1035, 0, 345, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6x5b"]
+atlas = ExtResource("3_iiw5t")
+region = Rect2(1380, 0, 345, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs53t"]
+atlas = ExtResource("3_iiw5t")
+region = Rect2(1725, 0, 345, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khw02"]
+atlas = ExtResource("3_iiw5t")
+region = Rect2(2070, 0, 345, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18oee"]
+atlas = ExtResource("3_iiw5t")
+region = Rect2(2415, 0, 345, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0if0"]
+atlas = ExtResource("3_iiw5t")
+region = Rect2(2760, 0, 345, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w3eh"]
+atlas = ExtResource("3_iiw5t")
+region = Rect2(3105, 0, 345, 194)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5ox4h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_jvkpt")
+"texture": ExtResource("2_faf3c")
 }],
 "loop": true,
-"name": &"default",
+"name": &"hitted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcqwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lml5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o587l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifmkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6x5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs53t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khw02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18oee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0if0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w3eh")
+}],
+"loop": false,
+"name": &"hitting",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_l77lb")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -54,17 +140,20 @@ target_position = Vector3(0, 0, -2)
 shape = SubResource("SphereShape3D_jtiv3")
 
 [node name="animation" type="AnimatedSprite3D" parent="." groups=["enemy_item"]]
-transform = Transform3D(-0.3, 0, -3.019916e-08, 0, 0.2477903, 0, 4.529874e-08, 0, -0.2, 0, -0.17823516, 0)
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, -0.17823516, 0)
 pixel_size = 0.03
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_5ox4h")
+animation = &"idle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0679515, 0)
 shape = SubResource("CapsuleShape3D_xp5p6")
 
-[node name="HealthComponent" parent="." instance=ExtResource("7_sqx5f")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("enemy_animation") instance=ExtResource("7_sqx5f")]
+MAX_HEALTH = 1
 has_sound = false
+enemy_animation = NodePath("../animation")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
 script = ExtResource("8_hvbii")
@@ -98,6 +187,10 @@ autostart = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0679515, 0)
 shape = SubResource("CapsuleShape3D_pbm4f")
 debug_color = Color(0.013131705, 0.6513867, 5.7756904e-07, 0.41960785)
+
+[node name="panela" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_iiw5t")
+volume_db = -10.0
 
 [connection signal="body_entered" from="detect_player" to="StateMachine/idle" method="_on_detect_player_body_entered"]
 [connection signal="body_entered" from="detect_collision" to="." method="_on_detect_collision_body_entered"]

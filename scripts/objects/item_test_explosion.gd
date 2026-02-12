@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		
 func explosion():
 	explosion_area.monitoring = true
-	$CSGBox3D.hide()
+	$barrel_red.hide()
 	if $CollisionShape3D:
 		$CollisionShape3D.queue_free()
 	animation.play("explosion")
@@ -48,6 +48,7 @@ func _on_explosion_area_body_entered(body: Node3D) -> void:
 		new_barrel.explosion()
 	if body is Door:
 		var door: Door = body as Door
+		door.level.secret()
 		door.queue_free()
 
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d4cyuq0ms04cu" path="res://scripts/objects/button.gd" id="1_2wxwk"]
 [ext_resource type="PackedScene" uid="uid://cjmrjxeq6m67x" path="res://assets/blender/butaoneutro.glb" id="1_ufqlp"]
-[ext_resource type="Texture2D" uid="uid://bnvokc7yxkfa4" path="res://assets/texturas/butaoneutro_Butao hehe.png" id="3_bejyh"]
+[ext_resource type="Texture2D" uid="uid://bnvokc7yxkfa4" path="res://assets/texturas/textures/world/butaoneutro_Butao hehe.png" id="3_bejyh"]
 [ext_resource type="AudioStream" uid="uid://dkqy0qm2xtvjp" path="res://assets/audio/apertada no butão do brinO.mp3" id="3_e5cij"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsah0"]

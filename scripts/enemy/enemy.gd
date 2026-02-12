@@ -3,11 +3,17 @@ class_name Enemy
 
 const SPEED := 5.0
 
+
+@onready var panela: AudioStreamPlayer3D = $panela
+
+
 @export var damage: int = 10
 @export var time_reload_sec = 0
 @export var knockback_force = 0
 @export var stun_time = 0
 @export var enemy_value: float = 10
+
+@export var current_level: Level
 
 @onready var nav = $nav
 @onready var sounds = $sounds
@@ -29,6 +35,11 @@ var move_timer: Timer = null
 @onready var state_machine: StateMachine = $StateMachine
 
 func _ready():
+	if current_level: # APENAS PARA O TUTORIAL
+		current_level.add_target_counter()
+		
+	
+	
 	for col in get_children():
 		if col.name == "detect_collision":
 			collision_area = col as Area3D
@@ -54,7 +65,7 @@ func _ready():
 			move_timer = child as Timer
 			break
 	
-	if $RayCast3D:	
+	if $RayCast3D:
 		$RayCast3D.add_exception(self)
 	if sounds:
 		for sound in sounds.get_children():
@@ -97,6 +108,8 @@ func _process(delta: float) -> void:
 func _exit_tree() -> void:
 	Score_control.add_normal_point(enemy_value)
 	collision.disabled = true
+	if current_level:
+		current_level.sub_target_counter()
 	
 		
 func target_position(target):

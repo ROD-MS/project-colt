@@ -2,6 +2,8 @@ extends StaticBody3D
 class_name Door
 
 
+@export var level: Level
+
 @onready var collision: CollisionShape3D = $CSGBakedCollisionShape3D
 
 @export var is_open: bool = false
