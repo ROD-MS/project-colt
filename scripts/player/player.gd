@@ -5,6 +5,9 @@ const SPEED = 2
 const JUMP_FORCE = 3
 const SHOT = null
 
+
+@onready var voice: Node3D = $voice
+
 @export var level: Level
 
 @export var death_hud: DeathHud
@@ -133,6 +136,13 @@ func _input(event):
 		
 	if event.is_action_pressed("change_to_shotgun"):
 		$HUD/aviso_shotgun.hide()
+	
+func play_voice():
+	randomize()
+	var rand_numb: int = randi_range(0, 14)
+	
+	var _voice: AudioStreamPlayer = voice.get_child(rand_numb)
+	_voice.play()
 	
 func _on_killzone_body_entered(body):
 	if body is Player:

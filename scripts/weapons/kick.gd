@@ -136,3 +136,7 @@ func slide_shot(_raycast: RayCast3D):
 		if _raycast.is_colliding() and _raycast.get_collider() != null and _raycast.get_collider() is Door and !shotted:
 			var door: Door = _raycast.get_collider() as Door
 			door.open()
+			
+		if _raycast.is_colliding() and _raycast.get_collider() != null and _raycast.get_collider() is Breakable and !shotted:
+			var _wood: Breakable = _raycast.get_collider() as Breakable
+			_wood.destroy()

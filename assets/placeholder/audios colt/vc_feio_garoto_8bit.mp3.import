@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clwi5mavouu1i"
+path="res://.godot/imported/vc_feio_garoto_8bit.mp3-36c3dd20501d0c7bcd2055a047bf8b9d.mp3str"
+
+[deps]
+
+source_file="res://assets/placeholder/audios colt/vc_feio_garoto_8bit.mp3"
+dest_files=["res://.godot/imported/vc_feio_garoto_8bit.mp3-36c3dd20501d0c7bcd2055a047bf8b9d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=125 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Texture2D" uid="uid://b1tfg5g46qn2y" path="res://assets/HUD/life_bar/10-0-Sheet.png" id="2_inhyd"]
@@ -39,7 +39,22 @@
 [ext_resource type="AudioStream" uid="uid://7hdv54m8om22" path="res://assets/audio/player/Sound Running Colt provisorio limpo.mp3" id="34_s0anf"]
 [ext_resource type="AudioStream" uid="uid://bpns3chftqqe2" path="res://assets/audio/player/Sound Walk colt provisorio limpo.mp3" id="35_s1x7u"]
 [ext_resource type="AudioStream" uid="uid://i3oddddxmxoh" path="res://assets/audio/player/oh_yeah_colt_limpo.wav" id="37_s1x7u"]
-[ext_resource type="Script" uid="uid://dc4k17idn6y8q" path="res://scripts/components/pick_release_item_component.gd" id="38_c3kfx"]
+[ext_resource type="PackedScene" uid="uid://3l3jksg70rhv" path="res://scenes/components/pick_release_item_component.tscn" id="40_m38kj"]
+[ext_resource type="AudioStream" uid="uid://denmicjqdlwit" path="res://assets/placeholder/audios colt/ah_colt_8bit.mp3" id="41_qmarm"]
+[ext_resource type="AudioStream" uid="uid://813unkdgui5w" path="res://assets/placeholder/audios colt/alien_manha_8bit.mp3" id="42_w5bca"]
+[ext_resource type="AudioStream" uid="uid://beltrsxtukagf" path="res://assets/placeholder/audios colt/ferias_colt_8bit.mp3" id="43_j057w"]
+[ext_resource type="AudioStream" uid="uid://bbh35j7tmabyr" path="res://assets/placeholder/audios colt/festa_caralho_8bit.mp3" id="44_18mi3"]
+[ext_resource type="AudioStream" uid="uid://yhpc28c64wqw" path="res://assets/placeholder/audios colt/festa_porra_8bit.mp3" id="45_3uc7m"]
+[ext_resource type="AudioStream" uid="uid://ce8cyw8lfop5s" path="res://assets/placeholder/audios colt/fim_jogo_8bit.mp3" id="46_pue7u"]
+[ext_resource type="AudioStream" uid="uid://dketi4bsxcvv3" path="res://assets/placeholder/audios colt/hakuna_matata_8bit.mp3" id="47_7k8pb"]
+[ext_resource type="AudioStream" uid="uid://cbpd44uldlyk1" path="res://assets/placeholder/audios colt/halas_la_vista_8bit.mp3" id="48_5njio"]
+[ext_resource type="AudioStream" uid="uid://mt56vhsblaxd" path="res://assets/placeholder/audios colt/oferta_8bit.mp3" id="49_aphfe"]
+[ext_resource type="AudioStream" uid="uid://73f317323axg" path="res://assets/placeholder/audios colt/pequena_friend_8bit.mp3" id="50_dvq58"]
+[ext_resource type="AudioStream" uid="uid://b6op813s3affr" path="res://assets/placeholder/audios colt/sem_cabeca_8bit.mp3" id="51_qgqs5"]
+[ext_resource type="AudioStream" uid="uid://ckcqx5wrd350k" path="res://assets/placeholder/audios colt/tempo_sangrar_8bit.mp3" id="52_e1rhj"]
+[ext_resource type="AudioStream" uid="uid://0mqcg03evu8" path="res://assets/placeholder/audios colt/to_chegando_8bit.mp3" id="53_qdswu"]
+[ext_resource type="AudioStream" uid="uid://cxatqxdkvkqut" path="res://assets/placeholder/audios colt/trauma_deles_8bit.mp3" id="54_itbg4"]
+[ext_resource type="AudioStream" uid="uid://clwi5mavouu1i" path="res://assets/placeholder/audios colt/vc_feio_garoto_8bit.mp3" id="55_ojpyd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8g38"]
 atlas = ExtResource("2_inhyd")
@@ -1493,12 +1508,59 @@ target_position = Vector3(0, 0, -1.5)
 [node name="oh_yeah_audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_s1x7u")
 
-[node name="pick_release_item_component" type="Node3D" parent="." node_paths=PackedStringArray("sprite_item", "raycast", "hand_animation", "_inventory")]
-script = ExtResource("38_c3kfx")
+[node name="pick_release_item_component" parent="." node_paths=PackedStringArray("sprite_item", "raycast", "hand_animation", "_inventory") instance=ExtResource("40_m38kj")]
+force = 20.0
 sprite_item = NodePath("../head/hand_item")
 raycast = NodePath("../head/raycast_item")
 hand_animation = NodePath("../head/hand_animation")
 _inventory = NodePath("../inventory_component")
+
+[node name="voice" type="Node3D" parent="."]
+
+[node name="voice_1" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("41_qmarm")
+
+[node name="voice_2" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("42_w5bca")
+
+[node name="voice_3" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("43_j057w")
+
+[node name="voice_4" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("44_18mi3")
+
+[node name="voice_5" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("45_3uc7m")
+
+[node name="voice_6" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("46_pue7u")
+
+[node name="voice_7" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("47_7k8pb")
+
+[node name="voice_8" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("48_5njio")
+
+[node name="voice_9" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("49_aphfe")
+
+[node name="voice_10" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("50_dvq58")
+
+[node name="voice_11" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("51_qgqs5")
+
+[node name="voice_12" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("52_e1rhj")
+
+[node name="voice_13" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("53_qdswu")
+
+[node name="voice_14" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("54_itbg4")
+
+[node name="voice_15" type="AudioStreamPlayer" parent="voice"]
+stream = ExtResource("55_ojpyd")
 
 [connection signal="pressed" from="HUD/ReferenceRect/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="HUD/ReferenceRect/load" to="." method="_on_load_pressed"]

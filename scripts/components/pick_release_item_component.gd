@@ -6,6 +6,8 @@ var player: Player = null
 var holding_item: bool = false
 var item = null
 var item_path: String = ""
+
+@export var force: float = 10
 @export var sprite_item: AnimatedSprite3D = null
 @export var raycast: RayCast3D = null
 @export var hand_animation: AnimatedSprite3D = null
@@ -56,8 +58,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		item.show()
 		#print("item -raycast.global_basis.z: " + str(-raycast.global_basis.z))
 		item.rotation = player.global_rotation
-		item.apply_central_impulse(-raycast.global_basis.z * 10)
-
+		item.apply_central_impulse(-raycast.global_basis.z * force)
+		
 		item = null
 		#print("holding item: " + str(item))
 		holding_item = false

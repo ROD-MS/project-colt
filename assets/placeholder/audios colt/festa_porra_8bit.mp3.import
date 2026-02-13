@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yhpc28c64wqw"
+path="res://.godot/imported/festa_porra_8bit.mp3-28f73f713880e57d272f4ab2791d72d2.mp3str"
+
+[deps]
+
+source_file="res://assets/placeholder/audios colt/festa_porra_8bit.mp3"
+dest_files=["res://.godot/imported/festa_porra_8bit.mp3-28f73f713880e57d272f4ab2791d72d2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

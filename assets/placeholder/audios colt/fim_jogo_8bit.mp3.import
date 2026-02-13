@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ce8cyw8lfop5s"
+path="res://.godot/imported/fim_jogo_8bit.mp3-f368c1729cbb26fb9d707f916f8bea13.mp3str"
+
+[deps]
+
+source_file="res://assets/placeholder/audios colt/fim_jogo_8bit.mp3"
+dest_files=["res://.godot/imported/fim_jogo_8bit.mp3-f368c1729cbb26fb9d707f916f8bea13.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

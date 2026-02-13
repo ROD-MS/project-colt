@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://pe3w0kk76s8t"]
+[gd_scene load_steps=29 format=3 uid="uid://pe3w0kk76s8t"]
 
 [ext_resource type="Script" uid="uid://c40auq808mxxf" path="res://scripts/enemy/enemy.gd" id="1_ye7ho"]
 [ext_resource type="Texture2D" uid="uid://boou4t0wnaory" path="res://assets/placeholder/target/shooting_dummy_nocaplololol_sprite.png" id="2_faf3c"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://v888sesn0jiq" path="res://scripts/enemy/idle.gd" id="9_8w0h5"]
 [ext_resource type="AudioStream" uid="uid://dvwemmyof5cpy" path="res://assets/audio/audio_tiro_panela_dummy8bit.mp3" id="10_iiw5t"]
 [ext_resource type="Script" uid="uid://bel62fr51amop" path="res://scripts/enemy/follow_player.gd" id="10_mgtdy"]
+[ext_resource type="Texture2D" uid="uid://b0nxmdh6vlhgv" path="res://assets/texturas/textures/world/varapau_ou_madeiras_no_geral.png" id="11_l77lb"]
 [ext_resource type="Script" uid="uid://c5xunewtvuv4o" path="res://scripts/enemy/shoot.gd" id="11_snrgg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7ktny"]
@@ -120,6 +121,13 @@ height = 2.16132
 radius = 1.0
 height = 2.5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xcqwt"]
+albedo_texture = ExtResource("11_l77lb")
+
+[sub_resource type="BoxMesh" id="BoxMesh_iiw5t"]
+material = SubResource("StandardMaterial3D_xcqwt")
+size = Vector3(0.2, 0.2, 0.2)
+
 [node name="target_level0" type="CharacterBody3D" groups=["enemy", "weak_enemy"]]
 script = ExtResource("1_ye7ho")
 damage = 20
@@ -191,6 +199,18 @@ debug_color = Color(0.013131705, 0.6513867, 5.7756904e-07, 0.41960785)
 [node name="panela" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_iiw5t")
 volume_db = -10.0
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 16
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("BoxMesh_iiw5t")
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 15.0
+scale_amount_min = 0.1
 
 [connection signal="body_entered" from="detect_player" to="StateMachine/idle" method="_on_detect_player_body_entered"]
 [connection signal="body_entered" from="detect_collision" to="." method="_on_detect_collision_body_entered"]

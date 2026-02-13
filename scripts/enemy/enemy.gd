@@ -5,6 +5,7 @@ const SPEED := 5.0
 
 
 @onready var panela: AudioStreamPlayer3D = $panela
+@onready var particles: CPUParticles3D = $CPUParticles3D
 
 
 @export var damage: int = 10

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://813unkdgui5w"
+path="res://.godot/imported/alien_manha_8bit.mp3-20e705dbf82e9f23fe02ab2f841610ed.mp3str"
+
+[deps]
+
+source_file="res://assets/placeholder/audios colt/alien_manha_8bit.mp3"
+dest_files=["res://.godot/imported/alien_manha_8bit.mp3-20e705dbf82e9f23fe02ab2f841610ed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

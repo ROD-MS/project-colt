@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6op813s3affr"
+path="res://.godot/imported/sem_cabeca_8bit.mp3-4bf9583ffda23b5f75589a6558338a26.mp3str"
+
+[deps]
+
+source_file="res://assets/placeholder/audios colt/sem_cabeca_8bit.mp3"
+dest_files=["res://.godot/imported/sem_cabeca_8bit.mp3-4bf9583ffda23b5f75589a6558338a26.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

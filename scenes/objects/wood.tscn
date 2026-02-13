@@ -1,18 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://lllghnhblbc3"]
+[gd_scene load_steps=10 format=3 uid="uid://lllghnhblbc3"]
 
 [ext_resource type="AudioStream" uid="uid://b0ehxn40spk2g" path="res://assets/audio/crash_wood_plank_1.mp3" id="1_8ljhs"]
 [ext_resource type="Script" uid="uid://dhlkrw6a5p7qv" path="res://scripts/objects/breakable.gd" id="1_ketgn"]
+[ext_resource type="Texture2D" uid="uid://b0nxmdh6vlhgv" path="res://assets/texturas/textures/world/varapau_ou_madeiras_no_geral.png" id="2_x2b7j"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a54iw"]
-albedo_color = Color(0.507924, 0.3023907, 0, 1)
-roughness = 0.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8xxf"]
+albedo_texture = ExtResource("2_x2b7j")
+uv1_scale = Vector3(3.45, 3.45, 3.45)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8ljhs"]
-material = SubResource("StandardMaterial3D_a54iw")
+material = SubResource("StandardMaterial3D_a8xxf")
 size = Vector3(3, 0.25, 0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a54iw"]
 size = Vector3(3, 0.25, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cv3b5"]
+albedo_texture = ExtResource("2_x2b7j")
+
+[sub_resource type="BoxMesh" id="BoxMesh_h1dpm"]
+material = SubResource("StandardMaterial3D_cv3b5")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2b7j"]
+size = Vector3(3, 0.3, 0.1)
 
 [node name="wood" type="StaticBody3D" groups=["breakable"]]
 script = ExtResource("1_ketgn")
@@ -26,3 +37,26 @@ shape = SubResource("BoxShape3D_a54iw")
 [node name="broken" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_8ljhs")
 volume_db = -15.0
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 16
+lifetime = 2.0
+explosiveness = 1.0
+randomness = 1.0
+mesh = SubResource("BoxMesh_h1dpm")
+emission_shape = 3
+emission_box_extents = Vector3(1.485, 0.115, 0.036)
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
+radial_accel_max = 3.0
+scale_amount_min = 0.2
+
+[node name="destroy_others" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="destroy_others"]
+shape = SubResource("BoxShape3D_x2b7j")
+
+[connection signal="body_entered" from="destroy_others" to="." method="_on_destroy_others_body_entered"]

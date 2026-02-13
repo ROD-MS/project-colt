@@ -4,6 +4,8 @@ class_name Level
 var target_count: int = 0
 var max_target: int = 0
 
+@export var player: Player
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Dialogic.start("tutorial")
@@ -27,6 +29,11 @@ func sub_target_counter():
 	if target_count == 0:
 		Dialogic.VAR.tutorial = 6
 		Dialogic.start("tutorial")
+		Engine.time_scale = 0.5
+		await get_tree().create_timer(0.5).timeout
+		Engine.time_scale = 1
+		
+		player.play_voice()
 		
 func launched_item():
 	if Dialogic.VAR.tutorial == 5:

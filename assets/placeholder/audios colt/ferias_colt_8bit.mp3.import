@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://beltrsxtukagf"
+path="res://.godot/imported/ferias_colt_8bit.mp3-82dce4ff8131eefed42a480687c433ca.mp3str"
+
+[deps]
+
+source_file="res://assets/placeholder/audios colt/ferias_colt_8bit.mp3"
+dest_files=["res://.godot/imported/ferias_colt_8bit.mp3-82dce4ff8131eefed42a480687c433ca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

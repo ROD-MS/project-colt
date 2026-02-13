@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://3l3jksg70rhv"]
+
+[ext_resource type="Script" uid="uid://dc4k17idn6y8q" path="res://scripts/components/pick_release_item_component.gd" id="1_a0qhj"]
+
+[node name="pick_release_item_component" type="Node3D" node_paths=PackedStringArray("sprite_item", "raycast", "hand_animation", "_inventory")]
+script = ExtResource("1_a0qhj")
+sprite_item = NodePath("")
+raycast = NodePath("")
+hand_animation = NodePath("")
+_inventory = NodePath("")

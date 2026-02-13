@@ -105,6 +105,8 @@ func damage(attack: Attack) -> float:
 				enemy.panela.play()
 				enemy.current_level.sub_target_counter()
 				enemy_animation.play("hitting")
+				if enemy.current_level.target_count == 0:
+					enemy.particles.emitting = true
 				await enemy_animation.animation_finished
 				enemy_animation.play("hitted")
 		

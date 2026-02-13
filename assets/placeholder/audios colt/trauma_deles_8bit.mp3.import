@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxatqxdkvkqut"
+path="res://.godot/imported/trauma_deles_8bit.mp3-070260615220309034ab8c49a0dadddb.mp3str"
+
+[deps]
+
+source_file="res://assets/placeholder/audios colt/trauma_deles_8bit.mp3"
+dest_files=["res://.godot/imported/trauma_deles_8bit.mp3-070260615220309034ab8c49a0dadddb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
