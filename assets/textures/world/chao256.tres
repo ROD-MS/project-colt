@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c2x3xwlwl86am"]
+
+[ext_resource type="Texture2D" uid="uid://3bbgd4woextj" path="res://assets/texturas/textures/world/chao256.png" id="1_i0ryr"]
+[ext_resource type="Texture2D" uid="uid://c3kgt04t20ei1" path="res://assets/texturas/textures/world/Porta_c_listras.png" id="2_4l1le"]
+
+[resource]
+diffuse_mode = 2
+albedo_texture = ExtResource("1_i0ryr")
+metallic_specular = 0.0
+detail_enabled = true
+detail_blend_mode = 2
+detail_uv_layer = 1
+detail_albedo = ExtResource("2_4l1le")
+uv2_offset = Vector3(0.13, 0, 0)
+texture_filter = 2

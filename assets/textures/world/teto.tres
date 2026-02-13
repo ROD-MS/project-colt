@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bpfexofh6y1f"]
+
+[ext_resource type="Texture2D" uid="uid://cfqn0l10w413j" path="res://assets/textures/world/teto.png" id="1_6yxcx"]
+
+[resource]
+albedo_texture = ExtResource("1_6yxcx")
+metallic_specular = 0.0
+texture_filter = 2

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dqjobgca72qie"]
+
+[ext_resource type="Texture2D" uid="uid://b3svhelaemidc" path="res://assets/texturas/textures/world/madeiras_no_geral_2.png" id="1_k6xat"]
+
+[resource]
+albedo_texture = ExtResource("1_k6xat")
+metallic_specular = 0.0
+texture_filter = 2

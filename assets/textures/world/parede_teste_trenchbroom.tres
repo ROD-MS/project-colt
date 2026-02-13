@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c2kp00x7istfu"]
+
+[ext_resource type="Texture2D" uid="uid://byde4ov80y38r" path="res://assets/texturas/textures/world/parede_teste_trenchbroom.png" id="1_wwhpo"]
+[ext_resource type="Texture2D" uid="uid://c3kgt04t20ei1" path="res://assets/texturas/textures/world/Porta_c_listras.png" id="2_plwdn"]
+
+[resource]
+diffuse_mode = 2
+albedo_texture = ExtResource("1_wwhpo")
+metallic_specular = 0.0
+detail_blend_mode = 2
+detail_uv_layer = 1
+detail_albedo = ExtResource("2_plwdn")
+uv2_offset = Vector3(0.3, 0, 0)
+texture_filter = 2

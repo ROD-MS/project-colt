@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://84ts4de3mgig"]
+
+[ext_resource type="Texture2D" uid="uid://dknbburxux6uv" path="res://assets/texturas/textures/world/textura_caixa.png" id="1_2wxq0"]
+
+[resource]
+albedo_color = Color(0.574328, 0.574328, 0.574328, 1)
+albedo_texture = ExtResource("1_2wxq0")
+metallic_specular = 0.0
+texture_filter = 2
