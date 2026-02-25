@@ -5,18 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="1_upgbm"]
 [ext_resource type="PackedScene" uid="uid://ctvm7abvbkj7h" path="res://assets/blender/incubadora_2.0.glb" id="1_v3nfs"]
 [ext_resource type="PackedScene" uid="uid://bb3ymudhsbplr" path="res://scenes/objects/shotgun_box.tscn" id="2_600sb"]
-[ext_resource type="Texture2D" uid="uid://de0nk1ui80x34" path="res://assets/texturas/textures/world/textura_incubadora.png" id="2_dwfqr"]
+[ext_resource type="Texture2D" uid="uid://de0nk1ui80x34" path="res://assets/textures/world/textura_incubadora.png" id="2_dwfqr"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_j3bpy"]
 [ext_resource type="PackedScene" uid="uid://b8rgjfwpyqlo8" path="res://scenes/objects/button.tscn" id="2_us006"]
-[ext_resource type="Material" uid="uid://c2x3xwlwl86am" path="res://assets/texturas/textures/world/chao256.tres" id="3_4nw8k"]
+[ext_resource type="Material" uid="uid://c2x3xwlwl86am" path="res://assets/textures/world/chao256.tres" id="3_4nw8k"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="3_bbj3u"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="4_5713s"]
-[ext_resource type="Material" uid="uid://cmi15qe7r6d7m" path="res://assets/texturas/textures/world/parede2563.tres" id="4_ik7ym"]
-[ext_resource type="Material" uid="uid://cedk7ibm8v6pv" path="res://assets/texturas/textures/world/parede256.tres" id="5_doxyn"]
+[ext_resource type="Material" uid="uid://cmi15qe7r6d7m" path="res://assets/textures/world/parede2563.tres" id="4_ik7ym"]
+[ext_resource type="Material" uid="uid://cedk7ibm8v6pv" path="res://assets/textures/world/parede256.tres" id="5_doxyn"]
 [ext_resource type="PackedScene" uid="uid://dvmx2rwl85vfp" path="res://scenes/objects/spike.tscn" id="5_j3bpy"]
-[ext_resource type="Material" uid="uid://84ts4de3mgig" path="res://assets/texturas/textures/world/textura_caixa.tres" id="6_nigg3"]
-[ext_resource type="Material" uid="uid://c2kp00x7istfu" path="res://assets/texturas/textures/world/parede_teste_trenchbroom.tres" id="7_smdct"]
-[ext_resource type="Material" uid="uid://dwkkvekq6ofeg" path="res://assets/texturas/textures/world/chao_2sangue.tres" id="8_2rdlg"]
+[ext_resource type="Material" uid="uid://84ts4de3mgig" path="res://assets/textures/world/textura_caixa.tres" id="6_nigg3"]
+[ext_resource type="Material" uid="uid://c2kp00x7istfu" path="res://assets/textures/world/parede_teste_trenchbroom.tres" id="7_smdct"]
+[ext_resource type="Material" uid="uid://dwkkvekq6ofeg" path="res://assets/textures/world/chao_2sangue.tres" id="8_2rdlg"]
 [ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="11_doxyn"]
 [ext_resource type="PackedScene" uid="uid://cfqh80niquhx1" path="res://scenes/objects/end_level.tscn" id="12_ik7ym"]
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemies/enemy_melee.tscn" id="14_nigg3"]
@@ -1438,6 +1438,10 @@ transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107
 [node name="button3" parent="buttons" instance=ExtResource("2_us006")]
 transform = Transform3D(-1, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, -1, 125.97, -7.24536, -7.21782)
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.70710677, -0.5, 0.50000006, 0, 0.7071068, 0.70710677, -0.7071068, 0.5, -0.5, 109.21046, 0, 21.008606)
+current = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5713s")
 
@@ -2644,3 +2648,4 @@ shape = SubResource("BoxShape3D_upgbm")
 [editable path="incubadora/incubadora_2_59"]
 [editable path="incubadora/incubadora_2_60"]
 [editable path="player"]
+[editable path="player/head/kick"]

@@ -7,20 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://b8rgjfwpyqlo8" path="res://scenes/objects/button.tscn" id="5_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://bu14kdign3inj" path="res://scenes/objects/door.tscn" id="6_7o3do"]
 [ext_resource type="PackedScene" uid="uid://ctvm7abvbkj7h" path="res://assets/blender/incubadora_2.0.glb" id="7_o7j4k"]
-[ext_resource type="Texture2D" uid="uid://de0nk1ui80x34" path="res://assets/texturas/textures/world/textura_incubadora.png" id="8_31oqk"]
-[ext_resource type="Texture2D" uid="uid://cq2i1foex6bn1" path="res://assets/texturas/textures/world/incubadora_quebrada.png" id="9_x7jkp"]
+[ext_resource type="Texture2D" uid="uid://de0nk1ui80x34" path="res://assets/textures/world/textura_incubadora.png" id="8_31oqk"]
+[ext_resource type="Texture2D" uid="uid://cq2i1foex6bn1" path="res://assets/textures/world/incubadora_quebrada.png" id="9_x7jkp"]
 [ext_resource type="PackedScene" uid="uid://bmtuajevcxyca" path="res://assets/blender/caixamadeira.glb" id="10_0qwwm"]
 [ext_resource type="Texture2D" uid="uid://dknbburxux6uv" path="res://assets/texturas/textures/world/textura_caixa.png" id="11_t4umt"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="12_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://cfqh80niquhx1" path="res://scenes/objects/end_level.tscn" id="13_vmrhw"]
 [ext_resource type="Script" uid="uid://cnf647r0kht4j" path="res://addons/func_godot/src/map/func_godot_map.gd" id="14_cfnpk"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="15_wvtie"]
-[ext_resource type="Material" uid="uid://c2x3xwlwl86am" path="res://assets/texturas/textures/world/chao256.tres" id="16_o8s4s"]
-[ext_resource type="Material" uid="uid://dwkkvekq6ofeg" path="res://assets/texturas/textures/world/chao_2sangue.tres" id="17_ebb2h"]
-[ext_resource type="Material" uid="uid://c2kp00x7istfu" path="res://assets/texturas/textures/world/parede_teste_trenchbroom.tres" id="18_row31"]
-[ext_resource type="Material" uid="uid://cmi15qe7r6d7m" path="res://assets/texturas/textures/world/parede2563.tres" id="19_ytidy"]
-[ext_resource type="Material" uid="uid://cedk7ibm8v6pv" path="res://assets/texturas/textures/world/parede256.tres" id="20_hvllt"]
-[ext_resource type="Material" uid="uid://84ts4de3mgig" path="res://assets/texturas/textures/world/textura_caixa.tres" id="21_dp4fg"]
+[ext_resource type="Material" uid="uid://c2x3xwlwl86am" path="res://assets/textures/world/chao256.tres" id="16_o8s4s"]
+[ext_resource type="Material" uid="uid://dwkkvekq6ofeg" path="res://assets/textures/world/chao_2sangue.tres" id="17_ebb2h"]
+[ext_resource type="Material" uid="uid://c2kp00x7istfu" path="res://assets/textures/world/parede_teste_trenchbroom.tres" id="18_row31"]
+[ext_resource type="Material" uid="uid://cmi15qe7r6d7m" path="res://assets/textures/world/parede2563.tres" id="19_ytidy"]
+[ext_resource type="Material" uid="uid://cedk7ibm8v6pv" path="res://assets/textures/world/parede256.tres" id="20_hvllt"]
+[ext_resource type="Material" uid="uid://84ts4de3mgig" path="res://assets/textures/world/textura_caixa.tres" id="21_dp4fg"]
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemies/enemy_melee.tscn" id="22_svqqs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nsrm0"]
@@ -2585,6 +2585,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.3726, 15.3498, 35.3539)
 
 [node name="enemy25" parent="SubViewportContainer/SubViewport/map_1" instance=ExtResource("22_svqqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.1517, 11.8498, -4.39484)
+
+[node name="Camera3D2" type="Camera3D" parent="SubViewportContainer/SubViewport/map_1"]
+transform = Transform3D(-0.7265147, -0.42599463, 0.5391706, 0, 0.7846466, 0.6199434, -0.6871509, 0.45039797, -0.5700573, 65.05761, 16.615765, -12.4433365)
+current = true
 
 [editable path="SubViewportContainer/SubViewport/map_1/door/door2"]
 [editable path="SubViewportContainer/SubViewport/map_1/door/door2/portao"]

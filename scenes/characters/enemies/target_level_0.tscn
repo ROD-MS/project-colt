@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://v888sesn0jiq" path="res://scripts/enemy/idle.gd" id="9_8w0h5"]
 [ext_resource type="AudioStream" uid="uid://dvwemmyof5cpy" path="res://assets/audio/audio_tiro_panela_dummy8bit.mp3" id="10_iiw5t"]
 [ext_resource type="Script" uid="uid://bel62fr51amop" path="res://scripts/enemy/follow_player.gd" id="10_mgtdy"]
-[ext_resource type="Texture2D" uid="uid://b0nxmdh6vlhgv" path="res://assets/texturas/textures/world/varapau_ou_madeiras_no_geral.png" id="11_l77lb"]
+[ext_resource type="Texture2D" uid="uid://b0nxmdh6vlhgv" path="res://assets/textures/world/varapau_ou_madeiras_no_geral.png" id="11_l77lb"]
 [ext_resource type="Script" uid="uid://c5xunewtvuv4o" path="res://scripts/enemy/shoot.gd" id="11_snrgg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7ktny"]
@@ -123,10 +123,12 @@ height = 2.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xcqwt"]
 albedo_texture = ExtResource("11_l77lb")
+billboard_mode = 2
+billboard_keep_scale = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_iiw5t"]
+[sub_resource type="QuadMesh" id="QuadMesh_lml5o"]
 material = SubResource("StandardMaterial3D_xcqwt")
-size = Vector3(0.2, 0.2, 0.2)
+size = Vector2(0.5, 0.5)
 
 [node name="target_level0" type="CharacterBody3D" groups=["enemy", "weak_enemy"]]
 script = ExtResource("1_ye7ho")
@@ -206,7 +208,7 @@ amount = 16
 lifetime = 3.0
 one_shot = true
 explosiveness = 1.0
-mesh = SubResource("BoxMesh_iiw5t")
+mesh = SubResource("QuadMesh_lml5o")
 direction = Vector3(0, 1, 0)
 initial_velocity_min = 2.0
 initial_velocity_max = 15.0
