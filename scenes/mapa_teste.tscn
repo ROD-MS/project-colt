@@ -1,8 +1,9 @@
-[gd_scene load_steps=61 format=3 uid="uid://dbtsqv26emkg6"]
+[gd_scene load_steps=65 format=3 uid="uid://dbtsqv26emkg6"]
 
 [ext_resource type="PackedScene" uid="uid://cehv73drkois7" path="res://scenes/death_hud.tscn" id="1_04vdo"]
 [ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="2_5m021"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="2_5p211"]
+[ext_resource type="PackedScene" uid="uid://b2so020mc6yrl" path="res://scenes/objects/secret_wall.tscn" id="2_q10aw"]
 [ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="3_orydm"]
 [ext_resource type="PackedScene" uid="uid://bb3ymudhsbplr" path="res://scenes/objects/shotgun_box.tscn" id="4_4c11n"]
 [ext_resource type="PackedScene" uid="uid://lllghnhblbc3" path="res://scenes/objects/wood.tscn" id="6_wu44v"]
@@ -11,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bpj0pkn8dqhue" path="res://scenes/objects/item_test_explosion.tscn" id="11_po1k4"]
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemies/enemy_melee.tscn" id="12_6617f"]
 [ext_resource type="PackedScene" uid="uid://cxt8srf54lcwt" path="res://scenes/objects/normal_door.tscn" id="12_gdks2"]
+[ext_resource type="PackedScene" uid="uid://cuknkm44r5ano" path="res://scenes/characters/enemies/enemy_range.tscn" id="12_t1t7w"]
+[ext_resource type="PackedScene" uid="uid://dh2ramkdbpjei" path="res://scenes/characters/enemies/enemy_range_stopped.tscn" id="13_q10aw"]
+[ext_resource type="PackedScene" uid="uid://dwrhyb3gt2yfn" path="res://scenes/objects/item_test_enemy.tscn" id="14_t1t7w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b8rgi"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -164,8 +168,11 @@ albedo_color = Color(1, 0, 1, 1)
 [node name="mapa_teste" type="Node3D"]
 
 [node name="player" parent="." node_paths=PackedStringArray("death_hud") instance=ExtResource("2_5p211")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.688759, 1.85512, -0.604555)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.688759, 2.5635307, -0.604555)
 death_hud = NodePath("../death_hud")
+
+[node name="secret_wall" parent="player/HUD/ReferenceRect" index="11" instance=ExtResource("2_q10aw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.532124, 0.025000572, 3.5517635)
 
 [node name="shotgun" parent="player/inventory_component" index="1" instance=ExtResource("2_5m021")]
 
@@ -474,12 +481,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.058444, 0.86568165, 0.1061
 
 [node name="normal_door" parent="." instance=ExtResource("12_gdks2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.091537, 0.025000572, -2.0672302)
+is_open = true
 
 [node name="normal_door2" parent="." instance=ExtResource("12_gdks2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.077982, 0.025000572, 0.9552412)
 
 [node name="enemy_melee" parent="." instance=ExtResource("12_6617f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.712309, 1.1799996, -6.1684527)
+
+[node name="enemy_range" parent="." instance=ExtResource("12_t1t7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.647015, 1.1799996, -5.7745843)
+
+[node name="enemy_range_stopped" parent="." instance=ExtResource("13_q10aw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.397554, 1.1799996, -3.785649)
+
+[node name="enemy_melee2" parent="." instance=ExtResource("12_6617f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.900455, 0.52900004, -8.391139)
+
+[node name="item_test_enemy" parent="." instance=ExtResource("14_t1t7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.371294, 0.14666212, -4.5604925)
 
 [connection signal="body_entered" from="killzone" to="player" method="_on_killzone_body_entered"]
 

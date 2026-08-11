@@ -36,6 +36,8 @@ animations = [{
 script = ExtResource("2_3uyul")
 raycast_distance = 100.0
 default_position = Vector3(0.504, -0.286, -0.514)
+max_ammo = 999
+max_ammo_reload = 20
 
 [node name="AnimatedSprite3D" parent="." index="0"]
 visible = false

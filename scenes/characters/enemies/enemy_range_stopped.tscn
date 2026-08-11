@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dh2ramkdbpjei"]
+[gd_scene load_steps=33 format=3 uid="uid://dh2ramkdbpjei"]
 
 [ext_resource type="Script" uid="uid://c40auq808mxxf" path="res://scripts/enemy/enemy.gd" id="1_i1hue"]
 [ext_resource type="Texture2D" uid="uid://tk0euh261yq" path="res://assets/enemies/BACK.png" id="1_ifdl5"]
@@ -17,10 +17,6 @@
 [ext_resource type="AudioStream" uid="uid://cj5hk72jcw01j" path="res://assets/audio/enemy/audio_4_inimigo_comum_limpo.wav" id="14_hq8lu"]
 [ext_resource type="AudioStream" uid="uid://cfoke0f8cuwwe" path="res://assets/audio/enemy/Audio dano inimigo 1.wav" id="15_533d5"]
 [ext_resource type="AudioStream" uid="uid://1gjm7hvvr2ke" path="res://assets/audio/enemy/audio dano inimigo 2.mp3" id="16_gxpav"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_7ktny"]
-height = 0.512085
-radius = 0.70166
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jtiv3"]
 radius = 15.0
@@ -139,17 +135,12 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xp5p6"]
 radius = 0.810395
-height = 2.16132
+height = 2.2696247
 
 [node name="enemy_range_stopped" type="CharacterBody3D" groups=["enemy", "enemy_stopped"]]
 script = ExtResource("1_i1hue")
 damage = 15
 time_reload_sec = 3
-
-[node name="head" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.780379, 0)
-shape = SubResource("CylinderShape3D_7ktny")
-debug_color = Color(0.969414, 0, 0.461513, 0.42)
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0197648, -0.31386)
@@ -171,7 +162,7 @@ animation = &"front"
 autoplay = "front"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0679515, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013799131, 0)
 shape = SubResource("CapsuleShape3D_xp5p6")
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_wqk4p")]

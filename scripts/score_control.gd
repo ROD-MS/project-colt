@@ -6,13 +6,17 @@ signal enemyDead
 var level: Dictionary = {
 	"level_1": true,
 	"level_2": false,
-	"level_3": false
+	"level_3": false,
+	"level_4": false,
+	"level_5": false
 }
 
 var highscore: Dictionary = {
 	"level_1": 0.0,
 	"level_2": 0.0,
-	"level_3": 0.0
+	"level_3": 0.0,
+	"level_4": 0.0,
+	"level_5": 0.0
 }
 
 # SCORE E COMBOS NO MOMENTO DA GAMEPLAY
@@ -46,14 +50,32 @@ func set_level(_level: String):
 			level["level_1"] = true
 			level["level_2"] = false
 			level["level_3"] = false
+			level["level_4"] = false
+			level["level_5"] = false
 		"level_2":
 			level["level_1"] = false
 			level["level_2"] = true
 			level["level_3"] = false
+			level["level_4"] = false
+			level["level_5"] = false
 		"level_3":
 			level["level_1"] = false
 			level["level_2"] = false
 			level["level_3"] = true
+			level["level_4"] = false
+			level["level_5"] = false
+		"level_4":
+			level["level_1"] = false
+			level["level_2"] = false
+			level["level_3"] = false
+			level["level_4"] = true
+			level["level_5"] = false
+		"level_5":
+			level["level_1"] = false
+			level["level_2"] = false
+			level["level_3"] = false
+			level["level_4"] = false
+			level["level_5"] = true
 	
 	current_level = level.find_key(true)
 
@@ -61,7 +83,7 @@ func add_normal_point(new_point: float) -> void: # PONTOS SÃO DADOS APENAS QUAN
 	var add_combo: float = 1
 	if combo <= max_combo:
 		combo += add_combo
-		
+	
 	score += new_point * combo
 	
 	match current_level:
@@ -78,13 +100,25 @@ func add_normal_point(new_point: float) -> void: # PONTOS SÃO DADOS APENAS QUAN
 			if score > highscore.level_2:
 				highscore.level_2 = score
 				_new_highscore = score
-			print("Score 2: " + str(highscore.level_1))
+			print("Score 2: " + str(highscore.level_2))
 		"level_3":
 			_new_highscore = highscore.level_3
 			if score > highscore.level_3:
 				highscore.level_3 = score
 				_new_highscore = score
-			print("Score 3: " + str(highscore.level_1))
+			print("Score 3: " + str(highscore.level_3))
+		"level_4":
+			_new_highscore = highscore.level_4
+			if score > highscore.level_4:
+				highscore.level_4 = score
+				_new_highscore = score
+			print("Score 4: " + str(highscore.level_4))
+		"level_5":
+			_new_highscore = highscore.level_5
+			if score > highscore.level_5:
+				highscore.level_5 = score
+				_new_highscore = score
+			print("Score 5: " + str(highscore.level_5))
 	
 	
 	enemyDead.emit(score, combo, _new_highscore)

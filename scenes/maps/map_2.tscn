@@ -1440,7 +1440,6 @@ transform = Transform3D(-1, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, -1, 125.97
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.70710677, -0.5, 0.50000006, 0, 0.7071068, 0.70710677, -0.7071068, 0.5, -0.5, 109.21046, 0, 21.008606)
-current = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5713s")
@@ -2428,6 +2427,9 @@ shape = SubResource("ConvexPolygonShape3D_7sftk")
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 2.00921, 2.17775, -3.20483)
 
 [node name="shotgun" parent="player/inventory_component" index="1" instance=ExtResource("11_doxyn")]
+
+[node name="Camera3D" parent="player/head" index="3"]
+current = true
 
 [node name="spikes" type="Node3D" parent="."]
 

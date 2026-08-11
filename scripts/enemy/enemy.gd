@@ -14,7 +14,7 @@ const SPEED := 5.0
 @export var stun_time = 0
 @export var enemy_value: float = 10
 
-@export var current_level: Level
+@export var current_level: TutorialLevel
 
 @onready var nav = $nav
 @onready var sounds = $sounds
@@ -88,8 +88,8 @@ func _physics_process(delta):
 	if player:
 		target_position(player.position)
 		
-	velocity.x = move_toward(velocity.x, 0, SPEED*0.05)
-	velocity.z = move_toward(velocity.z, 0, SPEED*0.05)
+	#velocity.x = move_toward(velocity.x, 0, SPEED*0.05)
+	#velocity.z = move_toward(velocity.z, 0, SPEED*0.05)
 		
 	move_and_slide()
 	

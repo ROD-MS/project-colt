@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://drmca26favcpx"
+path="res://.godot/imported/level5.3.map-8563f5615ac376aa97bbf618a5eba52c.tres"
+
+[deps]
+
+source_file="res://scenes/maps_func/autosave/level5.3.map"
+dest_files=["res://.godot/imported/level5.3.map-8563f5615ac376aa97bbf618a5eba52c.tres"]
+
+[params]
+

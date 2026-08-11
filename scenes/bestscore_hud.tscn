@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://vum423nhe4ae"]
+
+[ext_resource type="Script" uid="uid://bxventtignk5g" path="res://scripts/huds/bestscore_hud.gd" id="1_sd5mx"]
+[ext_resource type="FontFile" uid="uid://nfchdxg0capl" path="res://assets/fonts/Retro Gaming.ttf" id="2_vkpgp"]
+
+[node name="bestscore_hud" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sd5mx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -385.0
+offset_top = -251.0
+offset_right = 385.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="nextLevel" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = 60.0
+offset_right = 90.5
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vkpgp")
+theme_override_font_sizes/font_size = 32
+text = "NEXT LEVEL"
+
+[node name="menu" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = 140.0
+offset_right = 90.5
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vkpgp")
+theme_override_font_sizes/font_size = 32
+text = "MENU"
+
+[node name="score" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 135.0
+offset_right = 523.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("2_vkpgp")
+theme_override_font_sizes/font_size = 32
+text = "SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="highscore" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 191.0
+offset_right = 523.0
+offset_bottom = 232.0
+theme_override_fonts/font = ExtResource("2_vkpgp")
+theme_override_font_sizes/font_size = 32
+text = "HIGHSCORE: 0"
+vertical_alignment = 3
+
+[connection signal="pressed" from="CanvasLayer/Panel/nextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/menu" to="." method="_on_menu_pressed"]

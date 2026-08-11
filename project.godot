@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PROJECT: COLT"
-run/main_scene="uid://fnsip0hprhso"
+run/main_scene="uid://bmm1hq8c205hv"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -28,9 +28,13 @@ directories/dch_directory={}
 directories/dtl_directory={
 "tutorial": "res://assets/Dialogic/level_0/tutorial.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://newStyleDialogic.tres",
+"newStyleDialogic": "res://newStyleDialogic.tres"
+}
 variables={
-"tutorial": 0
+"tutorial": 0,
+"tutorialClear": false
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -65,8 +69,8 @@ audio/channel_defaults={
 }
 }
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://newStyleDialogic.tres"]
+layout/default_style="res://newStyleDialogic.tres"
 text/input_action="dialogic_default_action"
 
 [display]
@@ -91,6 +95,8 @@ breakable=""
 enemy_stopped=""
 enemy_range="range and walk"
 item=""
+target_enemy=""
+secretHider=""
 
 [importer_defaults]
 

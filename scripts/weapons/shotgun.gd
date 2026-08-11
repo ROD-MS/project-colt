@@ -50,11 +50,14 @@ func weapon_idle():
 	if Input.is_action_pressed("fire"):
 		if ammo_in_weapon > 0:
 			current_state = STATES.WEAPON_SHOT
+		elif ammo_in_weapon <= 0:
+			current_state = STATES.WEAPON_RELOAD
 		
 	# CHANGE WEAPON TO SHOTGUN
 	if Input.is_action_just_pressed("change_to_pistol"):
 		Change.emit(self, "pistol")
 		
+	# RELOAD
 	if Input.is_action_just_pressed("reload"):
 		if ammo_remaining > 0:
 			current_state = STATES.WEAPON_RELOAD
@@ -71,6 +74,10 @@ func weapon_shot():
 	
 	if !raycast_angle_setted:
 		set_angle_raycast(true)
+		
+	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider() is ExplosionItem:
+		var barrel: ExplosionItem = raycast.get_collider() as ExplosionItem
+		barrel.explosion()
 	
 	if raycast_angle_setted:
 		for child in shotgun_raycast.get_children():
@@ -134,12 +141,6 @@ func weapon_shot():
 				attack.stun_time = stun_time
 				
 				health.damage(attack)
-
-
-	#for __raycast in shotgun_raycast.get_children():
-		#var _raycast = __raycast as RayCast3D
-		#if _raycast.is_colliding() and _raycast.get_collider().is_in_group("enemy"):
-			#pass
 	
 	shotted = true
 			

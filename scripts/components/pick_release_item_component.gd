@@ -1,6 +1,6 @@
 extends Node3D
 
-var level: Level
+var level: TutorialLevel
 
 var player: Player = null
 var holding_item: bool = false
@@ -17,7 +17,8 @@ var item_path: String = ""
 func _ready() -> void:
 	if get_parent() is Player:
 		player = get_parent() as Player
-		level = player.level
+		if player.tutorial_level:
+			level = player.tutorial_level
 			
 	#print("player owner: " +str(player.get_owner()))
 
@@ -63,4 +64,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		item = null
 		#print("holding item: " + str(item))
 		holding_item = false
-		level.launched_item()
+		if level:
+			level.launched_item()

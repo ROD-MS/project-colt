@@ -80,6 +80,10 @@ func weapon_shot(_raycast: RayCast3D):
 	if _raycast.is_colliding() and _raycast.get_collider() != null and _raycast.get_collider() is Door and !shotted:
 		var door: Door = _raycast.get_collider() as Door
 		door.open()
+		
+	if _raycast.is_colliding() and _raycast.get_collider() != null and _raycast.get_collider() is Vent and !shotted:
+		var _vent: Vent = _raycast.get_collider() as Vent
+		_vent._break()
 	
 	shotted = true
 	await sprite_animation.animation_finished
@@ -140,3 +144,7 @@ func slide_shot(_raycast: RayCast3D):
 		if _raycast.is_colliding() and _raycast.get_collider() != null and _raycast.get_collider() is Breakable and !shotted:
 			var _wood: Breakable = _raycast.get_collider() as Breakable
 			_wood.destroy()
+			
+		if _raycast.is_colliding() and _raycast.get_collider() != null and _raycast.get_collider() is Vent and !shotted:
+			var _vent: Vent = _raycast.get_collider() as Vent
+			_vent._break()

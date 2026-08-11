@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cewcybxewy4j2"]
+
+[ext_resource type="Texture2D" uid="uid://cqnooeyn6yn5u" path="res://assets/textures/world/chao_2.png" id="1_gu05e"]
+
+[resource]
+albedo_texture = ExtResource("1_gu05e")
+metallic_specular = 0.0
+texture_filter = 2

@@ -38,7 +38,7 @@ func damage(attack: Attack) -> float:
 		var player = get_parent() as Player
 		$"../HUD/hit".show()
 		await get_tree().create_timer(0.1).timeout
-		Score_control.down_combo()	
+		Score_control.down_combo()
 		if Score_control.combo <= 1:
 			player.combo.text = "COMBO: "
 		else:
@@ -90,25 +90,29 @@ func damage(attack: Attack) -> float:
 			
 		#print("MORREU")
 		
-		#if get_parent() and get_parent() is Enemy and attack.damage > 999:
-			#var enemy = get_parent() as Enemy
-			##var enemy_item = ENEMY_ITEM.instantiate()
-			##enemy_item.global_position = enemy.global_position
-			#
-			#
-			##get_owner().get_parent().add_child(enemy_item)
-			#get_parent().queue_free()
+		if get_parent() and get_parent() is Enemy and attack.damage > 999:
+			var enemy = get_parent() as Enemy
+			#randomize()
+			#var item_chance: float = randi_range(0, 1)
+			#print("item chance: " + str(item_chance))
+			#if item_chance == 1:
+			var enemy_item = ENEMY_ITEM.instantiate()
+			enemy_item.global_position = enemy.global_position
+			get_owner().get_parent().add_child(enemy_item)
+			get_parent().queue_free()
 		
 		if get_parent() is Enemy:
-			#get_parent().queue_free()
-			if enemy_animation.animation == "idle":
-				enemy.panela.play()
-				enemy.current_level.sub_target_counter()
-				enemy_animation.play("hitting")
-				if enemy.current_level.target_count == 0:
-					enemy.particles.emitting = true
-				await enemy_animation.animation_finished
-				enemy_animation.play("hitted")
+			if get_parent().is_in_group("target_enemy"):
+				if enemy_animation.animation == "idle":
+					enemy.panela.play()
+					enemy.current_level.sub_target_counter()
+					enemy_animation.play("hitting")
+					if enemy.current_level.target_count == 0:
+						enemy.particles.emitting = true
+					await enemy_animation.animation_finished
+					enemy_animation.play("hitted")
+			else:
+				get_parent().queue_free()
 		
 	return health
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmm1hq8c205hv"]
+[gd_scene load_steps=8 format=3 uid="uid://bmm1hq8c205hv"]
 
 [ext_resource type="Script" uid="uid://g4vq0f1rkiyb" path="res://scripts/menu.gd" id="1_mhnvy"]
 [ext_resource type="Shader" uid="uid://cdjjwyyxvorxw" path="res://assets/shader/psx_shader.gdshader" id="1_vjb58"]
 [ext_resource type="PackedScene" uid="uid://cpb88l84agn4e" path="res://scenes/menu_scene.tscn" id="2_con2f"]
+[ext_resource type="PackedScene" uid="uid://dq8qq2yc45mc4" path="res://scenes/levels/level_tutorial.tscn" id="2_g3eks"]
 [ext_resource type="FontFile" uid="uid://nfchdxg0capl" path="res://assets/fonts/Retro Gaming.ttf" id="3_con2f"]
 [ext_resource type="FontFile" uid="uid://cuu4fcfv4brpu" path="res://assets/fonts/alien_mine/Alien Mine Italic.otf" id="5_4ytvr"]
 
@@ -23,6 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mhnvy")
+level = ExtResource("2_g3eks")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_mhnvy")

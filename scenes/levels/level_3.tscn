@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cww523oy77x5e"]
+
+[ext_resource type="PackedScene" uid="uid://pdx414d75sdo" path="res://scenes/pause_menu.tscn" id="1_0ljxa"]
+[ext_resource type="PackedScene" uid="uid://vum423nhe4ae" path="res://scenes/bestscore_hud.tscn" id="1_fmg3e"]
+[ext_resource type="Shader" uid="uid://cdjjwyyxvorxw" path="res://assets/shader/psx_shader.gdshader" id="2_0qepi"]
+[ext_resource type="PackedScene" uid="uid://cehv73drkois7" path="res://scenes/death_hud.tscn" id="2_ftfob"]
+[ext_resource type="PackedScene" uid="uid://buh3ocqrrt8ps" path="res://scenes/levels/test_3.tscn" id="3_fmg3e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftfob"]
+shader = ExtResource("2_0qepi")
+shader_parameter/change_color_depth = true
+shader_parameter/target_color_depth = 3
+shader_parameter/dithering = true
+shader_parameter/scale_resolution = true
+shader_parameter/target_resolution_scale = 2
+shader_parameter/enable_recolor = false
+
+[node name="level_3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bestscore_hud" parent="." instance=ExtResource("1_fmg3e")]
+layout_mode = 0
+
+[node name="death_hud" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ftfob")]
+layout_mode = 1
+name_level = "level_3"
+player = NodePath("../SubViewportContainer/SubViewport/test_3/player")
+
+[node name="pause_menu" parent="." instance=ExtResource("1_0ljxa")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_ftfob")
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1154, 650)
+render_target_update_mode = 4
+
+[node name="test_3" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_fmg3e")]
+
+[node name="player" parent="SubViewportContainer/SubViewport/test_3" index="3" node_paths=PackedStringArray("death_hud")]
+death_hud = NodePath("../../../../death_hud")
+
+[node name="end_level" parent="SubViewportContainer/SubViewport/test_3" index="4" node_paths=PackedStringArray("bestscoreHud")]
+bestscoreHud = NodePath("../../../../bestscore_hud")
+
+[editable path="SubViewportContainer/SubViewport/test_3"]

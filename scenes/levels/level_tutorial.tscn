@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq8qq2yc45mc4"]
+
+[ext_resource type="PackedScene" uid="uid://vum423nhe4ae" path="res://scenes/bestscore_hud.tscn" id="1_c1vkt"]
+[ext_resource type="PackedScene" uid="uid://pdx414d75sdo" path="res://scenes/pause_menu.tscn" id="3_nsphw"]
+[ext_resource type="Shader" uid="uid://cdjjwyyxvorxw" path="res://assets/shader/psx_shader.gdshader" id="4_v64ir"]
+[ext_resource type="PackedScene" uid="uid://fnsip0hprhso" path="res://scenes/levels/level_0.tscn" id="5_7vfie"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmeua"]
+shader = ExtResource("4_v64ir")
+shader_parameter/change_color_depth = true
+shader_parameter/target_color_depth = 3
+shader_parameter/dithering = true
+shader_parameter/scale_resolution = true
+shader_parameter/target_resolution_scale = 2
+shader_parameter/enable_recolor = false
+
+[node name="level0" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bestscore_hud" parent="." instance=ExtResource("1_c1vkt")]
+layout_mode = 0
+
+[node name="pause_menu" parent="." instance=ExtResource("3_nsphw")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_pmeua")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="level_0" parent="SubViewportContainer/SubViewport" instance=ExtResource("5_7vfie")]
+
+[editable path="SubViewportContainer/SubViewport/level_0"]

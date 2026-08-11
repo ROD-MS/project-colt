@@ -48,8 +48,17 @@ func _on_explosion_area_body_entered(body: Node3D) -> void:
 		new_barrel.explosion()
 	if body is Door:
 		var door: Door = body as Door
-		door.level.secret()
+		
+		if door.level:
+			door.level.secret()
+		elif door.tutorial:
+			door.tutorial.secret()
+			
 		door.queue_free()
+	
+	if body.is_in_group("secretHider"):
+		body.queue_free()
+
 
 
 func _on_launch_detect_body_entered(body: Node3D) -> void:
@@ -57,4 +66,7 @@ func _on_launch_detect_body_entered(body: Node3D) -> void:
 		explosion()
 		
 	if body is Door:
+		explosion()
+		
+	if body.is_in_group("secretHider"):
 		explosion()

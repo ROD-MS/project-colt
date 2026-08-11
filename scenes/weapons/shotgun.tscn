@@ -128,6 +128,8 @@ visible = false
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_d7xmg")
 animation = &"reload"
+frame = 8
+frame_progress = 1.0
 
 [node name="shoot_sound" parent="." index="1"]
 stream = ExtResource("6_xtykv")

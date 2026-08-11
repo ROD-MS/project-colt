@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dnhjufl0t1dab"
+path="res://.godot/imported/level1texture.map-e59b8717940ae00e92ea352472565dc6.tres"
+
+[deps]
+
+source_file="res://scenes/maps_func/level1texture.map"
+dest_files=["res://.godot/imported/level1texture.map-e59b8717940ae00e92ea352472565dc6.tres"]
+
+[params]
+

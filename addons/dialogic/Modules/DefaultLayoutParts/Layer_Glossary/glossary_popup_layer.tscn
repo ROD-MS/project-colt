@@ -25,6 +25,7 @@ script = ExtResource("1_3nmfj")
 
 [node name="Pointer" type="Control" parent="."]
 anchors_preset = 0
+mouse_filter = 2
 
 [node name="Panel" type="PanelContainer" parent="Pointer"]
 unique_name_in_owner = true
@@ -73,6 +74,7 @@ show_behind_parent = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="PanelPoint" type="PanelContainer" parent="Pointer/Panel/Control"]
 unique_name_in_owner = true

@@ -9,6 +9,7 @@ const SHOT = null
 @onready var voice: Node3D = $voice
 
 @export var level: Level
+@export var tutorial_level: TutorialLevel
 
 @export var death_hud: DeathHud
 
@@ -42,7 +43,7 @@ var shotted: bool = false
 
 var death: bool = false
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:	
 	if Input.is_action_just_pressed("sprint"):
 		if running:
 			running = false
@@ -85,6 +86,7 @@ func _physics_process(delta):
 func _ready():
 	if get_owner().get_owner():
 		current_level = get_owner().get_owner().name
+		print(current_level)
 	
 	Score_control.enemyDead.connect(change_scoreboard)
 	Score_control.combo = 0
@@ -92,8 +94,11 @@ func _ready():
 	Score_control.set_level(current_level)
 	SaveLoad._load()
 	
+
+	
 	match current_level:
 		"level_1":
+			Engine.time_scale = 1.0
 			tentativas = Score_control.tentativas_level1
 			$HUD/aviso_shotgun.hide()
 		"level_2":

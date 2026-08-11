@@ -9,7 +9,7 @@ func weapon_up():
 	player = agent as Player
 	#print("entered pistol")
 	if player.ammo_counter:
-		player.ammo_counter.text = "999/999"
+		player.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
 	if raycast and !raycast_configured:
 		raycast.target_position.z = raycast_distance
 	
@@ -46,17 +46,28 @@ func weapon_idle():
 	
 	# SHOT
 	if Input.is_action_pressed("fire"):
-		current_state = STATES.WEAPON_SHOT
+		if ammo_in_weapon > 0:
+			current_state = STATES.WEAPON_SHOT
+		elif ammo_in_weapon <= 0:
+			current_state = STATES.WEAPON_RELOAD
 		
 	# CHANGE WEAPON TO SHOTGUN
 	if Input.is_action_just_pressed("change_to_shotgun"):
 		Change.emit(self, "shotgun")
 		
+	# RELOAD
+	if Input.is_action_just_pressed("reload"):
+		if ammo_remaining > 0:
+			current_state = STATES.WEAPON_RELOAD
+		
 func weapon_shot():
 	player.shotted = true
 	sprite_animation.play("shoot")
+	agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)
+	
 	if !shotted:
 		shoot_sound.play()
+		sub_ammo(1)
 		
 		
 	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider() is ExplosionItem:
@@ -126,4 +137,9 @@ func weapon_shot():
 	shotted = false
 	current_state = STATES.WEAPON_IDLE
 	
-	
+func weapon_reload():
+	animation_player.play("pistol_reload")
+	reload_ammo()
+	await animation_player.animation_finished
+	current_state = STATES.WEAPON_IDLE
+	agent.ammo_counter.text = str(ammo_in_weapon) + "/" + str(ammo_remaining)

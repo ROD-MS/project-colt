@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7ullrvvlppm8"
-path="res://.godot/imported/Porta_c_listras.png-bf159f4450752035dd55b663eb9e7758.ctex"
+path="res://.godot/imported/Porta_c_listras.png-8f90ad2144ae12969d1af8da74a09586.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/texturas/Porta_c_listras.png"
-dest_files=["res://.godot/imported/Porta_c_listras.png-bf159f4450752035dd55b663eb9e7758.ctex"]
+source_file="res://assets/texturas/textures/world/Porta_c_listras.png"
+dest_files=["res://.godot/imported/Porta_c_listras.png-8f90ad2144ae12969d1af8da74a09586.ctex"]
 
 [params]
 

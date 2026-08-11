@@ -19,8 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://1gjm7hvvr2ke" path="res://assets/audio/enemy/audio dano inimigo 2.mp3" id="18_rji51"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7ktny"]
-height = 0.512085
-radius = 0.70166
+height = 0.38093185
+radius = 0.36669922
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jtiv3"]
 radius = 10.0
@@ -138,8 +138,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xp5p6"]
-radius = 0.810395
-height = 2.16132
+radius = 0.3408203
+height = 1.7170527
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pbm4f"]
 radius = 1.0
@@ -151,7 +151,7 @@ damage = 20
 time_reload_sec = 1
 
 [node name="head" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.780379, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79871595, 0)
 shape = SubResource("CylinderShape3D_7ktny")
 debug_color = Color(0.969414, 0, 0.461513, 0.42)
 
@@ -174,10 +174,11 @@ animation = &"front"
 autoplay = "front"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0679515, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28307515, 0)
 shape = SubResource("CapsuleShape3D_xp5p6")
 
-[node name="HealthComponent" parent="." instance=ExtResource("3_8xlit")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("enemy_animation") instance=ExtResource("3_8xlit")]
+enemy_animation = NodePath("../animation")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "agent")]
 script = ExtResource("5_106bi")

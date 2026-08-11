@@ -130,7 +130,7 @@ billboard_keep_scale = true
 material = SubResource("StandardMaterial3D_xcqwt")
 size = Vector2(0.5, 0.5)
 
-[node name="target_level0" type="CharacterBody3D" groups=["enemy", "weak_enemy"]]
+[node name="target_level0" type="CharacterBody3D" groups=["enemy", "target_enemy", "weak_enemy"]]
 script = ExtResource("1_ye7ho")
 damage = 20
 time_reload_sec = 1

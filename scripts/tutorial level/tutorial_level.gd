@@ -1,5 +1,5 @@
 extends Node3D
-class_name Level
+class_name TutorialLevel
 
 var target_count: int = 0
 var max_target: int = 0

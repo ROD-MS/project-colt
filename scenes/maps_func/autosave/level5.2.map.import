@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://b85ip5q6x57bo"
+path="res://.godot/imported/level5.2.map-50920703361ff5a793c326773e905f14.tres"
+
+[deps]
+
+source_file="res://scenes/maps_func/autosave/level5.2.map"
+dest_files=["res://.godot/imported/level5.2.map-50920703361ff5a793c326773e905f14.tres"]
+
+[params]
+

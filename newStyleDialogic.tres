@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=6 format=3 uid="uid://djivvusbjyemf"]
+
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_3e0cs"]
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="2_4g8bf"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_omukk"]
+
+[sub_resource type="Resource" id="Resource_4g8bf"]
+script = ExtResource("1_3e0cs")
+
+[sub_resource type="Resource" id="Resource_qv322"]
+script = ExtResource("1_3e0cs")
+scene = ExtResource("2_4g8bf")
+
+[resource]
+script = ExtResource("2_omukk")
+name = "newStyleDialogic"
+layer_list = Array[String](["10"])
+layer_info = {
+"": SubResource("Resource_4g8bf"),
+"10": SubResource("Resource_qv322")
+}
+metadata/_latest_layer = ""
