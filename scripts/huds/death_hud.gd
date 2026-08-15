@@ -37,7 +37,7 @@ func change_visibility(active: bool):
 		score = Score_control.score
 		print("score: " + str(Score_control.score))
 		highscore = Score_control.get_highscore()
-		print("highscore: " + str(Score_control._new_highscore))
+		print("highscore: " + str(Score_control.get_highscore()))
 		
 		score_label.text = "Score: " + str(score)
 		highscore_label.text = "Highscore: " + str(highscore)

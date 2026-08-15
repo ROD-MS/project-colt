@@ -36,6 +36,7 @@ func _ready() -> void:
 	
 func set_level(_level: String):
 	current_level = _level
+	print(current_level)
 	
 func get_level() -> String:
 	return current_level

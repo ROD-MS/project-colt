@@ -18,23 +18,23 @@ func _ready() -> void:
 func change_visibility(active: bool):
 	canvas_layer.visible = active
 	if active == true:
-		if player:
-			var current_level = player.current_level
-			SaveLoad._load()
-			
-			match current_level:
-				"level_1":
-					Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_1)
-				"level_2":
-					Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_2)
-				"level_3":
-					Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_3)
+		#if player:
+			#var current_level = player.current_level
+			#SaveLoad._load()
+			#
+			#match current_level:
+				#"level_1":
+					#Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_1)
+				#"level_2":
+					#Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_2)
+				#"level_3":
+					#Score_control.highscore.set(current_level, SaveLoad.contents_to_save.highscore_level_3)
 				
 			
 		score = Score_control.score
 		print("score: " + str(Score_control.score))
-		highscore = Score_control._new_highscore
-		print("highscore: " + str(Score_control._new_highscore))
+		highscore = Score_control.get_highscore()
+		print("highscore: " + str(Score_control.get_highscore()))
 		
 		score_label.text = "Score: " + str(score)
 		highscore_label.text = "Highscore: " + str(highscore)

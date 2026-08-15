@@ -97,9 +97,9 @@ func damage(attack: Attack) -> float:
 			#var item_chance: float = randi_range(0, 1)
 			#print("item chance: " + str(item_chance))
 			#if item_chance == 1:
-			var enemy_item = ENEMY_ITEM.instantiate()
-			enemy_item.global_position = enemy.global_position
-			get_owner().get_parent().add_child(enemy_item)
+			#var enemy_item = ENEMY_ITEM.instantiate()
+			#enemy_item.global_position = enemy.global_position
+			#get_owner().get_parent().add_child(enemy_item)
 			if enemy_stateMachine:
 				enemy_stateMachine.on_child_transition(enemy_stateMachine.current_state, "deathHS")
 				return health
