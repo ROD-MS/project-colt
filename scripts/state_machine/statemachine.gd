@@ -5,6 +5,7 @@ class_name StateMachine
 @export var agent: Node3D = null
 @export var active: bool = false
 
+@export var animation3D: AnimatedSprite3D
 
 var current_state: State = null
 var states: Dictionary = {}
@@ -14,6 +15,7 @@ func _ready():
 		if child is State:
 			states[child.name.to_lower()] = child
 			states[child.name.to_lower()].agent = agent
+			states[child.name.to_lower()].animation3D = animation3D
 			child.Transitioned.connect(on_child_transition)
 			#print(get_parent().name + str(child))
 			

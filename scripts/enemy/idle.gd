@@ -16,6 +16,9 @@ func enter():
 	enemy.velocity.z = 0
 	detect_player.process_mode = Node.PROCESS_MODE_DISABLED
 	
+	if animation3D:
+		animation3D.play("idle")
+	
 	if enemy.follow:
 		if !enemy.is_in_group("enemy_range"):
 			Transitioned.emit(self, "followPlayer")
@@ -23,7 +26,7 @@ func enter():
 		if enemy.is_in_group("enemy_range") and !raycast.get_collider() or !raycast.get_collider() is Player:
 			Transitioned.emit(self, "followPlayer")
 	
-func _process(delta: float) -> void:		
+func _process(delta: float) -> void:
 	if raycast.is_colliding() and raycast.get_collider() and raycast.get_collider() is Player:
 		agent.follow = true
 		detect_player.process_mode = Node.PROCESS_MODE_INHERIT

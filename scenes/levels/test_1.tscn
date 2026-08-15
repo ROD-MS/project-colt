@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=4 uid="uid://bcdc8r2rqvygp"]
+[gd_scene load_steps=179 format=4 uid="uid://bcdc8r2rqvygp"]
 
 [ext_resource type="Script" uid="uid://cnf647r0kht4j" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_6sdd5"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_tvpen"]
@@ -13,7 +13,7 @@
 [ext_resource type="Material" uid="uid://bkn1urixgtfpu" path="res://assets/textures/world/paredes.tres" id="9_k0fgw"]
 [ext_resource type="PackedScene" uid="uid://yosl364q72uo" path="res://scenes/levels/level_2.tscn" id="12_k0fgw"]
 [ext_resource type="PackedScene" uid="uid://cxt8srf54lcwt" path="res://scenes/objects/normal_door.tscn" id="13_fw85x"]
-[ext_resource type="PackedScene" uid="uid://b2so020mc6yrl" path="res://scenes/objects/secret_wall.tscn" id="14_u45x1"]
+[ext_resource type="Texture2D" uid="uid://b8sqy3i8kkjde" path="res://assets/textures/parede_secret.png" id="14_fmbie"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tvpen"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -586,6 +586,24 @@ points = PackedVector3Array(12.5, 4.5, -50.5, 12.5, 4, -50.5, 13, 4, -50.5, 13, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pnsa7"]
 points = PackedVector3Array(12.5, 4, -47.5, 12.5, 0.5, -47.5, 13, 0.5, -47.5, 13, 4, -47.5, 12.5, 4, -47, 12.5, 0.5, -47, 13, 0.5, -47, 13, 4, -47)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u45x1"]
+load_path = "res://.godot/imported/parede_secret.png-6e6b02d0aeeb71d0b7b372b9d16b308b.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmbie"]
+albedo_texture = SubResource("CompressedTexture2D_u45x1")
+uv1_scale = Vector3(0.6, 0.6, 0.6)
+uv1_offset = Vector3(0.005, -0.737, 0)
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bubxw"]
+size = Vector3(3, 3.5, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u45x1"]
+albedo_texture = ExtResource("14_fmbie")
+uv1_scale = Vector3(0.6, 0.6, 0.6)
+uv1_offset = Vector3(0.005, -0.737, 0)
+texture_filter = 0
+
 [node name="test_1" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -1101,8 +1119,26 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 44.0
 
 [node name="secret_wall" type="Node" parent="."]
 
-[node name="secret_wall2" parent="secret_wall" instance=ExtResource("14_u45x1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.017395, 6, 23.691525)
+[node name="secret_wall2" type="StaticBody3D" parent="secret_wall" groups=["secretHider"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.017395, 6, 23.612843)
 
-[node name="secret_wall3" parent="secret_wall" instance=ExtResource("14_u45x1")]
+[node name="CSGBox3D" type="CSGBox3D" parent="secret_wall/secret_wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.0056152, -0.007801056)
+material_override = SubResource("StandardMaterial3D_fmbie")
+size = Vector3(3, 4.0112305, 0.2)
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="secret_wall/secret_wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.75, 0)
+shape = SubResource("BoxShape3D_bubxw")
+
+[node name="secret_wall3" type="StaticBody3D" parent="secret_wall" groups=["secretHider"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.017395, 6, 45.27194)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="secret_wall/secret_wall3"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.5, 2.0031433, 0.12798691)
+material_override = SubResource("StandardMaterial3D_u45x1")
+size = Vector3(3, 4.0112305, 0.2)
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="secret_wall/secret_wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.75, 0)
+shape = SubResource("BoxShape3D_bubxw")

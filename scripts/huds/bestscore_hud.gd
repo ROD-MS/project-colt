@@ -6,6 +6,8 @@ var score: float
 var highscore: float
 var next_level: PackedScene
 
+
+
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var score_label: Label = $CanvasLayer/Panel/score
 @onready var highscore_label: Label = $CanvasLayer/Panel/highscore

@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxt8srf54lcwt"]
+[gd_scene load_steps=7 format=3 uid="uid://cxt8srf54lcwt"]
 
 [ext_resource type="Script" uid="uid://cdddyh8id3pcq" path="res://scripts/objects/normal_door.gd" id="1_r14e2"]
 [ext_resource type="AudioStream" uid="uid://fqu07bcrpa28" path="res://assets/audio/kick/chute na porta.wav" id="2_qyol4"]
+[ext_resource type="Texture2D" uid="uid://bsv54hwgkbi1h" path="res://assets/textures/porta_ferro1.png" id="2_w14v4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7nyt"]
+albedo_texture = ExtResource("2_w14v4")
+uv1_scale = Vector3(-1, 1, 1)
+texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mf4jn"]
 size = Vector3(3, 3.5, 0.2)
@@ -14,6 +20,7 @@ script = ExtResource("1_r14e2")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.75, 0)
+material_override = SubResource("StandardMaterial3D_p7nyt")
 size = Vector3(3, 3.5, 0.2)
 
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="."]

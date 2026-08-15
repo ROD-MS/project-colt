@@ -1,9 +1,10 @@
-[gd_scene load_steps=65 format=3 uid="uid://dbtsqv26emkg6"]
+[gd_scene load_steps=66 format=3 uid="uid://dbtsqv26emkg6"]
 
 [ext_resource type="PackedScene" uid="uid://cehv73drkois7" path="res://scenes/death_hud.tscn" id="1_04vdo"]
 [ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="2_5m021"]
 [ext_resource type="PackedScene" uid="uid://syr6756flq43" path="res://scenes/characters/player.tscn" id="2_5p211"]
 [ext_resource type="PackedScene" uid="uid://b2so020mc6yrl" path="res://scenes/objects/secret_wall.tscn" id="2_q10aw"]
+[ext_resource type="PackedScene" uid="uid://b3gn2oqyo1ojc" path="res://scenes/objects/vent.tscn" id="3_756an"]
 [ext_resource type="PackedScene" uid="uid://c4uon31mci3cv" path="res://scenes/objects/garrafa_whisky.tscn" id="3_orydm"]
 [ext_resource type="PackedScene" uid="uid://bb3ymudhsbplr" path="res://scenes/objects/shotgun_box.tscn" id="4_4c11n"]
 [ext_resource type="PackedScene" uid="uid://lllghnhblbc3" path="res://scenes/objects/wood.tscn" id="6_wu44v"]
@@ -173,6 +174,12 @@ death_hud = NodePath("../death_hud")
 
 [node name="secret_wall" parent="player/HUD/ReferenceRect" index="11" instance=ExtResource("2_q10aw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.532124, 0.025000572, 3.5517635)
+
+[node name="vent" parent="player/HUD/ReferenceRect" index="12" instance=ExtResource("3_756an")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.62047, 0.7750006, -0.32045364)
+
+[node name="vent2" parent="player/HUD/ReferenceRect" index="13" instance=ExtResource("3_756an")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.15966, 0.7749996, -0.41120768)
 
 [node name="shotgun" parent="player/inventory_component" index="1" instance=ExtResource("2_5m021")]
 

@@ -31,6 +31,7 @@ var timer: int = 0
 var player: Player = null
 var last_position: Vector3 = Vector3.ZERO
 var knockbacking: bool = false
+var death: bool = false
 
 var move_timer: Timer = null
 @onready var state_machine: StateMachine = $StateMachine

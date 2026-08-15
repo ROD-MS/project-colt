@@ -4,6 +4,7 @@ class_name State
 signal Transitioned
 
 var agent: Node = null
+var animation3D: AnimatedSprite3D
 
 func enter():
 	pass

@@ -12,6 +12,9 @@ func enter():
 	#detect_player = enemy.detect_player
 	time_reload = agent.time_reload_sec
 	
+	if animation3D:
+		animation3D.play("front")
+	
 
 func update(delta: float):
 	var next_location = enemy.nav.get_next_path_position()
@@ -35,8 +38,8 @@ func update(delta: float):
 		elif enemy.is_in_group("enemy_range") and !raycast.get_collider() or enemy.is_in_group("enemy_range") and !raycast.get_collider() is Player:
 				enemy.velocity = enemy.velocity.move_toward(new_velocity, 0.25)
 		
-		if time_reload <= 0:
-			Transitioned.emit(self, "shoot")
+		if time_reload <= 0 and raycast.get_collider() and raycast.get_collider() is Player:
+			Transitioned.emit(self, "prepShoot")
 			
 	else:
 		Transitioned.emit(self, "idle")

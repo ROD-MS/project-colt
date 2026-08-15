@@ -17,6 +17,7 @@ var enemy: Enemy = null
 @export var has_sound: bool = true
 
 @export var enemy_animation: AnimatedSprite3D
+@export var enemy_stateMachine: StateMachine
 
 
 func _ready():
@@ -89,9 +90,9 @@ func damage(attack: Attack) -> float:
 			#print("HEALTH ENEMY: " +str(health))
 			
 		#print("MORREU")
-		
+		var enemy = get_parent() as Enemy
 		if get_parent() and get_parent() is Enemy and attack.damage > 999:
-			var enemy = get_parent() as Enemy
+			enemy.death = true
 			#randomize()
 			#var item_chance: float = randi_range(0, 1)
 			#print("item chance: " + str(item_chance))
@@ -99,9 +100,14 @@ func damage(attack: Attack) -> float:
 			var enemy_item = ENEMY_ITEM.instantiate()
 			enemy_item.global_position = enemy.global_position
 			get_owner().get_parent().add_child(enemy_item)
-			get_parent().queue_free()
+			if enemy_stateMachine:
+				enemy_stateMachine.on_child_transition(enemy_stateMachine.current_state, "deathHS")
+				return health
+			else:
+				get_parent().queue_free()
 		
 		if get_parent() is Enemy:
+			enemy.death = true
 			if get_parent().is_in_group("target_enemy"):
 				if enemy_animation.animation == "idle":
 					enemy.panela.play()
@@ -112,7 +118,10 @@ func damage(attack: Attack) -> float:
 					await enemy_animation.animation_finished
 					enemy_animation.play("hitted")
 			else:
-				get_parent().queue_free()
+				if enemy_stateMachine:
+					enemy_stateMachine.on_child_transition(enemy_stateMachine.current_state, "death")
+				else:
+					get_parent().queue_free()
 		
 	return health
 

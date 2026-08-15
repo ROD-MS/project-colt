@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=142 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Texture2D" uid="uid://b1tfg5g46qn2y" path="res://assets/HUD/life_bar/10-0-Sheet.png" id="2_inhyd"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://dmw6b65fvbm7w" path="res://scenes/components/rope.tscn" id="20_dg40j"]
 [ext_resource type="Texture2D" uid="uid://dvbnw56b571wi" path="res://assets/placeholder/barril_mao_colt_certo_final.png" id="20_m38kj"]
 [ext_resource type="Texture2D" uid="uid://ceg24y6e1mic0" path="res://assets/placeholder/satodrink_mao_colt_final.png" id="21_v1y1o"]
+[ext_resource type="AudioStream" uid="uid://ckop8yvbswxo5" path="res://assets/audio/weapons/colocando_pente_3_pistol.mp3" id="24_j057w"]
 [ext_resource type="PackedScene" uid="uid://cfdfflk4mq0wb" path="res://scenes/weapons/kick.tscn" id="24_s0anf"]
 [ext_resource type="Script" uid="uid://cxlqp4bmxmj7y" path="res://scripts/player/slide.gd" id="28_yhyq5"]
 [ext_resource type="Script" uid="uid://bhoqhp13pnbaf" path="res://scripts/player/crounch.gd" id="29_5jukt"]
@@ -784,6 +785,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Sounds Effects/ColocandoPente3Pistol:stream")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("24_j057w")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Sounds Effects/ColocandoPente3Pistol:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_6dyrm"]
 resource_name = "pistol_down"
@@ -812,6 +837,59 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_w5bca"]
+resource_name = "pistol_reload"
+length = 1.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sounds Effects/ColocandoPente3Pistol:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("24_j057w")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sounds Effects/ColocandoPente3Pistol:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hand_animation:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"reload"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hand_animation:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
 [sub_resource type="Animation" id="Animation_k342o"]
@@ -1023,35 +1101,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [2.0]
-}
-
-[sub_resource type="Animation" id="Animation_w5bca"]
-resource_name = "pistol_reload"
-length = 0.22
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sounds Effects/AudioAbrindoShotgun:stream")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("11_yktyj")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Sounds Effects/AudioAbrindoShotgun:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijanx"]
@@ -1477,7 +1526,6 @@ sprite_animation = NodePath("../head/hand_animation")
 animation_player = NodePath("../head/hand_animationplayer")
 
 [node name="pistol" parent="inventory_component" instance=ExtResource("7_fh4c0")]
-default_position = Vector3(0.47, -0.3, -0.346)
 damage = 5.0
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar", "life_bar") instance=ExtResource("7_2k4s4")]
@@ -1600,6 +1648,9 @@ texture = ExtResource("16_kbxbc")
 
 [node name="Sounds Effects" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)
+
+[node name="ColocandoPente3Pistol" type="AudioStreamPlayer" parent="Sounds Effects"]
+stream = ExtResource("24_j057w")
 
 [node name="AudioAbrindoShotgun" type="AudioStreamPlayer" parent="Sounds Effects"]
 stream = ExtResource("11_yktyj")

@@ -17,6 +17,9 @@ func enter():
 	stun_time = agent.stun_time
 	attack = true
 	
+	if animation3D:
+		animation3D.play("attack")
+	
 func update(delta):
 	await get_tree().create_timer(0.1).timeout
 	if attack:
