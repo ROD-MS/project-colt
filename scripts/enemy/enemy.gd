@@ -108,7 +108,8 @@ func _process(delta: float) -> void:
 	
 	
 func _exit_tree() -> void:
-	Score_control.add_normal_point(enemy_value)
+	if death:
+		Score_control.add_normal_point(enemy_value)
 	collision.disabled = true
 	if current_level:
 		current_level.sub_target_counter()

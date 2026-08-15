@@ -12,8 +12,6 @@ var next_level: PackedScene
 @onready var score_label: Label = $CanvasLayer/Panel/score
 @onready var highscore_label: Label = $CanvasLayer/Panel/highscore
 
-@export var menu_level: PackedScene = preload("res://scenes/menu.tscn")
-
 func _ready() -> void:
 	canvas_layer.visible = false
 
@@ -51,4 +49,4 @@ func _on_next_level_pressed() -> void:
 	get_tree().change_scene_to_packed(next_level)
 
 func _on_menu_pressed() -> void:
-	get_tree().change_scene_to_packed(menu_level)
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

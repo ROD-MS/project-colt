@@ -2,15 +2,6 @@ extends Node3D
 
 signal enemyDead
 
-# ARMAZENANDO O HIGHSCORE
-var level: Dictionary = {
-	"level_1": true,
-	"level_2": false,
-	"level_3": false,
-	"level_4": false,
-	"level_5": false
-}
-
 var highscore: Dictionary = {
 	"level_1": 0.0,
 	"level_2": 0.0,
@@ -40,44 +31,29 @@ func reset_max_score():
 
 
 func _ready() -> void:
-	current_level = level.find_key(true)
 	print(highscore)
 	#print(current_level)
 	
 func set_level(_level: String):
-	match _level:
-		"level_1":
-			level["level_1"] = true
-			level["level_2"] = false
-			level["level_3"] = false
-			level["level_4"] = false
-			level["level_5"] = false
-		"level_2":
-			level["level_1"] = false
-			level["level_2"] = true
-			level["level_3"] = false
-			level["level_4"] = false
-			level["level_5"] = false
-		"level_3":
-			level["level_1"] = false
-			level["level_2"] = false
-			level["level_3"] = true
-			level["level_4"] = false
-			level["level_5"] = false
-		"level_4":
-			level["level_1"] = false
-			level["level_2"] = false
-			level["level_3"] = false
-			level["level_4"] = true
-			level["level_5"] = false
-		"level_5":
-			level["level_1"] = false
-			level["level_2"] = false
-			level["level_3"] = false
-			level["level_4"] = false
-			level["level_5"] = true
+	current_level = _level
 	
-	current_level = level.find_key(true)
+func get_level() -> String:
+	return current_level
+	
+func get_highscore() -> float:
+	match current_level:
+		"level_1":
+			return highscore.level_1
+		"level_2":
+			return highscore.level_2
+		"level_3":
+			return highscore.level_3
+		"level_4":
+			return highscore.level_4
+		"level_5":
+			return highscore.level_5
+			
+	return 0.0
 
 func add_normal_point(new_point: float) -> void: # PONTOS SÃO DADOS APENAS QUANDO INIMIGOS SÃO MORTOS SEM HEADSHOT
 	var add_combo: float = 1

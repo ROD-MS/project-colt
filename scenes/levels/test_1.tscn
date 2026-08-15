@@ -1,4 +1,4 @@
-[gd_scene load_steps=179 format=4 uid="uid://bcdc8r2rqvygp"]
+[gd_scene load_steps=180 format=4 uid="uid://bcdc8r2rqvygp"]
 
 [ext_resource type="Script" uid="uid://cnf647r0kht4j" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_6sdd5"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_tvpen"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://yosl364q72uo" path="res://scenes/levels/level_2.tscn" id="12_k0fgw"]
 [ext_resource type="PackedScene" uid="uid://cxt8srf54lcwt" path="res://scenes/objects/normal_door.tscn" id="13_fw85x"]
 [ext_resource type="Texture2D" uid="uid://b8sqy3i8kkjde" path="res://assets/textures/parede_secret.png" id="14_fmbie"]
+[ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemies/enemy_melee.tscn" id="15_fmbie"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tvpen"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -1142,3 +1143,12 @@ size = Vector3(3, 4.0112305, 0.2)
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="secret_wall/secret_wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.75, 0)
 shape = SubResource("BoxShape3D_bubxw")
+
+[node name="enemy_melee" parent="." instance=ExtResource("15_fmbie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90146565, 1.6332983, -26.522913)
+
+[node name="enemy_melee2" parent="." instance=ExtResource("15_fmbie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.333885, 1.6332972, -27.338436)
+
+[node name="enemy_melee3" parent="." instance=ExtResource("15_fmbie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2359877, 1.6332978, -25.429676)
