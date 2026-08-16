@@ -53,10 +53,11 @@ func damage(attack: Attack) -> float:
 		enemy.detect_player.process_mode = Node.PROCESS_MODE_INHERIT
 		enemy.follow = true
 		
-		var knockback_direction = -(enemy.player.global_position - enemy.global_position).normalized()
+		if enemy and enemy.player:
+			var knockback_direction = -(enemy.player.global_position - enemy.global_position).normalized()
 		#print("ridectoin:" + str(knockback_direction))
 		#print(Vector3(1, 1, 1))
-		knockback = knockback_direction * attack.knockback_force
+			knockback = knockback_direction * attack.knockback_force
 			
 		#knockback_timer.start(1)
 		

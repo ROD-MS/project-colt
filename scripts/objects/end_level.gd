@@ -28,7 +28,7 @@ func _on_body_entered(body: Node3D) -> void:
 			
 			bestscoreHud.change_visibility(true)
 		else:
-			get_tree().change_scene_to_packed(next_level)
+			get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
 
 func _physics_process(delta: float) -> void:
 	$MeshInstance3D.rotation.y += 0.05
