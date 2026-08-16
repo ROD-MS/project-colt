@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=4 uid="uid://boulk5suimamn"]
+[gd_scene load_steps=134 format=4 uid="uid://boulk5suimamn"]
 
 [ext_resource type="Script" uid="uid://cnf647r0kht4j" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_po5xp"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_k1o0d"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cfqh80niquhx1" path="res://scenes/objects/end_level.tscn" id="5_le22n"]
 [ext_resource type="Material" uid="uid://dwkkvekq6ofeg" path="res://assets/textures/world/chao_2sangue.tres" id="6_uxglx"]
 [ext_resource type="Material" uid="uid://cedk7ibm8v6pv" path="res://assets/textures/world/parede256.tres" id="7_7lswt"]
+[ext_resource type="PackedScene" uid="uid://bpj0pkn8dqhue" path="res://scenes/objects/item_test_explosion.tscn" id="8_yij11"]
 [ext_resource type="PackedScene" uid="uid://fol7eatgvk8a" path="res://scenes/levels/level_5.tscn" id="10_ln6i6"]
 [ext_resource type="PackedScene" uid="uid://cxt8srf54lcwt" path="res://scenes/objects/normal_door.tscn" id="11_cqpwf"]
 [ext_resource type="PackedScene" uid="uid://gqfvqggvmnbq" path="res://scenes/characters/enemies/enemy_melee.tscn" id="12_0vtqu"]
@@ -431,6 +432,7 @@ sky_material = SubResource("ProceduralSkyMaterial_k1o0d")
 
 [sub_resource type="Environment" id="Environment_fvi68"]
 background_mode = 2
+background_energy_multiplier = 1.5
 sky = SubResource("Sky_le22n")
 tonemap_mode = 2
 
@@ -446,7 +448,8 @@ map_settings = ExtResource("2_k1o0d")
 metadata/_custom_type_script = "uid://cnf647r0kht4j"
 
 [node name="entity_0_worldspawn" type="StaticBody3D" parent="NavigationRegion3D/FuncGodotMap"]
-collision_mask = 0
+collision_layer = 3
+collision_mask = 2
 
 [node name="entity_0_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 mesh = SubResource("ArrayMesh_0vtqu")
@@ -789,6 +792,21 @@ shape = SubResource("ConvexPolygonShape3D_dlpm1")
 
 [node name="entity_0_brush_111_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_bkt3d")
+
+[node name="item_test_explosion" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("8_yij11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9559526, 1.0613258, 10.396391)
+
+[node name="item_test_explosion2" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("8_yij11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1264076, 1.0613258, 10.396391)
+
+[node name="item_test_explosion3" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("8_yij11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9839845, 1.0613258, 11.155792)
+
+[node name="item_test_explosion4" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("8_yij11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9691753, 1.0613258, 10.481043)
+
+[node name="item_test_explosion5" parent="NavigationRegion3D/FuncGodotMap" instance=ExtResource("8_yij11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9691753, 1.0613258, 11.277493)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fvi68")

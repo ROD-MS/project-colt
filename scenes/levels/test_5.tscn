@@ -973,6 +973,7 @@ sky_material = SubResource("ProceduralSkyMaterial_wyib7")
 
 [sub_resource type="Environment" id="Environment_icdkc"]
 background_mode = 2
+background_energy_multiplier = 1.5
 sky = SubResource("Sky_pjfv5")
 tonemap_mode = 2
 
@@ -988,7 +989,8 @@ map_settings = ExtResource("2_uvuam")
 metadata/_custom_type_script = "uid://cnf647r0kht4j"
 
 [node name="entity_0_worldspawn" type="StaticBody3D" parent="NavigationRegion3D/FuncGodotMap"]
-collision_mask = 0
+collision_layer = 3
+collision_mask = 2
 
 [node name="entity_0_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 mesh = SubResource("ArrayMesh_sxpvj")
@@ -1911,17 +1913,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5426226, 1.6332976, 11.445
 [node name="enemy_melee3" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.47014, -2.866702, 110.52794)
 
-[node name="enemy_melee4" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.942677, -2.866702, 110.27276)
-
 [node name="enemy_range" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.242739, -2.866702, 110.88915)
 
 [node name="enemy_melee5" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.397076, -2.8667016, 110.8001)
-
-[node name="enemy_melee6" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.124348, -2.866702, 110.75627)
 
 [node name="enemy_range2" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.345764, -2.8667026, 110.736824)
@@ -1929,14 +1925,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.345764, -2.8667026, 110.7
 [node name="enemy_melee7" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.944324, -3.1824245, 115.8789)
 
-[node name="enemy_melee8" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.972908, -4.5778413, 119.26813)
-
 [node name="enemy_range3" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.7637, -6.366701, 126.16594)
-
-[node name="enemy_range4" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.622295, -6.366701, 132.43405)
 
 [node name="enemy_range_stopped" parent="." instance=ExtResource("11_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.121655, -6.366702, 135.13889)
@@ -1947,14 +1937,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.40673, -2.8667016, 135.98
 [node name="enemy_range_stopped3" parent="." instance=ExtResource("11_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.57174, -17.366703, 136.17735)
 
-[node name="enemy_range5" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.91034, -6.366702, 140.0689)
-
 [node name="enemy_range6" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.50327, -6.366702, 144.59262)
-
-[node name="enemy_melee9" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.124596, -4.327556, 151.5849)
 
 [node name="enemy_melee10" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.04949, -3.5336006, 154.26756)
@@ -1974,17 +1958,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.070389, -2.866702, 135.61
 [node name="enemy_melee11" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.783962, -2.866702, 116.32419)
 
-[node name="enemy_melee12" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.74144, -2.866702, 121.76966)
-
 [node name="enemy_melee13" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.809738, -2.866702, 129.2891)
 
 [node name="enemy_melee14" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.04953, -2.8667016, 115.582054)
-
-[node name="enemy_melee15" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.822727, -2.866702, 120.13025)
 
 [node name="enemy_melee16" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.65143, -2.866702, 126.24674)
@@ -1992,17 +1970,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.65143, -2.866702, 126.246
 [node name="enemy_melee17" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.626247, -2.866702, 139.61488)
 
-[node name="enemy_melee18" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.69486, -2.866702, 146.9395)
-
 [node name="enemy_melee19" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.912506, -2.866703, 154.08719)
 
 [node name="enemy_melee20" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.826077, -2.866702, 155.21362)
-
-[node name="enemy_melee21" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.554588, -2.866702, 147.12592)
 
 [node name="enemy_melee22" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.74737, -2.866702, 139.75128)
@@ -2013,17 +1985,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.43974, -2.8667026, 135.73
 [node name="enemy_range8" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.545555, -2.866702, 135.24265)
 
-[node name="enemy_range9" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.77166, -2.8667011, 160.21275)
-
 [node name="enemy_range10" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.275784, -2.866702, 160.30002)
 
 [node name="enemy_range11" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.678093, -2.8667011, 160.1263)
-
-[node name="enemy_range12" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.64541, -2.8667011, 160.26085)
 
 [node name="enemy_melee23" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.427635, -2.8667011, 159.63182)
@@ -2042,9 +2008,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.208115, -4.866702, 144.09
 
 [node name="enemy_melee25" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.602753, -6.942753, 129.45494)
-
-[node name="enemy_melee26" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.587414, -8.09549, 124.58815)
 
 [node name="enemy_melee27" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.952026, -9.638143, 118.075165)
@@ -2067,9 +2030,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.153112, -10.866702, 110.4
 [node name="enemy_melee28" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.727537, -6.5761795, 131.0026)
 
-[node name="enemy_melee29" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.65195, -8.105857, 124.54438)
-
 [node name="enemy_melee30" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.68556, -9.530755, 118.52854)
 
@@ -2079,29 +2039,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.130104, -10.866702, 109.0
 [node name="enemy_range_stopped12" parent="." instance=ExtResource("11_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.09427, -10.866702, 108.87923)
 
-[node name="enemy_range18" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.63102, -10.866702, 110.79724)
-
-[node name="enemy_range19" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.683304, -10.866702, 110.60995)
-
 [node name="enemy_melee31" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.23618, -6.366702, 135.06232)
-
-[node name="enemy_melee32" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.375874, -6.366702, 135.21547)
 
 [node name="enemy_melee33" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.89364, -6.366703, 135.67686)
 
-[node name="enemy_melee34" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.951893, -6.366702, 135.4976)
-
 [node name="enemy_melee35" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.978443, -6.647488, 140.29654)
-
-[node name="enemy_melee36" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.870794, -8.128138, 146.54843)
 
 [node name="enemy_melee37" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.770575, -9.739394, 153.3518)
@@ -2112,14 +2057,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.486923, -10.866701, 159.9
 [node name="enemy_range21" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.220177, -10.866702, 160.24788)
 
-[node name="enemy_range22" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.927666, -10.866702, 160.14632)
-
 [node name="enemy_range23" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.617874, -10.866702, 160.34073)
-
-[node name="enemy_range24" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.16256, -10.866702, 159.7308)
 
 [node name="enemy_range25" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.571712, -10.866702, 159.79424)
@@ -2130,26 +2069,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.148743, -10.866702, 159.9
 [node name="enemy_melee38" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.809597, -6.506509, 139.70126)
 
-[node name="enemy_melee39" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.711304, -7.7315536, 144.8739)
-
 [node name="enemy_melee40" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.821503, -9.467953, 152.20567)
 
 [node name="enemy_range27" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.695313, -12.576768, 150.88835)
 
-[node name="enemy_melee41" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.4318, -14.079313, 146.49629)
-
 [node name="enemy_melee42" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.81617, -15.612498, 142.01468)
 
 [node name="enemy_melee43" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.605896, -16.327444, 131.07516)
-
-[node name="enemy_melee44" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.623604, -14.953255, 127.058304)
 
 [node name="enemy_range28" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.638954, -12.190802, 118.98345)
@@ -2158,16 +2088,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.638954, -12.190802, 118.9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.417465, -17.366703, 149.93513)
 
 [node name="enemy_melee46" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.820778, -17.366703, 142.9962)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.820778, -17.366703, 142.9962)
 
 [node name="enemy_melee47" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.117346, -17.366703, 153.37054)
 
 [node name="enemy_melee48" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.248505, -17.366703, 141.20633)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.67878, -17.366703, 141.20633)
 
 [node name="enemy_melee49" parent="." instance=ExtResource("10_0mrhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.691757, -17.366703, 117.76018)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.47688, -17.366703, 117.76018)
 
 [node name="enemy_melee50" parent="." instance=ExtResource("10_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.15159, -17.366703, 130.76994)
@@ -2185,19 +2115,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.357853, -17.366703, 123.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.99684, -17.366703, 136.30046)
 
 [node name="enemy_range31" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.189064, -17.366703, 146.4608)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.701004, -17.366703, 146.4608)
 
 [node name="enemy_range32" parent="." instance=ExtResource("9_ogm18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.131866, -17.366703, 156.93932)
 
 [node name="enemy_range33" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.817636, -17.366703, 148.3488)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.031136, -17.366703, 148.3488)
 
 [node name="enemy_range34" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.224396, -17.366703, 125.036446)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.73814, -17.366703, 125.036446)
 
 [node name="enemy_range35" parent="." instance=ExtResource("9_ogm18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.21572, -17.366703, 112.90252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.731716, -17.366703, 112.90252)
 
 [node name="enemy_range_stopped13" parent="." instance=ExtResource("11_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.553366, -17.366703, 136.56978)
@@ -2213,3 +2143,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.751747, -10.866702, 161.9
 
 [node name="enemy_range_stopped15" parent="." instance=ExtResource("11_0mrhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.932884, -10.866702, 161.76329)
+
+[node name="enemy_range4" parent="." instance=ExtResource("9_ogm18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.007479, 1.6332976, 16.925558)
+
+[node name="enemy_range5" parent="." instance=ExtResource("9_ogm18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3109546, 1.633298, 22.871403)
+
+[node name="enemy_range_stopped16" parent="." instance=ExtResource("11_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.923311, 5.133298, 29.01806)
+
+[node name="enemy_range_stopped17" parent="." instance=ExtResource("11_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.972084, 5.133298, 15.873089)
+
+[node name="enemy_melee4" parent="." instance=ExtResource("10_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.976797, 1.6332978, 25.908215)
+
+[node name="enemy_melee6" parent="." instance=ExtResource("10_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.464149, 1.6332976, 22.60209)
+
+[node name="enemy_melee8" parent="." instance=ExtResource("10_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.620064, 1.6332976, 18.715363)
+
+[node name="enemy_range9" parent="." instance=ExtResource("9_ogm18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.845554, 6.133298, 22.547476)
+
+[node name="enemy_range12" parent="." instance=ExtResource("9_ogm18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.31428, 6.133298, 28.457409)
+
+[node name="enemy_range_stopped18" parent="." instance=ExtResource("11_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.49841, 3.1332984, 37.248444)
+
+[node name="enemy_range_stopped19" parent="." instance=ExtResource("11_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.390938, -2.8667026, 55.390972)
+
+[node name="enemy_melee9" parent="." instance=ExtResource("10_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.086872, 3.1332974, 43.644497)
+
+[node name="enemy_range18" parent="." instance=ExtResource("9_ogm18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.24285, 0.13329828, 51.735096)
+
+[node name="enemy_range19" parent="." instance=ExtResource("9_ogm18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.98916, 0.1332978, 51.957245)
+
+[node name="enemy_melee12" parent="." instance=ExtResource("10_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.25557, -2.8667026, 61.39363)
+
+[node name="enemy_melee15" parent="." instance=ExtResource("10_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.762993, -2.8667026, 61.285778)
+
+[node name="enemy_melee18" parent="." instance=ExtResource("10_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.06099, -2.866702, 77.205475)
+
+[node name="enemy_melee21" parent="." instance=ExtResource("10_0mrhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.148575, -2.866702, 77.329926)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://fnsip0hprhso"]
+[gd_scene load_steps=107 format=4 uid="uid://fnsip0hprhso"]
 
 [ext_resource type="Script" uid="uid://c3t5gofttkclg" path="res://scripts/tutorial level/tutorial_level.gd" id="1_1q7iv"]
 [ext_resource type="Script" uid="uid://cnf647r0kht4j" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_osc7o"]
@@ -14,8 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cfqn0l10w413j" path="res://assets/textures/world/teto.png" id="8_xpoxe"]
 [ext_resource type="PackedScene" uid="uid://dwrhyb3gt2yfn" path="res://scenes/objects/item_test_enemy.tscn" id="9_65guy"]
 [ext_resource type="PackedScene" uid="uid://lllghnhblbc3" path="res://scenes/objects/wood.tscn" id="11_34hum"]
-[ext_resource type="Texture2D" uid="uid://brbvyu1sh4fgn" path="res://assets/placeholder/manny_careca.png" id="11_vhkxn"]
-[ext_resource type="PackedScene" uid="uid://b2so020mc6yrl" path="res://scenes/objects/secret_wall.tscn" id="17_ypncs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wjk5u"]
 sky_top_color = Color(0.6290859, 0.3854276, 0, 1)
@@ -846,10 +844,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.327372, 1.5999999, 57.84597
 [node name="item_test_enemy2" parent="." instance=ExtResource("9_65guy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2797418, 1.5999999, 54.803127)
 
-[node name="surprise" type="Sprite3D" parent="."]
-transform = Transform3D(1.6609539e-08, 0, 0.22, 0, 0.22, 0, -0.22, 0, 1.6609539e-08, 3.1214318, 2.35766, 77.01538)
-texture = ExtResource("11_vhkxn")
-
 [node name="tabuas" type="Node3D" parent="."]
 
 [node name="wood" parent="tabuas" instance=ExtResource("11_34hum")]
@@ -917,9 +911,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.9,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40000153, 2, -0.4000001)
 shape = SubResource("BoxShape3D_xpoxe")
 debug_color = Color(0, 0, 0, 0.41960785)
-
-[node name="secret_wall" parent="." instance=ExtResource("17_ypncs")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.8542914, 0.5, 75.70689)
 
 [connection signal="body_entered" from="tutorial_1" to="." method="_on_tutorial_1_body_entered"]
 [connection signal="body_entered" from="tutorial_2" to="." method="_on_tutorial_2_body_entered"]

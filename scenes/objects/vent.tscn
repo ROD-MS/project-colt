@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3gn2oqyo1ojc"]
+[gd_scene load_steps=6 format=3 uid="uid://b3gn2oqyo1ojc"]
 
 [ext_resource type="Script" uid="uid://ccv1uyydou7qs" path="res://scripts/objects/vent.gd" id="1_lawr0"]
 [ext_resource type="AudioStream" uid="uid://b0ehxn40spk2g" path="res://assets/audio/crash_wood_plank_1.mp3" id="2_5eevt"]
+[ext_resource type="Texture2D" uid="uid://cwui5jwpf4se5" path="res://assets/placeholder/vent_dukenuken3d.png" id="2_nrtqb"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fonjf"]
-albedo_color = Color(1, 0, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llnco"]
+albedo_texture = ExtResource("2_nrtqb")
+texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cf7mc"]
 size = Vector3(2, 1.5, 0.2)
@@ -13,7 +15,7 @@ size = Vector3(2, 1.5, 0.2)
 script = ExtResource("1_lawr0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-material_override = SubResource("StandardMaterial3D_fonjf")
+material_override = SubResource("StandardMaterial3D_llnco")
 size = Vector3(2, 1.5, 0.2)
 
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="."]

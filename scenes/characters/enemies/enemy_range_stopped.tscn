@@ -385,7 +385,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013799131, 0)
 shape = SubResource("CapsuleShape3D_xp5p6")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("enemy_animation", "enemy_stateMachine") instance=ExtResource("6_wqk4p")]
-MAX_HEALTH = 50
+MAX_HEALTH = 15
 enemy_animation = NodePath("../animation")
 enemy_stateMachine = NodePath("../StateMachine")
 

@@ -76,7 +76,7 @@ script = ExtResource("1_s86ap")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0e6r8")
+&"": SubResource("AnimationLibrary_0e6r8")
 }
 autoplay = "whisky_girando"
 

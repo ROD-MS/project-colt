@@ -94,18 +94,21 @@ func damage(attack: Attack) -> float:
 		var enemy = get_parent() as Enemy
 		if get_parent() and get_parent() is Enemy and attack.damage > 999:
 			enemy.death = true
-			#randomize()
-			#var item_chance: float = randi_range(0, 1)
-			#print("item chance: " + str(item_chance))
-			#if item_chance == 1:
-			#var enemy_item = ENEMY_ITEM.instantiate()
-			#enemy_item.global_position = enemy.global_position
-			#get_owner().get_parent().add_child(enemy_item)
-			if enemy_stateMachine:
-				enemy_stateMachine.on_child_transition(enemy_stateMachine.current_state, "deathHS")
-				return health
+			if get_parent().is_in_group("target_enemy"):
+				if enemy_animation.animation == "idle":
+					enemy.panela.play()
+					enemy.current_level.sub_target_counter()
+					enemy_animation.play("hitting")
+					if enemy.current_level.target_count == 0:
+						enemy.particles.emitting = true
+					await enemy_animation.animation_finished
+					enemy_animation.play("hitted")
 			else:
-				get_parent().queue_free()
+				if enemy_stateMachine:
+					enemy_stateMachine.on_child_transition(enemy_stateMachine.current_state, "deathHS")
+					return health
+				else:
+					get_parent().queue_free()
 		
 		if get_parent() is Enemy:
 			enemy.death = true

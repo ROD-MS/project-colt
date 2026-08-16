@@ -3,6 +3,7 @@ extends State
 func enter():
 	print("DEATH")
 	var enemy = agent as Enemy
+	Score_control.add_normal_point(enemy.enemy_value)
 	print(enemy.collision_layer)
 	print(enemy.collision_mask)
 	enemy.set_collision_layer_value(2, true)

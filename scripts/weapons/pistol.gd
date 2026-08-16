@@ -69,10 +69,9 @@ func weapon_shot():
 		shoot_sound.play()
 		sub_ammo(1)
 		
-		
-	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider() is ExplosionItem:
-		var barrel: ExplosionItem = raycast.get_collider() as ExplosionItem
-		barrel.explosion()
+		if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider() is ExplosionItem:
+			var barrel: ExplosionItem = raycast.get_collider() as ExplosionItem
+			barrel.explosion()
 	
 	if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
 		var target = raycast.get_collider() # A CollisionObject3D.
@@ -92,7 +91,6 @@ func weapon_shot():
 				health = child
 				break
 				
-				
 		if health:
 			var attack = Attack.new()
 			if headshot:
@@ -103,34 +101,7 @@ func weapon_shot():
 			attack.stun_time = stun_time
 			
 			health.damage(attack)
-	
-	
-	#if raycast.is_colliding() and raycast.get_collider() != null and raycast.get_collider().is_in_group("enemy") and !shotted:
-		##var target = raycast.get_collider() # A CollisionObject3D.
-		##var shape_id = raycast.get_collider_shape() # The shape index in the collider.
-		##var owner_id = target.shape_find_owner(shape_id) # The owner ID in the collider.
-		##var shape = target.shape_owner_get_owner(owner_id)
-		#
-		#
-		#var head = raycast.get_collider()
-		#var enemy = head.get_parent()
-		#var health: HealthComponent = null
-			#
-		#
-		#
-		#for child in enemy.get_children():
-			#if child is HealthComponent:
-				#health = child
-				#break
-				#
-		#if health:
-			#var attack = Attack.new()
-			#attack.damage = damage
-			#attack.knockback_force = knockback_force
-			#attack.stun_time = stun_time
-			#
-			#health.damage(attack)
-	#
+			
 	shotted = true
 	
 	await sprite_animation.animation_finished

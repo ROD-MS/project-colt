@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://syr6756flq43"]
+[gd_scene load_steps=143 format=3 uid="uid://syr6756flq43"]
 
 [ext_resource type="Script" uid="uid://r7eltl2o78f5" path="res://scripts/player/player.gd" id="1_8t64c"]
 [ext_resource type="Texture2D" uid="uid://b1tfg5g46qn2y" path="res://assets/HUD/life_bar/10-0-Sheet.png" id="2_inhyd"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://cluyt0br4hvoe" path="res://assets/audio/weapons/audio fechando shotgun.mp3" id="13_xq3g6"]
 [ext_resource type="Texture2D" uid="uid://bivjellruvjof" path="res://assets/HUD/combo_bar/Barra_de_Kills_WIP_sem_sangue-Sheet.png" id="14_w5bca"]
 [ext_resource type="Texture2D" uid="uid://ww45o2q3hnb2" path="res://assets/rutz.png" id="16_kbxbc"]
+[ext_resource type="PackedScene" uid="uid://ipfgscfy6b1l" path="res://scenes/weapons/shotgun.tscn" id="17_18mi3"]
 [ext_resource type="PackedScene" uid="uid://dmw6b65fvbm7w" path="res://scenes/components/rope.tscn" id="20_dg40j"]
 [ext_resource type="Texture2D" uid="uid://dvbnw56b571wi" path="res://assets/placeholder/barril_mao_colt_certo_final.png" id="20_m38kj"]
 [ext_resource type="Texture2D" uid="uid://ceg24y6e1mic0" path="res://assets/placeholder/satodrink_mao_colt_final.png" id="21_v1y1o"]
@@ -1526,7 +1527,11 @@ sprite_animation = NodePath("../head/hand_animation")
 animation_player = NodePath("../head/hand_animationplayer")
 
 [node name="pistol" parent="inventory_component" instance=ExtResource("7_fh4c0")]
+default_position = Vector3(0.43, -0.2, -0.346)
 damage = 5.0
+
+[node name="shotgun" parent="inventory_component" instance=ExtResource("17_18mi3")]
+damage = 3.0
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar", "life_bar") instance=ExtResource("7_2k4s4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786423, 0)

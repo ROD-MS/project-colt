@@ -58,6 +58,6 @@ render_target_update_mode = 4
 death_hud = NodePath("../../../../death_hud")
 
 [node name="end_level" parent="SubViewportContainer/SubViewport/test_2" index="4" node_paths=PackedStringArray("bestscoreHud")]
-bestscoreHud = NodePath("")
+bestscoreHud = NodePath("../../../../bestscore_hud")
 
 [editable path="SubViewportContainer/SubViewport/test_2"]
